@@ -1,0 +1,1082 @@
+events:
+  - id: debut-051
+    title: El vendaje sin luces cuando cambió el vestuario — Debut profesional
+    description: "Una nota breve te cita en el campo auxiliar sin iluminación. el utilero del club va directo al asunto: una lesión pasada vuelve a doler sin aparecer en los exámenes. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “El vendaje sin luces cuando cambió el vestuario — Debut profesional”."
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El vendaje sin luces cuando cambió el vestuario — Debut profesional” en privado con el utilero del club
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el campo auxiliar sin iluminación con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-051-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El vendaje sin luces cuando cambió el vestuario — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el campo auxiliar sin iluminación. La afición entiende tus razones; el utilero del club, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-051-hacer-publico
+  - id: debut-052
+    title: El silencio en la pared cuando cambió el vestuario — Debut profesional
+    description: El entrenamiento debía ser normal en la sede de la fundación, pero el director de la academia pide detenerlo. Cuenta delante de todos que una oferta tentadora implica dejar atrás a quien creyó en ti. Esta vez, el talento no basta para resolver el problema. De pronto, “El silencio en la pared cuando cambió el vestuario — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El silencio en la pared cuando cambió el vestuario — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la sede de la fundación, el director de la academia valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-052-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El silencio en la pared cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la sede de la fundación. Abre un instante de ventaja, pero la mirada de el director de la academia deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-052-improvisar
+  - id: debut-053
+    title: El dorsal que llegó tarde cuando cambió el vestuario — Debut profesional
+    description: "De camino a la grada casi vacía, tu padre admite que lleva semanas ocultando algo: una promesa antigua choca con la oportunidad de esta semana. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “El dorsal que llegó tarde cuando cambió el vestuario — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El dorsal que llegó tarde cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la grada casi vacía, aunque tu padre entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-053-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El dorsal que llegó tarde cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la grada casi vacía, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-053-liderar
+  - id: debut-054
+    title: El regreso del otro vestuario cuando cambió el vestuario — Debut profesional
+    description: La puerta de la reunión familiar del domingo está a punto de cerrarse cuando aparece la fisioterapeuta Lina. Te advierte que la directiva mide tu valor en cifras que no cuentan toda la historia. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “El regreso del otro vestuario cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-09
+    choices:
+      - id: escuchar
+        text: Escuchar a la fisioterapeuta Lina y acordar una salida para “El regreso del otro vestuario cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: En la reunión familiar del domingo, la conversación encuentra un acuerdo imperfecto. la fisioterapeuta Lina recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El regreso del otro vestuario cuando cambió el vestuario — Debut profesional”.
+        flagsToAdd:
+          - debut-054-escuchar
+      - id: decidir
+        text: Resolver “El regreso del otro vestuario cuando cambió el vestuario — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la fisioterapeuta Lina se entera después y el silencio en la reunión familiar del domingo pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-054-decidir
+  - id: debut-055
+    title: La firma del domingo cuando cambió el vestuario — Debut profesional
+    description: En plena etapa de debut profesional, el comedor de la academia se convierte en escenario de una decisión incómoda. tu mejor amigo confirma que un compañero necesita ayuda para la misma prueba que tú quieres superar. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “La firma del domingo cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La firma del domingo cuando cambió el vestuario — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En el comedor de la academia varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-055-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La firma del domingo cuando cambió el vestuario — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu mejor amigo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de el comedor de la academia.
+        flagsToAdd:
+          - debut-055-asumir-costo
+  - id: debut-056
+    title: La cancha bajo la lluvia cuando cambió el vestuario — Debut profesional
+    description: tu madre te espera en la cancha agrietada del barrio cuando el resto ya se ha marchado. Explica que el club exige una respuesta antes de que puedas hablar con tu familia. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La cancha bajo la lluvia cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La cancha bajo la lluvia cuando cambió el vestuario — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La reacción en la cancha agrietada del barrio es más fría de lo que esperabas, pero tu madre deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-056-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La cancha bajo la lluvia cuando cambió el vestuario — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la cancha agrietada del barrio, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-056-competir
+  - id: debut-057
+    title: El relevo de la grada cuando cambió el vestuario — Debut profesional
+    description: "La noticia llega durante una jornada en la radio comunitaria: el partido más importante coincide con una fecha decisiva para tu hogar. tu capitán conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “El relevo de la grada cuando cambió el vestuario — Debut profesional”."
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - special-rare
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu capitán durante “El relevo de la grada cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la radio comunitaria. No todos están de acuerdo, pero tu capitán deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-057-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El relevo de la grada cuando cambió el vestuario — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu capitán en la radio comunitaria queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-057-mantenerse-aparte
+  - id: debut-058
+    title: El retrato hasta casa cuando cambió el vestuario — Debut profesional
+    description: "Nadie pensaba hablar del asunto en el vestuario visitante, hasta que el técnico interino rompe el silencio: el capitán te pide guardar silencio sobre un problema del vestuario. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El retrato hasta casa cuando cambió el vestuario — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-09
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El retrato hasta casa cuando cambió el vestuario — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el vestuario visitante se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-058-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El retrato hasta casa cuando cambió el vestuario — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el vestuario visitante. el técnico interino celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-058-aceptar
+  - id: debut-059
+    title: El pasillo antes del partido cuando cambió el vestuario — Debut profesional
+    description: Al terminar la sesión en el aeropuerto de una ciudad desconocida, encuentras a la entrenadora de la selección con una propuesta inesperada. El problema es que el dinero solucionaría un problema urgente, pero reduce tus minutos. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “El pasillo antes del partido cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El pasillo antes del partido cuando cambió el vestuario — Debut profesional” en privado con la entrenadora de la selección
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el aeropuerto de una ciudad desconocida con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-059-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El pasillo antes del partido cuando cambió el vestuario — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el aeropuerto de una ciudad desconocida. La afición entiende tus razones; la entrenadora de la selección, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-059-hacer-publico
+  - id: debut-060
+    title: El mensaje antes del amanecer cuando cambió el vestuario — Debut profesional
+    description: La rutina cambia al llegar a la oficina del club. Allí descubres junto a un cazatalentos de paso que el equipo necesita que juegues en una posición que nunca has entrenado. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “El mensaje antes del amanecer cuando cambió el vestuario — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El mensaje antes del amanecer cuando cambió el vestuario — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la oficina del club, un cazatalentos de paso valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-060-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El mensaje antes del amanecer cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la oficina del club. Abre un instante de ventaja, pero la mirada de un cazatalentos de paso deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-060-improvisar
+  - id: debut-061
+    title: La deuda bajo la media cuando cambió el vestuario — Debut profesional
+    description: "Una nota breve te cita en el estadio de tu primer partido. un compañero recién llegado va directo al asunto: una decisión rápida puede salvar la temporada o romper la confianza. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La deuda bajo la media cuando cambió el vestuario — Debut profesional”."
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La deuda bajo la media cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el estadio de tu primer partido, aunque un compañero recién llegado entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-061-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La deuda bajo la media cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el estadio de tu primer partido, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-061-liderar
+  - id: debut-062
+    title: La llamada sin dueño cuando cambió el vestuario — Debut profesional
+    description: El entrenamiento debía ser normal en la clínica deportiva, pero el profesor de matemáticas pide detenerlo. Cuenta delante de todos que la familia prepara un plan distinto para tu futuro. Esta vez, el talento no basta para resolver el problema. De pronto, “La llamada sin dueño cuando cambió el vestuario — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-10
+    choices:
+      - id: escuchar
+        text: Escuchar a el profesor de matemáticas y acordar una salida para “La llamada sin dueño cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: En la clínica deportiva, la conversación encuentra un acuerdo imperfecto. el profesor de matemáticas recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La llamada sin dueño cuando cambió el vestuario — Debut profesional”.
+        flagsToAdd:
+          - debut-062-escuchar
+      - id: decidir
+        text: Resolver “La llamada sin dueño cuando cambió el vestuario — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el profesor de matemáticas se entera después y el silencio en la clínica deportiva pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-062-decidir
+  - id: debut-063
+    title: La lista a lápiz cuando cambió el vestuario — Debut profesional
+    description: "De camino a un amistoso de pretemporada, la vecina que organiza el torneo admite que lleva semanas ocultando algo: un error ajeno amenaza con caer sobre tu reputación. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “La lista a lápiz cuando cambió el vestuario — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La lista a lápiz cuando cambió el vestuario — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En un amistoso de pretemporada varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-063-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La lista a lápiz cuando cambió el vestuario — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la vecina que organiza el torneo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de un amistoso de pretemporada.
+        flagsToAdd:
+          - debut-063-asumir-costo
+  - id: debut-064
+    title: La promesa del capitán cuando cambió el vestuario — Debut profesional
+    description: La puerta de una concentración internacional está a punto de cerrarse cuando aparece la presidenta del barrio. Te advierte que la oportunidad existe solo porque alguien más acaba de quedar fuera. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “La promesa del capitán cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La promesa del capitán cuando cambió el vestuario — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La reacción en una concentración internacional es más fría de lo que esperabas, pero la presidenta del barrio deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-064-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La promesa del capitán cuando cambió el vestuario — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de una concentración internacional, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-064-competir
+  - id: debut-065
+    title: La puerta de las decisiones cuando cambió el vestuario — Debut profesional
+    description: En plena etapa de debut profesional, un patio escolar cubierto de lluvia se convierte en escenario de una decisión incómoda. la directiva confirma que el barrio espera que representes causas que el club prefiere evitar. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “La puerta de las decisiones cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la directiva durante “La puerta de las decisiones cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en un patio escolar cubierto de lluvia. No todos están de acuerdo, pero la directiva deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-065-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La puerta de las decisiones cuando cambió el vestuario — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la directiva en un patio escolar cubierto de lluvia queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-065-mantenerse-aparte
+  - id: debut-066
+    title: La prueba que nadie vio cuando cambió el vestuario — Debut profesional
+    description: Nico, tu rival de infancia te espera en un entrenamiento a puerta cerrada cuando el resto ya se ha marchado. Explica que una versión incompleta de la historia ya circula entre la afición. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La prueba que nadie vio cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-10
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La prueba que nadie vio cuando cambió el vestuario — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un entrenamiento a puerta cerrada se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-066-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La prueba que nadie vio cuando cambió el vestuario — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un entrenamiento a puerta cerrada. Nico, tu rival de infancia celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-066-aceptar
+  - id: debut-067
+    title: La banca sin tu nombre cuando cambió el vestuario — Debut profesional
+    description: "La noticia llega durante una jornada en una pensión lejos de casa: una molestia física aparece justo cuando por fin te observan. el juvenil que ocupa tu puesto conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “La banca sin tu nombre cuando cambió el vestuario — Debut profesional”."
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - special-rare
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La banca sin tu nombre cuando cambió el vestuario — Debut profesional” en privado con el juvenil que ocupa tu puesto
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de una pensión lejos de casa con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-067-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La banca sin tu nombre cuando cambió el vestuario — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de una pensión lejos de casa. La afición entiende tus razones; el juvenil que ocupa tu puesto, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-067-hacer-publico
+  - id: debut-068
+    title: El rumor entreabierta cuando cambió el vestuario — Debut profesional
+    description: "Nadie pensaba hablar del asunto en el banco de suplentes, hasta que el médico del equipo rompe el silencio: la nueva generación cuestiona las costumbres que ayudaste a construir. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El rumor entreabierta cuando cambió el vestuario — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El rumor entreabierta cuando cambió el vestuario — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el banco de suplentes, el médico del equipo valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-068-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El rumor entreabierta cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el banco de suplentes. Abre un instante de ventaja, pero la mirada de el médico del equipo deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-068-improvisar
+  - id: debut-069
+    title: La visita más larga cuando cambió el vestuario — Debut profesional
+    description: Al terminar la sesión en un torneo regional, encuentras a tu hermana mayor con una propuesta inesperada. El problema es que el cansancio comienza a afectar tus estudios y tus entrenamientos. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “La visita más larga cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La visita más larga cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de un torneo regional, aunque tu hermana mayor entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-069-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La visita más larga cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en un torneo regional, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-069-liderar
+  - id: debut-070
+    title: La distancia inesperada cuando cambió el vestuario — Debut profesional
+    description: La rutina cambia al llegar a la cancha reconstruida. Allí descubres junto a una periodista local que la derrota ha dividido al grupo y nadie quiere dar el primer paso. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La distancia inesperada cuando cambió el vestuario — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-10
+    choices:
+      - id: escuchar
+        text: Escuchar a una periodista local y acordar una salida para “La distancia inesperada cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: En la cancha reconstruida, la conversación encuentra un acuerdo imperfecto. una periodista local recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La distancia inesperada cuando cambió el vestuario — Debut profesional”.
+        flagsToAdd:
+          - debut-070-escuchar
+      - id: decidir
+        text: Resolver “La distancia inesperada cuando cambió el vestuario — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero una periodista local se entera después y el silencio en la cancha reconstruida pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-070-decidir
+  - id: debut-071
+    title: La tregua del viejo rival cuando cambió el vestuario — Debut profesional
+    description: "Una nota breve te cita en la plaza donde aprendiste a dominar el balón. un antiguo mentor va directo al asunto: el transporte cuesta más de lo que la familia puede pagar. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La tregua del viejo rival cuando cambió el vestuario — Debut profesional”."
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La tregua del viejo rival cuando cambió el vestuario — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la plaza donde aprendiste a dominar el balón varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-071-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La tregua del viejo rival cuando cambió el vestuario — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un antiguo mentor admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la plaza donde aprendiste a dominar el balón.
+        flagsToAdd:
+          - debut-071-asumir-costo
+  - id: debut-072
+    title: La noche del barrio cuando cambió el vestuario — Debut profesional
+    description: El entrenamiento debía ser normal en la despedida de un compañero, pero el entrenador Salcedo pide detenerlo. Cuenta delante de todos que un rival te ofrece una tregua que podría cambiar años de competencia. Esta vez, el talento no basta para resolver el problema. De pronto, “La noche del barrio cuando cambió el vestuario — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La noche del barrio cuando cambió el vestuario — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La reacción en la despedida de un compañero es más fría de lo que esperabas, pero el entrenador Salcedo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-072-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La noche del barrio cuando cambió el vestuario — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la despedida de un compañero, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-072-competir
+  - id: debut-073
+    title: La llave prestados cuando cambió el vestuario — Debut profesional
+    description: "De camino a el túnel antes de una final, tu representante admite que lleva semanas ocultando algo: el entrenador premia la obediencia mientras tú ves un riesgo táctico. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “La llave prestados cuando cambió el vestuario — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu representante durante “La llave prestados cuando cambió el vestuario — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el túnel antes de una final. No todos están de acuerdo, pero tu representante deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-073-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La llave prestados cuando cambió el vestuario — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu representante en el túnel antes de una final queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-073-mantenerse-aparte
+  - id: debut-074
+    title: El último bus en el autobús cuando cambió el vestuario — Debut profesional
+    description: La puerta de la terminal del último bus está a punto de cerrarse cuando aparece la afición organizada. Te advierte que dos personas que te ayudaron esperan decisiones incompatibles. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “El último bus en el autobús cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-10
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El último bus en el autobús cuando cambió el vestuario — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la terminal del último bus se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-074-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El último bus en el autobús cuando cambió el vestuario — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la terminal del último bus. la afición organizada celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-074-aceptar
+  - id: debut-075
+    title: Los guayos sin aplausos cuando cambió el vestuario — Debut profesional
+    description: En plena etapa de debut profesional, la sala de estudio se convierte en escenario de una decisión incómoda. la profesora Emilia confirma que tu nombre abre una puerta, pero también desplaza a otra persona. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “Los guayos sin aplausos cuando cambió el vestuario — Debut profesional”.
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “Los guayos sin aplausos cuando cambió el vestuario — Debut profesional” en privado con la profesora Emilia
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la sala de estudio con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-075-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “Los guayos sin aplausos cuando cambió el vestuario — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la sala de estudio. La afición entiende tus razones; la profesora Emilia, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-075-hacer-publico

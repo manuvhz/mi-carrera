@@ -1,0 +1,1082 @@
+events:
+  - id: consolidation-026
+    title: La deuda que nadie vio lejos de casa — Consolidación
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La deuda que nadie vio lejos de casa — Consolidación”."
+    stage: consolidation
+    category: renovación
+    tags:
+      - renovación
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu madre durante “La deuda que nadie vio lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la cancha agrietada del barrio. No todos están de acuerdo, pero tu madre deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - consolidation-026-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La deuda que nadie vio lejos de casa — Consolidación” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu madre en la cancha agrietada del barrio queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - consolidation-026-mantenerse-aparte
+  - id: consolidation-027
+    title: La llamada sin tu nombre lejos de casa — Consolidación
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que un rival te ofrece una tregua que podría cambiar años de competencia. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La llamada sin tu nombre lejos de casa — Consolidación” deja de ser un problema privado.
+    stage: consolidation
+    category: selección
+    tags:
+      - selección
+      - consolidation
+      - narrative-chain
+    rarity: common
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-12
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La llamada sin tu nombre lejos de casa — Consolidación” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la radio comunitaria se convierta en un punto sin regreso.
+        flagsToAdd:
+          - consolidation-027-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La llamada sin tu nombre lejos de casa — Consolidación” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la radio comunitaria. tu capitán celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - consolidation-027-aceptar
+  - id: consolidation-028
+    title: La lista entreabierta lejos de casa — Consolidación
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La lista entreabierta lejos de casa — Consolidación”, exige una respuesta antes de llegar."
+    stage: consolidation
+    category: táctica
+    tags:
+      - táctica
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La lista entreabierta lejos de casa — Consolidación” en privado con el técnico interino
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el vestuario visitante con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - consolidation-028-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La lista entreabierta lejos de casa — Consolidación” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el vestuario visitante. La afición entiende tus razones; el técnico interino, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - consolidation-028-hacer-publico
+  - id: consolidation-029
+    title: La promesa más larga lejos de casa — Consolidación
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La promesa más larga lejos de casa — Consolidación”.
+    stage: consolidation
+    category: lesión
+    tags:
+      - lesión
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La promesa más larga lejos de casa — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el aeropuerto de una ciudad desconocida, la entrenadora de la selección valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - consolidation-029-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La promesa más larga lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el aeropuerto de una ciudad desconocida. Abre un instante de ventaja, pero la mirada de la entrenadora de la selección deja la evaluación pendiente para después.
+        flagsToAdd:
+          - consolidation-029-improvisar
+  - id: consolidation-030
+    title: La puerta inesperada lejos de casa — Consolidación
+    description: En plena etapa de consolidación, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La puerta inesperada lejos de casa — Consolidación”.
+    stage: consolidation
+    category: directiva
+    tags:
+      - directiva
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La puerta inesperada lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la oficina del club, aunque un cazatalentos de paso entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - consolidation-030-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La puerta inesperada lejos de casa — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la oficina del club, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - consolidation-030-liderar
+  - id: consolidation-031
+    title: La prueba del viejo rival lejos de casa — Consolidación
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La prueba del viejo rival lejos de casa — Consolidación”.
+    stage: consolidation
+    category: adaptación
+    tags:
+      - adaptación
+      - consolidation
+      - narrative-chain
+    rarity: common
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-12
+    choices:
+      - id: escuchar
+        text: Escuchar a un compañero recién llegado y acordar una salida para “La prueba del viejo rival lejos de casa — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: En el estadio de tu primer partido, la conversación encuentra un acuerdo imperfecto. un compañero recién llegado recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La prueba del viejo rival lejos de casa — Consolidación”.
+        flagsToAdd:
+          - consolidation-031-escuchar
+      - id: decidir
+        text: Resolver “La prueba del viejo rival lejos de casa — Consolidación” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un compañero recién llegado se entera después y el silencio en el estadio de tu primer partido pesa más que el resultado inmediato.
+        flagsToAdd:
+          - consolidation-031-decidir
+  - id: consolidation-032
+    title: La banca del barrio lejos de casa — Consolidación
+    description: "La noticia llega durante una jornada en la clínica deportiva: una oferta tentadora implica dejar atrás a quien creyó en ti. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La banca del barrio lejos de casa — Consolidación”."
+    stage: consolidation
+    category: rivalidad
+    tags:
+      - rivalidad
+      - consolidation
+      - special-rare
+    rarity: common
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La banca del barrio lejos de casa — Consolidación” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la clínica deportiva varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - consolidation-032-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La banca del barrio lejos de casa — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el profesor de matemáticas admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la clínica deportiva.
+        flagsToAdd:
+          - consolidation-032-asumir-costo
+  - id: consolidation-033
+    title: El rumor prestados lejos de casa — Consolidación
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El rumor prestados lejos de casa — Consolidación” en algo más importante que el resultado del fin de semana."
+    stage: consolidation
+    category: transferencia
+    tags:
+      - transferencia
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El rumor prestados lejos de casa — Consolidación”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La reacción en un amistoso de pretemporada es más fría de lo que esperabas, pero la vecina que organiza el torneo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - consolidation-033-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El rumor prestados lejos de casa — Consolidación” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un amistoso de pretemporada, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - consolidation-033-competir
+  - id: consolidation-034
+    title: La visita en el autobús lejos de casa — Consolidación
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La visita en el autobús lejos de casa — Consolidación”.
+    stage: consolidation
+    category: renovación
+    tags:
+      - renovación
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la presidenta del barrio durante “La visita en el autobús lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en una concentración internacional. No todos están de acuerdo, pero la presidenta del barrio deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - consolidation-034-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La visita en el autobús lejos de casa — Consolidación” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la presidenta del barrio en una concentración internacional queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - consolidation-034-mantenerse-aparte
+  - id: consolidation-035
+    title: La distancia sin aplausos lejos de casa — Consolidación
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La distancia sin aplausos lejos de casa — Consolidación” puede dividir el antes y el después de esta temporada.
+    stage: consolidation
+    category: selección
+    tags:
+      - selección
+      - consolidation
+      - narrative-chain
+    rarity: common
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-12
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La distancia sin aplausos lejos de casa — Consolidación” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un patio escolar cubierto de lluvia se convierta en un punto sin regreso.
+        flagsToAdd:
+          - consolidation-035-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La distancia sin aplausos lejos de casa — Consolidación” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un patio escolar cubierto de lluvia. la directiva celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - consolidation-035-aceptar
+  - id: consolidation-036
+    title: La tregua sin luces lejos de casa — Consolidación
+    description: "Una nota breve te cita en un entrenamiento a puerta cerrada. Nico, tu rival de infancia va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La tregua sin luces lejos de casa — Consolidación”."
+    stage: consolidation
+    category: táctica
+    tags:
+      - táctica
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La tregua sin luces lejos de casa — Consolidación” en privado con Nico, tu rival de infancia
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de un entrenamiento a puerta cerrada con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - consolidation-036-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La tregua sin luces lejos de casa — Consolidación” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de un entrenamiento a puerta cerrada. La afición entiende tus razones; Nico, tu rival de infancia, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - consolidation-036-hacer-publico
+  - id: consolidation-037
+    title: La noche en la pared lejos de casa — Consolidación
+    description: El entrenamiento debía ser normal en una pensión lejos de casa, pero el juvenil que ocupa tu puesto pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La noche en la pared lejos de casa — Consolidación” deja de ser un problema privado.
+    stage: consolidation
+    category: lesión
+    tags:
+      - lesión
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La noche en la pared lejos de casa — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En una pensión lejos de casa, el juvenil que ocupa tu puesto valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - consolidation-037-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La noche en la pared lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en una pensión lejos de casa. Abre un instante de ventaja, pero la mirada de el juvenil que ocupa tu puesto deja la evaluación pendiente para después.
+        flagsToAdd:
+          - consolidation-037-improvisar
+  - id: consolidation-038
+    title: La llave que llegó tarde lejos de casa — Consolidación
+    description: "De camino a el banco de suplentes, el médico del equipo admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La llave que llegó tarde lejos de casa — Consolidación”, exige una respuesta antes de llegar."
+    stage: consolidation
+    category: directiva
+    tags:
+      - directiva
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La llave que llegó tarde lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el banco de suplentes, aunque el médico del equipo entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - consolidation-038-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La llave que llegó tarde lejos de casa — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el banco de suplentes, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - consolidation-038-liderar
+  - id: consolidation-039
+    title: El último bus del otro vestuario lejos de casa — Consolidación
+    description: La puerta de un torneo regional está a punto de cerrarse cuando aparece tu hermana mayor. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El último bus del otro vestuario lejos de casa — Consolidación”.
+    stage: consolidation
+    category: adaptación
+    tags:
+      - adaptación
+      - consolidation
+      - narrative-chain
+    rarity: common
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-13
+    choices:
+      - id: escuchar
+        text: Escuchar a tu hermana mayor y acordar una salida para “El último bus del otro vestuario lejos de casa — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: En un torneo regional, la conversación encuentra un acuerdo imperfecto. tu hermana mayor recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El último bus del otro vestuario lejos de casa — Consolidación”.
+        flagsToAdd:
+          - consolidation-039-escuchar
+      - id: decidir
+        text: Resolver “El último bus del otro vestuario lejos de casa — Consolidación” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero tu hermana mayor se entera después y el silencio en un torneo regional pesa más que el resultado inmediato.
+        flagsToAdd:
+          - consolidation-039-decidir
+  - id: consolidation-040
+    title: Los guayos del domingo lejos de casa — Consolidación
+    description: En plena etapa de consolidación, la cancha reconstruida se convierte en escenario de una decisión incómoda. una periodista local confirma que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “Los guayos del domingo lejos de casa — Consolidación”.
+    stage: consolidation
+    category: rivalidad
+    tags:
+      - rivalidad
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “Los guayos del domingo lejos de casa — Consolidación” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la cancha reconstruida varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - consolidation-040-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “Los guayos del domingo lejos de casa — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. una periodista local admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la cancha reconstruida.
+        flagsToAdd:
+          - consolidation-040-asumir-costo
+  - id: consolidation-041
+    title: El vendaje bajo la lluvia lejos de casa — Consolidación
+    description: un antiguo mentor te espera en la plaza donde aprendiste a dominar el balón cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “El vendaje bajo la lluvia lejos de casa — Consolidación”.
+    stage: consolidation
+    category: transferencia
+    tags:
+      - transferencia
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El vendaje bajo la lluvia lejos de casa — Consolidación”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La reacción en la plaza donde aprendiste a dominar el balón es más fría de lo que esperabas, pero un antiguo mentor deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - consolidation-041-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El vendaje bajo la lluvia lejos de casa — Consolidación” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la plaza donde aprendiste a dominar el balón, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - consolidation-041-competir
+  - id: consolidation-042
+    title: El silencio de la grada lejos de casa — Consolidación
+    description: "La noticia llega durante una jornada en la despedida de un compañero: la familia prepara un plan distinto para tu futuro. el entrenador Salcedo conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El silencio de la grada lejos de casa — Consolidación”."
+    stage: consolidation
+    category: renovación
+    tags:
+      - renovación
+      - consolidation
+      - special-rare
+    rarity: common
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a el entrenador Salcedo durante “El silencio de la grada lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la despedida de un compañero. No todos están de acuerdo, pero el entrenador Salcedo deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - consolidation-042-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El silencio de la grada lejos de casa — Consolidación” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a el entrenador Salcedo en la despedida de un compañero queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - consolidation-042-mantenerse-aparte
+  - id: consolidation-043
+    title: El dorsal hasta casa lejos de casa — Consolidación
+    description: "Nadie pensaba hablar del asunto en el túnel antes de una final, hasta que tu representante rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El dorsal hasta casa lejos de casa — Consolidación” en algo más importante que el resultado del fin de semana."
+    stage: consolidation
+    category: selección
+    tags:
+      - selección
+      - consolidation
+      - narrative-chain
+    rarity: common
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-13
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El dorsal hasta casa lejos de casa — Consolidación” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el túnel antes de una final se convierta en un punto sin regreso.
+        flagsToAdd:
+          - consolidation-043-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El dorsal hasta casa lejos de casa — Consolidación” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el túnel antes de una final. tu representante celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - consolidation-043-aceptar
+  - id: consolidation-044
+    title: El regreso antes del partido lejos de casa — Consolidación
+    description: Al terminar la sesión en la terminal del último bus, encuentras a la afición organizada con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El regreso antes del partido lejos de casa — Consolidación”.
+    stage: consolidation
+    category: táctica
+    tags:
+      - táctica
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El regreso antes del partido lejos de casa — Consolidación” en privado con la afición organizada
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la terminal del último bus con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - consolidation-044-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El regreso antes del partido lejos de casa — Consolidación” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la terminal del último bus. La afición entiende tus razones; la afición organizada, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - consolidation-044-hacer-publico
+  - id: consolidation-045
+    title: La firma antes del amanecer lejos de casa — Consolidación
+    description: La rutina cambia al llegar a la sala de estudio. Allí descubres junto a la profesora Emilia que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La firma antes del amanecer lejos de casa — Consolidación” puede dividir el antes y el después de esta temporada.
+    stage: consolidation
+    category: lesión
+    tags:
+      - lesión
+      - consolidation
+      - independent
+    rarity: common
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La firma antes del amanecer lejos de casa — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la sala de estudio, la profesora Emilia valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - consolidation-045-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La firma antes del amanecer lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la sala de estudio. Abre un instante de ventaja, pero la mirada de la profesora Emilia deja la evaluación pendiente para después.
+        flagsToAdd:
+          - consolidation-045-improvisar
+  - id: consolidation-046
+    title: La cancha bajo la media lejos de casa — Consolidación
+    description: "Una nota breve te cita en el campo auxiliar sin iluminación. el utilero del club va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La cancha bajo la media lejos de casa — Consolidación”."
+    stage: consolidation
+    category: directiva
+    tags:
+      - directiva
+      - consolidation
+      - independent
+    rarity: uncommon
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La cancha bajo la media lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el campo auxiliar sin iluminación, aunque el utilero del club entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - consolidation-046-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La cancha bajo la media lejos de casa — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el campo auxiliar sin iluminación, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - consolidation-046-liderar
+  - id: consolidation-047
+    title: El relevo sin dueño lejos de casa — Consolidación
+    description: El entrenamiento debía ser normal en la sede de la fundación, pero el director de la academia pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. La decisión afectará tanto tu progreso como una relación importante. De pronto, “El relevo sin dueño lejos de casa — Consolidación” deja de ser un problema privado.
+    stage: consolidation
+    category: adaptación
+    tags:
+      - adaptación
+      - consolidation
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-13
+    choices:
+      - id: escuchar
+        text: Escuchar a el director de la academia y acordar una salida para “El relevo sin dueño lejos de casa — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: En la sede de la fundación, la conversación encuentra un acuerdo imperfecto. el director de la academia recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El relevo sin dueño lejos de casa — Consolidación”.
+        flagsToAdd:
+          - consolidation-047-escuchar
+      - id: decidir
+        text: Resolver “El relevo sin dueño lejos de casa — Consolidación” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el director de la academia se entera después y el silencio en la sede de la fundación pesa más que el resultado inmediato.
+        flagsToAdd:
+          - consolidation-047-decidir
+  - id: consolidation-048
+    title: El retrato a lápiz lejos de casa — Consolidación
+    description: "De camino a la grada casi vacía, tu padre admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El retrato a lápiz lejos de casa — Consolidación”, exige una respuesta antes de llegar."
+    stage: consolidation
+    category: rivalidad
+    tags:
+      - rivalidad
+      - consolidation
+      - independent
+    rarity: uncommon
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El retrato a lápiz lejos de casa — Consolidación” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la grada casi vacía varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - consolidation-048-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El retrato a lápiz lejos de casa — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu padre admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la grada casi vacía.
+        flagsToAdd:
+          - consolidation-048-asumir-costo
+  - id: consolidation-049
+    title: El pasillo del capitán lejos de casa — Consolidación
+    description: La puerta de la reunión familiar del domingo está a punto de cerrarse cuando aparece la fisioterapeuta Lina. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El pasillo del capitán lejos de casa — Consolidación”.
+    stage: consolidation
+    category: transferencia
+    tags:
+      - transferencia
+      - consolidation
+      - independent
+    rarity: uncommon
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El pasillo del capitán lejos de casa — Consolidación”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La reacción en la reunión familiar del domingo es más fría de lo que esperabas, pero la fisioterapeuta Lina deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - consolidation-049-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El pasillo del capitán lejos de casa — Consolidación” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la reunión familiar del domingo, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - consolidation-049-competir
+  - id: consolidation-050
+    title: El mensaje de las decisiones lejos de casa — Consolidación
+    description: En plena etapa de consolidación, el comedor de la academia se convierte en escenario de una decisión incómoda. tu mejor amigo confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “El mensaje de las decisiones lejos de casa — Consolidación”.
+    stage: consolidation
+    category: renovación
+    tags:
+      - renovación
+      - consolidation
+      - independent
+    rarity: uncommon
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu mejor amigo durante “El mensaje de las decisiones lejos de casa — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el comedor de la academia. No todos están de acuerdo, pero tu mejor amigo deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - consolidation-050-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El mensaje de las decisiones lejos de casa — Consolidación” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu mejor amigo en el comedor de la academia queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - consolidation-050-mantenerse-aparte

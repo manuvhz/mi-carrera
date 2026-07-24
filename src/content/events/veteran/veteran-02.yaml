@@ -1,0 +1,866 @@
+events:
+  - id: veteran-026
+    title: La prueba bajo la media lejos de casa — Madurez
+    description: "Una nota breve te cita en la plaza donde aprendiste a dominar el balón. un antiguo mentor va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La prueba bajo la media lejos de casa — Madurez”."
+    stage: veteran
+    category: familia
+    tags:
+      - familia
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 29
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a un antiguo mentor durante “La prueba bajo la media lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la plaza donde aprendiste a dominar el balón. No todos están de acuerdo, pero un antiguo mentor deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - veteran-026-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La prueba bajo la media lejos de casa — Madurez” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a un antiguo mentor en la plaza donde aprendiste a dominar el balón queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - veteran-026-mantenerse-aparte
+  - id: veteran-027
+    title: La banca sin dueño lejos de casa — Madurez
+    description: El entrenamiento debía ser normal en la despedida de un compañero, pero el entrenador Salcedo pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La banca sin dueño lejos de casa — Madurez” deja de ser un problema privado.
+    stage: veteran
+    category: lesión crónica
+    tags:
+      - lesión crónica
+      - veteran
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 30
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-19
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La banca sin dueño lejos de casa — Madurez” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la despedida de un compañero se convierta en un punto sin regreso.
+        flagsToAdd:
+          - veteran-027-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La banca sin dueño lejos de casa — Madurez” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la despedida de un compañero. el entrenador Salcedo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - veteran-027-aceptar
+  - id: veteran-028
+    title: El rumor a lápiz lejos de casa — Madurez
+    description: "De camino a el túnel antes de una final, tu representante admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El rumor a lápiz lejos de casa — Madurez”, exige una respuesta antes de llegar."
+    stage: veteran
+    category: mentor
+    tags:
+      - mentor
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 31
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El rumor a lápiz lejos de casa — Madurez” en privado con tu representante
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el túnel antes de una final con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - veteran-028-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El rumor a lápiz lejos de casa — Madurez” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el túnel antes de una final. La afición entiende tus razones; tu representante, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - veteran-028-hacer-publico
+  - id: veteran-029
+    title: La visita del capitán lejos de casa — Madurez
+    description: La puerta de la terminal del último bus está a punto de cerrarse cuando aparece la afición organizada. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La visita del capitán lejos de casa — Madurez”.
+    stage: veteran
+    category: renovación
+    tags:
+      - renovación
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 28
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La visita del capitán lejos de casa — Madurez”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la terminal del último bus, la afición organizada valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - veteran-029-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La visita del capitán lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la terminal del último bus. Abre un instante de ventaja, pero la mirada de la afición organizada deja la evaluación pendiente para después.
+        flagsToAdd:
+          - veteran-029-improvisar
+  - id: veteran-030
+    title: La distancia de las decisiones lejos de casa — Madurez
+    description: En plena etapa de madurez, la sala de estudio se convierte en escenario de una decisión incómoda. la profesora Emilia confirma que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La distancia de las decisiones lejos de casa — Madurez”.
+    stage: veteran
+    category: finanzas
+    tags:
+      - finanzas
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 29
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La distancia de las decisiones lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la sala de estudio, aunque la profesora Emilia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - veteran-030-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La distancia de las decisiones lejos de casa — Madurez”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la sala de estudio, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - veteran-030-liderar
+  - id: veteran-031
+    title: La tregua que nadie vio lejos de casa — Madurez
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La tregua que nadie vio lejos de casa — Madurez”.
+    stage: veteran
+    category: selección
+    tags:
+      - selección
+      - veteran
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 30
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-19
+    choices:
+      - id: escuchar
+        text: Escuchar a el utilero del club y acordar una salida para “La tregua que nadie vio lejos de casa — Madurez”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: En el campo auxiliar sin iluminación, la conversación encuentra un acuerdo imperfecto. el utilero del club recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La tregua que nadie vio lejos de casa — Madurez”.
+        flagsToAdd:
+          - veteran-031-escuchar
+      - id: decidir
+        text: Resolver “La tregua que nadie vio lejos de casa — Madurez” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el utilero del club se entera después y el silencio en el campo auxiliar sin iluminación pesa más que el resultado inmediato.
+        flagsToAdd:
+          - veteran-031-decidir
+  - id: veteran-032
+    title: La noche sin tu nombre lejos de casa — Madurez
+    description: "La noticia llega durante una jornada en la sede de la fundación: la familia prepara un plan distinto para tu futuro. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La noche sin tu nombre lejos de casa — Madurez”."
+    stage: veteran
+    category: adaptación
+    tags:
+      - adaptación
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 31
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La noche sin tu nombre lejos de casa — Madurez” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la sede de la fundación varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - veteran-032-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La noche sin tu nombre lejos de casa — Madurez”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el director de la academia admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la sede de la fundación.
+        flagsToAdd:
+          - veteran-032-asumir-costo
+  - id: veteran-033
+    title: La llave entreabierta lejos de casa — Madurez
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “La llave entreabierta lejos de casa — Madurez” en algo más importante que el resultado del fin de semana."
+    stage: veteran
+    category: liderazgo
+    tags:
+      - liderazgo
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 28
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La llave entreabierta lejos de casa — Madurez”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La reacción en la grada casi vacía es más fría de lo que esperabas, pero tu padre deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - veteran-033-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La llave entreabierta lejos de casa — Madurez” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la grada casi vacía, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - veteran-033-competir
+  - id: veteran-034
+    title: El último bus más larga lejos de casa — Madurez
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El último bus más larga lejos de casa — Madurez”.
+    stage: veteran
+    category: familia
+    tags:
+      - familia
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 29
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la fisioterapeuta Lina durante “El último bus más larga lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la reunión familiar del domingo. No todos están de acuerdo, pero la fisioterapeuta Lina deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - veteran-034-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El último bus más larga lejos de casa — Madurez” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la fisioterapeuta Lina en la reunión familiar del domingo queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - veteran-034-mantenerse-aparte
+  - id: veteran-035
+    title: Los guayos inesperada lejos de casa — Madurez
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “Los guayos inesperada lejos de casa — Madurez” puede dividir el antes y el después de esta temporada.
+    stage: veteran
+    category: lesión crónica
+    tags:
+      - lesión crónica
+      - veteran
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 30
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-19
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “Los guayos inesperada lejos de casa — Madurez” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el comedor de la academia se convierta en un punto sin regreso.
+        flagsToAdd:
+          - veteran-035-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “Los guayos inesperada lejos de casa — Madurez” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el comedor de la academia. tu mejor amigo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - veteran-035-aceptar
+  - id: veteran-036
+    title: El vendaje del viejo rival lejos de casa — Madurez
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “El vendaje del viejo rival lejos de casa — Madurez”."
+    stage: veteran
+    category: mentor
+    tags:
+      - mentor
+      - veteran
+      - independent
+    rarity: uncommon
+    ageMin: 31
+    ageMax: 31
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El vendaje del viejo rival lejos de casa — Madurez” en privado con tu madre
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la cancha agrietada del barrio con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - veteran-036-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El vendaje del viejo rival lejos de casa — Madurez” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la cancha agrietada del barrio. La afición entiende tus razones; tu madre, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - veteran-036-hacer-publico
+  - id: veteran-037
+    title: El silencio del barrio lejos de casa — Madurez
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. La decisión afectará tanto tu progreso como una relación importante. De pronto, “El silencio del barrio lejos de casa — Madurez” deja de ser un problema privado.
+    stage: veteran
+    category: renovación
+    tags:
+      - renovación
+      - veteran
+      - independent
+    rarity: rare
+    ageMin: 28
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El silencio del barrio lejos de casa — Madurez”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la radio comunitaria, tu capitán valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - veteran-037-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El silencio del barrio lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la radio comunitaria. Abre un instante de ventaja, pero la mirada de tu capitán deja la evaluación pendiente para después.
+        flagsToAdd:
+          - veteran-037-improvisar
+  - id: veteran-038
+    title: El dorsal prestados lejos de casa — Madurez
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El dorsal prestados lejos de casa — Madurez”, exige una respuesta antes de llegar."
+    stage: veteran
+    category: finanzas
+    tags:
+      - finanzas
+      - veteran
+      - independent
+    rarity: rare
+    ageMin: 29
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El dorsal prestados lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el vestuario visitante, aunque el técnico interino entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - veteran-038-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El dorsal prestados lejos de casa — Madurez”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el vestuario visitante, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - veteran-038-liderar
+  - id: veteran-039
+    title: El regreso en el autobús lejos de casa — Madurez
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El regreso en el autobús lejos de casa — Madurez”.
+    stage: veteran
+    category: selección
+    tags:
+      - selección
+      - veteran
+      - narrative-chain
+    rarity: rare
+    ageMin: 30
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-19
+    choices:
+      - id: escuchar
+        text: Escuchar a la entrenadora de la selección y acordar una salida para “El regreso en el autobús lejos de casa — Madurez”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: En el aeropuerto de una ciudad desconocida, la conversación encuentra un acuerdo imperfecto. la entrenadora de la selección recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El regreso en el autobús lejos de casa — Madurez”.
+        flagsToAdd:
+          - veteran-039-escuchar
+      - id: decidir
+        text: Resolver “El regreso en el autobús lejos de casa — Madurez” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la entrenadora de la selección se entera después y el silencio en el aeropuerto de una ciudad desconocida pesa más que el resultado inmediato.
+        flagsToAdd:
+          - veteran-039-decidir
+  - id: veteran-040
+    title: La firma sin aplausos lejos de casa — Madurez
+    description: En plena etapa de madurez, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La firma sin aplausos lejos de casa — Madurez”.
+    stage: veteran
+    category: adaptación
+    tags:
+      - adaptación
+      - veteran
+      - independent
+    rarity: rare
+    ageMin: 31
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La firma sin aplausos lejos de casa — Madurez” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la oficina del club varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - veteran-040-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La firma sin aplausos lejos de casa — Madurez”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un cazatalentos de paso admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la oficina del club.
+        flagsToAdd:
+          - veteran-040-asumir-costo
+  - id: veteran-041
+    title: La cancha sin luces lejos de casa — Madurez
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La cancha sin luces lejos de casa — Madurez”.
+    stage: veteran
+    category: liderazgo
+    tags:
+      - liderazgo
+      - veteran
+      - independent
+    rarity: rare
+    ageMin: 28
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La cancha sin luces lejos de casa — Madurez”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La reacción en el estadio de tu primer partido es más fría de lo que esperabas, pero un compañero recién llegado deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - veteran-041-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La cancha sin luces lejos de casa — Madurez” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el estadio de tu primer partido, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - veteran-041-competir
+  - id: veteran-042
+    title: El relevo en la pared lejos de casa — Madurez
+    description: "La noticia llega durante una jornada en la clínica deportiva: un rival te ofrece una tregua que podría cambiar años de competencia. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El relevo en la pared lejos de casa — Madurez”."
+    stage: veteran
+    category: familia
+    tags:
+      - familia
+      - veteran
+      - independent
+    rarity: rare
+    ageMin: 29
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a el profesor de matemáticas durante “El relevo en la pared lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la clínica deportiva. No todos están de acuerdo, pero el profesor de matemáticas deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - veteran-042-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El relevo en la pared lejos de casa — Madurez” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a el profesor de matemáticas en la clínica deportiva queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - veteran-042-mantenerse-aparte
+  - id: veteran-043
+    title: El retrato que llegó tarde lejos de casa — Madurez
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El retrato que llegó tarde lejos de casa — Madurez” en algo más importante que el resultado del fin de semana."
+    stage: veteran
+    category: lesión crónica
+    tags:
+      - lesión crónica
+      - veteran
+      - narrative-chain
+    rarity: rare
+    ageMin: 30
+    ageMax: 31
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-19
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El retrato que llegó tarde lejos de casa — Madurez” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un amistoso de pretemporada se convierta en un punto sin regreso.
+        flagsToAdd:
+          - veteran-043-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El retrato que llegó tarde lejos de casa — Madurez” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un amistoso de pretemporada. la vecina que organiza el torneo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - veteran-043-aceptar
+  - id: veteran-044
+    title: El pasillo del otro vestuario lejos de casa — Madurez
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El pasillo del otro vestuario lejos de casa — Madurez”.
+    stage: veteran
+    category: mentor
+    tags:
+      - mentor
+      - veteran
+      - independent
+    rarity: legendary
+    ageMin: 31
+    ageMax: 31
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El pasillo del otro vestuario lejos de casa — Madurez” en privado con la presidenta del barrio
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de una concentración internacional con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - veteran-044-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El pasillo del otro vestuario lejos de casa — Madurez” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de una concentración internacional. La afición entiende tus razones; la presidenta del barrio, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - veteran-044-hacer-publico
+  - id: veteran-045
+    title: El mensaje del domingo lejos de casa — Madurez
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “El mensaje del domingo lejos de casa — Madurez” puede dividir el antes y el después de esta temporada.
+    stage: veteran
+    category: renovación
+    tags:
+      - renovación
+      - veteran
+      - independent
+    rarity: legendary
+    ageMin: 28
+    ageMax: 31
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El mensaje del domingo lejos de casa — Madurez”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un patio escolar cubierto de lluvia, la directiva valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - veteran-045-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El mensaje del domingo lejos de casa — Madurez”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un patio escolar cubierto de lluvia. Abre un instante de ventaja, pero la mirada de la directiva deja la evaluación pendiente para después.
+        flagsToAdd:
+          - veteran-045-improvisar

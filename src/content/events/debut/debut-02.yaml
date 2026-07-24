@@ -1,0 +1,1083 @@
+events:
+  - id: debut-026
+    title: El vendaje sin luces lejos de casa — Debut profesional
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “El vendaje sin luces lejos de casa — Debut profesional”.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-08
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El vendaje sin luces lejos de casa — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el campo auxiliar sin iluminación se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-026-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El vendaje sin luces lejos de casa — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el campo auxiliar sin iluminación. el utilero del club celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-026-aceptar
+  - id: debut-027
+    title: El silencio en la pared lejos de casa — Debut profesional
+    description: "La noticia llega durante una jornada en la sede de la fundación: una oferta tentadora implica dejar atrás a quien creyó en ti. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “El silencio en la pared lejos de casa — Debut profesional”."
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - special-rare
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El silencio en la pared lejos de casa — Debut profesional” en privado con el director de la academia
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la sede de la fundación con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-027-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El silencio en la pared lejos de casa — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la sede de la fundación. La afición entiende tus razones; el director de la academia, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-027-hacer-publico
+  - id: debut-028
+    title: El dorsal que llegó tarde lejos de casa — Debut profesional
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El dorsal que llegó tarde lejos de casa — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El dorsal que llegó tarde lejos de casa — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la grada casi vacía, tu padre valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-028-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El dorsal que llegó tarde lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la grada casi vacía. Abre un instante de ventaja, pero la mirada de tu padre deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-028-improvisar
+  - id: debut-029
+    title: El regreso del otro vestuario lejos de casa — Debut profesional
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “El regreso del otro vestuario lejos de casa — Debut profesional”.
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El regreso del otro vestuario lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la reunión familiar del domingo, aunque la fisioterapeuta Lina entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-029-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El regreso del otro vestuario lejos de casa — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la reunión familiar del domingo, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-029-liderar
+  - id: debut-030
+    title: La firma del domingo lejos de casa — Debut profesional
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que un compañero necesita ayuda para la misma prueba que tú quieres superar. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La firma del domingo lejos de casa — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-08
+    choices:
+      - id: escuchar
+        text: Escuchar a tu mejor amigo y acordar una salida para “La firma del domingo lejos de casa — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: En el comedor de la academia, la conversación encuentra un acuerdo imperfecto. tu mejor amigo recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La firma del domingo lejos de casa — Debut profesional”.
+        flagsToAdd:
+          - debut-030-escuchar
+      - id: decidir
+        text: Resolver “La firma del domingo lejos de casa — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero tu mejor amigo se entera después y el silencio en el comedor de la academia pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-030-decidir
+  - id: debut-031
+    title: La cancha bajo la lluvia lejos de casa — Debut profesional
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La cancha bajo la lluvia lejos de casa — Debut profesional”."
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La cancha bajo la lluvia lejos de casa — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la cancha agrietada del barrio varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-031-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La cancha bajo la lluvia lejos de casa — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu madre admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la cancha agrietada del barrio.
+        flagsToAdd:
+          - debut-031-asumir-costo
+  - id: debut-032
+    title: El relevo de la grada lejos de casa — Debut profesional
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. Esta vez, el talento no basta para resolver el problema. De pronto, “El relevo de la grada lejos de casa — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El relevo de la grada lejos de casa — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La reacción en la radio comunitaria es más fría de lo que esperabas, pero tu capitán deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-032-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El relevo de la grada lejos de casa — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la radio comunitaria, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-032-competir
+  - id: debut-033
+    title: El retrato hasta casa lejos de casa — Debut profesional
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “El retrato hasta casa lejos de casa — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a el técnico interino durante “El retrato hasta casa lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el vestuario visitante. No todos están de acuerdo, pero el técnico interino deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-033-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El retrato hasta casa lejos de casa — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a el técnico interino en el vestuario visitante queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-033-mantenerse-aparte
+  - id: debut-034
+    title: El pasillo antes del partido lejos de casa — Debut profesional
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “El pasillo antes del partido lejos de casa — Debut profesional”.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-08
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El pasillo antes del partido lejos de casa — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el aeropuerto de una ciudad desconocida se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-034-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El pasillo antes del partido lejos de casa — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el aeropuerto de una ciudad desconocida. la entrenadora de la selección celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-034-aceptar
+  - id: debut-035
+    title: El mensaje antes del amanecer lejos de casa — Debut profesional
+    description: En plena etapa de debut profesional, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que el equipo necesita que juegues en una posición que nunca has entrenado. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “El mensaje antes del amanecer lejos de casa — Debut profesional”.
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El mensaje antes del amanecer lejos de casa — Debut profesional” en privado con un cazatalentos de paso
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la oficina del club con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-035-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El mensaje antes del amanecer lejos de casa — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la oficina del club. La afición entiende tus razones; un cazatalentos de paso, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-035-hacer-publico
+  - id: debut-036
+    title: La deuda bajo la media lejos de casa — Debut profesional
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La deuda bajo la media lejos de casa — Debut profesional”.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La deuda bajo la media lejos de casa — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el estadio de tu primer partido, un compañero recién llegado valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-036-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La deuda bajo la media lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el estadio de tu primer partido. Abre un instante de ventaja, pero la mirada de un compañero recién llegado deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-036-improvisar
+  - id: debut-037
+    title: La llamada sin dueño lejos de casa — Debut profesional
+    description: "La noticia llega durante una jornada en la clínica deportiva: la familia prepara un plan distinto para tu futuro. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “La llamada sin dueño lejos de casa — Debut profesional”."
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - special-rare
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La llamada sin dueño lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la clínica deportiva, aunque el profesor de matemáticas entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-037-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La llamada sin dueño lejos de casa — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la clínica deportiva, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-037-liderar
+  - id: debut-038
+    title: La lista a lápiz lejos de casa — Debut profesional
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “La lista a lápiz lejos de casa — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-09
+    choices:
+      - id: escuchar
+        text: Escuchar a la vecina que organiza el torneo y acordar una salida para “La lista a lápiz lejos de casa — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: En un amistoso de pretemporada, la conversación encuentra un acuerdo imperfecto. la vecina que organiza el torneo recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La lista a lápiz lejos de casa — Debut profesional”.
+        flagsToAdd:
+          - debut-038-escuchar
+      - id: decidir
+        text: Resolver “La lista a lápiz lejos de casa — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la vecina que organiza el torneo se entera después y el silencio en un amistoso de pretemporada pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-038-decidir
+  - id: debut-039
+    title: La promesa del capitán lejos de casa — Debut profesional
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “La promesa del capitán lejos de casa — Debut profesional”.
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La promesa del capitán lejos de casa — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En una concentración internacional varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-039-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La promesa del capitán lejos de casa — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la presidenta del barrio admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de una concentración internacional.
+        flagsToAdd:
+          - debut-039-asumir-costo
+  - id: debut-040
+    title: La puerta de las decisiones lejos de casa — Debut profesional
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que el barrio espera que representes causas que el club prefiere evitar. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La puerta de las decisiones lejos de casa — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La puerta de las decisiones lejos de casa — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La reacción en un patio escolar cubierto de lluvia es más fría de lo que esperabas, pero la directiva deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-040-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La puerta de las decisiones lejos de casa — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un patio escolar cubierto de lluvia, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-040-competir
+  - id: debut-041
+    title: La prueba que nadie vio lejos de casa — Debut profesional
+    description: "Una nota breve te cita en un entrenamiento a puerta cerrada. Nico, tu rival de infancia va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La prueba que nadie vio lejos de casa — Debut profesional”."
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a Nico, tu rival de infancia durante “La prueba que nadie vio lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en un entrenamiento a puerta cerrada. No todos están de acuerdo, pero Nico, tu rival de infancia deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-041-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La prueba que nadie vio lejos de casa — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a Nico, tu rival de infancia en un entrenamiento a puerta cerrada queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-041-mantenerse-aparte
+  - id: debut-042
+    title: La banca sin tu nombre lejos de casa — Debut profesional
+    description: El entrenamiento debía ser normal en una pensión lejos de casa, pero el juvenil que ocupa tu puesto pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. Esta vez, el talento no basta para resolver el problema. De pronto, “La banca sin tu nombre lejos de casa — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-09
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La banca sin tu nombre lejos de casa — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que una pensión lejos de casa se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-042-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La banca sin tu nombre lejos de casa — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de una pensión lejos de casa. el juvenil que ocupa tu puesto celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-042-aceptar
+  - id: debut-043
+    title: El rumor entreabierta lejos de casa — Debut profesional
+    description: "De camino a el banco de suplentes, el médico del equipo admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “El rumor entreabierta lejos de casa — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El rumor entreabierta lejos de casa — Debut profesional” en privado con el médico del equipo
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el banco de suplentes con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-043-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El rumor entreabierta lejos de casa — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el banco de suplentes. La afición entiende tus razones; el médico del equipo, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-043-hacer-publico
+  - id: debut-044
+    title: La visita más larga lejos de casa — Debut profesional
+    description: La puerta de un torneo regional está a punto de cerrarse cuando aparece tu hermana mayor. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “La visita más larga lejos de casa — Debut profesional”.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La visita más larga lejos de casa — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un torneo regional, tu hermana mayor valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-044-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La visita más larga lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un torneo regional. Abre un instante de ventaja, pero la mirada de tu hermana mayor deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-044-improvisar
+  - id: debut-045
+    title: La distancia inesperada lejos de casa — Debut profesional
+    description: En plena etapa de debut profesional, la cancha reconstruida se convierte en escenario de una decisión incómoda. una periodista local confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “La distancia inesperada lejos de casa — Debut profesional”.
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La distancia inesperada lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la cancha reconstruida, aunque una periodista local entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-045-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La distancia inesperada lejos de casa — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la cancha reconstruida, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-045-liderar
+  - id: debut-046
+    title: La tregua del viejo rival lejos de casa — Debut profesional
+    description: un antiguo mentor te espera en la plaza donde aprendiste a dominar el balón cuando el resto ya se ha marchado. Explica que el transporte cuesta más de lo que la familia puede pagar. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La tregua del viejo rival lejos de casa — Debut profesional”.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-09
+    choices:
+      - id: escuchar
+        text: Escuchar a un antiguo mentor y acordar una salida para “La tregua del viejo rival lejos de casa — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: En la plaza donde aprendiste a dominar el balón, la conversación encuentra un acuerdo imperfecto. un antiguo mentor recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La tregua del viejo rival lejos de casa — Debut profesional”.
+        flagsToAdd:
+          - debut-046-escuchar
+      - id: decidir
+        text: Resolver “La tregua del viejo rival lejos de casa — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un antiguo mentor se entera después y el silencio en la plaza donde aprendiste a dominar el balón pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-046-decidir
+  - id: debut-047
+    title: La noche del barrio lejos de casa — Debut profesional
+    description: "La noticia llega durante una jornada en la despedida de un compañero: un rival te ofrece una tregua que podría cambiar años de competencia. el entrenador Salcedo conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “La noche del barrio lejos de casa — Debut profesional”."
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - special-rare
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La noche del barrio lejos de casa — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la despedida de un compañero varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-047-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La noche del barrio lejos de casa — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el entrenador Salcedo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la despedida de un compañero.
+        flagsToAdd:
+          - debut-047-asumir-costo
+  - id: debut-048
+    title: La llave prestados lejos de casa — Debut profesional
+    description: "Nadie pensaba hablar del asunto en el túnel antes de una final, hasta que tu representante rompe el silencio: el entrenador premia la obediencia mientras tú ves un riesgo táctico. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “La llave prestados lejos de casa — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: common
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La llave prestados lejos de casa — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La reacción en el túnel antes de una final es más fría de lo que esperabas, pero tu representante deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-048-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La llave prestados lejos de casa — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el túnel antes de una final, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-048-competir
+  - id: debut-049
+    title: El último bus en el autobús lejos de casa — Debut profesional
+    description: Al terminar la sesión en la terminal del último bus, encuentras a la afición organizada con una propuesta inesperada. El problema es que dos personas que te ayudaron esperan decisiones incompatibles. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “El último bus en el autobús lejos de casa — Debut profesional”.
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: common
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la afición organizada durante “El último bus en el autobús lejos de casa — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la terminal del último bus. No todos están de acuerdo, pero la afición organizada deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-049-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El último bus en el autobús lejos de casa — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la afición organizada en la terminal del último bus queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-049-mantenerse-aparte
+  - id: debut-050
+    title: Los guayos sin aplausos lejos de casa — Debut profesional
+    description: La rutina cambia al llegar a la sala de estudio. Allí descubres junto a la profesora Emilia que tu nombre abre una puerta, pero también desplaza a otra persona. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “Los guayos sin aplausos lejos de casa — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: common
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-09
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “Los guayos sin aplausos lejos de casa — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la sala de estudio se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-050-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “Los guayos sin aplausos lejos de casa — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la sala de estudio. la profesora Emilia celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-050-aceptar

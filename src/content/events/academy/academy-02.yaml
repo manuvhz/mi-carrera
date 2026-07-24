@@ -1,0 +1,1082 @@
+events:
+  - id: academy-026
+    title: La tregua bajo la lluvia lejos de casa — Formación juvenil
+    description: "Una nota breve te cita en el estadio de tu primer partido. un compañero recién llegado va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La tregua bajo la lluvia lejos de casa — Formación juvenil”."
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La tregua bajo la lluvia lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el estadio de tu primer partido, aunque un compañero recién llegado entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-026-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La tregua bajo la lluvia lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el estadio de tu primer partido, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-026-liderar
+  - id: academy-027
+    title: La noche de la grada lejos de casa — Formación juvenil
+    description: El entrenamiento debía ser normal en la clínica deportiva, pero el profesor de matemáticas pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La noche de la grada lejos de casa — Formación juvenil” deja de ser un problema privado.
+    stage: academy
+    category: beca
+    tags:
+      - beca
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-05
+    choices:
+      - id: escuchar
+        text: Escuchar a el profesor de matemáticas y acordar una salida para “La noche de la grada lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: En la clínica deportiva, la conversación encuentra un acuerdo imperfecto. el profesor de matemáticas recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La noche de la grada lejos de casa — Formación juvenil”.
+        flagsToAdd:
+          - academy-027-escuchar
+      - id: decidir
+        text: Resolver “La noche de la grada lejos de casa — Formación juvenil” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el profesor de matemáticas se entera después y el silencio en la clínica deportiva pesa más que el resultado inmediato.
+        flagsToAdd:
+          - academy-027-decidir
+  - id: academy-028
+    title: La llave hasta casa lejos de casa — Formación juvenil
+    description: "De camino a un amistoso de pretemporada, la vecina que organiza el torneo admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La llave hasta casa lejos de casa — Formación juvenil”, exige una respuesta antes de llegar."
+    stage: academy
+    category: disciplina
+    tags:
+      - disciplina
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La llave hasta casa lejos de casa — Formación juvenil” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En un amistoso de pretemporada varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - academy-028-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La llave hasta casa lejos de casa — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la vecina que organiza el torneo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de un amistoso de pretemporada.
+        flagsToAdd:
+          - academy-028-asumir-costo
+  - id: academy-029
+    title: El último bus antes del partido lejos de casa — Formación juvenil
+    description: La puerta de una concentración internacional está a punto de cerrarse cuando aparece la presidenta del barrio. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El último bus antes del partido lejos de casa — Formación juvenil”.
+    stage: academy
+    category: nutrición
+    tags:
+      - nutrición
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El último bus antes del partido lejos de casa — Formación juvenil”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La reacción en una concentración internacional es más fría de lo que esperabas, pero la presidenta del barrio deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - academy-029-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El último bus antes del partido lejos de casa — Formación juvenil” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de una concentración internacional, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - academy-029-competir
+  - id: academy-030
+    title: Los guayos antes del amanecer lejos de casa — Formación juvenil
+    description: En plena etapa de formación juvenil, un patio escolar cubierto de lluvia se convierte en escenario de una decisión incómoda. la directiva confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “Los guayos antes del amanecer lejos de casa — Formación juvenil”.
+    stage: academy
+    category: competencia
+    tags:
+      - competencia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la directiva durante “Los guayos antes del amanecer lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en un patio escolar cubierto de lluvia. No todos están de acuerdo, pero la directiva deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - academy-030-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “Los guayos antes del amanecer lejos de casa — Formación juvenil” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la directiva en un patio escolar cubierto de lluvia queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - academy-030-mantenerse-aparte
+  - id: academy-031
+    title: El vendaje bajo la media lejos de casa — Formación juvenil
+    description: Nico, tu rival de infancia te espera en un entrenamiento a puerta cerrada cuando el resto ya se ha marchado. Explica que el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “El vendaje bajo la media lejos de casa — Formación juvenil”.
+    stage: academy
+    category: familia
+    tags:
+      - familia
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-05
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El vendaje bajo la media lejos de casa — Formación juvenil” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un entrenamiento a puerta cerrada se convierta en un punto sin regreso.
+        flagsToAdd:
+          - academy-031-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El vendaje bajo la media lejos de casa — Formación juvenil” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un entrenamiento a puerta cerrada. Nico, tu rival de infancia celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - academy-031-aceptar
+  - id: academy-032
+    title: El silencio sin dueño lejos de casa — Formación juvenil
+    description: "La noticia llega durante una jornada en una pensión lejos de casa: un rival te ofrece una tregua que podría cambiar años de competencia. el juvenil que ocupa tu puesto conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El silencio sin dueño lejos de casa — Formación juvenil”."
+    stage: academy
+    category: torneo juvenil
+    tags:
+      - torneo juvenil
+      - academy
+      - special-rare
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El silencio sin dueño lejos de casa — Formación juvenil” en privado con el juvenil que ocupa tu puesto
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de una pensión lejos de casa con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - academy-032-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El silencio sin dueño lejos de casa — Formación juvenil” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de una pensión lejos de casa. La afición entiende tus razones; el juvenil que ocupa tu puesto, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - academy-032-hacer-publico
+  - id: academy-033
+    title: El dorsal a lápiz lejos de casa — Formación juvenil
+    description: "Nadie pensaba hablar del asunto en el banco de suplentes, hasta que el médico del equipo rompe el silencio: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El dorsal a lápiz lejos de casa — Formación juvenil” en algo más importante que el resultado del fin de semana."
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El dorsal a lápiz lejos de casa — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el banco de suplentes, el médico del equipo valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-033-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El dorsal a lápiz lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el banco de suplentes. Abre un instante de ventaja, pero la mirada de el médico del equipo deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-033-improvisar
+  - id: academy-034
+    title: El regreso del capitán lejos de casa — Formación juvenil
+    description: Al terminar la sesión en un torneo regional, encuentras a tu hermana mayor con una propuesta inesperada. El problema es que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El regreso del capitán lejos de casa — Formación juvenil”.
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El regreso del capitán lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de un torneo regional, aunque tu hermana mayor entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-034-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El regreso del capitán lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en un torneo regional, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-034-liderar
+  - id: academy-035
+    title: La firma de las decisiones lejos de casa — Formación juvenil
+    description: La rutina cambia al llegar a la cancha reconstruida. Allí descubres junto a una periodista local que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La firma de las decisiones lejos de casa — Formación juvenil” puede dividir el antes y el después de esta temporada.
+    stage: academy
+    category: beca
+    tags:
+      - beca
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-05
+    choices:
+      - id: escuchar
+        text: Escuchar a una periodista local y acordar una salida para “La firma de las decisiones lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: En la cancha reconstruida, la conversación encuentra un acuerdo imperfecto. una periodista local recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La firma de las decisiones lejos de casa — Formación juvenil”.
+        flagsToAdd:
+          - academy-035-escuchar
+      - id: decidir
+        text: Resolver “La firma de las decisiones lejos de casa — Formación juvenil” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero una periodista local se entera después y el silencio en la cancha reconstruida pesa más que el resultado inmediato.
+        flagsToAdd:
+          - academy-035-decidir
+  - id: academy-036
+    title: La cancha que nadie vio lejos de casa — Formación juvenil
+    description: "Una nota breve te cita en la plaza donde aprendiste a dominar el balón. un antiguo mentor va directo al asunto: una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La cancha que nadie vio lejos de casa — Formación juvenil”."
+    stage: academy
+    category: disciplina
+    tags:
+      - disciplina
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La cancha que nadie vio lejos de casa — Formación juvenil” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la plaza donde aprendiste a dominar el balón varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - academy-036-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La cancha que nadie vio lejos de casa — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un antiguo mentor admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la plaza donde aprendiste a dominar el balón.
+        flagsToAdd:
+          - academy-036-asumir-costo
+  - id: academy-037
+    title: El relevo sin tu nombre lejos de casa — Formación juvenil
+    description: El entrenamiento debía ser normal en la despedida de un compañero, pero el entrenador Salcedo pide detenerlo. Cuenta delante de todos que una oferta tentadora implica dejar atrás a quien creyó en ti. La decisión afectará tanto tu progreso como una relación importante. De pronto, “El relevo sin tu nombre lejos de casa — Formación juvenil” deja de ser un problema privado.
+    stage: academy
+    category: nutrición
+    tags:
+      - nutrición
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El relevo sin tu nombre lejos de casa — Formación juvenil”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La reacción en la despedida de un compañero es más fría de lo que esperabas, pero el entrenador Salcedo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - academy-037-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El relevo sin tu nombre lejos de casa — Formación juvenil” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la despedida de un compañero, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - academy-037-competir
+  - id: academy-038
+    title: El retrato entreabierta lejos de casa — Formación juvenil
+    description: "De camino a el túnel antes de una final, tu representante admite que lleva semanas ocultando algo: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El retrato entreabierta lejos de casa — Formación juvenil”, exige una respuesta antes de llegar."
+    stage: academy
+    category: competencia
+    tags:
+      - competencia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu representante durante “El retrato entreabierta lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el túnel antes de una final. No todos están de acuerdo, pero tu representante deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - academy-038-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El retrato entreabierta lejos de casa — Formación juvenil” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu representante en el túnel antes de una final queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - academy-038-mantenerse-aparte
+  - id: academy-039
+    title: El pasillo más larga lejos de casa — Formación juvenil
+    description: La puerta de la terminal del último bus está a punto de cerrarse cuando aparece la afición organizada. Te advierte que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El pasillo más larga lejos de casa — Formación juvenil”.
+    stage: academy
+    category: familia
+    tags:
+      - familia
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-05
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El pasillo más larga lejos de casa — Formación juvenil” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la terminal del último bus se convierta en un punto sin regreso.
+        flagsToAdd:
+          - academy-039-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El pasillo más larga lejos de casa — Formación juvenil” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la terminal del último bus. la afición organizada celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - academy-039-aceptar
+  - id: academy-040
+    title: El mensaje inesperada lejos de casa — Formación juvenil
+    description: En plena etapa de formación juvenil, la sala de estudio se convierte en escenario de una decisión incómoda. la profesora Emilia confirma que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “El mensaje inesperada lejos de casa — Formación juvenil”.
+    stage: academy
+    category: torneo juvenil
+    tags:
+      - torneo juvenil
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El mensaje inesperada lejos de casa — Formación juvenil” en privado con la profesora Emilia
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la sala de estudio con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - academy-040-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El mensaje inesperada lejos de casa — Formación juvenil” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la sala de estudio. La afición entiende tus razones; la profesora Emilia, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - academy-040-hacer-publico
+  - id: academy-041
+    title: La deuda del viejo rival lejos de casa — Formación juvenil
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La deuda del viejo rival lejos de casa — Formación juvenil”.
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La deuda del viejo rival lejos de casa — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el campo auxiliar sin iluminación, el utilero del club valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-041-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La deuda del viejo rival lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el campo auxiliar sin iluminación. Abre un instante de ventaja, pero la mirada de el utilero del club deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-041-improvisar
+  - id: academy-042
+    title: La llamada del barrio lejos de casa — Formación juvenil
+    description: "La noticia llega durante una jornada en la sede de la fundación: el partido más importante coincide con una fecha decisiva para tu hogar. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La llamada del barrio lejos de casa — Formación juvenil”."
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - special-rare
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La llamada del barrio lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la sede de la fundación, aunque el director de la academia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-042-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La llamada del barrio lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la sede de la fundación, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-042-liderar
+  - id: academy-043
+    title: La lista prestados lejos de casa — Formación juvenil
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “La lista prestados lejos de casa — Formación juvenil” en algo más importante que el resultado del fin de semana."
+    stage: academy
+    category: beca
+    tags:
+      - beca
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-05
+    choices:
+      - id: escuchar
+        text: Escuchar a tu padre y acordar una salida para “La lista prestados lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: En la grada casi vacía, la conversación encuentra un acuerdo imperfecto. tu padre recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La lista prestados lejos de casa — Formación juvenil”.
+        flagsToAdd:
+          - academy-043-escuchar
+      - id: decidir
+        text: Resolver “La lista prestados lejos de casa — Formación juvenil” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero tu padre se entera después y el silencio en la grada casi vacía pesa más que el resultado inmediato.
+        flagsToAdd:
+          - academy-043-decidir
+  - id: academy-044
+    title: La promesa en el autobús lejos de casa — Formación juvenil
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La promesa en el autobús lejos de casa — Formación juvenil”.
+    stage: academy
+    category: disciplina
+    tags:
+      - disciplina
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La promesa en el autobús lejos de casa — Formación juvenil” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la reunión familiar del domingo varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - academy-044-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La promesa en el autobús lejos de casa — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la fisioterapeuta Lina admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la reunión familiar del domingo.
+        flagsToAdd:
+          - academy-044-asumir-costo
+  - id: academy-045
+    title: La puerta sin aplausos lejos de casa — Formación juvenil
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La puerta sin aplausos lejos de casa — Formación juvenil” puede dividir el antes y el después de esta temporada.
+    stage: academy
+    category: nutrición
+    tags:
+      - nutrición
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La puerta sin aplausos lejos de casa — Formación juvenil”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La reacción en el comedor de la academia es más fría de lo que esperabas, pero tu mejor amigo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - academy-045-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La puerta sin aplausos lejos de casa — Formación juvenil” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el comedor de la academia, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - academy-045-competir
+  - id: academy-046
+    title: La prueba sin luces lejos de casa — Formación juvenil
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La prueba sin luces lejos de casa — Formación juvenil”."
+    stage: academy
+    category: competencia
+    tags:
+      - competencia
+      - academy
+      - independent
+    rarity: uncommon
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu madre durante “La prueba sin luces lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la cancha agrietada del barrio. No todos están de acuerdo, pero tu madre deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - academy-046-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La prueba sin luces lejos de casa — Formación juvenil” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu madre en la cancha agrietada del barrio queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - academy-046-mantenerse-aparte
+  - id: academy-047
+    title: La banca en la pared lejos de casa — Formación juvenil
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que la familia prepara un plan distinto para tu futuro. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La banca en la pared lejos de casa — Formación juvenil” deja de ser un problema privado.
+    stage: academy
+    category: familia
+    tags:
+      - familia
+      - academy
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-05
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La banca en la pared lejos de casa — Formación juvenil” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la radio comunitaria se convierta en un punto sin regreso.
+        flagsToAdd:
+          - academy-047-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La banca en la pared lejos de casa — Formación juvenil” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la radio comunitaria. tu capitán celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - academy-047-aceptar
+  - id: academy-048
+    title: El rumor que llegó tarde lejos de casa — Formación juvenil
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El rumor que llegó tarde lejos de casa — Formación juvenil”, exige una respuesta antes de llegar."
+    stage: academy
+    category: torneo juvenil
+    tags:
+      - torneo juvenil
+      - academy
+      - independent
+    rarity: uncommon
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El rumor que llegó tarde lejos de casa — Formación juvenil” en privado con el técnico interino
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el vestuario visitante con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - academy-048-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El rumor que llegó tarde lejos de casa — Formación juvenil” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el vestuario visitante. La afición entiende tus razones; el técnico interino, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - academy-048-hacer-publico
+  - id: academy-049
+    title: La visita del otro vestuario lejos de casa — Formación juvenil
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La visita del otro vestuario lejos de casa — Formación juvenil”.
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: uncommon
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La visita del otro vestuario lejos de casa — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el aeropuerto de una ciudad desconocida, la entrenadora de la selección valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-049-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La visita del otro vestuario lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el aeropuerto de una ciudad desconocida. Abre un instante de ventaja, pero la mirada de la entrenadora de la selección deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-049-improvisar
+  - id: academy-050
+    title: La distancia del domingo lejos de casa — Formación juvenil
+    description: En plena etapa de formación juvenil, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La distancia del domingo lejos de casa — Formación juvenil”.
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - independent
+    rarity: uncommon
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La distancia del domingo lejos de casa — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la oficina del club, aunque un cazatalentos de paso entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-050-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La distancia del domingo lejos de casa — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la oficina del club, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-050-liderar

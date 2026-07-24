@@ -1,0 +1,1082 @@
+events:
+  - id: academy-001
+    title: La tregua bajo la lluvia junto a la familia — Formación juvenil
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La tregua bajo la lluvia junto a la familia — Formación juvenil”.
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La tregua bajo la lluvia junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el estadio de tu primer partido, un compañero recién llegado valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-001-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La tregua bajo la lluvia junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el estadio de tu primer partido. Abre un instante de ventaja, pero la mirada de un compañero recién llegado deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-001-improvisar
+  - id: academy-002
+    title: La noche de la grada junto a la familia — Formación juvenil
+    description: "La noticia llega durante una jornada en la clínica deportiva: una molestia física aparece justo cuando por fin te observan. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La noche de la grada junto a la familia — Formación juvenil”."
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - special-rare
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La noche de la grada junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la clínica deportiva, aunque el profesor de matemáticas entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-002-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La noche de la grada junto a la familia — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la clínica deportiva, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-002-liderar
+  - id: academy-003
+    title: La llave hasta casa junto a la familia — Formación juvenil
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “La llave hasta casa junto a la familia — Formación juvenil” en algo más importante que el resultado del fin de semana."
+    stage: academy
+    category: beca
+    tags:
+      - beca
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-04
+    choices:
+      - id: escuchar
+        text: Escuchar a la vecina que organiza el torneo y acordar una salida para “La llave hasta casa junto a la familia — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: En un amistoso de pretemporada, la conversación encuentra un acuerdo imperfecto. la vecina que organiza el torneo recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La llave hasta casa junto a la familia — Formación juvenil”.
+        flagsToAdd:
+          - academy-003-escuchar
+      - id: decidir
+        text: Resolver “La llave hasta casa junto a la familia — Formación juvenil” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la vecina que organiza el torneo se entera después y el silencio en un amistoso de pretemporada pesa más que el resultado inmediato.
+        flagsToAdd:
+          - academy-003-decidir
+  - id: academy-004
+    title: El último bus antes del partido junto a la familia — Formación juvenil
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El último bus antes del partido junto a la familia — Formación juvenil”.
+    stage: academy
+    category: disciplina
+    tags:
+      - disciplina
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El último bus antes del partido junto a la familia — Formación juvenil” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En una concentración internacional varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - academy-004-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El último bus antes del partido junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la presidenta del barrio admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de una concentración internacional.
+        flagsToAdd:
+          - academy-004-asumir-costo
+  - id: academy-005
+    title: Los guayos antes del amanecer junto a la familia — Formación juvenil
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “Los guayos antes del amanecer junto a la familia — Formación juvenil” puede dividir el antes y el después de esta temporada.
+    stage: academy
+    category: nutrición
+    tags:
+      - nutrición
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “Los guayos antes del amanecer junto a la familia — Formación juvenil”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La reacción en un patio escolar cubierto de lluvia es más fría de lo que esperabas, pero la directiva deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - academy-005-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “Los guayos antes del amanecer junto a la familia — Formación juvenil” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un patio escolar cubierto de lluvia, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - academy-005-competir
+  - id: academy-006
+    title: El vendaje bajo la media junto a la familia — Formación juvenil
+    description: "Una nota breve te cita en un entrenamiento a puerta cerrada. Nico, tu rival de infancia va directo al asunto: el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “El vendaje bajo la media junto a la familia — Formación juvenil”."
+    stage: academy
+    category: competencia
+    tags:
+      - competencia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a Nico, tu rival de infancia durante “El vendaje bajo la media junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en un entrenamiento a puerta cerrada. No todos están de acuerdo, pero Nico, tu rival de infancia deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - academy-006-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El vendaje bajo la media junto a la familia — Formación juvenil” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a Nico, tu rival de infancia en un entrenamiento a puerta cerrada queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - academy-006-mantenerse-aparte
+  - id: academy-007
+    title: El silencio sin dueño junto a la familia — Formación juvenil
+    description: El entrenamiento debía ser normal en una pensión lejos de casa, pero el juvenil que ocupa tu puesto pide detenerlo. Cuenta delante de todos que un rival te ofrece una tregua que podría cambiar años de competencia. La decisión afectará tanto tu progreso como una relación importante. De pronto, “El silencio sin dueño junto a la familia — Formación juvenil” deja de ser un problema privado.
+    stage: academy
+    category: familia
+    tags:
+      - familia
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-04
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El silencio sin dueño junto a la familia — Formación juvenil” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que una pensión lejos de casa se convierta en un punto sin regreso.
+        flagsToAdd:
+          - academy-007-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El silencio sin dueño junto a la familia — Formación juvenil” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de una pensión lejos de casa. el juvenil que ocupa tu puesto celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - academy-007-aceptar
+  - id: academy-008
+    title: El dorsal a lápiz junto a la familia — Formación juvenil
+    description: "De camino a el banco de suplentes, el médico del equipo admite que lleva semanas ocultando algo: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El dorsal a lápiz junto a la familia — Formación juvenil”, exige una respuesta antes de llegar."
+    stage: academy
+    category: torneo juvenil
+    tags:
+      - torneo juvenil
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El dorsal a lápiz junto a la familia — Formación juvenil” en privado con el médico del equipo
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el banco de suplentes con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - academy-008-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El dorsal a lápiz junto a la familia — Formación juvenil” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el banco de suplentes. La afición entiende tus razones; el médico del equipo, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - academy-008-hacer-publico
+  - id: academy-009
+    title: El regreso del capitán junto a la familia — Formación juvenil
+    description: La puerta de un torneo regional está a punto de cerrarse cuando aparece tu hermana mayor. Te advierte que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El regreso del capitán junto a la familia — Formación juvenil”.
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El regreso del capitán junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un torneo regional, tu hermana mayor valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-009-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El regreso del capitán junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un torneo regional. Abre un instante de ventaja, pero la mirada de tu hermana mayor deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-009-improvisar
+  - id: academy-010
+    title: La firma de las decisiones junto a la familia — Formación juvenil
+    description: En plena etapa de formación juvenil, la cancha reconstruida se convierte en escenario de una decisión incómoda. una periodista local confirma que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La firma de las decisiones junto a la familia — Formación juvenil”.
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La firma de las decisiones junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la cancha reconstruida, aunque una periodista local entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-010-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La firma de las decisiones junto a la familia — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la cancha reconstruida, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-010-liderar
+  - id: academy-011
+    title: La cancha que nadie vio junto a la familia — Formación juvenil
+    description: un antiguo mentor te espera en la plaza donde aprendiste a dominar el balón cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La cancha que nadie vio junto a la familia — Formación juvenil”.
+    stage: academy
+    category: beca
+    tags:
+      - beca
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-04
+    choices:
+      - id: escuchar
+        text: Escuchar a un antiguo mentor y acordar una salida para “La cancha que nadie vio junto a la familia — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: En la plaza donde aprendiste a dominar el balón, la conversación encuentra un acuerdo imperfecto. un antiguo mentor recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La cancha que nadie vio junto a la familia — Formación juvenil”.
+        flagsToAdd:
+          - academy-011-escuchar
+      - id: decidir
+        text: Resolver “La cancha que nadie vio junto a la familia — Formación juvenil” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un antiguo mentor se entera después y el silencio en la plaza donde aprendiste a dominar el balón pesa más que el resultado inmediato.
+        flagsToAdd:
+          - academy-011-decidir
+  - id: academy-012
+    title: El relevo sin tu nombre junto a la familia — Formación juvenil
+    description: "La noticia llega durante una jornada en la despedida de un compañero: una oferta tentadora implica dejar atrás a quien creyó en ti. el entrenador Salcedo conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El relevo sin tu nombre junto a la familia — Formación juvenil”."
+    stage: academy
+    category: disciplina
+    tags:
+      - disciplina
+      - academy
+      - special-rare
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El relevo sin tu nombre junto a la familia — Formación juvenil” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la despedida de un compañero varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - academy-012-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El relevo sin tu nombre junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el entrenador Salcedo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la despedida de un compañero.
+        flagsToAdd:
+          - academy-012-asumir-costo
+  - id: academy-013
+    title: El retrato entreabierta junto a la familia — Formación juvenil
+    description: "Nadie pensaba hablar del asunto en el túnel antes de una final, hasta que tu representante rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El retrato entreabierta junto a la familia — Formación juvenil” en algo más importante que el resultado del fin de semana."
+    stage: academy
+    category: nutrición
+    tags:
+      - nutrición
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El retrato entreabierta junto a la familia — Formación juvenil”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La reacción en el túnel antes de una final es más fría de lo que esperabas, pero tu representante deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - academy-013-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El retrato entreabierta junto a la familia — Formación juvenil” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el túnel antes de una final, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - academy-013-competir
+  - id: academy-014
+    title: El pasillo más larga junto a la familia — Formación juvenil
+    description: Al terminar la sesión en la terminal del último bus, encuentras a la afición organizada con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El pasillo más larga junto a la familia — Formación juvenil”.
+    stage: academy
+    category: competencia
+    tags:
+      - competencia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la afición organizada durante “El pasillo más larga junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la terminal del último bus. No todos están de acuerdo, pero la afición organizada deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - academy-014-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El pasillo más larga junto a la familia — Formación juvenil” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la afición organizada en la terminal del último bus queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - academy-014-mantenerse-aparte
+  - id: academy-015
+    title: El mensaje inesperada junto a la familia — Formación juvenil
+    description: La rutina cambia al llegar a la sala de estudio. Allí descubres junto a la profesora Emilia que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “El mensaje inesperada junto a la familia — Formación juvenil” puede dividir el antes y el después de esta temporada.
+    stage: academy
+    category: familia
+    tags:
+      - familia
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-04
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El mensaje inesperada junto a la familia — Formación juvenil” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la sala de estudio se convierta en un punto sin regreso.
+        flagsToAdd:
+          - academy-015-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El mensaje inesperada junto a la familia — Formación juvenil” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la sala de estudio. la profesora Emilia celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - academy-015-aceptar
+  - id: academy-016
+    title: La deuda del viejo rival junto a la familia — Formación juvenil
+    description: "Una nota breve te cita en el campo auxiliar sin iluminación. el utilero del club va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La deuda del viejo rival junto a la familia — Formación juvenil”."
+    stage: academy
+    category: torneo juvenil
+    tags:
+      - torneo juvenil
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La deuda del viejo rival junto a la familia — Formación juvenil” en privado con el utilero del club
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el campo auxiliar sin iluminación con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - academy-016-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La deuda del viejo rival junto a la familia — Formación juvenil” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el campo auxiliar sin iluminación. La afición entiende tus razones; el utilero del club, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - academy-016-hacer-publico
+  - id: academy-017
+    title: La llamada del barrio junto a la familia — Formación juvenil
+    description: El entrenamiento debía ser normal en la sede de la fundación, pero el director de la academia pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La llamada del barrio junto a la familia — Formación juvenil” deja de ser un problema privado.
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La llamada del barrio junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la sede de la fundación, el director de la academia valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-017-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La llamada del barrio junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la sede de la fundación. Abre un instante de ventaja, pero la mirada de el director de la academia deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-017-improvisar
+  - id: academy-018
+    title: La lista prestados junto a la familia — Formación juvenil
+    description: "De camino a la grada casi vacía, tu padre admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La lista prestados junto a la familia — Formación juvenil”, exige una respuesta antes de llegar."
+    stage: academy
+    category: estudios
+    tags:
+      - estudios
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La lista prestados junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la grada casi vacía, aunque tu padre entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - academy-018-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La lista prestados junto a la familia — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la grada casi vacía, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - academy-018-liderar
+  - id: academy-019
+    title: La promesa en el autobús junto a la familia — Formación juvenil
+    description: La puerta de la reunión familiar del domingo está a punto de cerrarse cuando aparece la fisioterapeuta Lina. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La promesa en el autobús junto a la familia — Formación juvenil”.
+    stage: academy
+    category: beca
+    tags:
+      - beca
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-04
+    choices:
+      - id: escuchar
+        text: Escuchar a la fisioterapeuta Lina y acordar una salida para “La promesa en el autobús junto a la familia — Formación juvenil”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: En la reunión familiar del domingo, la conversación encuentra un acuerdo imperfecto. la fisioterapeuta Lina recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La promesa en el autobús junto a la familia — Formación juvenil”.
+        flagsToAdd:
+          - academy-019-escuchar
+      - id: decidir
+        text: Resolver “La promesa en el autobús junto a la familia — Formación juvenil” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la fisioterapeuta Lina se entera después y el silencio en la reunión familiar del domingo pesa más que el resultado inmediato.
+        flagsToAdd:
+          - academy-019-decidir
+  - id: academy-020
+    title: La puerta sin aplausos junto a la familia — Formación juvenil
+    description: En plena etapa de formación juvenil, el comedor de la academia se convierte en escenario de una decisión incómoda. tu mejor amigo confirma que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La puerta sin aplausos junto a la familia — Formación juvenil”.
+    stage: academy
+    category: disciplina
+    tags:
+      - disciplina
+      - academy
+      - independent
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La puerta sin aplausos junto a la familia — Formación juvenil” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En el comedor de la academia varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - academy-020-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La puerta sin aplausos junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu mejor amigo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de el comedor de la academia.
+        flagsToAdd:
+          - academy-020-asumir-costo
+  - id: academy-021
+    title: La prueba sin luces junto a la familia — Formación juvenil
+    description: tu madre te espera en la cancha agrietada del barrio cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La prueba sin luces junto a la familia — Formación juvenil”.
+    stage: academy
+    category: nutrición
+    tags:
+      - nutrición
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La prueba sin luces junto a la familia — Formación juvenil”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La reacción en la cancha agrietada del barrio es más fría de lo que esperabas, pero tu madre deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - academy-021-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La prueba sin luces junto a la familia — Formación juvenil” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la cancha agrietada del barrio, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - academy-021-competir
+  - id: academy-022
+    title: La banca en la pared junto a la familia — Formación juvenil
+    description: "La noticia llega durante una jornada en la radio comunitaria: la familia prepara un plan distinto para tu futuro. tu capitán conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La banca en la pared junto a la familia — Formación juvenil”."
+    stage: academy
+    category: competencia
+    tags:
+      - competencia
+      - academy
+      - special-rare
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu capitán durante “La banca en la pared junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la radio comunitaria. No todos están de acuerdo, pero tu capitán deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - academy-022-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La banca en la pared junto a la familia — Formación juvenil” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu capitán en la radio comunitaria queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - academy-022-mantenerse-aparte
+  - id: academy-023
+    title: El rumor que llegó tarde junto a la familia — Formación juvenil
+    description: "Nadie pensaba hablar del asunto en el vestuario visitante, hasta que el técnico interino rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El rumor que llegó tarde junto a la familia — Formación juvenil” en algo más importante que el resultado del fin de semana."
+    stage: academy
+    category: familia
+    tags:
+      - familia
+      - academy
+      - narrative-chain
+    rarity: common
+    ageMin: 14
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-04
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El rumor que llegó tarde junto a la familia — Formación juvenil” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el vestuario visitante se convierta en un punto sin regreso.
+        flagsToAdd:
+          - academy-023-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El rumor que llegó tarde junto a la familia — Formación juvenil” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el vestuario visitante. el técnico interino celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - academy-023-aceptar
+  - id: academy-024
+    title: La visita del otro vestuario junto a la familia — Formación juvenil
+    description: Al terminar la sesión en el aeropuerto de una ciudad desconocida, encuentras a la entrenadora de la selección con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La visita del otro vestuario junto a la familia — Formación juvenil”.
+    stage: academy
+    category: torneo juvenil
+    tags:
+      - torneo juvenil
+      - academy
+      - independent
+    rarity: common
+    ageMin: 15
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La visita del otro vestuario junto a la familia — Formación juvenil” en privado con la entrenadora de la selección
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el aeropuerto de una ciudad desconocida con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - academy-024-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La visita del otro vestuario junto a la familia — Formación juvenil” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el aeropuerto de una ciudad desconocida. La afición entiende tus razones; la entrenadora de la selección, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - academy-024-hacer-publico
+  - id: academy-025
+    title: La distancia del domingo junto a la familia — Formación juvenil
+    description: La rutina cambia al llegar a la oficina del club. Allí descubres junto a un cazatalentos de paso que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La distancia del domingo junto a la familia — Formación juvenil” puede dividir el antes y el después de esta temporada.
+    stage: academy
+    category: academia
+    tags:
+      - academia
+      - academy
+      - independent
+    rarity: common
+    ageMin: 13
+    ageMax: 15
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La distancia del domingo junto a la familia — Formación juvenil”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la oficina del club, un cazatalentos de paso valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - academy-025-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La distancia del domingo junto a la familia — Formación juvenil”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la oficina del club. Abre un instante de ventaja, pero la mirada de un cazatalentos de paso deja la evaluación pendiente para después.
+        flagsToAdd:
+          - academy-025-improvisar

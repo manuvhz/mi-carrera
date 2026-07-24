@@ -1,0 +1,1082 @@
+events:
+  - id: final-years-001
+    title: El vendaje sin luces junto a la familia — Últimos años
+    description: "Una nota breve te cita en el campo auxiliar sin iluminación. el utilero del club va directo al asunto: una lesión pasada vuelve a doler sin aparecer en los exámenes. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “El vendaje sin luces junto a la familia — Últimos años”."
+    stage: final-years
+    category: regreso
+    tags:
+      - regreso
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 32
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El vendaje sin luces junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el campo auxiliar sin iluminación, aunque el utilero del club entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - final-years-001-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El vendaje sin luces junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el campo auxiliar sin iluminación, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - final-years-001-liderar
+  - id: final-years-002
+    title: El silencio en la pared junto a la familia — Últimos años
+    description: El entrenamiento debía ser normal en la sede de la fundación, pero el director de la academia pide detenerlo. Cuenta delante de todos que una oferta tentadora implica dejar atrás a quien creyó en ti. Esta vez, el talento no basta para resolver el problema. De pronto, “El silencio en la pared junto a la familia — Últimos años” deja de ser un problema privado.
+    stage: final-years
+    category: legado
+    tags:
+      - legado
+      - final-years
+      - narrative-chain
+    rarity: common
+    ageMin: 33
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-20
+    choices:
+      - id: escuchar
+        text: Escuchar a el director de la academia y acordar una salida para “El silencio en la pared junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: En la sede de la fundación, la conversación encuentra un acuerdo imperfecto. el director de la academia recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El silencio en la pared junto a la familia — Últimos años”.
+        flagsToAdd:
+          - final-years-002-escuchar
+      - id: decidir
+        text: Resolver “El silencio en la pared junto a la familia — Últimos años” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el director de la academia se entera después y el silencio en la sede de la fundación pesa más que el resultado inmediato.
+        flagsToAdd:
+          - final-years-002-decidir
+  - id: final-years-003
+    title: El dorsal que llegó tarde junto a la familia — Últimos años
+    description: "De camino a la grada casi vacía, tu padre admite que lleva semanas ocultando algo: una promesa antigua choca con la oportunidad de esta semana. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “El dorsal que llegó tarde junto a la familia — Últimos años”, exige una respuesta antes de llegar."
+    stage: final-years
+    category: rol secundario
+    tags:
+      - rol secundario
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 34
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El dorsal que llegó tarde junto a la familia — Últimos años” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la grada casi vacía varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - final-years-003-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El dorsal que llegó tarde junto a la familia — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu padre admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la grada casi vacía.
+        flagsToAdd:
+          - final-years-003-asumir-costo
+  - id: final-years-004
+    title: El regreso del otro vestuario junto a la familia — Últimos años
+    description: La puerta de la reunión familiar del domingo está a punto de cerrarse cuando aparece la fisioterapeuta Lina. Te advierte que la directiva mide tu valor en cifras que no cuentan toda la historia. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “El regreso del otro vestuario junto a la familia — Últimos años”.
+    stage: final-years
+    category: retiro
+    tags:
+      - retiro
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 35
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El regreso del otro vestuario junto a la familia — Últimos años”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La reacción en la reunión familiar del domingo es más fría de lo que esperabas, pero la fisioterapeuta Lina deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - final-years-004-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El regreso del otro vestuario junto a la familia — Últimos años” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la reunión familiar del domingo, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - final-years-004-competir
+  - id: final-years-005
+    title: La firma del domingo junto a la familia — Últimos años
+    description: En plena etapa de últimos años, el comedor de la academia se convierte en escenario de una decisión incómoda. tu mejor amigo confirma que un compañero necesita ayuda para la misma prueba que tú quieres superar. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “La firma del domingo junto a la familia — Últimos años”.
+    stage: final-years
+    category: récord
+    tags:
+      - récord
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 36
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu mejor amigo durante “La firma del domingo junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el comedor de la academia. No todos están de acuerdo, pero tu mejor amigo deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - final-years-005-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La firma del domingo junto a la familia — Últimos años” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu mejor amigo en el comedor de la academia queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - final-years-005-mantenerse-aparte
+  - id: final-years-006
+    title: La cancha bajo la lluvia junto a la familia — Últimos años
+    description: tu madre te espera en la cancha agrietada del barrio cuando el resto ya se ha marchado. Explica que el club exige una respuesta antes de que puedas hablar con tu familia. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La cancha bajo la lluvia junto a la familia — Últimos años”.
+    stage: final-years
+    category: familia
+    tags:
+      - familia
+      - final-years
+      - narrative-chain
+    rarity: common
+    ageMin: 32
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-20
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La cancha bajo la lluvia junto a la familia — Últimos años” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la cancha agrietada del barrio se convierta en un punto sin regreso.
+        flagsToAdd:
+          - final-years-006-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La cancha bajo la lluvia junto a la familia — Últimos años” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la cancha agrietada del barrio. tu madre celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - final-years-006-aceptar
+  - id: final-years-007
+    title: El relevo de la grada junto a la familia — Últimos años
+    description: "La noticia llega durante una jornada en la radio comunitaria: el partido más importante coincide con una fecha decisiva para tu hogar. tu capitán conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “El relevo de la grada junto a la familia — Últimos años”."
+    stage: final-years
+    category: dorsal
+    tags:
+      - dorsal
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 33
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El relevo de la grada junto a la familia — Últimos años” en privado con tu capitán
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la radio comunitaria con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - final-years-007-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El relevo de la grada junto a la familia — Últimos años” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la radio comunitaria. La afición entiende tus razones; tu capitán, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - final-years-007-hacer-publico
+  - id: final-years-008
+    title: El retrato hasta casa junto a la familia — Últimos años
+    description: "Nadie pensaba hablar del asunto en el vestuario visitante, hasta que el técnico interino rompe el silencio: el capitán te pide guardar silencio sobre un problema del vestuario. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El retrato hasta casa junto a la familia — Últimos años” en algo más importante que el resultado del fin de semana."
+    stage: final-years
+    category: último contrato
+    tags:
+      - último contrato
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 34
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El retrato hasta casa junto a la familia — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el vestuario visitante, el técnico interino valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - final-years-008-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El retrato hasta casa junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el vestuario visitante. Abre un instante de ventaja, pero la mirada de el técnico interino deja la evaluación pendiente para después.
+        flagsToAdd:
+          - final-years-008-improvisar
+  - id: final-years-009
+    title: El pasillo antes del partido junto a la familia — Últimos años
+    description: Al terminar la sesión en el aeropuerto de una ciudad desconocida, encuentras a la entrenadora de la selección con una propuesta inesperada. El problema es que el dinero solucionaría un problema urgente, pero reduce tus minutos. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “El pasillo antes del partido junto a la familia — Últimos años”.
+    stage: final-years
+    category: regreso
+    tags:
+      - regreso
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 35
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El pasillo antes del partido junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el aeropuerto de una ciudad desconocida, aunque la entrenadora de la selección entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - final-years-009-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El pasillo antes del partido junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el aeropuerto de una ciudad desconocida, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - final-years-009-liderar
+  - id: final-years-010
+    title: El mensaje antes del amanecer junto a la familia — Últimos años
+    description: La rutina cambia al llegar a la oficina del club. Allí descubres junto a un cazatalentos de paso que el equipo necesita que juegues en una posición que nunca has entrenado. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “El mensaje antes del amanecer junto a la familia — Últimos años” puede dividir el antes y el después de esta temporada.
+    stage: final-years
+    category: legado
+    tags:
+      - legado
+      - final-years
+      - narrative-chain
+    rarity: common
+    ageMin: 36
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-20
+    choices:
+      - id: escuchar
+        text: Escuchar a un cazatalentos de paso y acordar una salida para “El mensaje antes del amanecer junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: En la oficina del club, la conversación encuentra un acuerdo imperfecto. un cazatalentos de paso recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El mensaje antes del amanecer junto a la familia — Últimos años”.
+        flagsToAdd:
+          - final-years-010-escuchar
+      - id: decidir
+        text: Resolver “El mensaje antes del amanecer junto a la familia — Últimos años” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un cazatalentos de paso se entera después y el silencio en la oficina del club pesa más que el resultado inmediato.
+        flagsToAdd:
+          - final-years-010-decidir
+  - id: final-years-011
+    title: La deuda bajo la media junto a la familia — Últimos años
+    description: "Una nota breve te cita en el estadio de tu primer partido. un compañero recién llegado va directo al asunto: una decisión rápida puede salvar la temporada o romper la confianza. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La deuda bajo la media junto a la familia — Últimos años”."
+    stage: final-years
+    category: rol secundario
+    tags:
+      - rol secundario
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 32
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La deuda bajo la media junto a la familia — Últimos años” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En el estadio de tu primer partido varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - final-years-011-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La deuda bajo la media junto a la familia — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un compañero recién llegado admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de el estadio de tu primer partido.
+        flagsToAdd:
+          - final-years-011-asumir-costo
+  - id: final-years-012
+    title: La llamada sin dueño junto a la familia — Últimos años
+    description: El entrenamiento debía ser normal en la clínica deportiva, pero el profesor de matemáticas pide detenerlo. Cuenta delante de todos que la familia prepara un plan distinto para tu futuro. Esta vez, el talento no basta para resolver el problema. De pronto, “La llamada sin dueño junto a la familia — Últimos años” deja de ser un problema privado.
+    stage: final-years
+    category: retiro
+    tags:
+      - retiro
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 33
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La llamada sin dueño junto a la familia — Últimos años”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La reacción en la clínica deportiva es más fría de lo que esperabas, pero el profesor de matemáticas deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - final-years-012-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La llamada sin dueño junto a la familia — Últimos años” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la clínica deportiva, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - final-years-012-competir
+  - id: final-years-013
+    title: La lista a lápiz junto a la familia — Últimos años
+    description: "De camino a un amistoso de pretemporada, la vecina que organiza el torneo admite que lleva semanas ocultando algo: un error ajeno amenaza con caer sobre tu reputación. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “La lista a lápiz junto a la familia — Últimos años”, exige una respuesta antes de llegar."
+    stage: final-years
+    category: récord
+    tags:
+      - récord
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 34
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la vecina que organiza el torneo durante “La lista a lápiz junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en un amistoso de pretemporada. No todos están de acuerdo, pero la vecina que organiza el torneo deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - final-years-013-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La lista a lápiz junto a la familia — Últimos años” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la vecina que organiza el torneo en un amistoso de pretemporada queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - final-years-013-mantenerse-aparte
+  - id: final-years-014
+    title: La promesa del capitán junto a la familia — Últimos años
+    description: La puerta de una concentración internacional está a punto de cerrarse cuando aparece la presidenta del barrio. Te advierte que la oportunidad existe solo porque alguien más acaba de quedar fuera. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “La promesa del capitán junto a la familia — Últimos años”.
+    stage: final-years
+    category: familia
+    tags:
+      - familia
+      - final-years
+      - narrative-chain
+    rarity: common
+    ageMin: 35
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-20
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La promesa del capitán junto a la familia — Últimos años” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que una concentración internacional se convierta en un punto sin regreso.
+        flagsToAdd:
+          - final-years-014-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La promesa del capitán junto a la familia — Últimos años” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de una concentración internacional. la presidenta del barrio celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - final-years-014-aceptar
+  - id: final-years-015
+    title: La puerta de las decisiones junto a la familia — Últimos años
+    description: En plena etapa de últimos años, un patio escolar cubierto de lluvia se convierte en escenario de una decisión incómoda. la directiva confirma que el barrio espera que representes causas que el club prefiere evitar. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “La puerta de las decisiones junto a la familia — Últimos años”.
+    stage: final-years
+    category: dorsal
+    tags:
+      - dorsal
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 36
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La puerta de las decisiones junto a la familia — Últimos años” en privado con la directiva
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de un patio escolar cubierto de lluvia con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - final-years-015-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La puerta de las decisiones junto a la familia — Últimos años” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de un patio escolar cubierto de lluvia. La afición entiende tus razones; la directiva, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - final-years-015-hacer-publico
+  - id: final-years-016
+    title: La prueba que nadie vio junto a la familia — Últimos años
+    description: Nico, tu rival de infancia te espera en un entrenamiento a puerta cerrada cuando el resto ya se ha marchado. Explica que una versión incompleta de la historia ya circula entre la afición. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La prueba que nadie vio junto a la familia — Últimos años”.
+    stage: final-years
+    category: último contrato
+    tags:
+      - último contrato
+      - final-years
+      - independent
+    rarity: common
+    ageMin: 32
+    ageMax: 36
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La prueba que nadie vio junto a la familia — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un entrenamiento a puerta cerrada, Nico, tu rival de infancia valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - final-years-016-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La prueba que nadie vio junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un entrenamiento a puerta cerrada. Abre un instante de ventaja, pero la mirada de Nico, tu rival de infancia deja la evaluación pendiente para después.
+        flagsToAdd:
+          - final-years-016-improvisar
+  - id: final-years-017
+    title: La banca sin tu nombre junto a la familia — Últimos años
+    description: "La noticia llega durante una jornada en una pensión lejos de casa: una molestia física aparece justo cuando por fin te observan. el juvenil que ocupa tu puesto conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “La banca sin tu nombre junto a la familia — Últimos años”."
+    stage: final-years
+    category: regreso
+    tags:
+      - regreso
+      - final-years
+      - independent
+    rarity: uncommon
+    ageMin: 33
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La banca sin tu nombre junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de una pensión lejos de casa, aunque el juvenil que ocupa tu puesto entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - final-years-017-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La banca sin tu nombre junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en una pensión lejos de casa, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - final-years-017-liderar
+  - id: final-years-018
+    title: El rumor entreabierta junto a la familia — Últimos años
+    description: "Nadie pensaba hablar del asunto en el banco de suplentes, hasta que el médico del equipo rompe el silencio: la nueva generación cuestiona las costumbres que ayudaste a construir. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El rumor entreabierta junto a la familia — Últimos años” en algo más importante que el resultado del fin de semana."
+    stage: final-years
+    category: legado
+    tags:
+      - legado
+      - final-years
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 34
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-20
+    choices:
+      - id: escuchar
+        text: Escuchar a el médico del equipo y acordar una salida para “El rumor entreabierta junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: En el banco de suplentes, la conversación encuentra un acuerdo imperfecto. el médico del equipo recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El rumor entreabierta junto a la familia — Últimos años”.
+        flagsToAdd:
+          - final-years-018-escuchar
+      - id: decidir
+        text: Resolver “El rumor entreabierta junto a la familia — Últimos años” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el médico del equipo se entera después y el silencio en el banco de suplentes pesa más que el resultado inmediato.
+        flagsToAdd:
+          - final-years-018-decidir
+  - id: final-years-019
+    title: La visita más larga junto a la familia — Últimos años
+    description: Al terminar la sesión en un torneo regional, encuentras a tu hermana mayor con una propuesta inesperada. El problema es que el cansancio comienza a afectar tus estudios y tus entrenamientos. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “La visita más larga junto a la familia — Últimos años”.
+    stage: final-years
+    category: rol secundario
+    tags:
+      - rol secundario
+      - final-years
+      - independent
+    rarity: uncommon
+    ageMin: 35
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La visita más larga junto a la familia — Últimos años” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En un torneo regional varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - final-years-019-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La visita más larga junto a la familia — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu hermana mayor admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de un torneo regional.
+        flagsToAdd:
+          - final-years-019-asumir-costo
+  - id: final-years-020
+    title: La distancia inesperada junto a la familia — Últimos años
+    description: La rutina cambia al llegar a la cancha reconstruida. Allí descubres junto a una periodista local que la derrota ha dividido al grupo y nadie quiere dar el primer paso. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La distancia inesperada junto a la familia — Últimos años” puede dividir el antes y el después de esta temporada.
+    stage: final-years
+    category: retiro
+    tags:
+      - retiro
+      - final-years
+      - independent
+    rarity: uncommon
+    ageMin: 36
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La distancia inesperada junto a la familia — Últimos años”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La reacción en la cancha reconstruida es más fría de lo que esperabas, pero una periodista local deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - final-years-020-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La distancia inesperada junto a la familia — Últimos años” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la cancha reconstruida, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - final-years-020-competir
+  - id: final-years-021
+    title: La tregua del viejo rival junto a la familia — Últimos años
+    description: "Una nota breve te cita en la plaza donde aprendiste a dominar el balón. un antiguo mentor va directo al asunto: el transporte cuesta más de lo que la familia puede pagar. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La tregua del viejo rival junto a la familia — Últimos años”."
+    stage: final-years
+    category: récord
+    tags:
+      - récord
+      - final-years
+      - independent
+    rarity: uncommon
+    ageMin: 32
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a un antiguo mentor durante “La tregua del viejo rival junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la plaza donde aprendiste a dominar el balón. No todos están de acuerdo, pero un antiguo mentor deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - final-years-021-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La tregua del viejo rival junto a la familia — Últimos años” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a un antiguo mentor en la plaza donde aprendiste a dominar el balón queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - final-years-021-mantenerse-aparte
+  - id: final-years-022
+    title: La noche del barrio junto a la familia — Últimos años
+    description: El entrenamiento debía ser normal en la despedida de un compañero, pero el entrenador Salcedo pide detenerlo. Cuenta delante de todos que un rival te ofrece una tregua que podría cambiar años de competencia. Esta vez, el talento no basta para resolver el problema. De pronto, “La noche del barrio junto a la familia — Últimos años” deja de ser un problema privado.
+    stage: final-years
+    category: familia
+    tags:
+      - familia
+      - final-years
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 33
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-20
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La noche del barrio junto a la familia — Últimos años” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la despedida de un compañero se convierta en un punto sin regreso.
+        flagsToAdd:
+          - final-years-022-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La noche del barrio junto a la familia — Últimos años” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la despedida de un compañero. el entrenador Salcedo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - final-years-022-aceptar
+  - id: final-years-023
+    title: La llave prestados junto a la familia — Últimos años
+    description: "De camino a el túnel antes de una final, tu representante admite que lleva semanas ocultando algo: el entrenador premia la obediencia mientras tú ves un riesgo táctico. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “La llave prestados junto a la familia — Últimos años”, exige una respuesta antes de llegar."
+    stage: final-years
+    category: dorsal
+    tags:
+      - dorsal
+      - final-years
+      - independent
+    rarity: uncommon
+    ageMin: 34
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La llave prestados junto a la familia — Últimos años” en privado con tu representante
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el túnel antes de una final con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - final-years-023-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La llave prestados junto a la familia — Últimos años” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el túnel antes de una final. La afición entiende tus razones; tu representante, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - final-years-023-hacer-publico
+  - id: final-years-024
+    title: El último bus en el autobús junto a la familia — Últimos años
+    description: La puerta de la terminal del último bus está a punto de cerrarse cuando aparece la afición organizada. Te advierte que dos personas que te ayudaron esperan decisiones incompatibles. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “El último bus en el autobús junto a la familia — Últimos años”.
+    stage: final-years
+    category: último contrato
+    tags:
+      - último contrato
+      - final-years
+      - independent
+    rarity: uncommon
+    ageMin: 35
+    ageMax: 36
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El último bus en el autobús junto a la familia — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la terminal del último bus, la afición organizada valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - final-years-024-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El último bus en el autobús junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la terminal del último bus. Abre un instante de ventaja, pero la mirada de la afición organizada deja la evaluación pendiente para después.
+        flagsToAdd:
+          - final-years-024-improvisar
+  - id: final-years-025
+    title: Los guayos sin aplausos junto a la familia — Últimos años
+    description: En plena etapa de últimos años, la sala de estudio se convierte en escenario de una decisión incómoda. la profesora Emilia confirma que tu nombre abre una puerta, pero también desplaza a otra persona. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “Los guayos sin aplausos junto a la familia — Últimos años”.
+    stage: final-years
+    category: regreso
+    tags:
+      - regreso
+      - final-years
+      - independent
+    rarity: rare
+    ageMin: 36
+    ageMax: 36
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “Los guayos sin aplausos junto a la familia — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la sala de estudio, aunque la profesora Emilia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - final-years-025-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “Los guayos sin aplausos junto a la familia — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la sala de estudio, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - final-years-025-liderar

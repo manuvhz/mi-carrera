@@ -1,0 +1,866 @@
+events:
+  - id: debut-076
+    title: El vendaje sin luces que volvió años después — Debut profesional
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “El vendaje sin luces que volvió años después — Debut profesional”.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El vendaje sin luces que volvió años después — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el campo auxiliar sin iluminación, el utilero del club valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-076-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El vendaje sin luces que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el campo auxiliar sin iluminación. Abre un instante de ventaja, pero la mirada de el utilero del club deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-076-improvisar
+  - id: debut-077
+    title: El silencio en la pared que volvió años después — Debut profesional
+    description: "La noticia llega durante una jornada en la sede de la fundación: una oferta tentadora implica dejar atrás a quien creyó en ti. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “El silencio en la pared que volvió años después — Debut profesional”."
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - special-rare
+    rarity: uncommon
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El silencio en la pared que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la sede de la fundación, aunque el director de la academia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-077-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El silencio en la pared que volvió años después — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la sede de la fundación, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-077-liderar
+  - id: debut-078
+    title: El dorsal que llegó tarde que volvió años después — Debut profesional
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El dorsal que llegó tarde que volvió años después — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-10
+    choices:
+      - id: escuchar
+        text: Escuchar a tu padre y acordar una salida para “El dorsal que llegó tarde que volvió años después — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: En la grada casi vacía, la conversación encuentra un acuerdo imperfecto. tu padre recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El dorsal que llegó tarde que volvió años después — Debut profesional”.
+        flagsToAdd:
+          - debut-078-escuchar
+      - id: decidir
+        text: Resolver “El dorsal que llegó tarde que volvió años después — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero tu padre se entera después y el silencio en la grada casi vacía pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-078-decidir
+  - id: debut-079
+    title: El regreso del otro vestuario que volvió años después — Debut profesional
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “El regreso del otro vestuario que volvió años después — Debut profesional”.
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: uncommon
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El regreso del otro vestuario que volvió años después — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la reunión familiar del domingo varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-079-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El regreso del otro vestuario que volvió años después — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la fisioterapeuta Lina admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la reunión familiar del domingo.
+        flagsToAdd:
+          - debut-079-asumir-costo
+  - id: debut-080
+    title: La firma del domingo que volvió años después — Debut profesional
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que un compañero necesita ayuda para la misma prueba que tú quieres superar. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La firma del domingo que volvió años después — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La firma del domingo que volvió años después — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La reacción en el comedor de la academia es más fría de lo que esperabas, pero tu mejor amigo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-080-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La firma del domingo que volvió años después — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el comedor de la academia, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-080-competir
+  - id: debut-081
+    title: La cancha bajo la lluvia que volvió años después — Debut profesional
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La cancha bajo la lluvia que volvió años después — Debut profesional”."
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu madre durante “La cancha bajo la lluvia que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la cancha agrietada del barrio. No todos están de acuerdo, pero tu madre deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-081-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La cancha bajo la lluvia que volvió años después — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu madre en la cancha agrietada del barrio queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-081-mantenerse-aparte
+  - id: debut-082
+    title: El relevo de la grada que volvió años después — Debut profesional
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. Esta vez, el talento no basta para resolver el problema. De pronto, “El relevo de la grada que volvió años después — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: rare
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-10
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El relevo de la grada que volvió años después — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la radio comunitaria se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-082-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El relevo de la grada que volvió años después — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la radio comunitaria. tu capitán celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-082-aceptar
+  - id: debut-083
+    title: El retrato hasta casa que volvió años después — Debut profesional
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “El retrato hasta casa que volvió años después — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El retrato hasta casa que volvió años después — Debut profesional” en privado con el técnico interino
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el vestuario visitante con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-083-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El retrato hasta casa que volvió años después — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el vestuario visitante. La afición entiende tus razones; el técnico interino, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-083-hacer-publico
+  - id: debut-084
+    title: El pasillo antes del partido que volvió años después — Debut profesional
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “El pasillo antes del partido que volvió años después — Debut profesional”.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El pasillo antes del partido que volvió años después — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el aeropuerto de una ciudad desconocida, la entrenadora de la selección valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-084-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El pasillo antes del partido que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el aeropuerto de una ciudad desconocida. Abre un instante de ventaja, pero la mirada de la entrenadora de la selección deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-084-improvisar
+  - id: debut-085
+    title: El mensaje antes del amanecer que volvió años después — Debut profesional
+    description: En plena etapa de debut profesional, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que el equipo necesita que juegues en una posición que nunca has entrenado. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “El mensaje antes del amanecer que volvió años después — Debut profesional”.
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El mensaje antes del amanecer que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la oficina del club, aunque un cazatalentos de paso entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-085-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El mensaje antes del amanecer que volvió años después — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la oficina del club, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-085-liderar
+  - id: debut-086
+    title: La deuda bajo la media que volvió años después — Debut profesional
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “La deuda bajo la media que volvió años después — Debut profesional”.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: rare
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-11
+    choices:
+      - id: escuchar
+        text: Escuchar a un compañero recién llegado y acordar una salida para “La deuda bajo la media que volvió años después — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: En el estadio de tu primer partido, la conversación encuentra un acuerdo imperfecto. un compañero recién llegado recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La deuda bajo la media que volvió años después — Debut profesional”.
+        flagsToAdd:
+          - debut-086-escuchar
+      - id: decidir
+        text: Resolver “La deuda bajo la media que volvió años después — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un compañero recién llegado se entera después y el silencio en el estadio de tu primer partido pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-086-decidir
+  - id: debut-087
+    title: La llamada sin dueño que volvió años después — Debut profesional
+    description: "La noticia llega durante una jornada en la clínica deportiva: la familia prepara un plan distinto para tu futuro. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “La llamada sin dueño que volvió años después — Debut profesional”."
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - special-rare
+    rarity: rare
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La llamada sin dueño que volvió años después — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la clínica deportiva varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-087-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La llamada sin dueño que volvió años después — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el profesor de matemáticas admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la clínica deportiva.
+        flagsToAdd:
+          - debut-087-asumir-costo
+  - id: debut-088
+    title: La lista a lápiz que volvió años después — Debut profesional
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “La lista a lápiz que volvió años después — Debut profesional” en algo más importante que el resultado del fin de semana."
+    stage: debut
+    category: afición
+    tags:
+      - afición
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La lista a lápiz que volvió años después — Debut profesional”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La reacción en un amistoso de pretemporada es más fría de lo que esperabas, pero la vecina que organiza el torneo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - debut-088-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La lista a lápiz que volvió años después — Debut profesional” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un amistoso de pretemporada, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - debut-088-competir
+  - id: debut-089
+    title: La promesa del capitán que volvió años después — Debut profesional
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “La promesa del capitán que volvió años después — Debut profesional”.
+    stage: debut
+    category: contrato
+    tags:
+      - contrato
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la presidenta del barrio durante “La promesa del capitán que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en una concentración internacional. No todos están de acuerdo, pero la presidenta del barrio deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - debut-089-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La promesa del capitán que volvió años después — Debut profesional” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la presidenta del barrio en una concentración internacional queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - debut-089-mantenerse-aparte
+  - id: debut-090
+    title: La puerta de las decisiones que volvió años después — Debut profesional
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que el barrio espera que representes causas que el club prefiere evitar. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La puerta de las decisiones que volvió años después — Debut profesional” puede dividir el antes y el después de esta temporada.
+    stage: debut
+    category: vestuario
+    tags:
+      - vestuario
+      - debut
+      - narrative-chain
+    rarity: rare
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-11
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La puerta de las decisiones que volvió años después — Debut profesional” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un patio escolar cubierto de lluvia se convierta en un punto sin regreso.
+        flagsToAdd:
+          - debut-090-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La puerta de las decisiones que volvió años después — Debut profesional” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un patio escolar cubierto de lluvia. la directiva celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - debut-090-aceptar
+  - id: debut-091
+    title: La prueba que nadie vio que volvió años después — Debut profesional
+    description: "Una nota breve te cita en un entrenamiento a puerta cerrada. Nico, tu rival de infancia va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Hay una salida segura, pero su costo solo se notará con el tiempo. Hay pocos minutos para decidir cómo quieres que termine “La prueba que nadie vio que volvió años después — Debut profesional”."
+    stage: debut
+    category: primer sueldo
+    tags:
+      - primer sueldo
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La prueba que nadie vio que volvió años después — Debut profesional” en privado con Nico, tu rival de infancia
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de un entrenamiento a puerta cerrada con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - debut-091-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La prueba que nadie vio que volvió años después — Debut profesional” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de un entrenamiento a puerta cerrada. La afición entiende tus razones; Nico, tu rival de infancia, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - debut-091-hacer-publico
+  - id: debut-092
+    title: La banca sin tu nombre que volvió años después — Debut profesional
+    description: El entrenamiento debía ser normal en una pensión lejos de casa, pero el juvenil que ocupa tu puesto pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. Esta vez, el talento no basta para resolver el problema. De pronto, “La banca sin tu nombre que volvió años después — Debut profesional” deja de ser un problema privado.
+    stage: debut
+    category: prensa
+    tags:
+      - prensa
+      - debut
+      - independent
+    rarity: rare
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La banca sin tu nombre que volvió años después — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En una pensión lejos de casa, el juvenil que ocupa tu puesto valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - debut-092-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La banca sin tu nombre que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en una pensión lejos de casa. Abre un instante de ventaja, pero la mirada de el juvenil que ocupa tu puesto deja la evaluación pendiente para después.
+        flagsToAdd:
+          - debut-092-improvisar
+  - id: debut-093
+    title: El rumor entreabierta que volvió años después — Debut profesional
+    description: "De camino a el banco de suplentes, el médico del equipo admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. Nadie puede garantizar que la oportunidad vuelva a aparecer. El episodio, que luego llamarán “El rumor entreabierta que volvió años después — Debut profesional”, exige una respuesta antes de llegar."
+    stage: debut
+    category: representante
+    tags:
+      - representante
+      - debut
+      - independent
+    rarity: legendary
+    ageMin: 18
+    ageMax: 18
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El rumor entreabierta que volvió años después — Debut profesional”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el banco de suplentes, aunque el médico del equipo entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - debut-093-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El rumor entreabierta que volvió años después — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el banco de suplentes, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - debut-093-liderar
+  - id: debut-094
+    title: La visita más larga que volvió años después — Debut profesional
+    description: La puerta de un torneo regional está a punto de cerrarse cuando aparece tu hermana mayor. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. Elegir pronto ayuda al club; esperar protege tu futuro. Aceptar esa realidad será el primer paso de “La visita más larga que volvió años después — Debut profesional”.
+    stage: debut
+    category: titularidad
+    tags:
+      - titularidad
+      - debut
+      - narrative-chain
+    rarity: legendary
+    ageMin: 16
+    ageMax: 18
+    baseWeight: 1
+    oncePerCareer: true
+    chainId: cadena-11
+    choices:
+      - id: escuchar
+        text: Escuchar a tu hermana mayor y acordar una salida para “La visita más larga que volvió años después — Debut profesional”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: En un torneo regional, la conversación encuentra un acuerdo imperfecto. tu hermana mayor recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La visita más larga que volvió años después — Debut profesional”.
+        flagsToAdd:
+          - debut-094-escuchar
+      - id: decidir
+        text: Resolver “La visita más larga que volvió años después — Debut profesional” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero tu hermana mayor se entera después y el silencio en un torneo regional pesa más que el resultado inmediato.
+        flagsToAdd:
+          - debut-094-decidir
+  - id: debut-095
+    title: La distancia inesperada que volvió años después — Debut profesional
+    description: En plena etapa de debut profesional, la cancha reconstruida se convierte en escenario de una decisión incómoda. una periodista local confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. Lo que hagas quedará en la memoria del barrio durante años. Todo queda suspendido alrededor de “La distancia inesperada que volvió años después — Debut profesional”.
+    stage: debut
+    category: préstamo
+    tags:
+      - préstamo
+      - debut
+      - independent
+    rarity: legendary
+    ageMin: 17
+    ageMax: 18
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La distancia inesperada que volvió años después — Debut profesional” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la cancha reconstruida varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - debut-095-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La distancia inesperada que volvió años después — Debut profesional”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. una periodista local admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la cancha reconstruida.
+        flagsToAdd:
+          - debut-095-asumir-costo

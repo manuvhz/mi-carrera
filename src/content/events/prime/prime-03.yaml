@@ -1,0 +1,866 @@
+events:
+  - id: prime-051
+    title: La cancha del viejo rival cuando cambió el vestuario — Mejor etapa
+    description: Nico, tu rival de infancia te espera en un entrenamiento a puerta cerrada cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La cancha del viejo rival cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: fama
+    tags:
+      - fama
+      - prime
+      - independent
+    rarity: uncommon
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La cancha del viejo rival cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un entrenamiento a puerta cerrada, Nico, tu rival de infancia valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - prime-051-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La cancha del viejo rival cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un entrenamiento a puerta cerrada. Abre un instante de ventaja, pero la mirada de Nico, tu rival de infancia deja la evaluación pendiente para después.
+        flagsToAdd:
+          - prime-051-improvisar
+  - id: prime-052
+    title: El relevo del barrio cuando cambió el vestuario — Mejor etapa
+    description: "La noticia llega durante una jornada en una pensión lejos de casa: la familia prepara un plan distinto para tu futuro. el juvenil que ocupa tu puesto conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El relevo del barrio cuando cambió el vestuario — Mejor etapa”."
+    stage: prime
+    category: patrocinio
+    tags:
+      - patrocinio
+      - prime
+      - independent
+    rarity: uncommon
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El relevo del barrio cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de una pensión lejos de casa, aunque el juvenil que ocupa tu puesto entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - prime-052-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El relevo del barrio cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en una pensión lejos de casa, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - prime-052-liderar
+  - id: prime-053
+    title: El retrato prestados cuando cambió el vestuario — Mejor etapa
+    description: "Nadie pensaba hablar del asunto en el banco de suplentes, hasta que el médico del equipo rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El retrato prestados cuando cambió el vestuario — Mejor etapa” en algo más importante que el resultado del fin de semana."
+    stage: prime
+    category: selección
+    tags:
+      - selección
+      - prime
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-17
+    choices:
+      - id: escuchar
+        text: Escuchar a el médico del equipo y acordar una salida para “El retrato prestados cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: En el banco de suplentes, la conversación encuentra un acuerdo imperfecto. el médico del equipo recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El retrato prestados cuando cambió el vestuario — Mejor etapa”.
+        flagsToAdd:
+          - prime-053-escuchar
+      - id: decidir
+        text: Resolver “El retrato prestados cuando cambió el vestuario — Mejor etapa” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el médico del equipo se entera después y el silencio en el banco de suplentes pesa más que el resultado inmediato.
+        flagsToAdd:
+          - prime-053-decidir
+  - id: prime-054
+    title: El pasillo en el autobús cuando cambió el vestuario — Mejor etapa
+    description: Al terminar la sesión en un torneo regional, encuentras a tu hermana mayor con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El pasillo en el autobús cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: lealtad
+    tags:
+      - lealtad
+      - prime
+      - independent
+    rarity: uncommon
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El pasillo en el autobús cuando cambió el vestuario — Mejor etapa” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En un torneo regional varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - prime-054-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El pasillo en el autobús cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu hermana mayor admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de un torneo regional.
+        flagsToAdd:
+          - prime-054-asumir-costo
+  - id: prime-055
+    title: El mensaje sin aplausos cuando cambió el vestuario — Mejor etapa
+    description: La rutina cambia al llegar a la cancha reconstruida. Allí descubres junto a una periodista local que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “El mensaje sin aplausos cuando cambió el vestuario — Mejor etapa” puede dividir el antes y el después de esta temporada.
+    stage: prime
+    category: vestuario
+    tags:
+      - vestuario
+      - prime
+      - independent
+    rarity: uncommon
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El mensaje sin aplausos cuando cambió el vestuario — Mejor etapa”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La reacción en la cancha reconstruida es más fría de lo que esperabas, pero una periodista local deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - prime-055-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El mensaje sin aplausos cuando cambió el vestuario — Mejor etapa” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la cancha reconstruida, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - prime-055-competir
+  - id: prime-056
+    title: La deuda sin luces cuando cambió el vestuario — Mejor etapa
+    description: "Una nota breve te cita en la plaza donde aprendiste a dominar el balón. un antiguo mentor va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La deuda sin luces cuando cambió el vestuario — Mejor etapa”."
+    stage: prime
+    category: premio
+    tags:
+      - premio
+      - prime
+      - independent
+    rarity: uncommon
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a un antiguo mentor durante “La deuda sin luces cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la plaza donde aprendiste a dominar el balón. No todos están de acuerdo, pero un antiguo mentor deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - prime-056-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La deuda sin luces cuando cambió el vestuario — Mejor etapa” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a un antiguo mentor en la plaza donde aprendiste a dominar el balón queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - prime-056-mantenerse-aparte
+  - id: prime-057
+    title: La llamada en la pared cuando cambió el vestuario — Mejor etapa
+    description: El entrenamiento debía ser normal en la despedida de un compañero, pero el entrenador Salcedo pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La llamada en la pared cuando cambió el vestuario — Mejor etapa” deja de ser un problema privado.
+    stage: prime
+    category: final
+    tags:
+      - final
+      - prime
+      - narrative-chain
+    rarity: rare
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-17
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La llamada en la pared cuando cambió el vestuario — Mejor etapa” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la despedida de un compañero se convierta en un punto sin regreso.
+        flagsToAdd:
+          - prime-057-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La llamada en la pared cuando cambió el vestuario — Mejor etapa” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la despedida de un compañero. el entrenador Salcedo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - prime-057-aceptar
+  - id: prime-058
+    title: La lista que llegó tarde cuando cambió el vestuario — Mejor etapa
+    description: "De camino a el túnel antes de una final, tu representante admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La lista que llegó tarde cuando cambió el vestuario — Mejor etapa”, exige una respuesta antes de llegar."
+    stage: prime
+    category: capitanía
+    tags:
+      - capitanía
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La lista que llegó tarde cuando cambió el vestuario — Mejor etapa” en privado con tu representante
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el túnel antes de una final con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - prime-058-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La lista que llegó tarde cuando cambió el vestuario — Mejor etapa” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el túnel antes de una final. La afición entiende tus razones; tu representante, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - prime-058-hacer-publico
+  - id: prime-059
+    title: La promesa del otro vestuario cuando cambió el vestuario — Mejor etapa
+    description: La puerta de la terminal del último bus está a punto de cerrarse cuando aparece la afición organizada. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La promesa del otro vestuario cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: fama
+    tags:
+      - fama
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La promesa del otro vestuario cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la terminal del último bus, la afición organizada valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - prime-059-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La promesa del otro vestuario cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la terminal del último bus. Abre un instante de ventaja, pero la mirada de la afición organizada deja la evaluación pendiente para después.
+        flagsToAdd:
+          - prime-059-improvisar
+  - id: prime-060
+    title: La puerta del domingo cuando cambió el vestuario — Mejor etapa
+    description: En plena etapa de mejor etapa, la sala de estudio se convierte en escenario de una decisión incómoda. la profesora Emilia confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La puerta del domingo cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: patrocinio
+    tags:
+      - patrocinio
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La puerta del domingo cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la sala de estudio, aunque la profesora Emilia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - prime-060-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La puerta del domingo cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la sala de estudio, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - prime-060-liderar
+  - id: prime-061
+    title: La prueba bajo la lluvia cuando cambió el vestuario — Mejor etapa
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La prueba bajo la lluvia cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: selección
+    tags:
+      - selección
+      - prime
+      - narrative-chain
+    rarity: rare
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-17
+    choices:
+      - id: escuchar
+        text: Escuchar a el utilero del club y acordar una salida para “La prueba bajo la lluvia cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: En el campo auxiliar sin iluminación, la conversación encuentra un acuerdo imperfecto. el utilero del club recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La prueba bajo la lluvia cuando cambió el vestuario — Mejor etapa”.
+        flagsToAdd:
+          - prime-061-escuchar
+      - id: decidir
+        text: Resolver “La prueba bajo la lluvia cuando cambió el vestuario — Mejor etapa” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el utilero del club se entera después y el silencio en el campo auxiliar sin iluminación pesa más que el resultado inmediato.
+        flagsToAdd:
+          - prime-061-decidir
+  - id: prime-062
+    title: La banca de la grada cuando cambió el vestuario — Mejor etapa
+    description: "La noticia llega durante una jornada en la sede de la fundación: un rival te ofrece una tregua que podría cambiar años de competencia. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La banca de la grada cuando cambió el vestuario — Mejor etapa”."
+    stage: prime
+    category: lealtad
+    tags:
+      - lealtad
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La banca de la grada cuando cambió el vestuario — Mejor etapa” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la sede de la fundación varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - prime-062-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La banca de la grada cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el director de la academia admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la sede de la fundación.
+        flagsToAdd:
+          - prime-062-asumir-costo
+  - id: prime-063
+    title: El rumor hasta casa cuando cambió el vestuario — Mejor etapa
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El rumor hasta casa cuando cambió el vestuario — Mejor etapa” en algo más importante que el resultado del fin de semana."
+    stage: prime
+    category: vestuario
+    tags:
+      - vestuario
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El rumor hasta casa cuando cambió el vestuario — Mejor etapa”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La reacción en la grada casi vacía es más fría de lo que esperabas, pero tu padre deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - prime-063-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El rumor hasta casa cuando cambió el vestuario — Mejor etapa” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la grada casi vacía, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - prime-063-competir
+  - id: prime-064
+    title: La visita antes del partido cuando cambió el vestuario — Mejor etapa
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La visita antes del partido cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: premio
+    tags:
+      - premio
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la fisioterapeuta Lina durante “La visita antes del partido cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la reunión familiar del domingo. No todos están de acuerdo, pero la fisioterapeuta Lina deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - prime-064-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La visita antes del partido cuando cambió el vestuario — Mejor etapa” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la fisioterapeuta Lina en la reunión familiar del domingo queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - prime-064-mantenerse-aparte
+  - id: prime-065
+    title: La distancia antes del amanecer cuando cambió el vestuario — Mejor etapa
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La distancia antes del amanecer cuando cambió el vestuario — Mejor etapa” puede dividir el antes y el después de esta temporada.
+    stage: prime
+    category: final
+    tags:
+      - final
+      - prime
+      - narrative-chain
+    rarity: rare
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-17
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La distancia antes del amanecer cuando cambió el vestuario — Mejor etapa” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el comedor de la academia se convierta en un punto sin regreso.
+        flagsToAdd:
+          - prime-065-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La distancia antes del amanecer cuando cambió el vestuario — Mejor etapa” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el comedor de la academia. tu mejor amigo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - prime-065-aceptar
+  - id: prime-066
+    title: La tregua bajo la media cuando cambió el vestuario — Mejor etapa
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La tregua bajo la media cuando cambió el vestuario — Mejor etapa”."
+    stage: prime
+    category: capitanía
+    tags:
+      - capitanía
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La tregua bajo la media cuando cambió el vestuario — Mejor etapa” en privado con tu madre
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la cancha agrietada del barrio con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - prime-066-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La tregua bajo la media cuando cambió el vestuario — Mejor etapa” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la cancha agrietada del barrio. La afición entiende tus razones; tu madre, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - prime-066-hacer-publico
+  - id: prime-067
+    title: La noche sin dueño cuando cambió el vestuario — Mejor etapa
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que una oferta tentadora implica dejar atrás a quien creyó en ti. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La noche sin dueño cuando cambió el vestuario — Mejor etapa” deja de ser un problema privado.
+    stage: prime
+    category: fama
+    tags:
+      - fama
+      - prime
+      - independent
+    rarity: rare
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La noche sin dueño cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la radio comunitaria, tu capitán valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - prime-067-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La noche sin dueño cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la radio comunitaria. Abre un instante de ventaja, pero la mirada de tu capitán deja la evaluación pendiente para después.
+        flagsToAdd:
+          - prime-067-improvisar
+  - id: prime-068
+    title: La llave a lápiz cuando cambió el vestuario — Mejor etapa
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La llave a lápiz cuando cambió el vestuario — Mejor etapa”, exige una respuesta antes de llegar."
+    stage: prime
+    category: patrocinio
+    tags:
+      - patrocinio
+      - prime
+      - independent
+    rarity: legendary
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La llave a lápiz cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el vestuario visitante, aunque el técnico interino entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - prime-068-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La llave a lápiz cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el vestuario visitante, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - prime-068-liderar
+  - id: prime-069
+    title: El último bus del capitán cuando cambió el vestuario — Mejor etapa
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El último bus del capitán cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: selección
+    tags:
+      - selección
+      - prime
+      - narrative-chain
+    rarity: legendary
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 1
+    oncePerCareer: true
+    chainId: cadena-18
+    choices:
+      - id: escuchar
+        text: Escuchar a la entrenadora de la selección y acordar una salida para “El último bus del capitán cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: En el aeropuerto de una ciudad desconocida, la conversación encuentra un acuerdo imperfecto. la entrenadora de la selección recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El último bus del capitán cuando cambió el vestuario — Mejor etapa”.
+        flagsToAdd:
+          - prime-069-escuchar
+      - id: decidir
+        text: Resolver “El último bus del capitán cuando cambió el vestuario — Mejor etapa” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la entrenadora de la selección se entera después y el silencio en el aeropuerto de una ciudad desconocida pesa más que el resultado inmediato.
+        flagsToAdd:
+          - prime-069-decidir
+  - id: prime-070
+    title: Los guayos de las decisiones cuando cambió el vestuario — Mejor etapa
+    description: En plena etapa de mejor etapa, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “Los guayos de las decisiones cuando cambió el vestuario — Mejor etapa”.
+    stage: prime
+    category: lealtad
+    tags:
+      - lealtad
+      - prime
+      - independent
+    rarity: legendary
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “Los guayos de las decisiones cuando cambió el vestuario — Mejor etapa” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la oficina del club varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - prime-070-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “Los guayos de las decisiones cuando cambió el vestuario — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un cazatalentos de paso admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la oficina del club.
+        flagsToAdd:
+          - prime-070-asumir-costo

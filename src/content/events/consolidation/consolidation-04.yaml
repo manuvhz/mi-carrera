@@ -1,0 +1,649 @@
+events:
+  - id: consolidation-076
+    title: La deuda que nadie vio que volvió años después — Consolidación
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La deuda que nadie vio que volvió años después — Consolidación”."
+    stage: consolidation
+    category: táctica
+    tags:
+      - táctica
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La deuda que nadie vio que volvió años después — Consolidación” en privado con tu madre
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la cancha agrietada del barrio con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - consolidation-076-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La deuda que nadie vio que volvió años después — Consolidación” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la cancha agrietada del barrio. La afición entiende tus razones; tu madre, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - consolidation-076-hacer-publico
+  - id: consolidation-077
+    title: La llamada sin tu nombre que volvió años después — Consolidación
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que un rival te ofrece una tregua que podría cambiar años de competencia. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La llamada sin tu nombre que volvió años después — Consolidación” deja de ser un problema privado.
+    stage: consolidation
+    category: lesión
+    tags:
+      - lesión
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La llamada sin tu nombre que volvió años después — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la radio comunitaria, tu capitán valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - consolidation-077-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La llamada sin tu nombre que volvió años después — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la radio comunitaria. Abre un instante de ventaja, pero la mirada de tu capitán deja la evaluación pendiente para después.
+        flagsToAdd:
+          - consolidation-077-improvisar
+  - id: consolidation-078
+    title: La lista entreabierta que volvió años después — Consolidación
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La lista entreabierta que volvió años después — Consolidación”, exige una respuesta antes de llegar."
+    stage: consolidation
+    category: directiva
+    tags:
+      - directiva
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La lista entreabierta que volvió años después — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de el vestuario visitante, aunque el técnico interino entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - consolidation-078-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La lista entreabierta que volvió años después — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en el vestuario visitante, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - consolidation-078-liderar
+  - id: consolidation-079
+    title: La promesa más larga que volvió años después — Consolidación
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La promesa más larga que volvió años después — Consolidación”.
+    stage: consolidation
+    category: adaptación
+    tags:
+      - adaptación
+      - consolidation
+      - narrative-chain
+    rarity: rare
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-14
+    choices:
+      - id: escuchar
+        text: Escuchar a la entrenadora de la selección y acordar una salida para “La promesa más larga que volvió años después — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: En el aeropuerto de una ciudad desconocida, la conversación encuentra un acuerdo imperfecto. la entrenadora de la selección recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La promesa más larga que volvió años después — Consolidación”.
+        flagsToAdd:
+          - consolidation-079-escuchar
+      - id: decidir
+        text: Resolver “La promesa más larga que volvió años después — Consolidación” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la entrenadora de la selección se entera después y el silencio en el aeropuerto de una ciudad desconocida pesa más que el resultado inmediato.
+        flagsToAdd:
+          - consolidation-079-decidir
+  - id: consolidation-080
+    title: La puerta inesperada que volvió años después — Consolidación
+    description: En plena etapa de consolidación, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La puerta inesperada que volvió años después — Consolidación”.
+    stage: consolidation
+    category: rivalidad
+    tags:
+      - rivalidad
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La puerta inesperada que volvió años después — Consolidación” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la oficina del club varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - consolidation-080-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La puerta inesperada que volvió años después — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un cazatalentos de paso admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la oficina del club.
+        flagsToAdd:
+          - consolidation-080-asumir-costo
+  - id: consolidation-081
+    title: La prueba del viejo rival que volvió años después — Consolidación
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La prueba del viejo rival que volvió años después — Consolidación”.
+    stage: consolidation
+    category: transferencia
+    tags:
+      - transferencia
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La prueba del viejo rival que volvió años después — Consolidación”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La reacción en el estadio de tu primer partido es más fría de lo que esperabas, pero un compañero recién llegado deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - consolidation-081-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La prueba del viejo rival que volvió años después — Consolidación” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el estadio de tu primer partido, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - consolidation-081-competir
+  - id: consolidation-082
+    title: La banca del barrio que volvió años después — Consolidación
+    description: "La noticia llega durante una jornada en la clínica deportiva: una oferta tentadora implica dejar atrás a quien creyó en ti. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La banca del barrio que volvió años después — Consolidación”."
+    stage: consolidation
+    category: renovación
+    tags:
+      - renovación
+      - consolidation
+      - special-rare
+    rarity: rare
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a el profesor de matemáticas durante “La banca del barrio que volvió años después — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la clínica deportiva. No todos están de acuerdo, pero el profesor de matemáticas deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - consolidation-082-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La banca del barrio que volvió años después — Consolidación” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a el profesor de matemáticas en la clínica deportiva queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - consolidation-082-mantenerse-aparte
+  - id: consolidation-083
+    title: El rumor prestados que volvió años después — Consolidación
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El rumor prestados que volvió años después — Consolidación” en algo más importante que el resultado del fin de semana."
+    stage: consolidation
+    category: selección
+    tags:
+      - selección
+      - consolidation
+      - narrative-chain
+    rarity: rare
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    chainId: cadena-14
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “El rumor prestados que volvió años después — Consolidación” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un amistoso de pretemporada se convierta en un punto sin regreso.
+        flagsToAdd:
+          - consolidation-083-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “El rumor prestados que volvió años después — Consolidación” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un amistoso de pretemporada. la vecina que organiza el torneo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - consolidation-083-aceptar
+  - id: consolidation-084
+    title: La visita en el autobús que volvió años después — Consolidación
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La visita en el autobús que volvió años después — Consolidación”.
+    stage: consolidation
+    category: táctica
+    tags:
+      - táctica
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La visita en el autobús que volvió años después — Consolidación” en privado con la presidenta del barrio
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de una concentración internacional con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - consolidation-084-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La visita en el autobús que volvió años después — Consolidación” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de una concentración internacional. La afición entiende tus razones; la presidenta del barrio, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - consolidation-084-hacer-publico
+  - id: consolidation-085
+    title: La distancia sin aplausos que volvió años después — Consolidación
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La distancia sin aplausos que volvió años después — Consolidación” puede dividir el antes y el después de esta temporada.
+    stage: consolidation
+    category: lesión
+    tags:
+      - lesión
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La distancia sin aplausos que volvió años después — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un patio escolar cubierto de lluvia, la directiva valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - consolidation-085-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La distancia sin aplausos que volvió años después — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un patio escolar cubierto de lluvia. Abre un instante de ventaja, pero la mirada de la directiva deja la evaluación pendiente para después.
+        flagsToAdd:
+          - consolidation-085-improvisar
+  - id: consolidation-086
+    title: La tregua sin luces que volvió años después — Consolidación
+    description: "Una nota breve te cita en un entrenamiento a puerta cerrada. Nico, tu rival de infancia va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La tregua sin luces que volvió años después — Consolidación”."
+    stage: consolidation
+    category: directiva
+    tags:
+      - directiva
+      - consolidation
+      - independent
+    rarity: rare
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La tregua sin luces que volvió años después — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de un entrenamiento a puerta cerrada, aunque Nico, tu rival de infancia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - consolidation-086-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La tregua sin luces que volvió años después — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en un entrenamiento a puerta cerrada, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - consolidation-086-liderar
+  - id: consolidation-087
+    title: La noche en la pared que volvió años después — Consolidación
+    description: El entrenamiento debía ser normal en una pensión lejos de casa, pero el juvenil que ocupa tu puesto pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La noche en la pared que volvió años después — Consolidación” deja de ser un problema privado.
+    stage: consolidation
+    category: adaptación
+    tags:
+      - adaptación
+      - consolidation
+      - narrative-chain
+    rarity: legendary
+    ageMin: 21
+    ageMax: 22
+    baseWeight: 1
+    oncePerCareer: true
+    chainId: cadena-15
+    choices:
+      - id: escuchar
+        text: Escuchar a el juvenil que ocupa tu puesto y acordar una salida para “La noche en la pared que volvió años después — Consolidación”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: En una pensión lejos de casa, la conversación encuentra un acuerdo imperfecto. el juvenil que ocupa tu puesto recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “La noche en la pared que volvió años después — Consolidación”.
+        flagsToAdd:
+          - consolidation-087-escuchar
+      - id: decidir
+        text: Resolver “La noche en la pared que volvió años después — Consolidación” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el juvenil que ocupa tu puesto se entera después y el silencio en una pensión lejos de casa pesa más que el resultado inmediato.
+        flagsToAdd:
+          - consolidation-087-decidir
+  - id: consolidation-088
+    title: La llave que llegó tarde que volvió años después — Consolidación
+    description: "De camino a el banco de suplentes, el médico del equipo admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La llave que llegó tarde que volvió años después — Consolidación”, exige una respuesta antes de llegar."
+    stage: consolidation
+    category: rivalidad
+    tags:
+      - rivalidad
+      - consolidation
+      - independent
+    rarity: legendary
+    ageMin: 22
+    ageMax: 22
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La llave que llegó tarde que volvió años después — Consolidación” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En el banco de suplentes varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - consolidation-088-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La llave que llegó tarde que volvió años después — Consolidación”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el médico del equipo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de el banco de suplentes.
+        flagsToAdd:
+          - consolidation-088-asumir-costo
+  - id: consolidation-089
+    title: El último bus del otro vestuario que volvió años después — Consolidación
+    description: La puerta de un torneo regional está a punto de cerrarse cuando aparece tu hermana mayor. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El último bus del otro vestuario que volvió años después — Consolidación”.
+    stage: consolidation
+    category: transferencia
+    tags:
+      - transferencia
+      - consolidation
+      - independent
+    rarity: legendary
+    ageMin: 19
+    ageMax: 22
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El último bus del otro vestuario que volvió años después — Consolidación”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La reacción en un torneo regional es más fría de lo que esperabas, pero tu hermana mayor deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - consolidation-089-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El último bus del otro vestuario que volvió años después — Consolidación” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un torneo regional, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - consolidation-089-competir
+  - id: consolidation-090
+    title: Los guayos del domingo que volvió años después — Consolidación
+    description: En plena etapa de consolidación, la cancha reconstruida se convierte en escenario de una decisión incómoda. una periodista local confirma que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “Los guayos del domingo que volvió años después — Consolidación”.
+    stage: consolidation
+    category: renovación
+    tags:
+      - renovación
+      - consolidation
+      - independent
+    rarity: legendary
+    ageMin: 20
+    ageMax: 22
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a una periodista local durante “Los guayos del domingo que volvió años después — Consolidación”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la cancha reconstruida. No todos están de acuerdo, pero una periodista local deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - consolidation-090-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “Los guayos del domingo que volvió años después — Consolidación” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a una periodista local en la cancha reconstruida queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - consolidation-090-mantenerse-aparte

@@ -1,0 +1,1083 @@
+events:
+  - id: prime-001
+    title: La cancha del viejo rival junto a la familia — Mejor etapa
+    description: Nico, tu rival de infancia te espera en un entrenamiento a puerta cerrada cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La cancha del viejo rival junto a la familia — Mejor etapa”.
+    stage: prime
+    category: final
+    tags:
+      - final
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-15
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La cancha del viejo rival junto a la familia — Mejor etapa” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un entrenamiento a puerta cerrada se convierta en un punto sin regreso.
+        flagsToAdd:
+          - prime-001-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La cancha del viejo rival junto a la familia — Mejor etapa” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un entrenamiento a puerta cerrada. Nico, tu rival de infancia celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - prime-001-aceptar
+  - id: prime-002
+    title: El relevo del barrio junto a la familia — Mejor etapa
+    description: "La noticia llega durante una jornada en una pensión lejos de casa: la familia prepara un plan distinto para tu futuro. el juvenil que ocupa tu puesto conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El relevo del barrio junto a la familia — Mejor etapa”."
+    stage: prime
+    category: capitanía
+    tags:
+      - capitanía
+      - prime
+      - special-rare
+    rarity: common
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “El relevo del barrio junto a la familia — Mejor etapa” en privado con el juvenil que ocupa tu puesto
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de una pensión lejos de casa con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - prime-002-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “El relevo del barrio junto a la familia — Mejor etapa” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de una pensión lejos de casa. La afición entiende tus razones; el juvenil que ocupa tu puesto, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - prime-002-hacer-publico
+  - id: prime-003
+    title: El retrato prestados junto a la familia — Mejor etapa
+    description: "Nadie pensaba hablar del asunto en el banco de suplentes, hasta que el médico del equipo rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El retrato prestados junto a la familia — Mejor etapa” en algo más importante que el resultado del fin de semana."
+    stage: prime
+    category: fama
+    tags:
+      - fama
+      - prime
+      - independent
+    rarity: common
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El retrato prestados junto a la familia — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el banco de suplentes, el médico del equipo valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - prime-003-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El retrato prestados junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el banco de suplentes. Abre un instante de ventaja, pero la mirada de el médico del equipo deja la evaluación pendiente para después.
+        flagsToAdd:
+          - prime-003-improvisar
+  - id: prime-004
+    title: El pasillo en el autobús junto a la familia — Mejor etapa
+    description: Al terminar la sesión en un torneo regional, encuentras a tu hermana mayor con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El pasillo en el autobús junto a la familia — Mejor etapa”.
+    stage: prime
+    category: patrocinio
+    tags:
+      - patrocinio
+      - prime
+      - independent
+    rarity: common
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El pasillo en el autobús junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de un torneo regional, aunque tu hermana mayor entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - prime-004-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El pasillo en el autobús junto a la familia — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en un torneo regional, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - prime-004-liderar
+  - id: prime-005
+    title: El mensaje sin aplausos junto a la familia — Mejor etapa
+    description: La rutina cambia al llegar a la cancha reconstruida. Allí descubres junto a una periodista local que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “El mensaje sin aplausos junto a la familia — Mejor etapa” puede dividir el antes y el después de esta temporada.
+    stage: prime
+    category: selección
+    tags:
+      - selección
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-15
+    choices:
+      - id: escuchar
+        text: Escuchar a una periodista local y acordar una salida para “El mensaje sin aplausos junto a la familia — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: En la cancha reconstruida, la conversación encuentra un acuerdo imperfecto. una periodista local recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El mensaje sin aplausos junto a la familia — Mejor etapa”.
+        flagsToAdd:
+          - prime-005-escuchar
+      - id: decidir
+        text: Resolver “El mensaje sin aplausos junto a la familia — Mejor etapa” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero una periodista local se entera después y el silencio en la cancha reconstruida pesa más que el resultado inmediato.
+        flagsToAdd:
+          - prime-005-decidir
+  - id: prime-006
+    title: La deuda sin luces junto a la familia — Mejor etapa
+    description: "Una nota breve te cita en la plaza donde aprendiste a dominar el balón. un antiguo mentor va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La deuda sin luces junto a la familia — Mejor etapa”."
+    stage: prime
+    category: lealtad
+    tags:
+      - lealtad
+      - prime
+      - independent
+    rarity: common
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La deuda sin luces junto a la familia — Mejor etapa” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la plaza donde aprendiste a dominar el balón varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - prime-006-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La deuda sin luces junto a la familia — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. un antiguo mentor admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la plaza donde aprendiste a dominar el balón.
+        flagsToAdd:
+          - prime-006-asumir-costo
+  - id: prime-007
+    title: La llamada en la pared junto a la familia — Mejor etapa
+    description: El entrenamiento debía ser normal en la despedida de un compañero, pero el entrenador Salcedo pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La llamada en la pared junto a la familia — Mejor etapa” deja de ser un problema privado.
+    stage: prime
+    category: vestuario
+    tags:
+      - vestuario
+      - prime
+      - independent
+    rarity: common
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La llamada en la pared junto a la familia — Mejor etapa”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La reacción en la despedida de un compañero es más fría de lo que esperabas, pero el entrenador Salcedo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - prime-007-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La llamada en la pared junto a la familia — Mejor etapa” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la despedida de un compañero, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - prime-007-competir
+  - id: prime-008
+    title: La lista que llegó tarde junto a la familia — Mejor etapa
+    description: "De camino a el túnel antes de una final, tu representante admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La lista que llegó tarde junto a la familia — Mejor etapa”, exige una respuesta antes de llegar."
+    stage: prime
+    category: premio
+    tags:
+      - premio
+      - prime
+      - independent
+    rarity: common
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu representante durante “La lista que llegó tarde junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el túnel antes de una final. No todos están de acuerdo, pero tu representante deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - prime-008-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La lista que llegó tarde junto a la familia — Mejor etapa” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu representante en el túnel antes de una final queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - prime-008-mantenerse-aparte
+  - id: prime-009
+    title: La promesa del otro vestuario junto a la familia — Mejor etapa
+    description: La puerta de la terminal del último bus está a punto de cerrarse cuando aparece la afición organizada. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La promesa del otro vestuario junto a la familia — Mejor etapa”.
+    stage: prime
+    category: final
+    tags:
+      - final
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-15
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La promesa del otro vestuario junto a la familia — Mejor etapa” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la terminal del último bus se convierta en un punto sin regreso.
+        flagsToAdd:
+          - prime-009-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La promesa del otro vestuario junto a la familia — Mejor etapa” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la terminal del último bus. la afición organizada celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - prime-009-aceptar
+  - id: prime-010
+    title: La puerta del domingo junto a la familia — Mejor etapa
+    description: En plena etapa de mejor etapa, la sala de estudio se convierte en escenario de una decisión incómoda. la profesora Emilia confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La puerta del domingo junto a la familia — Mejor etapa”.
+    stage: prime
+    category: capitanía
+    tags:
+      - capitanía
+      - prime
+      - independent
+    rarity: common
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La puerta del domingo junto a la familia — Mejor etapa” en privado con la profesora Emilia
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la sala de estudio con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - prime-010-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La puerta del domingo junto a la familia — Mejor etapa” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la sala de estudio. La afición entiende tus razones; la profesora Emilia, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - prime-010-hacer-publico
+  - id: prime-011
+    title: La prueba bajo la lluvia junto a la familia — Mejor etapa
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La prueba bajo la lluvia junto a la familia — Mejor etapa”.
+    stage: prime
+    category: fama
+    tags:
+      - fama
+      - prime
+      - independent
+    rarity: common
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La prueba bajo la lluvia junto a la familia — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el campo auxiliar sin iluminación, el utilero del club valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - prime-011-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La prueba bajo la lluvia junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el campo auxiliar sin iluminación. Abre un instante de ventaja, pero la mirada de el utilero del club deja la evaluación pendiente para después.
+        flagsToAdd:
+          - prime-011-improvisar
+  - id: prime-012
+    title: La banca de la grada junto a la familia — Mejor etapa
+    description: "La noticia llega durante una jornada en la sede de la fundación: un rival te ofrece una tregua que podría cambiar años de competencia. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La banca de la grada junto a la familia — Mejor etapa”."
+    stage: prime
+    category: patrocinio
+    tags:
+      - patrocinio
+      - prime
+      - independent
+    rarity: common
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La banca de la grada junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la sede de la fundación, aunque el director de la academia entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - prime-012-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La banca de la grada junto a la familia — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la sede de la fundación, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - prime-012-liderar
+  - id: prime-013
+    title: El rumor hasta casa junto a la familia — Mejor etapa
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El rumor hasta casa junto a la familia — Mejor etapa” en algo más importante que el resultado del fin de semana."
+    stage: prime
+    category: selección
+    tags:
+      - selección
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-15
+    choices:
+      - id: escuchar
+        text: Escuchar a tu padre y acordar una salida para “El rumor hasta casa junto a la familia — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: En la grada casi vacía, la conversación encuentra un acuerdo imperfecto. tu padre recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El rumor hasta casa junto a la familia — Mejor etapa”.
+        flagsToAdd:
+          - prime-013-escuchar
+      - id: decidir
+        text: Resolver “El rumor hasta casa junto a la familia — Mejor etapa” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero tu padre se entera después y el silencio en la grada casi vacía pesa más que el resultado inmediato.
+        flagsToAdd:
+          - prime-013-decidir
+  - id: prime-014
+    title: La visita antes del partido junto a la familia — Mejor etapa
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La visita antes del partido junto a la familia — Mejor etapa”.
+    stage: prime
+    category: lealtad
+    tags:
+      - lealtad
+      - prime
+      - independent
+    rarity: common
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La visita antes del partido junto a la familia — Mejor etapa” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la reunión familiar del domingo varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - prime-014-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La visita antes del partido junto a la familia — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la fisioterapeuta Lina admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la reunión familiar del domingo.
+        flagsToAdd:
+          - prime-014-asumir-costo
+  - id: prime-015
+    title: La distancia antes del amanecer junto a la familia — Mejor etapa
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La distancia antes del amanecer junto a la familia — Mejor etapa” puede dividir el antes y el después de esta temporada.
+    stage: prime
+    category: vestuario
+    tags:
+      - vestuario
+      - prime
+      - independent
+    rarity: common
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La distancia antes del amanecer junto a la familia — Mejor etapa”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La reacción en el comedor de la academia es más fría de lo que esperabas, pero tu mejor amigo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - prime-015-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La distancia antes del amanecer junto a la familia — Mejor etapa” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el comedor de la academia, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - prime-015-competir
+  - id: prime-016
+    title: La tregua bajo la media junto a la familia — Mejor etapa
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La tregua bajo la media junto a la familia — Mejor etapa”."
+    stage: prime
+    category: premio
+    tags:
+      - premio
+      - prime
+      - independent
+    rarity: common
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a tu madre durante “La tregua bajo la media junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la cancha agrietada del barrio. No todos están de acuerdo, pero tu madre deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - prime-016-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La tregua bajo la media junto a la familia — Mejor etapa” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a tu madre en la cancha agrietada del barrio queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - prime-016-mantenerse-aparte
+  - id: prime-017
+    title: La noche sin dueño junto a la familia — Mejor etapa
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que una oferta tentadora implica dejar atrás a quien creyó en ti. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La noche sin dueño junto a la familia — Mejor etapa” deja de ser un problema privado.
+    stage: prime
+    category: final
+    tags:
+      - final
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-15
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La noche sin dueño junto a la familia — Mejor etapa” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la radio comunitaria se convierta en un punto sin regreso.
+        flagsToAdd:
+          - prime-017-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La noche sin dueño junto a la familia — Mejor etapa” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la radio comunitaria. tu capitán celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - prime-017-aceptar
+  - id: prime-018
+    title: La llave a lápiz junto a la familia — Mejor etapa
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La llave a lápiz junto a la familia — Mejor etapa”, exige una respuesta antes de llegar."
+    stage: prime
+    category: capitanía
+    tags:
+      - capitanía
+      - prime
+      - independent
+    rarity: common
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La llave a lápiz junto a la familia — Mejor etapa” en privado con el técnico interino
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el vestuario visitante con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - prime-018-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La llave a lápiz junto a la familia — Mejor etapa” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el vestuario visitante. La afición entiende tus razones; el técnico interino, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - prime-018-hacer-publico
+  - id: prime-019
+    title: El último bus del capitán junto a la familia — Mejor etapa
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El último bus del capitán junto a la familia — Mejor etapa”.
+    stage: prime
+    category: fama
+    tags:
+      - fama
+      - prime
+      - independent
+    rarity: common
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El último bus del capitán junto a la familia — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el aeropuerto de una ciudad desconocida, la entrenadora de la selección valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - prime-019-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El último bus del capitán junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el aeropuerto de una ciudad desconocida. Abre un instante de ventaja, pero la mirada de la entrenadora de la selección deja la evaluación pendiente para después.
+        flagsToAdd:
+          - prime-019-improvisar
+  - id: prime-020
+    title: Los guayos de las decisiones junto a la familia — Mejor etapa
+    description: En plena etapa de mejor etapa, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “Los guayos de las decisiones junto a la familia — Mejor etapa”.
+    stage: prime
+    category: patrocinio
+    tags:
+      - patrocinio
+      - prime
+      - independent
+    rarity: common
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “Los guayos de las decisiones junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la oficina del club, aunque un cazatalentos de paso entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - prime-020-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “Los guayos de las decisiones junto a la familia — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la oficina del club, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - prime-020-liderar
+  - id: prime-021
+    title: El vendaje que nadie vio junto a la familia — Mejor etapa
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “El vendaje que nadie vio junto a la familia — Mejor etapa”.
+    stage: prime
+    category: selección
+    tags:
+      - selección
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 23
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-16
+    choices:
+      - id: escuchar
+        text: Escuchar a un compañero recién llegado y acordar una salida para “El vendaje que nadie vio junto a la familia — Mejor etapa”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: En el estadio de tu primer partido, la conversación encuentra un acuerdo imperfecto. un compañero recién llegado recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El vendaje que nadie vio junto a la familia — Mejor etapa”.
+        flagsToAdd:
+          - prime-021-escuchar
+      - id: decidir
+        text: Resolver “El vendaje que nadie vio junto a la familia — Mejor etapa” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un compañero recién llegado se entera después y el silencio en el estadio de tu primer partido pesa más que el resultado inmediato.
+        flagsToAdd:
+          - prime-021-decidir
+  - id: prime-022
+    title: El silencio sin tu nombre junto a la familia — Mejor etapa
+    description: "La noticia llega durante una jornada en la clínica deportiva: el partido más importante coincide con una fecha decisiva para tu hogar. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El silencio sin tu nombre junto a la familia — Mejor etapa”."
+    stage: prime
+    category: lealtad
+    tags:
+      - lealtad
+      - prime
+      - independent
+    rarity: common
+    ageMin: 24
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El silencio sin tu nombre junto a la familia — Mejor etapa” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la clínica deportiva varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - prime-022-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El silencio sin tu nombre junto a la familia — Mejor etapa”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el profesor de matemáticas admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la clínica deportiva.
+        flagsToAdd:
+          - prime-022-asumir-costo
+  - id: prime-023
+    title: El dorsal entreabierta junto a la familia — Mejor etapa
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El dorsal entreabierta junto a la familia — Mejor etapa” en algo más importante que el resultado del fin de semana."
+    stage: prime
+    category: vestuario
+    tags:
+      - vestuario
+      - prime
+      - independent
+    rarity: common
+    ageMin: 25
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El dorsal entreabierta junto a la familia — Mejor etapa”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La reacción en un amistoso de pretemporada es más fría de lo que esperabas, pero la vecina que organiza el torneo deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - prime-023-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El dorsal entreabierta junto a la familia — Mejor etapa” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un amistoso de pretemporada, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - prime-023-competir
+  - id: prime-024
+    title: El regreso más larga junto a la familia — Mejor etapa
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El regreso más larga junto a la familia — Mejor etapa”.
+    stage: prime
+    category: premio
+    tags:
+      - premio
+      - prime
+      - independent
+    rarity: common
+    ageMin: 26
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la presidenta del barrio durante “El regreso más larga junto a la familia — Mejor etapa”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en una concentración internacional. No todos están de acuerdo, pero la presidenta del barrio deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - prime-024-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El regreso más larga junto a la familia — Mejor etapa” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la presidenta del barrio en una concentración internacional queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - prime-024-mantenerse-aparte
+  - id: prime-025
+    title: La firma inesperada junto a la familia — Mejor etapa
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La firma inesperada junto a la familia — Mejor etapa” puede dividir el antes y el después de esta temporada.
+    stage: prime
+    category: final
+    tags:
+      - final
+      - prime
+      - narrative-chain
+    rarity: common
+    ageMin: 27
+    ageMax: 27
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-16
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La firma inesperada junto a la familia — Mejor etapa” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que un patio escolar cubierto de lluvia se convierta en un punto sin regreso.
+        flagsToAdd:
+          - prime-025-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La firma inesperada junto a la familia — Mejor etapa” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de un patio escolar cubierto de lluvia. la directiva celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - prime-025-aceptar

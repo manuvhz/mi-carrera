@@ -1,0 +1,1082 @@
+events:
+  - id: childhood-026
+    title: La deuda que nadie vio lejos de casa — Infancia y barrio
+    description: "Una nota breve te cita en la cancha agrietada del barrio. tu madre va directo al asunto: el transporte cuesta más de lo que la familia puede pagar. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La deuda que nadie vio lejos de casa — Infancia y barrio”."
+    stage: childhood
+    category: escuela
+    tags:
+      - escuela
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La deuda que nadie vio lejos de casa — Infancia y barrio” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la cancha agrietada del barrio varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - childhood-026-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La deuda que nadie vio lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu madre admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la cancha agrietada del barrio.
+        flagsToAdd:
+          - childhood-026-asumir-costo
+  - id: childhood-027
+    title: La llamada sin tu nombre lejos de casa — Infancia y barrio
+    description: El entrenamiento debía ser normal en la radio comunitaria, pero tu capitán pide detenerlo. Cuenta delante de todos que un rival te ofrece una tregua que podría cambiar años de competencia. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La llamada sin tu nombre lejos de casa — Infancia y barrio” deja de ser un problema privado.
+    stage: childhood
+    category: barrio
+    tags:
+      - barrio
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 11
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La llamada sin tu nombre lejos de casa — Infancia y barrio”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La reacción en la radio comunitaria es más fría de lo que esperabas, pero tu capitán deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - childhood-027-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La llamada sin tu nombre lejos de casa — Infancia y barrio” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la radio comunitaria, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - childhood-027-competir
+  - id: childhood-028
+    title: La lista entreabierta lejos de casa — Infancia y barrio
+    description: "De camino a el vestuario visitante, el técnico interino admite que lleva semanas ocultando algo: el entrenador premia la obediencia mientras tú ves un riesgo táctico. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La lista entreabierta lejos de casa — Infancia y barrio”, exige una respuesta antes de llegar."
+    stage: childhood
+    category: economía
+    tags:
+      - economía
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 12
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a el técnico interino durante “La lista entreabierta lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en el vestuario visitante. No todos están de acuerdo, pero el técnico interino deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - childhood-028-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La lista entreabierta lejos de casa — Infancia y barrio” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a el técnico interino en el vestuario visitante queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - childhood-028-mantenerse-aparte
+  - id: childhood-029
+    title: La promesa más larga lejos de casa — Infancia y barrio
+    description: La puerta de el aeropuerto de una ciudad desconocida está a punto de cerrarse cuando aparece la entrenadora de la selección. Te advierte que dos personas que te ayudaron esperan decisiones incompatibles. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “La promesa más larga lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: amistad
+    tags:
+      - amistad
+      - childhood
+      - narrative-chain
+    rarity: common
+    ageMin: 9
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-02
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La promesa más larga lejos de casa — Infancia y barrio” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el aeropuerto de una ciudad desconocida se convierta en un punto sin regreso.
+        flagsToAdd:
+          - childhood-029-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La promesa más larga lejos de casa — Infancia y barrio” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el aeropuerto de una ciudad desconocida. la entrenadora de la selección celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - childhood-029-aceptar
+  - id: childhood-030
+    title: La puerta inesperada lejos de casa — Infancia y barrio
+    description: En plena etapa de infancia y barrio, la oficina del club se convierte en escenario de una decisión incómoda. un cazatalentos de paso confirma que tu nombre abre una puerta, pero también desplaza a otra persona. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “La puerta inesperada lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: torneo local
+    tags:
+      - torneo local
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La puerta inesperada lejos de casa — Infancia y barrio” en privado con un cazatalentos de paso
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de la oficina del club con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - childhood-030-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La puerta inesperada lejos de casa — Infancia y barrio” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de la oficina del club. La afición entiende tus razones; un cazatalentos de paso, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - childhood-030-hacer-publico
+  - id: childhood-031
+    title: La prueba del viejo rival lejos de casa — Infancia y barrio
+    description: un compañero recién llegado te espera en el estadio de tu primer partido cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “La prueba del viejo rival lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: transporte
+    tags:
+      - transporte
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 11
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “La prueba del viejo rival lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En el estadio de tu primer partido, un compañero recién llegado valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - childhood-031-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “La prueba del viejo rival lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en el estadio de tu primer partido. Abre un instante de ventaja, pero la mirada de un compañero recién llegado deja la evaluación pendiente para después.
+        flagsToAdd:
+          - childhood-031-improvisar
+  - id: childhood-032
+    title: La banca del barrio lejos de casa — Infancia y barrio
+    description: "La noticia llega durante una jornada en la clínica deportiva: una oferta tentadora implica dejar atrás a quien creyó en ti. el profesor de matemáticas conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “La banca del barrio lejos de casa — Infancia y barrio”."
+    stage: childhood
+    category: primer entrenador
+    tags:
+      - primer entrenador
+      - childhood
+      - special-rare
+    rarity: common
+    ageMin: 12
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “La banca del barrio lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la clínica deportiva, aunque el profesor de matemáticas entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - childhood-032-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “La banca del barrio lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la clínica deportiva, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - childhood-032-liderar
+  - id: childhood-033
+    title: El rumor prestados lejos de casa — Infancia y barrio
+    description: "Nadie pensaba hablar del asunto en un amistoso de pretemporada, hasta que la vecina que organiza el torneo rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El rumor prestados lejos de casa — Infancia y barrio” en algo más importante que el resultado del fin de semana."
+    stage: childhood
+    category: familia
+    tags:
+      - familia
+      - childhood
+      - narrative-chain
+    rarity: common
+    ageMin: 9
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-02
+    choices:
+      - id: escuchar
+        text: Escuchar a la vecina que organiza el torneo y acordar una salida para “El rumor prestados lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: En un amistoso de pretemporada, la conversación encuentra un acuerdo imperfecto. la vecina que organiza el torneo recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El rumor prestados lejos de casa — Infancia y barrio”.
+        flagsToAdd:
+          - childhood-033-escuchar
+      - id: decidir
+        text: Resolver “El rumor prestados lejos de casa — Infancia y barrio” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la vecina que organiza el torneo se entera después y el silencio en un amistoso de pretemporada pesa más que el resultado inmediato.
+        flagsToAdd:
+          - childhood-033-decidir
+  - id: childhood-034
+    title: La visita en el autobús lejos de casa — Infancia y barrio
+    description: Al terminar la sesión en una concentración internacional, encuentras a la presidenta del barrio con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “La visita en el autobús lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: escuela
+    tags:
+      - escuela
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “La visita en el autobús lejos de casa — Infancia y barrio” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En una concentración internacional varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - childhood-034-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “La visita en el autobús lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. la presidenta del barrio admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de una concentración internacional.
+        flagsToAdd:
+          - childhood-034-asumir-costo
+  - id: childhood-035
+    title: La distancia sin aplausos lejos de casa — Infancia y barrio
+    description: La rutina cambia al llegar a un patio escolar cubierto de lluvia. Allí descubres junto a la directiva que un compañero necesita ayuda para la misma prueba que tú quieres superar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La distancia sin aplausos lejos de casa — Infancia y barrio” puede dividir el antes y el después de esta temporada.
+    stage: childhood
+    category: barrio
+    tags:
+      - barrio
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 11
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “La distancia sin aplausos lejos de casa — Infancia y barrio”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La reacción en un patio escolar cubierto de lluvia es más fría de lo que esperabas, pero la directiva deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - childhood-035-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “La distancia sin aplausos lejos de casa — Infancia y barrio” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de un patio escolar cubierto de lluvia, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - childhood-035-competir
+  - id: childhood-036
+    title: La tregua sin luces lejos de casa — Infancia y barrio
+    description: "Una nota breve te cita en un entrenamiento a puerta cerrada. Nico, tu rival de infancia va directo al asunto: el club exige una respuesta antes de que puedas hablar con tu familia. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La tregua sin luces lejos de casa — Infancia y barrio”."
+    stage: childhood
+    category: economía
+    tags:
+      - economía
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 12
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a Nico, tu rival de infancia durante “La tregua sin luces lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en un entrenamiento a puerta cerrada. No todos están de acuerdo, pero Nico, tu rival de infancia deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - childhood-036-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “La tregua sin luces lejos de casa — Infancia y barrio” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a Nico, tu rival de infancia en un entrenamiento a puerta cerrada queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - childhood-036-mantenerse-aparte
+  - id: childhood-037
+    title: La noche en la pared lejos de casa — Infancia y barrio
+    description: El entrenamiento debía ser normal en una pensión lejos de casa, pero el juvenil que ocupa tu puesto pide detenerlo. Cuenta delante de todos que el partido más importante coincide con una fecha decisiva para tu hogar. La decisión afectará tanto tu progreso como una relación importante. De pronto, “La noche en la pared lejos de casa — Infancia y barrio” deja de ser un problema privado.
+    stage: childhood
+    category: amistad
+    tags:
+      - amistad
+      - childhood
+      - narrative-chain
+    rarity: common
+    ageMin: 9
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    chainId: cadena-02
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La noche en la pared lejos de casa — Infancia y barrio” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que una pensión lejos de casa se convierta en un punto sin regreso.
+        flagsToAdd:
+          - childhood-037-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La noche en la pared lejos de casa — Infancia y barrio” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de una pensión lejos de casa. el juvenil que ocupa tu puesto celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - childhood-037-aceptar
+  - id: childhood-038
+    title: La llave que llegó tarde lejos de casa — Infancia y barrio
+    description: "De camino a el banco de suplentes, el médico del equipo admite que lleva semanas ocultando algo: el capitán te pide guardar silencio sobre un problema del vestuario. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “La llave que llegó tarde lejos de casa — Infancia y barrio”, exige una respuesta antes de llegar."
+    stage: childhood
+    category: torneo local
+    tags:
+      - torneo local
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La llave que llegó tarde lejos de casa — Infancia y barrio” en privado con el médico del equipo
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el banco de suplentes con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - childhood-038-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La llave que llegó tarde lejos de casa — Infancia y barrio” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el banco de suplentes. La afición entiende tus razones; el médico del equipo, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - childhood-038-hacer-publico
+  - id: childhood-039
+    title: El último bus del otro vestuario lejos de casa — Infancia y barrio
+    description: La puerta de un torneo regional está a punto de cerrarse cuando aparece tu hermana mayor. Te advierte que el dinero solucionaría un problema urgente, pero reduce tus minutos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El último bus del otro vestuario lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: transporte
+    tags:
+      - transporte
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 11
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El último bus del otro vestuario lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En un torneo regional, tu hermana mayor valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - childhood-039-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El último bus del otro vestuario lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en un torneo regional. Abre un instante de ventaja, pero la mirada de tu hermana mayor deja la evaluación pendiente para después.
+        flagsToAdd:
+          - childhood-039-improvisar
+  - id: childhood-040
+    title: Los guayos del domingo lejos de casa — Infancia y barrio
+    description: En plena etapa de infancia y barrio, la cancha reconstruida se convierte en escenario de una decisión incómoda. una periodista local confirma que el equipo necesita que juegues en una posición que nunca has entrenado. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “Los guayos del domingo lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: primer entrenador
+    tags:
+      - primer entrenador
+      - childhood
+      - independent
+    rarity: common
+    ageMin: 12
+    ageMax: 12
+    baseWeight: 10
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “Los guayos del domingo lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la cancha reconstruida, aunque una periodista local entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - childhood-040-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “Los guayos del domingo lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la cancha reconstruida, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - childhood-040-liderar
+  - id: childhood-041
+    title: El vendaje bajo la lluvia lejos de casa — Infancia y barrio
+    description: un antiguo mentor te espera en la plaza donde aprendiste a dominar el balón cuando el resto ya se ha marchado. Explica que una decisión rápida puede salvar la temporada o romper la confianza. Tu respuesta puede cambiar la manera en que te ve tu familia. Desde esa noche, todos recuerdan el episodio como “El vendaje bajo la lluvia lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: familia
+    tags:
+      - familia
+      - childhood
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 9
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-02
+    choices:
+      - id: escuchar
+        text: Escuchar a un antiguo mentor y acordar una salida para “El vendaje bajo la lluvia lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: En la plaza donde aprendiste a dominar el balón, la conversación encuentra un acuerdo imperfecto. un antiguo mentor recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El vendaje bajo la lluvia lejos de casa — Infancia y barrio”.
+        flagsToAdd:
+          - childhood-041-escuchar
+      - id: decidir
+        text: Resolver “El vendaje bajo la lluvia lejos de casa — Infancia y barrio” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero un antiguo mentor se entera después y el silencio en la plaza donde aprendiste a dominar el balón pesa más que el resultado inmediato.
+        flagsToAdd:
+          - childhood-041-decidir
+  - id: childhood-042
+    title: El silencio de la grada lejos de casa — Infancia y barrio
+    description: "La noticia llega durante una jornada en la despedida de un compañero: la familia prepara un plan distinto para tu futuro. el entrenador Salcedo conoce una salida, pero necesita saber qué estás dispuesto a ceder. La decisión afectará tanto tu progreso como una relación importante. Así comienza “El silencio de la grada lejos de casa — Infancia y barrio”."
+    stage: childhood
+    category: escuela
+    tags:
+      - escuela
+      - childhood
+      - special-rare
+    rarity: uncommon
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El silencio de la grada lejos de casa — Infancia y barrio” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la despedida de un compañero varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - childhood-042-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El silencio de la grada lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el entrenador Salcedo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la despedida de un compañero.
+        flagsToAdd:
+          - childhood-042-asumir-costo
+  - id: childhood-043
+    title: El dorsal hasta casa lejos de casa — Infancia y barrio
+    description: "Nadie pensaba hablar del asunto en el túnel antes de una final, hasta que tu representante rompe el silencio: un error ajeno amenaza con caer sobre tu reputación. La prensa conocerá una parte, pero no las razones completas. La conversación que sigue convierte “El dorsal hasta casa lejos de casa — Infancia y barrio” en algo más importante que el resultado del fin de semana."
+    stage: childhood
+    category: barrio
+    tags:
+      - barrio
+      - childhood
+      - independent
+    rarity: uncommon
+    ageMin: 11
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El dorsal hasta casa lejos de casa — Infancia y barrio”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: La reacción en el túnel antes de una final es más fría de lo que esperabas, pero tu representante deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - childhood-043-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El dorsal hasta casa lejos de casa — Infancia y barrio” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de el túnel antes de una final, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - childhood-043-competir
+  - id: childhood-044
+    title: El regreso antes del partido lejos de casa — Infancia y barrio
+    description: Al terminar la sesión en la terminal del último bus, encuentras a la afición organizada con una propuesta inesperada. El problema es que la oportunidad existe solo porque alguien más acaba de quedar fuera. El vestuario observará si tus palabras coinciden con tus actos. Tu respuesta dará sentido al recuerdo de “El regreso antes del partido lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: economía
+    tags:
+      - economía
+      - childhood
+      - independent
+    rarity: uncommon
+    ageMin: 12
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la afición organizada durante “El regreso antes del partido lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la terminal del último bus. No todos están de acuerdo, pero la afición organizada deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - childhood-044-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El regreso antes del partido lejos de casa — Infancia y barrio” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la afición organizada en la terminal del último bus queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - childhood-044-mantenerse-aparte
+  - id: childhood-045
+    title: La firma antes del amanecer lejos de casa — Infancia y barrio
+    description: La rutina cambia al llegar a la sala de estudio. Allí descubres junto a la profesora Emilia que el barrio espera que representes causas que el club prefiere evitar. El resultado deportivo importa menos que la confianza que está en juego. Nadie levanta la voz, pero “La firma antes del amanecer lejos de casa — Infancia y barrio” puede dividir el antes y el después de esta temporada.
+    stage: childhood
+    category: amistad
+    tags:
+      - amistad
+      - childhood
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 9
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-02
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La firma antes del amanecer lejos de casa — Infancia y barrio” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que la sala de estudio se convierta en un punto sin regreso.
+        flagsToAdd:
+          - childhood-045-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La firma antes del amanecer lejos de casa — Infancia y barrio” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de la sala de estudio. la profesora Emilia celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - childhood-045-aceptar
+  - id: childhood-046
+    title: La cancha bajo la media lejos de casa — Infancia y barrio
+    description: "Una nota breve te cita en el campo auxiliar sin iluminación. el utilero del club va directo al asunto: una versión incompleta de la historia ya circula entre la afición. Tu respuesta puede cambiar la manera en que te ve tu familia. Hay pocos minutos para decidir cómo quieres que termine “La cancha bajo la media lejos de casa — Infancia y barrio”."
+    stage: childhood
+    category: torneo local
+    tags:
+      - torneo local
+      - childhood
+      - independent
+    rarity: uncommon
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: hablar-privado
+        text: Resolver “La cancha bajo la media lejos de casa — Infancia y barrio” en privado con el utilero del club
+        riskLabel: Riesgo alto
+        visibleHint: Evita el ruido externo; otras personas no conocerán tu versión.
+        effects:
+          - path: discipline
+            operation: add
+            value: 3
+          - path: reputation
+            operation: add
+            value: -1
+        result: La charla privada baja la tensión. No hay disculpas perfectas, pero ambos salen de el campo auxiliar sin iluminación con una versión compartida y el compromiso de sostenerla.
+        flagsToAdd:
+          - childhood-046-hablar-privado
+      - id: hacer-publico
+        text: Contar tu versión de “La cancha bajo la media lejos de casa — Infancia y barrio” antes de que otros la definan
+        riskLabel: Resultado impredecible
+        visibleHint: Recupera la narrativa y alimenta la atención pública.
+        effects:
+          - path: finances
+            operation: add
+            value: 4
+          - path: discipline
+            operation: add
+            value: -2
+        result: Tu mensaje cambia la conversación alrededor de el campo auxiliar sin iluminación. La afición entiende tus razones; el utilero del club, en cambio, lamenta haber conocido tu respuesta al mismo tiempo que todos.
+        flagsToAdd:
+          - childhood-046-hacer-publico
+  - id: childhood-047
+    title: El relevo sin dueño lejos de casa — Infancia y barrio
+    description: El entrenamiento debía ser normal en la sede de la fundación, pero el director de la academia pide detenerlo. Cuenta delante de todos que una molestia física aparece justo cuando por fin te observan. La decisión afectará tanto tu progreso como una relación importante. De pronto, “El relevo sin dueño lejos de casa — Infancia y barrio” deja de ser un problema privado.
+    stage: childhood
+    category: transporte
+    tags:
+      - transporte
+      - childhood
+      - independent
+    rarity: uncommon
+    ageMin: 11
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: seguir-plan
+        text: Seguir el plan acordado para atravesar “El relevo sin dueño lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Construye disciplina y limita tu capacidad de improvisar.
+        effects:
+          - path: resilience
+            operation: add
+            value: 3
+          - path: community
+            operation: add
+            value: -1
+        result: Cumples cada paso aunque el partido pida otra cosa. En la sede de la fundación, el director de la academia valora tu disciplina y anota también que renunciaste a una ocasión de cambiar el ritmo.
+        flagsToAdd:
+          - childhood-047-seguir-plan
+      - id: improvisar
+        text: Cambiar el plan en el momento decisivo de “El relevo sin dueño lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Puede mostrar creatividad o romper la confianza táctica.
+        effects:
+          - path: fitness
+            operation: add
+            value: 4
+          - path: resilience
+            operation: add
+            value: -2
+        result: La improvisación sorprende a todos en la sede de la fundación. Abre un instante de ventaja, pero la mirada de el director de la academia deja la evaluación pendiente para después.
+        flagsToAdd:
+          - childhood-047-improvisar
+  - id: childhood-048
+    title: El retrato a lápiz lejos de casa — Infancia y barrio
+    description: "De camino a la grada casi vacía, tu padre admite que lleva semanas ocultando algo: la nueva generación cuestiona las costumbres que ayudaste a construir. La prensa conocerá una parte, pero no las razones completas. El episodio, que luego llamarán “El retrato a lápiz lejos de casa — Infancia y barrio”, exige una respuesta antes de llegar."
+    stage: childhood
+    category: primer entrenador
+    tags:
+      - primer entrenador
+      - childhood
+      - independent
+    rarity: uncommon
+    ageMin: 12
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: ceder
+        text: Ceder protagonismo para que el grupo resuelva “El retrato a lápiz lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo bajo
+        visibleHint: Refuerza al equipo y reduce tu visibilidad individual.
+        effects:
+          - path: family
+            operation: add
+            value: 3
+          - path: technique
+            operation: add
+            value: -1
+        result: Otra persona toma el centro de la escena y responde bien. Tu gesto pasa casi inadvertido fuera de la grada casi vacía, aunque tu padre entiende exactamente lo que entregaste.
+        flagsToAdd:
+          - childhood-048-ceder
+      - id: liderar
+        text: Ponerte al frente y cargar con el desenlace de “El retrato a lápiz lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo moderado
+        visibleHint: Aumenta tu influencia y hace tuyo cualquier fracaso.
+        effects:
+          - path: discipline
+            operation: add
+            value: 4
+          - path: family
+            operation: add
+            value: -2
+        result: Das el primer paso y el grupo te sigue. Al terminar en la grada casi vacía, nadie duda de quién tomó la responsabilidad; el resultado futuro llevará tu nombre.
+        flagsToAdd:
+          - childhood-048-liderar
+  - id: childhood-049
+    title: El pasillo del capitán lejos de casa — Infancia y barrio
+    description: La puerta de la reunión familiar del domingo está a punto de cerrarse cuando aparece la fisioterapeuta Lina. Te advierte que el cansancio comienza a afectar tus estudios y tus entrenamientos. El vestuario observará si tus palabras coinciden con tus actos. Aceptar esa realidad será el primer paso de “El pasillo del capitán lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: familia
+    tags:
+      - familia
+      - childhood
+      - narrative-chain
+    rarity: uncommon
+    ageMin: 9
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    chainId: cadena-03
+    choices:
+      - id: escuchar
+        text: Escuchar a la fisioterapeuta Lina y acordar una salida para “El pasillo del capitán lejos de casa — Infancia y barrio”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: finances
+            operation: add
+            value: 3
+          - path: talent
+            operation: add
+            value: -1
+        result: En la reunión familiar del domingo, la conversación encuentra un acuerdo imperfecto. la fisioterapeuta Lina recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El pasillo del capitán lejos de casa — Infancia y barrio”.
+        flagsToAdd:
+          - childhood-049-escuchar
+      - id: decidir
+        text: Resolver “El pasillo del capitán lejos de casa — Infancia y barrio” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: resilience
+            operation: add
+            value: 4
+          - path: finances
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero la fisioterapeuta Lina se entera después y el silencio en la reunión familiar del domingo pesa más que el resultado inmediato.
+        flagsToAdd:
+          - childhood-049-decidir
+  - id: childhood-050
+    title: El mensaje de las decisiones lejos de casa — Infancia y barrio
+    description: En plena etapa de infancia y barrio, el comedor de la academia se convierte en escenario de una decisión incómoda. tu mejor amigo confirma que la derrota ha dividido al grupo y nadie quiere dar el primer paso. El resultado deportivo importa menos que la confianza que está en juego. Todo queda suspendido alrededor de “El mensaje de las decisiones lejos de casa — Infancia y barrio”.
+    stage: childhood
+    category: escuela
+    tags:
+      - escuela
+      - childhood
+      - independent
+    rarity: uncommon
+    ageMin: 10
+    ageMax: 12
+    baseWeight: 6
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El mensaje de las decisiones lejos de casa — Infancia y barrio” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: fitness
+            operation: add
+            value: 3
+          - path: confidence
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En el comedor de la academia varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - childhood-050-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El mensaje de las decisiones lejos de casa — Infancia y barrio”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: family
+            operation: add
+            value: 4
+          - path: fitness
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. tu mejor amigo admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de el comedor de la academia.
+        flagsToAdd:
+          - childhood-050-asumir-costo

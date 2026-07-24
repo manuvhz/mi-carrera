@@ -1,0 +1,216 @@
+events:
+  - id: final-years-026
+    title: El vendaje sin luces lejos de casa — Últimos años
+    description: el utilero del club te espera en el campo auxiliar sin iluminación cuando el resto ya se ha marchado. Explica que una lesión pasada vuelve a doler sin aparecer en los exámenes. Hay una salida segura, pero su costo solo se notará con el tiempo. Desde esa noche, todos recuerdan el episodio como “El vendaje sin luces lejos de casa — Últimos años”.
+    stage: final-years
+    category: legado
+    tags:
+      - legado
+      - final-years
+      - independent
+    rarity: rare
+    ageMin: 32
+    ageMax: 36
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: escuchar
+        text: Escuchar a el utilero del club y acordar una salida para “El vendaje sin luces lejos de casa — Últimos años”
+        riskLabel: Riesgo moderado
+        visibleHint: Conserva la confianza, aunque cedes parte del control.
+        effects:
+          - path: community
+            operation: add
+            value: 3
+          - path: fitness
+            operation: add
+            value: -1
+        result: En el campo auxiliar sin iluminación, la conversación encuentra un acuerdo imperfecto. el utilero del club recuerda que escuchaste antes de imponer tu respuesta; el costo llega pronto, pero la confianza sobrevive a “El vendaje sin luces lejos de casa — Últimos años”.
+        flagsToAdd:
+          - final-years-026-escuchar
+      - id: decidir
+        text: Resolver “El vendaje sin luces lejos de casa — Últimos años” por tu cuenta antes de que cierre la oportunidad
+        riskLabel: Riesgo alto
+        visibleHint: Ganas velocidad y autonomía; una relación queda bajo presión.
+        effects:
+          - path: confidence
+            operation: add
+            value: 4
+          - path: community
+            operation: add
+            value: -2
+        result: Actúas antes de que alguien pueda detenerte. La oportunidad sigue viva, pero el utilero del club se entera después y el silencio en el campo auxiliar sin iluminación pesa más que el resultado inmediato.
+        flagsToAdd:
+          - final-years-026-decidir
+  - id: final-years-027
+    title: El silencio en la pared lejos de casa — Últimos años
+    description: "La noticia llega durante una jornada en la sede de la fundación: una oferta tentadora implica dejar atrás a quien creyó en ti. el director de la academia conoce una salida, pero necesita saber qué estás dispuesto a ceder. Esta vez, el talento no basta para resolver el problema. Así comienza “El silencio en la pared lejos de casa — Últimos años”."
+    stage: final-years
+    category: rol secundario
+    tags:
+      - rol secundario
+      - final-years
+      - independent
+    rarity: rare
+    ageMin: 33
+    ageMax: 36
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: pedir-ayuda
+        text: Contar lo ocurrido en “El silencio en la pared lejos de casa — Últimos años” y pedir ayuda a la comunidad
+        riskLabel: Riesgo alto
+        visibleHint: Reparte la carga, pero hace público un problema personal.
+        effects:
+          - path: technique
+            operation: add
+            value: 3
+          - path: discipline
+            operation: add
+            value: -1
+        result: La ayuda aparece de lugares inesperados. En la sede de la fundación varias personas aportan poco y juntas cambian el desenlace; ahora también sienten que tu historia les pertenece.
+        flagsToAdd:
+          - final-years-027-pedir-ayuda
+      - id: asumir-costo
+        text: Asumir a solas el costo de “El silencio en la pared lejos de casa — Últimos años”
+        riskLabel: Resultado impredecible
+        visibleHint: Protege la intimidad y demuestra autonomía, a cambio de energía.
+        effects:
+          - path: reputation
+            operation: add
+            value: 4
+          - path: technique
+            operation: add
+            value: -2
+        result: Resuelves lo urgente sin explicar cómo. el director de la academia admira tu determinación, aunque nota el cansancio que intentas esconder después de salir de la sede de la fundación.
+        flagsToAdd:
+          - final-years-027-asumir-costo
+  - id: final-years-028
+    title: El dorsal que llegó tarde lejos de casa — Últimos años
+    description: "Nadie pensaba hablar del asunto en la grada casi vacía, hasta que tu padre rompe el silencio: una promesa antigua choca con la oportunidad de esta semana. Nadie puede garantizar que la oportunidad vuelva a aparecer. La conversación que sigue convierte “El dorsal que llegó tarde lejos de casa — Últimos años” en algo más importante que el resultado del fin de semana."
+    stage: final-years
+    category: retiro
+    tags:
+      - retiro
+      - final-years
+      - independent
+    rarity: rare
+    ageMin: 34
+    ageMax: 36
+    baseWeight: 3
+    oncePerCareer: true
+    choices:
+      - id: ser-honesto
+        text: Decir toda la verdad sobre “El dorsal que llegó tarde lejos de casa — Últimos años”, incluso si pierdes el lugar
+        riskLabel: Resultado impredecible
+        visibleHint: La transparencia protege tu futuro; la ocasión puede pasar.
+        effects:
+          - path: talent
+            operation: add
+            value: 3
+          - path: resilience
+            operation: add
+            value: -1
+        result: La reacción en la grada casi vacía es más fría de lo que esperabas, pero tu padre deja constancia de tu honestidad. La puerta no queda abierta del todo ni termina de cerrarse.
+        flagsToAdd:
+          - final-years-028-ser-honesto
+      - id: competir
+        text: Guardar el problema y competir mientras “El dorsal que llegó tarde lejos de casa — Últimos años” siga siendo posible
+        riskLabel: Riesgo bajo
+        visibleHint: Mantiene viva la ocasión, con un riesgo físico y emocional mayor.
+        effects:
+          - path: community
+            operation: add
+            value: 4
+          - path: talent
+            operation: add
+            value: -2
+        result: Nadie descubre lo que callaste y consigues estar presente. Sin embargo, al salir de la grada casi vacía, sabes que la decisión volverá a medirse cuando el cuerpo o la memoria pasen factura.
+        flagsToAdd:
+          - final-years-028-competir
+  - id: final-years-029
+    title: El regreso del otro vestuario lejos de casa — Últimos años
+    description: Al terminar la sesión en la reunión familiar del domingo, encuentras a la fisioterapeuta Lina con una propuesta inesperada. El problema es que la directiva mide tu valor en cifras que no cuentan toda la historia. Elegir pronto ayuda al club; esperar protege tu futuro. Tu respuesta dará sentido al recuerdo de “El regreso del otro vestuario lejos de casa — Últimos años”.
+    stage: final-years
+    category: récord
+    tags:
+      - récord
+      - final-years
+      - independent
+    rarity: legendary
+    ageMin: 35
+    ageMax: 36
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: respaldar
+        text: Respaldar públicamente a la fisioterapeuta Lina durante “El regreso del otro vestuario lejos de casa — Últimos años”
+        riskLabel: Riesgo bajo
+        visibleHint: Fortalece una alianza y te expone ante quienes mandan.
+        effects:
+          - path: confidence
+            operation: add
+            value: 3
+          - path: family
+            operation: add
+            value: -1
+        result: Tu voz cambia la reunión en la reunión familiar del domingo. No todos están de acuerdo, pero la fisioterapeuta Lina deja de estar a solas y la relación adquiere una deuda nueva.
+        flagsToAdd:
+          - final-years-029-respaldar
+      - id: mantenerse-aparte
+        text: Mantenerte al margen durante “El regreso del otro vestuario lejos de casa — Últimos años” y concentrarte en tu propio lugar
+        riskLabel: Riesgo moderado
+        visibleHint: Protege tus minutos; el vestuario puede leerlo como distancia.
+        effects:
+          - path: technique
+            operation: add
+            value: 4
+          - path: confidence
+            operation: add
+            value: -2
+        result: La discusión continúa sin ti. Conservas tu posición, aunque la próxima vez que cruzas a la fisioterapeuta Lina en la reunión familiar del domingo queda claro que tu ausencia también fue una decisión.
+        flagsToAdd:
+          - final-years-029-mantenerse-aparte
+  - id: final-years-030
+    title: La firma del domingo lejos de casa — Últimos años
+    description: La rutina cambia al llegar a el comedor de la academia. Allí descubres junto a tu mejor amigo que un compañero necesita ayuda para la misma prueba que tú quieres superar. Lo que hagas quedará en la memoria del barrio durante años. Nadie levanta la voz, pero “La firma del domingo lejos de casa — Últimos años” puede dividir el antes y el después de esta temporada.
+    stage: final-years
+    category: familia
+    tags:
+      - familia
+      - final-years
+      - independent
+    rarity: legendary
+    ageMin: 36
+    ageMax: 36
+    baseWeight: 1
+    oncePerCareer: true
+    choices:
+      - id: esperar
+        text: Pedir tiempo para revisar “La firma del domingo lejos de casa — Últimos años” con la familia
+        riskLabel: Riesgo moderado
+        visibleHint: Reduce decisiones impulsivas, pero la oferta puede cambiar.
+        effects:
+          - path: reputation
+            operation: add
+            value: 3
+          - path: finances
+            operation: add
+            value: -1
+        result: La espera permite ver una condición que nadie había explicado. La propuesta pierde brillo, pero la conversación familiar evita que el comedor de la academia se convierta en un punto sin regreso.
+        flagsToAdd:
+          - final-years-030-esperar
+      - id: aceptar
+        text: Aceptar ahora y convertir “La firma del domingo lejos de casa — Últimos años” en una apuesta personal
+        riskLabel: Riesgo alto
+        visibleHint: Asegura la oportunidad y aumenta el costo de adaptación.
+        effects:
+          - path: talent
+            operation: add
+            value: 4
+          - path: reputation
+            operation: add
+            value: -2
+        result: Das tu palabra antes de salir de el comedor de la academia. tu mejor amigo celebra la valentía, mientras tú entiendes que la parte difícil empieza cuando se apagan las felicitaciones.
+        flagsToAdd:
+          - final-years-030-aceptar
