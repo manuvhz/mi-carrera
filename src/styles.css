@@ -200,7 +200,78 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { 
 .training-result { display:flex; align-items:center; gap:15px; margin-top:12px; padding:14px 17px; color:#a7b3ab; background:#0b2816; border:1px solid #166b35; font-size:11px }
 .training-result strong { color:#32f075; font-size:9px; letter-spacing:.12em }
 
-@media (max-width:900px) { .landing { grid-template-columns:1fr }.hero-visual { min-height:540px }.hero-copy { padding:65px 7vw }.topnav { gap:16px }.dashboard-bottom { grid-template-columns:1fr }.save-grid { grid-template-columns:1fr }.save-grid article { min-height:180px }.hero-copy h1{max-width:600px}.club-picker{grid-template-columns:repeat(2,1fr)}.training-heading{align-items:flex-start;flex-direction:column}.training-grid{grid-template-columns:1fr}.training-game{min-height:150px}.training-game p{min-height:0}.season-mission{grid-template-columns:1fr}.season-mission em{display:none} }
+/* Anuario de cierre de temporada */
+.season-page { --recap-primary:#43a9ea; --recap-secondary:#fff; width:min(1120px,calc(100% - 40px)); margin:0 auto; padding:38px 0 90px }
+.recap-hero { position:relative; min-height:302px; padding:23px clamp(25px,6vw,72px) 38px; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; background:radial-gradient(circle at 50% 100%,color-mix(in srgb,var(--recap-primary) 18%,transparent),transparent 50%),linear-gradient(145deg,#151319,#0b1016 63%); border:1px solid color-mix(in srgb,var(--recap-primary) 55%,#8c4b24); border-top:3px solid #9e5225; border-radius:9px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,.36) }
+.recap-hero:before { content:""; position:absolute; inset:0; opacity:.17; background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(255,255,255,.025) 23px 24px) }
+.recap-hero-top { position:absolute; left:18px; right:18px; top:12px; display:flex; justify-content:space-between; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,.16); color:#a5b0b7; font-size:7px; font-weight:900; letter-spacing:.13em }
+.recap-hero-top strong { color:#ffb12c }
+.recap-club-mark { position:absolute; left:25px; top:48px; display:flex; align-items:center; gap:8px; color:#6f7c84; font-size:7px; font-weight:800; text-transform:uppercase }
+.recap-club-mark img { width:42px; height:45px; object-fit:contain }
+.recap-hero>p { position:relative; margin:20px 0 12px; color:#8d9aa3; font-size:8px; font-weight:800; letter-spacing:.16em; text-transform:uppercase }
+.recap-hero h1 { position:relative; max-width:850px; margin:0; color:#16f15b; font:900 italic clamp(35px,5.3vw,67px)/.92 Georgia,serif; letter-spacing:-.045em; text-transform:uppercase; text-shadow:0 3px 0 rgba(0,0,0,.4) }
+.recap-hero h2 { position:relative; margin:17px 0 5px; color:#f0f3f1; font:800 15px Georgia,serif; text-transform:uppercase }
+.recap-hero small { position:relative; color:#82909a; font-size:9px }
+.recap-kpis { display:grid; grid-template-columns:repeat(6,1fr); gap:7px; margin:12px 0 }
+.recap-kpis>div { min-height:70px; padding:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#0b1014; border:1px solid #293139; border-radius:5px }
+.recap-kpis strong { font:900 22px Georgia,serif }
+.recap-kpis .accent strong { color:#18ed63 }
+.recap-kpis span { margin-top:7px; color:#6e7a83; font-size:6px; font-weight:800; letter-spacing:.09em; text-align:center; text-transform:uppercase }
+.recap-panel { background:#080d10; border:1px solid #273039; border-radius:5px }
+.recap-section-title { min-height:78px; padding:19px 21px; display:flex; align-items:flex-end; justify-content:space-between; gap:20px; border-bottom:1px solid #252d34 }
+.recap-section-title span,.recap-card>span,.recap-next-season span { color:#55aef2; font-size:7px; font-weight:900; letter-spacing:.16em }
+.recap-section-title h2 { margin:6px 0 0; font:800 22px Georgia,serif; text-transform:uppercase }
+.recap-section-title em { color:#62707a; font-size:7px; font-style:normal; letter-spacing:.1em }
+.standings-head,.standing-row { display:grid; grid-template-columns:34px minmax(170px,230px) 1fr 40px repeat(3,35px) 48px; align-items:center; gap:8px }
+.standings-head { min-height:31px; padding:0 14px; color:#59656e; background:#0b1115; font-size:6px; text-transform:uppercase }
+.standings-head strong { text-align:right }
+.standing-row { position:relative; min-height:54px; padding:6px 14px; border-top:1px solid rgba(255,255,255,.055); color:#7f8b94; font-size:8px }
+.standing-row.player-team { background:linear-gradient(90deg,color-mix(in srgb,var(--recap-primary) 14%,transparent),transparent 68%); box-shadow:inset 3px 0 var(--recap-primary) }
+.standing-position { color:#72808a; font:800 13px Georgia,serif; text-align:center }
+.standing-club { display:grid; grid-template-columns:34px 1fr auto; align-items:center; gap:9px; min-width:0 }
+.standing-club img { width:30px; height:32px; object-fit:contain }
+.standing-club strong { overflow:hidden; color:#e5e9e7; font-size:10px; text-overflow:ellipsis; white-space:nowrap }
+.standing-club em { padding:3px 5px; color:#21f36d; background:#0b3b20; border-radius:3px; font-size:5px; font-style:normal; font-weight:900 }
+.standing-progress i { height:5px; display:block; background:#1b2329; overflow:hidden }
+.standing-progress i b { height:100%; display:block; background:linear-gradient(90deg,var(--recap-primary),#54bcf4) }
+.standing-row>strong { color:#d8dfdc; font-size:10px; text-align:right }
+.recap-columns { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr); gap:12px; margin-top:12px }
+.achievement-panel { min-width:0 }
+.achievement-list { padding:7px 21px 16px }
+.achievement-list article { display:grid; grid-template-columns:23px 1fr; gap:11px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06) }
+.achievement-list article:last-child { border:0 }
+.achievement-list article>span { color:#f3c948; font-size:14px; text-align:center }
+.achievement-list strong { color:#e5e9e6; font-size:10px }
+.achievement-list p { display:-webkit-box; overflow:hidden; margin:3px 0 0; color:#77848c; font-size:8px; line-height:1.45; -webkit-box-orient:vertical; -webkit-line-clamp:2 }
+.recap-sidebar { display:grid; align-content:start; gap:12px }
+.recap-card { padding:20px; background:#08100c; border:1px solid #166932; border-radius:5px }
+.recap-card h3 { margin:7px 0 6px; color:#34f177; font:800 20px Georgia,serif; text-transform:uppercase }
+.recap-card p { margin:0; color:#849089; font-size:9px; line-height:1.55 }
+.mentor-card>div { display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px; margin-top:15px }
+.mentor-card i,.economy-meter i { height:5px; display:block; background:#193022; overflow:hidden }
+.mentor-card i b,.economy-meter i b { display:block; height:100%; background:#2cea70 }
+.mentor-card div strong { color:#b9c4bd; font-size:8px }
+.duel-card { border-color:#37536c; background:#091016 }
+.duel-card>span { color:#61baf7 }
+.duel-clubs { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; margin:15px 0 }
+.duel-clubs>div { display:grid; grid-template-columns:35px 1fr; align-items:center; gap:8px }
+.duel-clubs>div:last-child { direction:rtl }
+.duel-clubs img { width:35px; height:39px; object-fit:contain }
+.duel-clubs strong { color:#f4f6f4; font:800 21px Georgia,serif }
+.duel-clubs small { grid-column:1/-1; color:#77848d; font-size:6px; direction:ltr; text-align:center; text-transform:uppercase }
+.duel-clubs>b { color:#58656e; font-size:7px }
+.economy-card { border-color:#5b4e20; background:#100e08 }
+.economy-card>span { color:#e0c34c }.economy-card h3 { color:#ffd82e }
+.economy-meter { margin-top:15px }
+.economy-meter i b { background:linear-gradient(90deg,#f5bb20,#ffe86a) }
+.recap-next-season { display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:12px; padding:27px; background:linear-gradient(115deg,#0a2515,#07100b); border:1px solid #16713a; border-radius:5px }
+.recap-next-season>div { max-width:650px }
+.recap-next-season h2 { margin:6px 0; font:800 24px Georgia,serif }
+.recap-next-season p { margin:0; color:#819087; font-size:10px; line-height:1.5 }
+.recap-next-season .button { flex:none }
+.recap-disclaimer { margin:13px 0 0; color:#56625b; font-size:7px; text-align:center; text-transform:uppercase; letter-spacing:.08em }
+
+@media (max-width:900px) { .landing { grid-template-columns:1fr }.hero-visual { min-height:540px }.hero-copy { padding:65px 7vw }.topnav { gap:16px }.dashboard-bottom { grid-template-columns:1fr }.save-grid { grid-template-columns:1fr }.save-grid article { min-height:180px }.hero-copy h1{max-width:600px}.club-picker{grid-template-columns:repeat(2,1fr)}.training-heading{align-items:flex-start;flex-direction:column}.training-grid{grid-template-columns:1fr}.training-game{min-height:150px}.training-game p{min-height:0}.season-mission{grid-template-columns:1fr}.season-mission em{display:none}.recap-kpis{grid-template-columns:repeat(3,1fr)}.recap-columns{grid-template-columns:1fr}.recap-sidebar{grid-template-columns:repeat(3,1fr)}.recap-card{min-width:0}.recap-next-season{align-items:flex-start;flex-direction:column} }
 @media (max-width:650px) { .topbar { height:68px; padding:0 18px }.topnav { position:fixed; bottom:0; left:0; right:0; height:62px; padding:0 10px; justify-content:space-around; background:#080d0a; border-top:1px solid var(--line); z-index:20 }.topnav a { font-size:9px; padding:23px 3px 19px }.brand span { font-size:12px }.landing { min-height:auto }.hero-copy { padding:55px 22px 60px }.hero-copy h1 { font-size:50px }.hero-lead { font-size:17px }.promise-grid div { margin-right:10px; padding-right:10px }.hero-visual { min-height:500px }.player-silhouette { left:25% }.floating { right:18px; bottom:7% }.landing-footer { display:none }.form-page,.origin-page,.content-page,.dashboard { width:calc(100% - 30px); padding:42px 0 90px }.step-line { margin-bottom:35px }.mode-picker,.form-grid { grid-template-columns:1fr }.career-heading { align-items:center }.career-heading h1 { font-size:36px }.age-badge { width:70px;height:70px}.age-badge strong{font-size:27px}.status-strip { grid-template-columns:1fr 1fr }.status:nth-child(2){border-right:0}.status:nth-child(-n+2){border-bottom:1px solid var(--line)}.next-event-panel,.event-card,.result-card,.retirement-card { padding:28px 20px }.choices button { align-items:flex-start; flex-direction:column; gap:9px }.dashboard-bottom { grid-template-columns:1fr }.big-stats { grid-template-columns:1fr 1fr }.big-stats>div:nth-child(2){border-right:0}.big-stats>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.attributes { padding:20px 15px }.attributes>div { grid-template-columns:100px 1fr 28px; gap:10px }.timeline article { grid-template-columns:58px 1fr; gap:12px }.timeline-age { width:58px;height:58px}.timeline:before{left:28px}.file-actions { flex-direction:column }.event-actions .button { width:100% } }
 @media (prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; animation:none!important; transition:none!important } }
 
@@ -210,4 +281,5 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { 
   .player-card-head{min-height:64px}.player-identity{gap:10px}.player-age{min-width:44px;padding-right:10px}.player-age strong{font-size:36px}.player-identity h1{font-size:17px}.player-identity p{font-size:7px;line-height:1.4}.player-identity small{font-size:7px}.club-crest-wrap{width:60px}.club-crest-wrap img{width:44px;height:47px}.club-crest-wrap span{display:none}
   .player-main-stats strong{font-size:21px}.player-main-stats span{font-size:6px}.player-attributes{grid-template-columns:repeat(5,minmax(0,1fr))}.player-attributes>div{padding:7px 3px;grid-template-columns:1fr}.player-attributes strong{font-size:15px}.player-attributes span{font-size:5px}.player-career-strip{grid-template-columns:1fr 1.25fr 1fr}.player-career-strip strong{font-size:12px}.season-mission{gap:5px}.season-mission p{font-size:8px}
   .playstyle-grid{grid-template-columns:1fr}.playstyle-grid>button{min-height:150px}.playstyle-grid p{min-height:0}.training-arcade{padding:20px 14px}.training-heading>span{margin-top:-8px}.game-stage{padding:50px 12px 24px}.goal-mouth{height:160px}.reaction-pads{gap:5px}.passing-options{grid-template-columns:1fr}.training-result{align-items:flex-start;flex-direction:column;gap:5px}.origin-club{padding:14px}.origin-club img{width:54px;height:58px}
+  .season-page{width:calc(100% - 24px);padding:24px 0 90px}.recap-hero{min-height:330px;padding:75px 18px 35px}.recap-hero-top{font-size:5px}.recap-club-mark{left:50%;top:45px;transform:translateX(-50%)}.recap-club-mark span{display:none}.recap-hero h1{font-size:36px}.recap-kpis{grid-template-columns:repeat(2,1fr)}.recap-kpis>div{min-height:66px}.recap-section-title{align-items:flex-start;flex-direction:column}.recap-section-title em{line-height:1.4}.standings-head,.standing-row{grid-template-columns:25px minmax(100px,1.25fr) minmax(55px,1fr) 28px 38px;gap:5px;padding-left:7px;padding-right:7px}.standings-head>:nth-child(5),.standings-head>:nth-child(6),.standings-head>:nth-child(7),.standing-row>:nth-child(5),.standing-row>:nth-child(6),.standing-row>:nth-child(7){display:none}.standing-club{grid-template-columns:27px 1fr}.standing-club img{width:25px;height:28px}.standing-club em{display:none}.standing-club strong{font-size:8px}.recap-sidebar{grid-template-columns:1fr}.achievement-list{padding-left:14px;padding-right:14px}.recap-next-season{padding:22px 18px}.recap-next-season .button{width:100%;font-size:11px}.recap-next-season h2{font-size:21px}
 }

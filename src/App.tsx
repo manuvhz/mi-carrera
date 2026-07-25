@@ -4,6 +4,7 @@ import { APP_CONFIG } from './config'
 import { CareerPlayerCard } from './components/CareerPlayerCard'
 import { ClubPicker } from './components/ClubPicker'
 import { PlaystylePicker } from './components/PlaystylePicker'
+import { SeasonRecap } from './components/SeasonRecap'
 import { TrainingArcade } from './components/TrainingArcade'
 import { clubById, clubCrestUrl, DEFAULT_CLUB_ID } from './content/real-clubs'
 import { saveGameSchema } from './game/schemas'
@@ -142,7 +143,8 @@ function CareerGuard({ children }: { children: ReactNode }) {
 }
 
 function CareerPage() {
-  const { player, currentEvent, lastResult, eventsThisYear, drawEvent, resolveChoice, continueAfterResult, advanceYear } = useCareerStore()
+  const { player, currentEvent, lastResult, eventsThisYear, drawEvent, resolveChoice, continueAfterResult } = useCareerStore()
+  const navigate = useNavigate()
   if (!player) return null
   const retired = player.careerStage === 'retirement'
   const canAdvance = eventsThisYear >= 2
@@ -151,11 +153,19 @@ function CareerPage() {
     <PlaystylePicker />
     {retired ? <RetirementPanel /> : currentEvent ? <EventCard onChoose={resolveChoice} /> : lastResult ? <ResultCard result={lastResult} onContinue={continueAfterResult} /> : <section className="next-event-panel">
       <div className="pitch-icon">✦</div><p className="eyebrow">PRÓXIMO ACONTECIMIENTO</p><h2>{eventsThisYear === 0 ? 'La temporada está por escribir.' : 'Todavía quedan decisiones por tomar.'}</h2><p>Los eventos disponibles dependen de tu edad, tu origen y todo lo que recuerde tu historia.</p>
-      <div className="event-actions"><button className="button primary" onClick={drawEvent}>Descubrir acontecimiento <span>→</span></button>{canAdvance && <button className="button ghost" onClick={advanceYear}>Cerrar el año</button>}</div><small>{eventsThisYear}/2 acontecimientos esenciales resueltos</small>
+      <div className="event-actions"><button className="button primary" onClick={drawEvent}>Descubrir acontecimiento <span>→</span></button>{canAdvance && <button className="button ghost" onClick={() => navigate('/resumen-temporada')}>Cerrar el año</button>}</div><small>{eventsThisYear}/2 acontecimientos esenciales resueltos</small>
     </section>}
     <TrainingArcade />
     <section className="dashboard-bottom"><div className="mini-panel"><span>HUELLA DE ORIGEN</span><strong>{player.geographicOrigin}</strong><p>{player.stats.community >= 60 ? 'Tu comunidad sigue apareciendo en los momentos decisivos.' : 'La distancia con tu origen comienza a sentirse.'}</p></div><div className="mini-panel"><span>ÚLTIMO RECUERDO</span><strong>{player.eventHistory.at(-1)?.title ?? 'La historia apenas comienza'}</strong><p>{player.eventHistory.at(-1)?.result.slice(0, 105) ?? 'Tu primera decisión todavía te espera.'}…</p></div></section>
   </main></Shell>
+}
+
+function SeasonRecapPage() {
+  const { player, seed, advanceYear } = useCareerStore()
+  const navigate = useNavigate()
+  if (!player) return <Navigate to="/" replace />
+  const continueCareer = () => { advanceYear(); navigate('/carrera') }
+  return <Shell><SeasonRecap player={player} seed={seed} onAdvance={continueCareer} /></Shell>
 }
 
 function EventCard({ onChoose }: { onChoose: (choice: EventChoice) => void }) {
@@ -203,7 +213,7 @@ function Empty({ text }: { text: string }) { return <div className="empty"><span
 export default function App() {
   return <Routes>
     <Route path="/" element={<HomePage />} /><Route path="/crear" element={<CreatePage />} /><Route path="/origen" element={<OriginPage />} />
-    <Route path="/carrera" element={<CareerGuard><CareerPage /></CareerGuard>} /><Route path="/historial" element={<CareerGuard><HistoryPage /></CareerGuard>} />
+    <Route path="/carrera" element={<CareerGuard><CareerPage /></CareerGuard>} /><Route path="/resumen-temporada" element={<CareerGuard><SeasonRecapPage /></CareerGuard>} /><Route path="/historial" element={<CareerGuard><HistoryPage /></CareerGuard>} />
     <Route path="/estadisticas" element={<CareerGuard><StatsPage /></CareerGuard>} /><Route path="/guardado" element={<CareerGuard><SavesPage /></CareerGuard>} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>

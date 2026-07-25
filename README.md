@@ -14,6 +14,7 @@ La aplicación es una SPA estática preparada para GitHub Pages. Combina una his
 - ficha deportiva visual inspirada en videojuegos de carrera;
 - doce clubes argentinos con nombre, ciudad, colores y escudo;
 - tres minijuegos interactivos por temporada: penales, reflejos y visión de pase;
+- anuario de cierre con titular, premio, estadísticas, clasificación ficticia, logros, vínculos, rivalidad y economía;
 - elección permanente de estilo de juego con bonificaciones diferenciadas;
 - avance anual, estadísticas, línea de tiempo y epílogo;
 - universo narrativo ficticio de 8 países, 12 ligas y 80 clubes, más la capa jugable de clubes argentinos;
