@@ -9,6 +9,15 @@ test('crea un futbolista y resuelve su primer evento', async ({ page }) => {
   await expect(page.getByText(/Antes del estadio estaba/)).toBeVisible()
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
   await page.getByRole('button', { name: /Descubrir acontecimiento/ }).click()
+
+  const eventTitle = await page.locator('.event-card h2').innerText()
+  const choiceLabels = await page.locator('.choices button strong').allInnerTexts()
+  expect(choiceLabels.length).toBeGreaterThan(1)
+  for (const choiceLabel of choiceLabels) {
+    expect(choiceLabel).not.toContain(eventTitle)
+    expect(choiceLabel.length).toBeLessThan(100)
+  }
+
   await page.locator('.choices button').first().click()
   await expect(page.getByText('La historia recuerda tu decisión.')).toBeVisible()
 })
