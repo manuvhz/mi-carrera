@@ -2,7 +2,7 @@
 
 **Mi Carrera** es un simulador narrativo, original y offline-first sobre la vida completa de un futbolista. La historia empieza entre los 9 y los 12 años: antes de una academia, un contrato o un estadio. El origen, las relaciones y las decisiones antiguas modifican el camino hasta el retiro.
 
-La aplicación es una SPA estática preparada para GitHub Pages. No utiliza clubes, escudos, ligas ni jugadores reales.
+La aplicación es una SPA estática preparada para GitHub Pages. Combina una historia original con una selección de clubes argentinos reales y escudos obtenidos de Wikimedia Commons bajo las condiciones documentadas en [ATTRIBUTIONS.md](ATTRIBUTIONS.md). Es un proyecto independiente y no está afiliado a los clubes ni a la AFA.
 
 ## Funciones incluidas
 
@@ -11,8 +11,12 @@ La aplicación es una SPA estática preparada para GitHub Pages. No utiliza club
 - 120 pasos narrativos pertenecientes a 20 cadenas;
 - selección ponderada reproducible por semilla;
 - decisiones con efectos deportivos, psicológicos y relacionales;
+- ficha deportiva visual inspirada en videojuegos de carrera;
+- doce clubes argentinos con nombre, ciudad, colores y escudo;
+- tres minijuegos interactivos por temporada: penales, reflejos y visión de pase;
+- elección permanente de estilo de juego con bonificaciones diferenciadas;
 - avance anual, estadísticas, línea de tiempo y epílogo;
-- universo ficticio de 8 países, 12 ligas y 80 clubes;
+- universo narrativo ficticio de 8 países, 12 ligas y 80 clubes, más la capa jugable de clubes argentinos;
 - tres espacios de guardado IndexedDB con Dexie;
 - importación y exportación JSON con validación Zod;
 - PWA instalable, compatible con uso sin conexión;
@@ -51,7 +55,9 @@ npm run dev
 src/
   App.tsx                   interfaz y rutas
   content/events/           23 lotes YAML, máximo 25 eventos por archivo
+  content/real-clubs.ts     clubes reales y metadatos de atribución
   content/world.ts          países, ligas, clubes y competiciones
+  components/               ficha deportiva, selector y minijuegos
   game/                     tipos, esquemas y motor reproducible
   persistence/              base IndexedDB y slots
   stores/                   estado global Zustand
@@ -91,4 +97,4 @@ Autenticación, sincronización, rankings y retos globales deben implementarse d
 
 ## Licencia y contribución
 
-El mundo y los textos son ficticios. Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de añadir contenido.
+La historia, los personajes y el mundo narrativo son originales. Los nombres y escudos reales pertenecen a sus respectivos titulares; consulta [ATTRIBUTIONS.md](ATTRIBUTIONS.md). Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de añadir contenido.

@@ -74,6 +74,7 @@ export interface CareerPlayer {
   birthYear: number
   preferredFoot: 'Izquierdo' | 'Derecho' | 'Ambos'
   favoriteNumber: number
+  favoriteClubId?: string
   primaryPosition: string
   geographicOrigin: string
   economicBackground: string

@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { APP_CONFIG } from '../config'
 import { CAREER_EVENTS } from '../content/load-events'
-import { CLUBS } from '../content/world'
+import { clubById, DEFAULT_CLUB_ID } from '../content/real-clubs'
 import { applyChoice, selectEvent, simulateSeasonStats, stageForAge } from '../game/engine'
 import type { CareerEvent, CareerPlayer, EventChoice, SaveGame } from '../game/types'
 import { loadCareer, saveCareer } from '../persistence/database'
@@ -9,6 +9,7 @@ import { loadCareer, saveCareer } from '../persistence/database'
 interface PlayerDraft {
   firstName: string; lastName: string; nickname: string; nationality: string; region: string; gender: string
   age: number; preferredFoot: 'Izquierdo' | 'Derecho' | 'Ambos'; favoriteNumber: number; primaryPosition: string
+  favoriteClubId?: string
   geographicOrigin: string; economicBackground: string; footballLegacy: string; firstFootballEnvironment: string; initialPersonality: string
 }
 
@@ -24,6 +25,8 @@ interface CareerState {
   resolveChoice: (choice: EventChoice) => void
   continueAfterResult: () => void
   advanceYear: () => void
+  choosePlaystyle: (styleId: 'finisher' | 'engine' | 'allrounder') => void
+  completeMiniGame: (gameId: 'penalties' | 'reactions' | 'passing', score: number, maximum: number) => void
   save: () => Promise<void>
   load: (slot: number) => Promise<boolean>
   reset: () => void
@@ -71,9 +74,55 @@ export const useCareerStore = create<CareerState>((set, get) => ({
     const simulated = simulateSeasonStats(player, seed)
     const age = simulated.age + 1
     const retired = age >= APP_CONFIG.retirementAge
-    const firstClub = age >= 16 && !simulated.currentClubId ? CLUBS[seed % CLUBS.length].name : simulated.currentClubId
+    const firstClub = age >= 16 && !simulated.currentClubId ? clubById(simulated.favoriteClubId ?? DEFAULT_CLUB_ID).name : simulated.currentClubId
     const next = { ...simulated, age, season: simulated.season + 1, careerStage: retired ? 'retirement' as const : stageForAge(age), currentClubId: firstClub, clubRole: age < 13 ? 'Talento del barrio' : age < 16 ? 'Juvenil en formación' : age < 23 ? 'Profesional en crecimiento' : age < 32 ? 'Jugador del primer equipo' : 'Veterano del vestuario' }
     set({ player: next, eventsThisYear: 0, currentEvent: null, lastResult: null })
+    void get().save()
+  },
+  choosePlaystyle: (styleId) => {
+    const { player } = get()
+    if (!player || player.activeFlags.some((flag) => flag.startsWith('playstyle:'))) return
+    const rewards = {
+      finisher: { technique: 8, confidence: 3, label: 'Finalizador' },
+      engine: { fitness: 8, discipline: 3, label: 'Motor del equipo' },
+      allrounder: { talent: 3, technique: 3, fitness: 3, discipline: 3, label: 'Todoterreno' },
+    } as const
+    const reward = rewards[styleId]
+    const stats = { ...player.stats }
+    for (const [key, value] of Object.entries(reward)) {
+      if (key === 'label') continue
+      const stat = key as keyof typeof stats
+      stats[stat] = Math.min(100, stats[stat] + Number(value))
+    }
+    const next = { ...player, stats, activeFlags: [...player.activeFlags, `playstyle:${styleId}`] }
+    set({ player: next, lastResult: `Elegiste el estilo ${reward.label}. Esos hábitos ya empiezan a definir tu carrera.` })
+    void get().save()
+  },
+  completeMiniGame: (gameId, score, maximum) => {
+    const { player } = get()
+    if (!player || maximum <= 0) return
+    const flag = `minigame:${gameId}:season:${player.season}`
+    if (player.activeFlags.includes(flag)) return
+    const level = Math.max(1, Math.min(5, Math.round((score / maximum) * 5)))
+    const stats = { ...player.stats }
+    const gameRewards = {
+      penalties: ['technique', 'confidence'],
+      reactions: ['fitness', 'resilience'],
+      passing: ['talent', 'discipline'],
+    } as const
+    for (const stat of gameRewards[gameId]) stats[stat] = Math.min(100, stats[stat] + level)
+    const titles = { penalties: 'Duelo de penales', reactions: 'Reflejos bajo presión', passing: 'Visión de pase' }
+    const result = `${titles[gameId]}: lograste ${score} de ${maximum}. Tus atributos subieron +${level}.`
+    const next: CareerPlayer = {
+      ...player,
+      stats,
+      activeFlags: [...player.activeFlags, flag],
+      eventHistory: [...player.eventHistory, {
+        eventId: `training-${gameId}`, title: titles[gameId], age: player.age, season: player.season,
+        choiceId: `score-${score}`, choiceText: `Entrenamiento: ${score}/${maximum}`, result, date: new Date().toISOString(),
+      }],
+    }
+    set({ player: next })
     void get().save()
   },
   save: async () => {

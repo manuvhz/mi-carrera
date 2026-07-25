@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { NavLink, Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import { APP_CONFIG } from './config'
+import { CareerPlayerCard } from './components/CareerPlayerCard'
+import { ClubPicker } from './components/ClubPicker'
+import { PlaystylePicker } from './components/PlaystylePicker'
+import { TrainingArcade } from './components/TrainingArcade'
+import { clubById, clubCrestUrl, DEFAULT_CLUB_ID } from './content/real-clubs'
 import { saveGameSchema } from './game/schemas'
 import type { EventChoice } from './game/types'
 import { listSaves, saveCareer } from './persistence/database'
@@ -24,6 +29,7 @@ function Shell({ children, minimal = false }: { children: ReactNode; minimal?: b
       </nav>}
     </header>
     {children}
+    {!minimal && <footer className="app-legal">Nombres y escudos pertenecen a sus titulares. Uso informativo en un proyecto de fans. <a href={`${import.meta.env.BASE_URL}creditos.html`} target="_blank" rel="noreferrer">Fuentes y licencias</a>.</footer>}
   </div>
 }
 
@@ -52,13 +58,13 @@ function HomePage() {
         <div className="story-card floating"><span>PRIMER RECUERDO</span><strong>Los guayos prestados</strong><p>“Prometiste devolverlos después de la final del barrio.”</p></div>
       </section>
     </main>
-    <footer className="landing-footer"><span>Una historia original. Clubes y personajes ficticios.</span><span>v1.0 · Guardado local</span></footer>
+    <footer className="landing-footer"><span>Proyecto de fans · Escudos con fuente y licencia documentadas</span><span>v1.1 · Guardado local</span></footer>
   </Shell>
 }
 
 const defaults: PlayerDraft = {
-  firstName: '', lastName: '', nickname: '', nationality: 'Ardania', region: 'Puerto Cobalto', gender: 'Masculino', age: 10,
-  preferredFoot: 'Derecho', favoriteNumber: 10, primaryPosition: 'Mediocampista', geographicOrigin: 'Barrio popular',
+  firstName: '', lastName: '', nickname: '', nationality: 'Argentina', region: 'San Salvador de Jujuy', gender: 'Masculino', age: 10,
+  preferredFoot: 'Derecho', favoriteNumber: 10, favoriteClubId: DEFAULT_CLUB_ID, primaryPosition: 'Mediocampista', geographicOrigin: 'Barrio popular',
   economicBackground: 'Familia trabajadora con dificultades', footballLegacy: 'Sin conexiones con el fútbol',
   firstFootballEnvironment: 'Partidos en la calle', initialPersonality: 'Disciplinado',
 }
@@ -89,13 +95,14 @@ function CreatePage() {
         <label>Apellido<input required value={draft.lastName} onChange={(e) => update('lastName', e.target.value)} placeholder="Ej. Montoya" /></label>
         <label>Apodo opcional<input value={draft.nickname} onChange={(e) => update('nickname', e.target.value)} placeholder="Ej. El Zurdo" /></label>
         <label>Género<select value={draft.gender} onChange={(e) => update('gender', e.target.value)}><option>Masculino</option><option>Femenino</option><option>No binario</option></select></label>
-        <label>Nacionalidad ficticia<select value={draft.nationality} onChange={(e) => update('nationality', e.target.value)}><option>Ardania</option><option>Belvaria</option><option>Costaluz</option><option>Montelirio</option></select></label>
-        <label>Región<select value={draft.region} onChange={(e) => update('region', e.target.value)}><option>Puerto Cobalto</option><option>Valle Sereno</option><option>Sierra Clara</option><option>Río Dorado</option></select></label>
+        <label>Nacionalidad<select value={draft.nationality} onChange={(e) => update('nationality', e.target.value)}><option>Argentina</option><option>Colombia</option><option>Uruguay</option><option>Chile</option><option>Paraguay</option></select></label>
+        <label>Ciudad de origen<select value={draft.region} onChange={(e) => update('region', e.target.value)}><option>San Salvador de Jujuy</option><option>Buenos Aires</option><option>Córdoba</option><option>Rosario</option><option>La Plata</option></select></label>
         <label>Edad inicial<select value={draft.age} onChange={(e) => update('age', Number(e.target.value))}><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
         <label>Posición<select value={draft.primaryPosition} onChange={(e) => update('primaryPosition', e.target.value)}><option>Portero</option><option>Defensa</option><option>Mediocampista</option><option>Extremo</option><option>Delantero</option></select></label>
         <label>Pie dominante<select value={draft.preferredFoot} onChange={(e) => update('preferredFoot', e.target.value as PlayerDraft['preferredFoot'])}><option>Derecho</option><option>Izquierdo</option><option>Ambos</option></select></label>
         <label>Número favorito<input type="number" min="1" max="99" value={draft.favoriteNumber} onChange={(e) => update('favoriteNumber', Number(e.target.value))} /></label>
       </div></section>
+      <section className="form-section club-form-section"><p className="eyebrow">FÚTBOL ARGENTINO</p><h2>¿Qué escudo imaginas en tu camiseta?</h2><p className="muted">Será tu club soñado durante la infancia y tu primera oportunidad profesional al cumplir 16 años.</p><ClubPicker value={draft.favoriteClubId} onChange={(clubId) => update('favoriteClubId', clubId)} /></section>
       {mode === 'create' && <section className="form-section"><h2>Origen</h2><div className="form-grid">
         <ChoiceSelect label="Entorno geográfico" value={draft.geographicOrigin} onChange={(v) => update('geographicOrigin', v)} options={['Barrio popular', 'Zona rural', 'Pueblo pequeño', 'Ciudad intermedia', 'Zona urbana acomodada', 'Familia migrante']} />
         <ChoiceSelect label="Situación económica" value={draft.economicBackground} onChange={(v) => update('economicBackground', v)} options={['Recursos muy limitados', 'Familia trabajadora con dificultades', 'Economía modesta pero estable', 'Recursos suficientes', 'Familia acomodada']} />
@@ -116,12 +123,14 @@ function OriginPage() {
   const player = useCareerStore((state) => state.player)
   const navigate = useNavigate()
   if (!player) return <Navigate to="/crear" replace />
+  const club = clubById(player.favoriteClubId)
   return <Shell minimal><main className="origin-page">
     <div className="step-line"><span>1</span><i /><span className="active">2</span><i /><span>3</span></div>
     <p className="eyebrow">TU PRIMERA PÁGINA</p><h1>Antes del estadio estaba {player.region}.</h1>
     <div className="origin-story"><p>Tenías <strong>{player.age} años</strong> cuando el balón empezó a ordenar tus días. Creciste en <strong>{player.geographicOrigin.toLowerCase()}</strong>, dentro de una <strong>{player.economicBackground.toLowerCase()}</strong>.</p>
       <p>Tu primer campo fueron los <strong>{player.firstFootballEnvironment.toLowerCase()}</strong>. Sin saberlo, ahí aprendiste que ser <strong>{player.initialPersonality.toLowerCase()}</strong> podía abrir unas puertas y cerrar otras.</p>
       <blockquote>“Antes de convertirte en leyenda, tienes que encontrar una oportunidad.”</blockquote></div>
+    <div className="origin-club"><img src={clubCrestUrl(club)} alt={`Escudo de ${club.name}`} /><div><span>EL ESCUDO QUE TE INSPIRA</span><strong>{club.name}</strong><small>{club.city} · {club.league}</small></div></div>
     <div className="origin-facts"><span>{player.primaryPosition}</span><span>Pie {player.preferredFoot.toLowerCase()}</span><span>Dorsal soñado {player.favoriteNumber}</span><span>{player.footballLegacy}</span></div>
     <button className="button primary" onClick={() => navigate('/carrera')}>Empezar la carrera <span>→</span></button>
   </main></Shell>
@@ -138,17 +147,16 @@ function CareerPage() {
   const retired = player.careerStage === 'retirement'
   const canAdvance = eventsThisYear >= 2
   return <Shell><main className="dashboard">
-    <section className="career-heading"><div><p className="eyebrow">TEMPORADA {player.season}</p><h1>{player.firstName} <span>{player.nickname ? `“${player.nickname}” ` : ''}{player.lastName}</span></h1><p>{player.currentClubId ?? 'Todavía en busca de la primera oportunidad'} · {player.clubRole}</p></div><div className="age-badge"><strong>{player.age}</strong><span>AÑOS</span></div></section>
-    <section className="status-strip"><Status label="Etapa" value={STAGE_LABELS[player.careerStage]} /><Status label="Forma" value={`${player.stats.fitness}/100`} meter={player.stats.fitness} /><Status label="Confianza" value={`${player.stats.confidence}/100`} meter={player.stats.confidence} /><Status label="Reputación" value={`${player.stats.reputation}/100`} meter={player.stats.reputation} /></section>
+    <CareerPlayerCard player={player} />
+    <PlaystylePicker />
     {retired ? <RetirementPanel /> : currentEvent ? <EventCard onChoose={resolveChoice} /> : lastResult ? <ResultCard result={lastResult} onContinue={continueAfterResult} /> : <section className="next-event-panel">
       <div className="pitch-icon">✦</div><p className="eyebrow">PRÓXIMO ACONTECIMIENTO</p><h2>{eventsThisYear === 0 ? 'La temporada está por escribir.' : 'Todavía quedan decisiones por tomar.'}</h2><p>Los eventos disponibles dependen de tu edad, tu origen y todo lo que recuerde tu historia.</p>
       <div className="event-actions"><button className="button primary" onClick={drawEvent}>Descubrir acontecimiento <span>→</span></button>{canAdvance && <button className="button ghost" onClick={advanceYear}>Cerrar el año</button>}</div><small>{eventsThisYear}/2 acontecimientos esenciales resueltos</small>
     </section>}
+    <TrainingArcade />
     <section className="dashboard-bottom"><div className="mini-panel"><span>HUELLA DE ORIGEN</span><strong>{player.geographicOrigin}</strong><p>{player.stats.community >= 60 ? 'Tu comunidad sigue apareciendo en los momentos decisivos.' : 'La distancia con tu origen comienza a sentirse.'}</p></div><div className="mini-panel"><span>ÚLTIMO RECUERDO</span><strong>{player.eventHistory.at(-1)?.title ?? 'La historia apenas comienza'}</strong><p>{player.eventHistory.at(-1)?.result.slice(0, 105) ?? 'Tu primera decisión todavía te espera.'}…</p></div></section>
   </main></Shell>
 }
-
-function Status({ label, value, meter }: { label: string; value: string; meter?: number }) { return <div className="status"><span>{label}</span><strong>{value}</strong>{meter !== undefined && <i><b style={{ width: `${meter}%` }} /></i>}</div> }
 
 function EventCard({ onChoose }: { onChoose: (choice: EventChoice) => void }) {
   const event = useCareerStore((state) => state.currentEvent)!

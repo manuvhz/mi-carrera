@@ -52,7 +52,7 @@ export const saveGameSchema = z.object({
   player: z.object({
     id: z.string(), firstName: z.string(), lastName: z.string(), nickname: z.string(),
     nationality: z.string(), region: z.string(), gender: z.string(), age: z.number(), birthYear: z.number(),
-    preferredFoot: z.enum(['Izquierdo', 'Derecho', 'Ambos']), favoriteNumber: z.number(), primaryPosition: z.string(),
+    preferredFoot: z.enum(['Izquierdo', 'Derecho', 'Ambos']), favoriteNumber: z.number(), favoriteClubId: z.string().optional(), primaryPosition: z.string(),
     geographicOrigin: z.string(), economicBackground: z.string(), footballLegacy: z.string(),
     firstFootballEnvironment: z.string(), initialPersonality: z.string(), careerStage: z.enum(STAGES),
     season: z.number(), currentClubId: z.string().nullable(), clubRole: z.string(),

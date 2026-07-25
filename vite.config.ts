@@ -12,7 +12,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'prompt',
-      includeAssets: ['ball-mark.svg'],
+      includeAssets: ['ball-mark.svg', 'clubs/*', 'creditos.html'],
       manifest: {
         name: 'Mi Carrera',
         short_name: 'Mi Carrera',
@@ -25,7 +25,7 @@ export default defineConfig({
         icons: [{ src: 'ball-mark.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' }],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,yaml}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,yaml}'],
         navigateFallback: 'index.html',
       },
     }),
