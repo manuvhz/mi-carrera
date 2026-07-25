@@ -24,6 +24,23 @@ describe('entrenamientos de carrera', () => {
     expect(player.eventHistory.filter((entry) => entry.eventId === 'training-penalties')).toHaveLength(1)
   })
 
+  it('registra una rutina rápida una sola vez por temporada', () => {
+    const before = useCareerStore.getState().player!.stats.fitness
+    useCareerStore.getState().completeTrainingSession('strength')
+    useCareerStore.getState().completeTrainingSession('strength')
+    const player = useCareerStore.getState().player!
+    expect(player.stats.fitness).toBe(before + 3)
+    expect(player.eventHistory.filter((entry) => entry.eventId === 'training-strength')).toHaveLength(1)
+  })
+
+  it('permite elegir el foco de una sesión táctica', () => {
+    const before = useCareerStore.getState().player!.stats.technique
+    useCareerStore.getState().completeTrainingSession('tactics', 'possession')
+    const player = useCareerStore.getState().player!
+    expect(player.stats.technique).toBe(before + 2)
+    expect(player.eventHistory.at(-1)?.choiceText).toContain('circulación')
+  })
+
   it('aplica un estilo permanente una sola vez', () => {
     useCareerStore.getState().choosePlaystyle('allrounder')
     useCareerStore.getState().choosePlaystyle('finisher')

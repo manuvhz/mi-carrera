@@ -14,19 +14,21 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
   const club = clubForPlayer(player)
   const displayName = player.nickname || `${player.firstName} ${player.lastName}`
   const clubStatus = player.currentClubId ? player.clubRole : `Sueño: debutar en ${club.shortName}`
+  const decisionsThisSeason = player.eventHistory.filter((entry) => entry.season === player.season && !entry.eventId.startsWith('training-')).length
+  const trainedThisSeason = player.activeFlags.some((flag) => flag.endsWith(`:season:${player.season}`) && (flag.startsWith('minigame:') || flag.startsWith('training:')))
   const style = { '--club-primary': club.colors[0], '--club-secondary': club.colors[1] } as CSSProperties
 
-  return <section className="player-card" style={style} aria-label="Ficha de carrera del jugador">
-    <div className="player-card-head">
+  return <section className="player-card player-hud" style={style} aria-label="HUD de carrera del jugador">
+    <header className="player-card-head">
+      <div className="club-crest-wrap"><img src={clubCrestUrl(club)} alt={`Escudo de ${club.name}`} /></div>
       <div className="player-identity">
         <div className="player-age"><strong>{player.age}</strong><span>EDAD</span></div>
-        <div><h1>{displayName} <em>· {POSITION_CODES[player.primaryPosition] ?? player.primaryPosition.slice(0, 3).toUpperCase()} {player.favoriteNumber}</em></h1>
-          <p>{club.name.toUpperCase()} · TEMPORADA {player.season} · {player.age} AÑOS</p>
-          <small>{clubStatus}</small>
+        <div><p>{club.shortName.toUpperCase()} · {player.clubRole.toUpperCase()}</p><h1>{displayName}</h1>
+          <small>{POSITION_CODES[player.primaryPosition] ?? player.primaryPosition.slice(0, 3).toUpperCase()} · Nº {player.favoriteNumber} · {player.preferredFoot}</small>
         </div>
       </div>
-      <div className="club-crest-wrap"><img src={clubCrestUrl(club)} alt={`Escudo de ${club.name}`} /><span>{club.shortName}</span></div>
-    </div>
+      <div className="hud-season"><span>TEMPORADA</span><strong>{String(player.season).padStart(2, '0')}</strong><small>{club.league}</small></div>
+    </header>
 
     <div className="player-main-stats">
       <CardStat value={player.stats.goals} label="Goles" accent />
@@ -35,19 +37,29 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
       <CardStat value={player.stats.trophies} label="Títulos" />
     </div>
 
-    <div className="player-attributes">
-      {(Object.keys(ATTRIBUTE_LABELS) as Array<keyof typeof ATTRIBUTE_LABELS>).map((key) => <div key={key}>
-        <strong>{player.stats[key]}</strong><span>{ATTRIBUTE_LABELS[key]}</span><i><b style={{ width: `${player.stats[key]}%` }} /></i>
-      </div>)}
+    <div className="hud-status-line">
+      <div className="hud-role"><span>ESTADO</span><strong>{clubStatus}</strong></div>
+      <div className="hud-vitals" aria-label="Atributos esenciales">
+        <span>TÉC <strong>{player.stats.technique}</strong></span>
+        <span>FÍS <strong>{player.stats.fitness}</strong></span>
+        <span>CON <strong>{player.stats.confidence}</strong></span>
+      </div>
+      <div className="hud-mission"><span>OBJETIVO DE TEMPORADA</span><strong>{Math.min(decisionsThisSeason, 2)}/2 decisiones · {trainedThisSeason ? 'entrenamiento listo' : 'falta entrenar'}</strong></div>
     </div>
 
-    <div className="player-career-strip">
-      <div><strong>{player.stats.reputation}</strong><span>FAMA</span></div>
-      <div><strong>US$ {player.stats.finances * 100}</strong><span>VALOR DE CARRERA</span></div>
-      <div><strong>{player.stats.goals}-{player.stats.assists}</strong><span>GOLES · ASISTENCIAS</span></div>
-    </div>
-
-    <div className="season-mission"><span>⚑ EL SEMILLERO</span><p><strong>Tu próxima misión:</strong> resuelve dos acontecimientos y entrena al menos una habilidad.</p><em>{club.league} · {club.city}</em></div>
+    <details className="hud-details">
+      <summary><span>Ver ficha completa</span><small>Atributos, fama y valor de carrera</small></summary>
+      <div className="player-attributes">
+        {(Object.keys(ATTRIBUTE_LABELS) as Array<keyof typeof ATTRIBUTE_LABELS>).map((key) => <div key={key}>
+          <strong>{player.stats[key]}</strong><span>{ATTRIBUTE_LABELS[key]}</span><i><b style={{ width: `${player.stats[key]}%` }} /></i>
+        </div>)}
+      </div>
+      <div className="player-career-strip">
+        <div><strong>{player.stats.reputation}</strong><span>FAMA</span></div>
+        <div><strong>US$ {player.stats.finances * 100}</strong><span>VALOR DE CARRERA</span></div>
+        <div><strong>{club.city}</strong><span>SEDE DEL CLUB</span></div>
+      </div>
+    </details>
   </section>
 }
 

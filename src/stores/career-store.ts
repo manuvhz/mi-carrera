@@ -26,6 +26,7 @@ interface CareerState {
   continueAfterResult: () => void
   advanceYear: () => void
   choosePlaystyle: (styleId: 'finisher' | 'engine' | 'allrounder') => void
+  completeTrainingSession: (sessionId: TrainingSessionId, tacticalFocus?: TacticalFocusId) => void
   completeMiniGame: (gameId: 'penalties' | 'reactions' | 'passing', score: number, maximum: number) => void
   save: () => Promise<void>
   load: (slot: number) => Promise<boolean>
@@ -98,6 +99,36 @@ export const useCareerStore = create<CareerState>((set, get) => ({
     set({ player: next, lastResult: `Elegiste el estilo ${reward.label}. Esos hábitos ya empiezan a definir tu carrera.` })
     void get().save()
   },
+  completeTrainingSession: (sessionId, tacticalFocus) => {
+    const { player } = get()
+    if (!player) return
+    const flag = `training:${sessionId}:season:${player.season}`
+    if (player.activeFlags.includes(flag)) return
+    const sessions = {
+      strength: { title: 'Trabajo de fuerza', choice: 'Completaste una sesión física guiada', rewards: { fitness: 3, discipline: 1 } },
+      recovery: { title: 'Recuperación activa', choice: 'Priorizaste la recuperación y el cuidado físico', rewards: { resilience: 3, confidence: 1 } },
+      tactics: tacticalTraining(tacticalFocus ?? 'possession'),
+    } as const
+    const session = sessions[sessionId]
+    const stats = { ...player.stats }
+    for (const [key, value] of Object.entries(session.rewards)) {
+      const stat = key as keyof typeof stats
+      stats[stat] = Math.min(100, stats[stat] + value)
+    }
+    const rewardText = Object.entries(session.rewards).map(([key, value]) => `+${value} ${TRAINING_STAT_LABELS[key as keyof typeof TRAINING_STAT_LABELS]}`).join(' · ')
+    const result = `${session.title} completado. ${rewardText}.`
+    const next: CareerPlayer = {
+      ...player,
+      stats,
+      activeFlags: [...player.activeFlags, flag],
+      eventHistory: [...player.eventHistory, {
+        eventId: `training-${sessionId}`, title: session.title, age: player.age, season: player.season,
+        choiceId: tacticalFocus ?? sessionId, choiceText: session.choice, result, date: new Date().toISOString(),
+      }],
+    }
+    set({ player: next })
+    void get().save()
+  },
   completeMiniGame: (gameId, score, maximum) => {
     const { player } = get()
     if (!player || maximum <= 0) return
@@ -139,4 +170,20 @@ export const useCareerStore = create<CareerState>((set, get) => ({
   reset: () => set({ player: null, currentEvent: null, lastResult: null, eventsThisYear: 0, seed: 0 }),
 }))
 
-export type { PlayerDraft, SaveGame }
+function tacticalTraining(focus: TacticalFocusId) {
+  const plans = {
+    pressing: { title: 'Pizarra: presión alta', choice: 'Ensayaste cuándo saltar a presionar', rewards: { discipline: 2, fitness: 1 } },
+    possession: { title: 'Pizarra: cuidar la pelota', choice: 'Trabajaste apoyos y circulación', rewards: { technique: 2, talent: 1 } },
+    counter: { title: 'Pizarra: atacar espacios', choice: 'Preparaste transiciones rápidas', rewards: { talent: 2, confidence: 1 } },
+  } as const
+  return plans[focus]
+}
+
+const TRAINING_STAT_LABELS = {
+  fitness: 'Físico', discipline: 'Disciplina', resilience: 'Resistencia', confidence: 'Confianza', technique: 'Técnica', talent: 'Talento',
+} as const
+
+type TrainingSessionId = 'strength' | 'recovery' | 'tactics'
+type TacticalFocusId = 'pressing' | 'possession' | 'counter'
+
+export type { PlayerDraft, SaveGame, TrainingSessionId, TacticalFocusId }

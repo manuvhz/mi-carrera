@@ -1,40 +1,82 @@
 import { useMemo, useState } from 'react'
-import { useCareerStore } from '../stores/career-store'
+import { useCareerStore, type TacticalFocusId, type TrainingSessionId } from '../stores/career-store'
 
 type GameId = 'penalties' | 'reactions' | 'passing'
 
+const SESSIONS = [
+  { id: 'strength', icon: '▲', kind: 'SESIÓN RÁPIDA', title: 'Trabajo de fuerza', text: 'Rutina guiada de gimnasio. Se resuelve al instante.', reward: '+3 Físico · +1 Disciplina', tone: 'power' },
+  { id: 'recovery', icon: '↻', kind: 'SESIÓN RÁPIDA', title: 'Recuperación activa', text: 'Movilidad, descanso y cuidado del cuerpo.', reward: '+3 Resistencia · +1 Confianza', tone: 'recovery' },
+  { id: 'tactics', icon: '▦', kind: 'DECISIÓN TÁCTICA', title: 'Trabajo de pizarra', text: 'Elige un plan y define qué aspecto entrenar.', reward: '3 planes disponibles', tone: 'tactics' },
+] as const satisfies ReadonlyArray<{ id: TrainingSessionId; icon: string; kind: string; title: string; text: string; reward: string; tone: string }>
+
 const GAMES = [
-  { id: 'penalties', icon: '◎', title: 'Duelo de penales', text: 'Elige una zona, engaña al arquero y define con precisión.', reward: 'Técnica + Confianza' },
-  { id: 'reactions', icon: '⚡', title: 'Reflejos bajo presión', text: 'Lee la señal y toca el objetivo correcto antes de dudar.', reward: 'Físico + Resiliencia' },
-  { id: 'passing', icon: '◇', title: 'Visión de pase', text: 'Encuentra la salida correcta en cuatro jugadas cerradas.', reward: 'Talento + Disciplina' },
+  { id: 'penalties', icon: '◎', kind: 'MINIJUEGO', title: 'Duelo de penales', text: 'Tres remates. El arquero aprende de tus decisiones.', reward: 'Técnica + Confianza' },
+  { id: 'reactions', icon: '⚡', kind: 'RETO DE REFLEJOS', title: 'Reflejos bajo presión', text: 'Cinco señales rápidas para medir tu reacción.', reward: 'Físico + Resistencia' },
+  { id: 'passing', icon: '◇', kind: 'LECTURA TÁCTICA', title: 'Visión de pase', text: 'Lee cuatro jugadas y elige la salida del equipo.', reward: 'Talento + Disciplina' },
 ] as const
 
 export function TrainingArcade() {
-  const { player, seed, completeMiniGame } = useCareerStore()
+  const { player, seed, completeMiniGame, completeTrainingSession } = useCareerStore()
   const [activeGame, setActiveGame] = useState<GameId | null>(null)
+  const [activeSession, setActiveSession] = useState<TrainingSessionId | null>(null)
   const [result, setResult] = useState<string | null>(null)
   if (!player || player.careerStage === 'retirement') return null
   const isPlayed = (game: GameId) => player.activeFlags.includes(`minigame:${game}:season:${player.season}`)
+  const isSessionDone = (session: TrainingSessionId) => player.activeFlags.includes(`training:${session}:season:${player.season}`)
   const finish = (game: GameId, score: number, maximum: number) => {
     completeMiniGame(game, score, maximum)
     setResult(`Resultado ${score}/${maximum}. La mejora ya fue guardada en tu carrera.`)
   }
+  const finishSession = (session: TrainingSessionId, focus?: TacticalFocusId) => {
+    completeTrainingSession(session, focus)
+    setActiveSession(null)
+    setResult(session === 'tactics' ? 'Plan táctico completado. La elección ya modificó tus atributos.' : 'Sesión completada. La mejora ya fue aplicada a tu carrera.')
+  }
+  const sessionCount = SESSIONS.filter((session) => isSessionDone(session.id)).length
+  const gameCount = GAMES.filter((game) => isPlayed(game.id)).length
 
-  return <section className="training-arcade" aria-labelledby="training-title">
-    <div className="training-heading"><div><p className="eyebrow">CENTRO DE ENTRENAMIENTO</p><h2 id="training-title">Juega. Mejora. Déjalo en la cancha.</h2><p>Cada reto se puede completar una vez por temporada y modifica tu carrera real.</p></div><span>{GAMES.filter((game) => isPlayed(game.id)).length}/3 COMPLETADOS</span></div>
+  return <section className="training-arcade training-center" aria-labelledby="training-title">
+    <div className="training-heading"><div><p className="eyebrow">CENTRO DE ENTRENAMIENTO</p><h2 id="training-title">Arma tu semana de trabajo.</h2><p>No todo es un minijuego: combina sesiones rápidas, decisiones de pizarra y retos de cancha.</p></div><div className="training-progress"><span>{sessionCount}/3 SESIONES</span><span>{gameCount}/3 RETOS</span></div></div>
+
+    <div className="training-section-heading"><div><span>01</span><div><strong>Rutinas y preparación</strong><small>Sin puntuación. Entra, trabaja y sigue con tu carrera.</small></div></div><em>{sessionCount}/3 HECHAS</em></div>
+    <div className="session-grid">
+      {SESSIONS.map((session) => <button type="button" data-tone={session.tone} key={session.id} disabled={isSessionDone(session.id)} className={activeSession === session.id ? 'session-card active' : 'session-card'} onClick={() => {
+        setActiveGame(null); setResult(null)
+        if (session.id === 'tactics') setActiveSession('tactics')
+        else finishSession(session.id)
+      }}>
+        <span className="session-icon">{isSessionDone(session.id) ? '✓' : session.icon}</span><div><small>{isSessionDone(session.id) ? 'COMPLETADA' : session.kind}</small><h3>{session.title}</h3><p>{session.text}</p><em>{session.reward}</em></div><b>{isSessionDone(session.id) ? 'LISTO' : session.id === 'tactics' ? 'ELEGIR PLAN →' : 'COMPLETAR →'}</b>
+      </button>)}
+    </div>
+
+    {activeSession === 'tactics' && !isSessionDone('tactics') && <div className="game-stage tactical-stage">
+      <button className="game-close" type="button" aria-label="Cerrar sesión táctica" onClick={() => setActiveSession(null)}>×</button>
+      <TacticalSession onChoose={(focus) => finishSession('tactics', focus)} />
+    </div>}
+
+    <div className="training-section-heading challenge-heading"><div><span>02</span><div><strong>Retos de cancha</strong><small>Aquí sí juegas: cada reto mide una habilidad distinta.</small></div></div><em>{gameCount}/3 SUPERADOS</em></div>
     <div className="training-grid">
-      {GAMES.map((game) => <button type="button" key={game.id} disabled={isPlayed(game.id)} className={activeGame === game.id ? 'training-game active' : 'training-game'} onClick={() => { setActiveGame(game.id); setResult(null) }}>
-        <span className="game-icon">{isPlayed(game.id) ? '✓' : game.icon}</span><small>{isPlayed(game.id) ? 'COMPLETADO' : 'MINIJUEGO'}</small><h3>{game.title}</h3><p>{game.text}</p><em>{game.reward}</em>
+      {GAMES.map((game) => <button type="button" key={game.id} disabled={isPlayed(game.id)} className={activeGame === game.id ? 'training-game active' : 'training-game'} onClick={() => { setActiveSession(null); setActiveGame(game.id); setResult(null) }}>
+        <span className="game-icon">{isPlayed(game.id) ? '✓' : game.icon}</span><small>{isPlayed(game.id) ? 'COMPLETADO' : game.kind}</small><h3>{game.title}</h3><p>{game.text}</p><em>{game.reward}</em><b>{isPlayed(game.id) ? 'LISTO' : 'ABRIR RETO →'}</b>
       </button>)}
     </div>
     {activeGame && !isPlayed(activeGame) && <div className="game-stage">
-      <button className="game-close" type="button" aria-label="Cerrar minijuego" onClick={() => setActiveGame(null)}>×</button>
+      <button className="game-close" type="button" aria-label="Cerrar reto" onClick={() => setActiveGame(null)}>×</button>
       {activeGame === 'penalties' && <PenaltyGame seed={seed} season={player.season} onFinish={(score) => finish('penalties', score, 3)} />}
       {activeGame === 'reactions' && <ReactionGame seed={seed} season={player.season} onFinish={(score) => finish('reactions', score, 5)} />}
       {activeGame === 'passing' && <PassingGame seed={seed} season={player.season} onFinish={(score) => finish('passing', score, 4)} />}
     </div>}
-    {result && <div className="training-result" role="status"><strong>ENTRENAMIENTO COMPLETADO</strong><span>{result}</span></div>}
+    {result && <div className="training-result" role="status"><strong>TRABAJO COMPLETADO</strong><span>{result}</span></div>}
   </section>
+}
+
+function TacticalSession({ onChoose }: { onChoose: (focus: TacticalFocusId) => void }) {
+  const plans = [
+    { id: 'pressing', number: '4-3-3', title: 'Presión alta', text: 'Saltar juntos sobre la salida rival.', reward: '+2 Disciplina · +1 Físico' },
+    { id: 'possession', number: '4-2-3-1', title: 'Cuidar la pelota', text: 'Crear líneas de pase y sostener la posesión.', reward: '+2 Técnica · +1 Talento' },
+    { id: 'counter', number: '4-4-2', title: 'Atacar espacios', text: 'Replegar y acelerar apenas recuperas.', reward: '+2 Talento · +1 Confianza' },
+  ] as const
+  return <div className="tactical-session"><p className="eyebrow">REUNIÓN CON EL CUERPO TÉCNICO</p><h3>¿Qué plan quieres ensayar?</h3><p>Esto no es un examen: eliges el foco de la sesión y la carrera recuerda tu decisión.</p><div className="tactical-options">{plans.map((plan) => <button type="button" key={plan.id} onClick={() => onChoose(plan.id)}><span>{plan.number}</span><strong>{plan.title}</strong><small>{plan.text}</small><em>{plan.reward}</em></button>)}</div></div>
 }
 
 function PenaltyGame({ seed, season, onFinish }: { seed: number; season: number; onFinish: (score: number) => void }) {

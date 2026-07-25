@@ -43,7 +43,7 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
   const achievements = [
     { icon: '◈', title: award, text: `La temporada te reconoce como ${award.toLowerCase()} en esta partida.` },
     { icon: '⚑', title: 'Decisiones con memoria', text: `Resolviste ${storyEntries.length} acontecimientos que seguirán influyendo en tu carrera.` },
-    { icon: '⚡', title: 'Trabajo de entrenamiento', text: trainingEntries.length ? `Completaste ${trainingEntries.length} retos interactivos y convertiste el esfuerzo en atributos.` : 'Todavía puedes hacer del entrenamiento una ventaja la próxima temporada.' },
+    { icon: '⚡', title: 'Trabajo de entrenamiento', text: trainingEntries.length ? `Completaste ${trainingEntries.length} sesiones entre rutinas, táctica y retos de cancha.` : 'Todavía puedes hacer del entrenamiento una ventaja la próxima temporada.' },
     { icon: '★', title: 'Impacto ofensivo', text: `${seasonGoals} goles y ${seasonAssists} asistencias en ${seasonMatches} partidos simulados.` },
     { icon: '♟', title: 'Lugar en el equipo', text: `${player.clubRole}. El cuerpo técnico valora tu disciplina en ${player.stats.discipline}/100.` },
     { icon: '●', title: 'El nombre empieza a circular', text: `Tu reputación proyectada termina en ${projected.stats.reputation}/100.` },
