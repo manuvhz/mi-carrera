@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildDecisionOutcome, careerDecisionIdentity, choiceArchetype, riskLevel } from './experience'
+import { buildDecisionOutcome, careerDecisionIdentity, choiceArchetype, presentedRiskLabel, riskLevel } from './experience'
 import type { CareerEvent, EventChoice, EventHistoryEntry, PlayerStats } from './types'
 
 const stats: PlayerStats = { talent: 50, technique: 50, fitness: 50, discipline: 50, confidence: 50, resilience: 50, reputation: 10, family: 50, community: 50, finances: 10, goals: 0, assists: 0, matches: 0, trophies: 0 }
@@ -9,6 +9,7 @@ describe('experiencia de decisiones', () => {
     expect(choiceArchetype({ id: 'escuchar', text: 'Escuchar a tu capitán' }).label).toBe('Equipo')
     expect(choiceArchetype({ id: 'aceptar', text: 'Aceptar ahora' }).label).toBe('Instinto')
     expect(riskLevel('Riesgo extremo')).toBe(5)
+    expect(presentedRiskLabel({ id: 'a', text: 'Hablar', riskLabel: 'Riesgo alto', visibleHint: 'Pista', effects: [{ path: 'reputation', operation: 'add', value: -1 }], result: 'Resultado' })).toBe('Riesgo bajo')
   })
 
   it('construye una consecuencia con cambios visibles', () => {
@@ -17,6 +18,7 @@ describe('experiencia de decisiones', () => {
     const outcome = buildDecisionOutcome(event, choice, stats, { ...stats, discipline: 53, reputation: 9 })
     expect(outcome.tone).toBe('bittersweet')
     expect(outcome.changes.map((change) => change.delta)).toEqual([3, -1])
+    expect(outcome.riskLabel).toBe('Riesgo bajo')
   })
 
   it('resume la identidad de las últimas decisiones', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { applyChoice, clampStat, seededRandom, selectEvent, stageForAge } from './engine'
+import { applyChoice, clampStat, progressAttribute, seededRandom, selectEvent, simulateSeason, stageForAge } from './engine'
 import type { CareerEvent, CareerPlayer } from './types'
 
 const player: CareerPlayer = {
@@ -20,9 +20,28 @@ describe('motor de carrera', () => {
     expect([a(), a(), a()]).toEqual([b(), b(), b()])
   })
   it('respeta los límites de atributos', () => { expect(clampStat(104)).toBe(100); expect(clampStat(-3)).toBe(0) })
+  it('hace más difícil llegar a 100 y permite que un atributo alto baje', () => {
+    expect(progressAttribute(95, 7)).toBe(96)
+    expect(progressAttribute(95, -2)).toBe(92)
+  })
   it('aplica efectos y banderas', () => {
     const changed = applyChoice(player, { ...event.choices[0], flagsToAdd: ['hablo'] })
     expect(changed.stats.confidence).toBe(57); expect(changed.activeFlags).toContain('hablo')
   })
   it('selecciona un evento elegible', () => { expect(selectEvent([event], player, 7).id).toBe(event.id) })
+  it('convierte atributos altos en más goles y una mejor temporada', () => {
+    const elite = { ...player, age: 24, season: 10, careerStage: 'prime' as const, primaryPosition: 'Delantero', stats: { ...player.stats, talent: 95, technique: 95, fitness: 95, discipline: 90, confidence: 95 } }
+    const average = { ...elite, stats: { ...elite.stats, talent: 50, technique: 50, fitness: 50, discipline: 50, confidence: 50 } }
+    const eliteSeason = simulateSeason(elite, 42, 12)
+    const averageSeason = simulateSeason(average, 42, 12)
+    expect(eliteSeason.goals).toBeGreaterThan(averageSeason.goals)
+    expect(eliteSeason.position).toBeLessThan(averageSeason.position)
+    expect(eliteSeason.matches).toBeGreaterThanOrEqual(24)
+  })
+  it('convierte una temporada campeona en un título real del palmarés', () => {
+    const legend = { ...player, age: 25, season: 12, careerStage: 'prime' as const, primaryPosition: 'Delantero', stats: { ...player.stats, talent: 99, technique: 99, fitness: 99, discipline: 99, confidence: 99, resilience: 99 } }
+    const season = simulateSeason(legend, 0, 12)
+    expect(season.champion).toBe(true)
+    expect(season.player.stats.trophies).toBe(1)
+  })
 })

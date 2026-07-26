@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react'
 import { APP_CONFIG } from '../config'
 import { clubCrestUrl, clubForPlayer } from '../content/real-clubs'
 import { isNarrativeEventId } from '../game/history'
+import { CAREER_STAGE_INFO } from '../game/engine'
 import type { CareerPlayer } from '../game/types'
 
 const POSITION_CODES: Record<string, string> = {
@@ -9,7 +10,7 @@ const POSITION_CODES: Record<string, string> = {
 }
 
 const ATTRIBUTE_LABELS = {
-  technique: 'Técnica', fitness: 'Físico', talent: 'Talento', discipline: 'Disciplina', resilience: 'Resistencia',
+  technique: 'Pegada', fitness: 'Velocidad', talent: 'Visión', confidence: 'Mentalidad', resilience: 'Resistencia',
 } as const
 
 export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
@@ -19,6 +20,7 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
   const decisionsThisSeason = player.eventHistory.filter((entry) => entry.season === player.season && isNarrativeEventId(entry.eventId)).length
   const trainedThisSeason = player.activeFlags.some((flag) => flag.endsWith(`:season:${player.season}`) && (flag.startsWith('minigame:') || flag.startsWith('training:')))
   const style = { '--club-primary': club.colors[0], '--club-secondary': club.colors[1] } as CSSProperties
+  const stage = CAREER_STAGE_INFO[player.careerStage]
 
   return <section className="player-card player-hud" style={style} aria-label="HUD de carrera del jugador">
     <header className="player-card-head">
@@ -32,6 +34,8 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
       <div className="hud-season"><span>TEMPORADA</span><strong>{String(player.season).padStart(2, '0')}</strong><small>{club.league}</small></div>
     </header>
 
+    <div className="hud-stage-banner"><div><span>ETAPA ACTUAL</span><strong>{stage.label}</strong></div><p>{stage.milestone}</p><b>{stage.short}</b></div>
+
     <div className="player-main-stats">
       <CardStat value={player.stats.goals} label="Goles" accent />
       <CardStat value={player.stats.assists} label="Asistencias" />
@@ -42,9 +46,9 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
     <div className="hud-status-line">
       <div className="hud-role"><span>ESTADO</span><strong>{clubStatus}</strong></div>
       <div className="hud-vitals" aria-label="Atributos esenciales">
-        <span>TÉC <strong>{player.stats.technique}</strong></span>
-        <span>FÍS <strong>{player.stats.fitness}</strong></span>
-        <span>CON <strong>{player.stats.confidence}</strong></span>
+        <span>PEG <strong>{player.stats.technique}</strong></span>
+        <span>VEL <strong>{player.stats.fitness}</strong></span>
+        <span>VIS <strong>{player.stats.talent}</strong></span>
       </div>
       <div className="hud-mission"><span>OBJETIVO DE TEMPORADA</span><strong>{Math.min(decisionsThisSeason, APP_CONFIG.eventsPerSeason)}/{APP_CONFIG.eventsPerSeason} decisiones · {trainedThisSeason ? 'entrenamiento listo' : 'falta entrenar'}</strong></div>
     </div>
@@ -58,7 +62,7 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
       </div>
       <div className="player-career-strip">
         <div><strong>{player.stats.reputation}</strong><span>FAMA</span></div>
-        <div><strong>US$ {player.stats.finances * 100}</strong><span>VALOR DE CARRERA</span></div>
+        <div><strong>US$ {player.stats.finances * 100}</strong><span>DINERO DISPONIBLE</span></div>
         <div><strong>{club.city}</strong><span>SEDE DEL CLUB</span></div>
       </div>
     </details>

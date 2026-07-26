@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
-import { NavLink, Navigate, Route, Routes, useNavigate } from 'react-router-dom'
+import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { APP_CONFIG } from './config'
 import { CareerPlayerCard } from './components/CareerPlayerCard'
 import { ClubPicker } from './components/ClubPicker'
@@ -16,6 +16,12 @@ import { useCareerStore, type PlayerDraft } from './stores/career-store'
 
 function Mark() {
   return <span className="mark" aria-hidden="true"><span>MC</span></span>
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }) }, [pathname])
+  return null
 }
 
 function Shell({ children, minimal = false }: { children: ReactNode; minimal?: boolean }) {
@@ -153,6 +159,12 @@ function CareerPage() {
     drawEvent()
   }, [currentEvent, drawEvent, eventsThisYear, lastOutcome, lastResult, navigate, player, retired])
 
+  useEffect(() => {
+    if (!lastOutcome) return
+    const timer = window.setTimeout(continueAfterResult, APP_CONFIG.outcomeAutoAdvanceMs)
+    return () => window.clearTimeout(timer)
+  }, [continueAfterResult, lastOutcome])
+
   if (!player) return null
   return <Shell><main className="dashboard">
     <CareerPlayerCard player={player} />
@@ -198,7 +210,7 @@ function HistoryPage() {
 function StatsPage() {
   const player = useCareerStore((state) => state.player)!
   const stats = player.stats
-  return <Shell><main className="content-page"><p className="eyebrow">RADIOGRAFÍA DE CARRERA</p><h1>Lo visible y lo que te sostiene.</h1><div className="big-stats"><StatNumber value={stats.matches} label="Partidos" /><StatNumber value={stats.goals} label="Goles" /><StatNumber value={stats.assists} label="Asistencias" /><StatNumber value={stats.trophies} label="Títulos" /></div><section className="attributes"><h2>Atributos</h2>{(['talent', 'technique', 'fitness', 'discipline', 'confidence', 'resilience', 'reputation', 'family', 'community'] as const).map((key) => <div key={key}><span>{{ talent: 'Talento', technique: 'Técnica', fitness: 'Estado físico', discipline: 'Disciplina', confidence: 'Confianza', resilience: 'Resiliencia', reputation: 'Reputación', family: 'Familia', community: 'Comunidad' }[key]}</span><i><b style={{ width: `${stats[key]}%` }} /></i><strong>{stats[key]}</strong></div>)}</section></main></Shell>
+  return <Shell><main className="content-page"><p className="eyebrow">RADIOGRAFÍA DE CARRERA</p><h1>Tu rendimiento, explicado como futbolista.</h1><div className="big-stats"><StatNumber value={stats.matches} label="Partidos" /><StatNumber value={stats.goals} label="Goles" /><StatNumber value={stats.assists} label="Asistencias" /><StatNumber value={stats.trophies} label="Títulos" /></div><section className="attributes"><h2>Atributos principales</h2>{(['technique', 'fitness', 'talent', 'confidence', 'resilience', 'discipline', 'reputation', 'family', 'community'] as const).map((key) => <div key={key}><span>{{ talent: 'Visión', technique: 'Pegada', fitness: 'Velocidad', discipline: 'Disciplina', confidence: 'Mentalidad', resilience: 'Resistencia', reputation: 'Reputación', family: 'Familia', community: 'Barrio' }[key]}</span><i><b style={{ width: `${stats[key]}%` }} /></i><strong>{stats[key]}</strong></div>)}</section></main></Shell>
 }
 
 function StatNumber({ value, label }: { value: number; label: string }) { return <div><strong>{value}</strong><span>{label}</span></div> }
@@ -219,10 +231,10 @@ function SavesPage() {
 function Empty({ text }: { text: string }) { return <div className="empty"><span>○</span><p>{text}</p></div> }
 
 export default function App() {
-  return <Routes>
+  return <><ScrollToTop /><Routes>
     <Route path="/" element={<HomePage />} /><Route path="/crear" element={<CreatePage />} /><Route path="/origen" element={<OriginPage />} />
     <Route path="/carrera" element={<CareerGuard><CareerPage /></CareerGuard>} /><Route path="/resumen-temporada" element={<CareerGuard><SeasonRecapPage /></CareerGuard>} /><Route path="/historial" element={<CareerGuard><HistoryPage /></CareerGuard>} />
     <Route path="/estadisticas" element={<CareerGuard><StatsPage /></CareerGuard>} /><Route path="/guardado" element={<CareerGuard><SavesPage /></CareerGuard>} />
     <Route path="*" element={<Navigate to="/" replace />} />
-  </Routes>
+  </Routes></>
 }

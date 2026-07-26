@@ -9,6 +9,8 @@ test('crea un futbolista y resuelve su primer evento', async ({ page }) => {
   await expect(page.getByText(/Antes del estadio estaba/)).toBeVisible()
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
   await expect(page.locator('.decision-scene')).toBeVisible()
+  await expect(page.getByText('ETAPA ACTUAL')).toBeVisible()
+  await expect(page.getByText('Fútbol base', { exact: true })).toBeVisible()
   await expect(page.getByRole('button', { name: /Descubrir acontecimiento|Cerrar el año/ })).toHaveCount(0)
 
   const eventTitle = await page.locator('.decision-scene h2').innerText()
@@ -34,10 +36,13 @@ test('elige un club real y combina una rutina con un reto interactivo', async ({
   await expect(page.getByText('Gimnasia y Esgrima de Jujuy')).toBeVisible()
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
   await expect(page.getByRole('img', { name: /Escudo de Gimnasia y Esgrima de Jujuy/ })).toBeVisible()
-  await page.getByRole('button', { name: /Trabajo de fuerza/ }).click()
+  await page.getByRole('button', { name: /Entrenador personal/ }).click()
+  await expect(page.getByText('US$ 700 DISPONIBLES')).toBeVisible()
+  await page.getByRole('button', { name: /Trabajo de velocidad/ }).click()
   await expect(page.getByText(/Sesión completada/)).toBeVisible()
   await page.getByRole('button', { name: /Duelo de penales/ }).click()
   await page.getByRole('button', { name: 'Arriba izquierda' }).click()
+  await expect(page.locator('.penalty-flash')).toBeVisible()
   await page.getByRole('button', { name: 'Arriba centro' }).click()
   await page.getByRole('button', { name: 'Arriba derecha' }).click()
   await expect(page.getByText('TRABAJO COMPLETADO')).toBeVisible()
@@ -74,7 +79,7 @@ test('puede empezar en Brasil con un escudo real', async ({ page }) => {
   await expect(page.locator('.hud-season small')).toHaveText('Brasileirão Série A')
 })
 
-test('avanza solo al anuario tras tres acontecimientos y comienza la temporada siguiente', async ({ page }) => {
+test('avanza solo al anuario tras dos acontecimientos y acelera la etapa juvenil', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Comenzar mi historia/ }).click()
   await page.getByLabel('Nombre').fill('Mara')
@@ -82,10 +87,10 @@ test('avanza solo al anuario tras tres acontecimientos y comienza la temporada s
   await page.getByRole('button', { name: /Construir mi origen/ }).click()
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
 
-  for (let decision = 0; decision < 3; decision += 1) {
+  for (let decision = 0; decision < 2; decision += 1) {
     await expect(page.locator('.decision-scene')).toBeVisible()
     await page.locator('.decision-choice').first().click()
-    await page.getByRole('button', { name: /Seguir la historia/ }).click()
+    await page.getByRole('button', { name: /Siguiente ahora/ }).click()
   }
 
   await expect(page.getByText('RESUMEN DE TEMPORADA')).toBeVisible()
@@ -93,7 +98,9 @@ test('avanza solo al anuario tras tres acontecimientos y comienza la temporada s
   await expect(page.locator('.standing-row')).toHaveCount(0)
   await expect(page.getByText(/Lo que dejó la temporada/)).toBeVisible()
   await page.getByRole('button', { name: /Comenzar la próxima temporada/ }).click()
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
   await expect(page.locator('.hud-season strong')).toHaveText('02')
-  await expect(page.locator('.hud-mission strong')).toContainText('0/3 decisiones')
+  await expect(page.locator('.player-age strong')).toHaveText('12')
+  await expect(page.locator('.hud-mission strong')).toContainText('0/2 decisiones')
   await expect(page.locator('.decision-scene')).toBeVisible()
 })

@@ -24,7 +24,7 @@ export function presentEventDescription(description: string, title: string) {
     .replace('Hay pocos minutos para decidir cómo quieres que termine esta situación.', 'Quedan pocos minutos para elegir.')
     .replace('Tu respuesta dará sentido al recuerdo de esta situación.', 'Lo que hagas marcará el resto de la temporada.')
     .replace('Todo queda suspendido alrededor de esta situación.', 'Nadie se mueve hasta escuchar tu respuesta.')
-  return cleanSpanish(presented)
+  return compactText(cleanSpanish(presented), 230, 2)
 }
 
 export function presentChoiceText(text: string, title: string) {
@@ -44,13 +44,17 @@ export function presentChoiceText(text: string, title: string) {
     [/^Guardar el problema y competir mientras la situación siga siendo posible$/u, 'Guardar el problema y seguir compitiendo'],
   ]
   for (const [pattern, replacement] of compactRules) presented = presented.replace(pattern, replacement)
-  return cleanSpanish(presented)
+  return compactText(cleanSpanish(presented), 78, 1)
+}
+
+export function presentChoiceHint(hint: string) {
+  return compactText(cleanSpanish(hint), 86, 1)
 }
 
 export function presentEventResult(result: string, title: string) {
   let presented = result
   for (const mention of titleMentions(title)) presented = presented.replaceAll(mention, 'lo ocurrido')
-  return cleanSpanish(presented)
+  return compactText(cleanSpanish(presented), 205, 2)
 }
 
 function titleMentions(title: string) {
@@ -65,4 +69,11 @@ function cleanSpanish(text: string) {
     .replace(/\bde el\b/giu, 'del')
     .trim()
   return spaced.replace(/(^|[.!?]\s+)([a-záéíóúñ])/gu, (_, prefix: string, letter: string) => `${prefix}${letter.toUpperCase()}`)
+}
+
+function compactText(text: string, maximum: number, sentences: number) {
+  const selected = text.match(/[^.!?]+[.!?]+|[^.!?]+$/gu)?.slice(0, sentences).map((sentence) => sentence.trim()).join(' ').trim() ?? text
+  if (selected.length <= maximum) return selected
+  const clipped = selected.slice(0, maximum - 1).replace(/\s+\S*$/u, '').replace(/[,:;\s]+$/u, '')
+  return `${clipped}…`
 }

@@ -33,6 +33,16 @@ describe('entrenamientos de carrera', () => {
     expect(player.eventHistory.filter((entry) => entry.eventId === 'training-strength')).toHaveLength(1)
   })
 
+  it('permite usar el dinero en una mejora por temporada', () => {
+    const before = useCareerStore.getState().player!
+    useCareerStore.getState().purchaseCareerUpgrade('coach')
+    useCareerStore.getState().purchaseCareerUpgrade('sprint')
+    const after = useCareerStore.getState().player!
+    expect(after.stats.finances).toBe(before.stats.finances - 5)
+    expect(after.stats.technique).toBeGreaterThan(before.stats.technique)
+    expect(after.activeFlags.filter((flag) => flag.startsWith('investment:'))).toHaveLength(1)
+  })
+
   it('permite elegir el foco de una sesión táctica', () => {
     const before = useCareerStore.getState().player!.stats.technique
     useCareerStore.getState().completeTrainingSession('tactics', 'possession')

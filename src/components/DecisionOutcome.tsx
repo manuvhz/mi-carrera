@@ -2,6 +2,7 @@ import { careerDecisionIdentity } from '../game/experience'
 import type { DecisionOutcome as DecisionOutcomeData } from '../game/experience'
 import { presentChoiceText, presentEventResult, presentEventTitle } from '../game/presentation'
 import type { CareerPlayer } from '../game/types'
+import { APP_CONFIG } from '../config'
 
 const OUTCOME_HEADLINES = {
   victory: 'La apuesta salió a tu favor.',
@@ -26,6 +27,7 @@ export function DecisionOutcome({ outcome, player, onContinue }: { outcome: Deci
       </aside>
     </div>
     <div className="outcome-memory"><div><span>NUEVO RECUERDO</span><strong>{presentEventTitle(outcome.eventTitle)}</strong></div><div><span>TU IDENTIDAD SE INCLINA HACIA</span><strong>{identity.label}</strong></div><div><span>RIESGO ASUMIDO</span><strong>{outcome.riskLabel}</strong></div></div>
-    <button className="button primary" onClick={onContinue}>Seguir la historia <span>→</span></button>
+    <div className="outcome-auto"><span>La siguiente escena aparece automáticamente</span><i><b style={{ animationDuration: `${APP_CONFIG.outcomeAutoAdvanceMs}ms` }} /></i></div>
+    <button className="button primary" onClick={onContinue}>Siguiente ahora <span>→</span></button>
   </section>
 }

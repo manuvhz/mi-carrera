@@ -1,9 +1,9 @@
 import { useCareerStore } from '../stores/career-store'
 
 const STYLES = [
-  { id: 'finisher', title: 'Finalizador', text: 'Vives del último toque. Frialdad y técnica cuando el arco se abre.', bonuses: ['+8 Técnica', '+3 Confianza'] },
-  { id: 'engine', title: 'Motor del equipo', text: 'Corres por todos. Tu disciplina sostiene al equipo en los peores minutos.', bonuses: ['+8 Físico', '+3 Disciplina'] },
-  { id: 'allrounder', title: 'Todoterreno', text: 'Un poco de todo, bien hecho. Te adaptas antes que el rival.', bonuses: ['+3 Talento', '+3 Técnica', '+3 Físico', '+3 Disciplina'] },
+  { id: 'finisher', title: 'Finalizador', text: 'Vives del último toque. Pegada y mentalidad cuando el arco se abre.', bonuses: ['+8 Pegada', '+3 Mentalidad'] },
+  { id: 'engine', title: 'Motor del equipo', text: 'Corres por todos. Tu velocidad sostiene al equipo en los peores minutos.', bonuses: ['+8 Velocidad', '+3 Disciplina'] },
+  { id: 'allrounder', title: 'Todoterreno', text: 'Un poco de todo, bien hecho. Te adaptas antes que el rival.', bonuses: ['+3 Visión', '+3 Pegada', '+3 Velocidad', '+3 Disciplina'] },
 ] as const
 
 export function PlaystylePicker() {

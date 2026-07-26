@@ -1,7 +1,7 @@
 import type { CareerEvent, EventChoice, EventHistoryEntry, PlayerStats, RiskLabel } from './types'
 
 export const STAT_LABELS: Record<keyof PlayerStats, string> = {
-  talent: 'Talento', technique: 'Técnica', fitness: 'Físico', discipline: 'Disciplina', confidence: 'Confianza',
+  talent: 'Visión', technique: 'Pegada', fitness: 'Velocidad', discipline: 'Disciplina', confidence: 'Mentalidad',
   resilience: 'Resistencia', reputation: 'Fama', family: 'Familia', community: 'Barrio', finances: 'Dinero',
   goals: 'Goles', assists: 'Asistencias', matches: 'Partidos', trophies: 'Títulos',
 }
@@ -57,6 +57,20 @@ export function riskLevel(label: RiskLabel) {
   return levels[label]
 }
 
+export function presentedRiskLabel(choice: EventChoice): RiskLabel {
+  const downside = choice.effects.reduce((total, effect) => {
+    if (effect.operation === 'add' && effect.value < 0) return total + Math.abs(effect.value)
+    if (effect.operation === 'multiply' && effect.value < 1) return total + Math.ceil((1 - effect.value) * 5)
+    return total
+  }, 0)
+  if (downside === 0) return 'Riesgo mínimo'
+  if (downside === 1) return 'Riesgo bajo'
+  if (downside === 2) return 'Riesgo moderado'
+  if (choice.riskLabel === 'Resultado impredecible') return 'Resultado impredecible'
+  if (downside <= 4) return 'Riesgo alto'
+  return 'Riesgo extremo'
+}
+
 export function sceneProfile(event: CareerEvent) {
   const source = `${event.category} ${event.tags.join(' ')}`.toLowerCase()
   if (/(familia|amistad|hermano|madre|padre)/u.test(source)) return { id: 'bond', icon: '◇', label: 'VÍNCULOS', line: 'Una relación importante puede cambiar hoy.' }
@@ -81,7 +95,7 @@ export function buildDecisionOutcome(event: CareerEvent, choice: EventChoice, be
   const negative = changes.some((change) => change.delta < 0)
   return {
     eventTitle: event.title, eventCategory: event.category, eventRarity: event.rarity, choiceText: choice.text, choiceId: choice.id,
-    riskLabel: choice.riskLabel, result: choice.result, archetype: choiceArchetype(choice), changes,
+    riskLabel: presentedRiskLabel(choice), result: choice.result, archetype: choiceArchetype(choice), changes,
     tone: positive && negative ? 'bittersweet' : negative ? 'setback' : 'victory',
   }
 }
