@@ -8,7 +8,8 @@ test('crea un futbolista y resuelve su primer evento', async ({ page }) => {
   await page.getByRole('button', { name: /Construir mi origen/ }).click()
   await expect(page.getByText(/Antes del estadio estaba/)).toBeVisible()
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
-  await page.getByRole('button', { name: /Descubrir acontecimiento/ }).click()
+  await expect(page.locator('.decision-scene')).toBeVisible()
+  await expect(page.getByRole('button', { name: /Descubrir acontecimiento|Cerrar el año/ })).toHaveCount(0)
 
   const eventTitle = await page.locator('.decision-scene h2').innerText()
   const choiceLabels = await page.locator('.decision-choice > strong').allInnerTexts()
@@ -43,7 +44,7 @@ test('elige un club real y combina una rutina con un reto interactivo', async ({
   await expect(page.getByText(/La mejora ya fue guardada/)).toBeVisible()
 })
 
-test('cierra el año con un anuario y comienza la temporada siguiente', async ({ page }) => {
+test('avanza solo al anuario tras tres acontecimientos y comienza la temporada siguiente', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Comenzar mi historia/ }).click()
   await page.getByLabel('Nombre').fill('Mara')
@@ -51,16 +52,17 @@ test('cierra el año con un anuario y comienza la temporada siguiente', async ({
   await page.getByRole('button', { name: /Construir mi origen/ }).click()
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
 
-  for (let decision = 0; decision < 2; decision += 1) {
-    await page.getByRole('button', { name: /Descubrir acontecimiento/ }).click()
+  for (let decision = 0; decision < 3; decision += 1) {
+    await expect(page.locator('.decision-scene')).toBeVisible()
     await page.locator('.decision-choice').first().click()
     await page.getByRole('button', { name: /Seguir la historia/ }).click()
   }
 
-  await page.getByRole('button', { name: /Cerrar el año/ }).click()
   await expect(page.getByText('RESUMEN DE TEMPORADA')).toBeVisible()
   await expect(page.getByText('CLASIFICACIÓN FICTICIA DE ESTA PARTIDA')).toBeVisible()
   await expect(page.getByText(/Lo que dejó la temporada/)).toBeVisible()
   await page.getByRole('button', { name: /Comenzar la próxima temporada/ }).click()
   await expect(page.locator('.hud-season strong')).toHaveText('02')
+  await expect(page.locator('.hud-mission strong')).toContainText('0/3 decisiones')
+  await expect(page.locator('.decision-scene')).toBeVisible()
 })

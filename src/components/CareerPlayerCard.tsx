@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { APP_CONFIG } from '../config'
 import { clubCrestUrl, clubForPlayer } from '../content/real-clubs'
 import type { CareerPlayer } from '../game/types'
 
@@ -44,7 +45,7 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
         <span>FÍS <strong>{player.stats.fitness}</strong></span>
         <span>CON <strong>{player.stats.confidence}</strong></span>
       </div>
-      <div className="hud-mission"><span>OBJETIVO DE TEMPORADA</span><strong>{Math.min(decisionsThisSeason, 2)}/2 decisiones · {trainedThisSeason ? 'entrenamiento listo' : 'falta entrenar'}</strong></div>
+      <div className="hud-mission"><span>OBJETIVO DE TEMPORADA</span><strong>{Math.min(decisionsThisSeason, APP_CONFIG.eventsPerSeason)}/{APP_CONFIG.eventsPerSeason} decisiones · {trainedThisSeason ? 'entrenamiento listo' : 'falta entrenar'}</strong></div>
     </div>
 
     <details className="hud-details">

@@ -9,7 +9,6 @@ import { PlaystylePicker } from './components/PlaystylePicker'
 import { SeasonRecap } from './components/SeasonRecap'
 import { TrainingArcade } from './components/TrainingArcade'
 import { clubById, clubCrestUrl, DEFAULT_CLUB_ID } from './content/real-clubs'
-import { careerDecisionIdentity } from './game/experience'
 import { saveGameSchema } from './game/schemas'
 import { presentChoiceText, presentEventResult, presentEventTitle } from './game/presentation'
 import { listSaves, saveCareer } from './persistence/database'
@@ -143,21 +142,35 @@ function CareerGuard({ children }: { children: ReactNode }) {
 function CareerPage() {
   const { player, currentEvent, lastResult, lastOutcome, eventsThisYear, drawEvent, resolveChoice, continueAfterResult } = useCareerStore()
   const navigate = useNavigate()
+  const retired = player?.careerStage === 'retirement'
+
+  useEffect(() => {
+    if (!player || retired || currentEvent || lastResult || lastOutcome) return
+    if (eventsThisYear >= APP_CONFIG.eventsPerSeason) {
+      navigate('/resumen-temporada', { replace: true })
+      return
+    }
+    drawEvent()
+  }, [currentEvent, drawEvent, eventsThisYear, lastOutcome, lastResult, navigate, player, retired])
+
   if (!player) return null
-  const retired = player.careerStage === 'retirement'
-  const canAdvance = eventsThisYear >= 2
-  const decisionIdentity = careerDecisionIdentity(player.eventHistory)
   return <Shell><main className="dashboard">
     <CareerPlayerCard player={player} />
     <PlaystylePicker />
-    {retired ? <RetirementPanel /> : currentEvent ? <DecisionScene event={currentEvent} player={player} onChoose={resolveChoice} /> : lastOutcome ? <DecisionOutcome outcome={lastOutcome} player={player} onContinue={continueAfterResult} /> : lastResult ? <ResultCard result={lastResult} onContinue={continueAfterResult} /> : <section className="next-event-panel season-gateway">
-      <div className="gateway-top"><div><span>RITMO DE TEMPORADA</span><strong>{eventsThisYear === 0 ? 'Todo puede pasar' : 'La historia ya tomó dirección'}</strong></div><div className="season-nodes">{[1, 2].map((step) => <i className={step <= eventsThisYear ? 'done' : step === eventsThisYear + 1 ? 'next' : ''} key={step}><b>{step}</b><span>{step <= eventsThisYear ? 'HECHO' : step === eventsThisYear + 1 ? 'AHORA' : 'DESPUÉS'}</span></i>)}</div></div>
-      <div className="gateway-body"><div><div className="pitch-icon">✦</div><p className="eyebrow">PRÓXIMO ACONTECIMIENTO</p><h2>{eventsThisYear === 0 ? 'La temporada está por escribir.' : 'Todavía queda algo por demostrar.'}</h2><p>La próxima escena tendrá en cuenta tu edad, tu origen y cada decisión que la carrera ya recuerda.</p></div><aside><span>TU IDENTIDAD ACTUAL</span><strong>{decisionIdentity.count ? decisionIdentity.label : 'Sin definir'}</strong><p>{decisionIdentity.count ? decisionIdentity.description : 'La primera decisión marcará el tono.'}</p></aside></div>
-      <div className="event-actions"><button className="button primary" onClick={drawEvent}>Descubrir acontecimiento <span>→</span></button>{canAdvance && <button className="button ghost" onClick={() => navigate('/resumen-temporada')}>Cerrar el año</button>}</div><small>{eventsThisYear}/2 momentos esenciales resueltos</small>
-    </section>}
+    {retired ? <RetirementPanel /> : currentEvent ? <DecisionScene event={currentEvent} player={player} onChoose={resolveChoice} /> : lastOutcome ? <DecisionOutcome outcome={lastOutcome} player={player} onContinue={continueAfterResult} /> : lastResult ? <ResultCard result={lastResult} onContinue={continueAfterResult} /> : <SeasonTransition eventsThisYear={eventsThisYear} />}
     <TrainingArcade />
     <section className="dashboard-bottom"><div className="mini-panel"><span>HUELLA DE ORIGEN</span><strong>{player.geographicOrigin}</strong><p>{player.stats.community >= 60 ? 'Tu comunidad sigue apareciendo en los momentos decisivos.' : 'La distancia con tu origen comienza a sentirse.'}</p></div><div className="mini-panel"><span>ÚLTIMO RECUERDO</span><strong>{player.eventHistory.at(-1) ? presentEventTitle(player.eventHistory.at(-1)!.title) : 'La historia apenas comienza'}</strong><p>{player.eventHistory.at(-1) ? presentEventResult(player.eventHistory.at(-1)!.result, player.eventHistory.at(-1)!.title).slice(0, 105) : 'Tu primera decisión todavía te espera.'}…</p></div></section>
   </main></Shell>
+}
+
+function SeasonTransition({ eventsThisYear }: { eventsThisYear: number }) {
+  const seasonFinished = eventsThisYear >= APP_CONFIG.eventsPerSeason
+  return <section className="season-transition" aria-live="polite">
+    <div className="season-transition-ball" aria-hidden="true">⚽</div>
+    <p className="eyebrow">{seasonFinished ? 'FIN DE TEMPORADA' : `ESCENA ${eventsThisYear + 1} DE ${APP_CONFIG.eventsPerSeason}`}</p>
+    <h2>{seasonFinished ? 'Preparando el resumen del año…' : 'La temporada sigue avanzando…'}</h2>
+    <div className="season-transition-track" aria-hidden="true">{Array.from({ length: APP_CONFIG.eventsPerSeason }, (_, index) => <i className={index < eventsThisYear ? 'done' : index === eventsThisYear ? 'active' : ''} key={index} />)}</div>
+  </section>
 }
 
 function SeasonRecapPage() {
