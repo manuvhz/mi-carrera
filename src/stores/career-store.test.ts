@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { loadCareer } from '../persistence/database'
 import { useCareerStore, type PlayerDraft } from './career-store'
 
 vi.mock('../persistence/database', () => ({ saveCareer: vi.fn(), loadCareer: vi.fn() }))
@@ -11,8 +12,19 @@ const draft: PlayerDraft = {
 
 describe('entrenamientos de carrera', () => {
   beforeEach(() => {
+    vi.clearAllMocks()
     useCareerStore.getState().reset()
     useCareerStore.getState().createCareer(draft, 57)
+  })
+
+  it('migra una partida anterior y crea el rival que faltaba', async () => {
+    const current = useCareerStore.getState().player!
+    const { rival: _rival, ownedItems: _ownedItems, clubIdolatries: _idolatries, seasonHistory: _history, careerEarnings: _earnings, ...legacyPlayer } = current
+    vi.mocked(loadCareer).mockResolvedValue({ version: 1, seed: 99, player: legacyPlayer, updatedAt: new Date().toISOString() })
+    useCareerStore.getState().reset()
+    expect(await useCareerStore.getState().load(1)).toBe(true)
+    expect(useCareerStore.getState().player?.rival?.name).toBeTruthy()
+    expect(useCareerStore.getState().player?.ownedItems).toEqual([])
   })
 
   it('crea un archirrival de la misma generación', () => {

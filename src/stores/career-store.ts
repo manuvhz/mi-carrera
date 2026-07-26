@@ -280,8 +280,16 @@ export const useCareerStore = create<CareerState>((set, get) => ({
   load: async (slot) => {
     const save = await loadCareer(slot)
     if (!save) return false
-    const eventsThisYear = save.player.eventHistory.filter((entry) => entry.season === save.player.season && isNarrativeEventId(entry.eventId)).length
-    set({ player: save.player, seed: save.seed, saveSlot: slot, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear })
+    const player: CareerPlayer = {
+      ...save.player,
+      careerEarnings: save.player.careerEarnings ?? 0,
+      ownedItems: save.player.ownedItems ?? [],
+      clubIdolatries: save.player.clubIdolatries ?? {},
+      rival: save.player.rival ?? createCareerRival(save.seed, save.player.age),
+      seasonHistory: save.player.seasonHistory ?? [],
+    }
+    const eventsThisYear = player.eventHistory.filter((entry) => entry.season === player.season && isNarrativeEventId(entry.eventId)).length
+    set({ player, seed: save.seed, saveSlot: slot, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear })
     return true
   },
   reset: () => set({ player: null, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0, seed: 0 }),
