@@ -1,5 +1,5 @@
 import { useMemo, useState, type CSSProperties } from 'react'
-import { REAL_CLUBS, clubById, clubCrestUrl, clubForPlayer, currentClubForPlayer, type RealClub } from '../content/real-clubs'
+import { REAL_CLUBS, clubById, clubCrestUrl, clubForPlayer, currentClubForPlayer } from '../content/real-clubs'
 import { simulateSeasonStats } from '../game/engine'
 import { isNarrativeEventId } from '../game/history'
 import { presentEventResult, presentEventTitle } from '../game/presentation'
@@ -11,15 +11,6 @@ interface SeasonRecapProps {
   player: CareerPlayer
   seed: number
   onAdvance: (nextClubId?: string) => void
-}
-
-interface Standing {
-  club: RealClub
-  points: number
-  played: number
-  won: number
-  drawn: number
-  lost: number
 }
 
 export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
@@ -34,13 +25,15 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
   const seasonMatches = projected.stats.matches - player.stats.matches
   const seasonGoals = projected.stats.goals - player.stats.goals
   const seasonAssists = projected.stats.assists - player.stats.assists
+  const goalLabel = `${seasonGoals} ${seasonGoals === 1 ? 'gol' : 'goles'}`
+  const assistLabel = `${seasonAssists} ${seasonAssists === 1 ? 'asistencia' : 'asistencias'}`
   const contributions = seasonGoals + seasonAssists
   const rating = Math.min(9.9, 6.1 + contributions * .16 + player.stats.discipline * .008)
   const marketValue = Math.round((projected.stats.reputation * 18 + projected.stats.talent * 5 + player.stats.finances * 10) * 1000)
-  const standings = useMemo(() => buildStandings(club, player, seed, contributions), [club, player, seed, contributions])
-  const position = standings.findIndex((entry) => entry.club.id === club.id) + 1
-  const mentor = player.narrativeCharacters[0]
   const leagueClubs = REAL_CLUBS.filter((item) => item.leagueId === club.leagueId)
+  const position = seasonPositionFor(player, seed, contributions, leagueClubs.length)
+  const seasonVerdict = seasonVerdictFor(position, leagueClubs.length)
+  const mentor = player.narrativeCharacters[0]
   const rival = leagueClubs[(leagueClubs.findIndex((item) => item.id === club.id) + 1) % leagueClubs.length]
   const rivalGoals = Math.abs(seed + player.season * 17) % Math.max(2, contributions + 2)
   const headline = headlineFor(player, contributions, position)
@@ -53,7 +46,7 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
     { icon: '◈', title: award, text: `La temporada te reconoce como ${award.toLowerCase()} en esta partida.` },
     { icon: '⚑', title: 'Decisiones con memoria', text: `Resolviste ${storyEntries.length} acontecimientos que seguirán influyendo en tu carrera.` },
     { icon: '⚡', title: 'Trabajo de entrenamiento', text: trainingEntries.length ? `Completaste ${trainingEntries.length} sesiones entre rutinas, táctica y retos de cancha.` : 'Todavía puedes hacer del entrenamiento una ventaja la próxima temporada.' },
-    { icon: '★', title: 'Impacto ofensivo', text: `${seasonGoals} goles y ${seasonAssists} asistencias en ${seasonMatches} partidos simulados.` },
+    { icon: '★', title: 'Impacto ofensivo', text: `${goalLabel} y ${assistLabel} en ${seasonMatches} partidos simulados.` },
     { icon: '♟', title: 'Lugar en el equipo', text: `${player.clubRole}. El cuerpo técnico valora tu disciplina en ${player.stats.discipline}/100.` },
     { icon: '●', title: 'El nombre empieza a circular', text: `Tu reputación proyectada termina en ${projected.stats.reputation}/100.` },
     ...storyEntries.slice(-3).map((entry) => ({ icon: '✦', title: presentEventTitle(entry.title), text: presentEventResult(entry.result, entry.title) })),
@@ -78,16 +71,12 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
       <RecapKpi value={formatMoney(marketValue)} label="Valor proyectado" />
     </section>
 
-    <section className="recap-panel standings-panel">
-      <div className="recap-section-title"><div><span>01 · COMPETICIÓN</span><h2>{player.age < 16 ? 'Liga Juvenil Regional' : club.league}</h2></div><em>CLASIFICACIÓN FICTICIA DE ESTA PARTIDA</em></div>
-      <div className="standings-head"><span>#</span><span>Club</span><span>Progreso</span><span>PJ</span><span>G</span><span>E</span><span>P</span><strong>PTS</strong></div>
-      <div className="standings-list">
-        {standings.map((entry, index) => <div className={entry.club.id === club.id ? 'standing-row player-team' : 'standing-row'} key={entry.club.id}>
-          <span className="standing-position">{index + 1}</span>
-          <div className="standing-club"><img src={clubCrestUrl(entry.club)} alt="" /><strong>{entry.club.shortName}</strong>{entry.club.id === club.id && <em>TU CLUB</em>}</div>
-          <div className="standing-progress"><i><b style={{ width: `${Math.round((entry.points / standings[0].points) * 100)}%` }} /></i></div>
-          <span>{entry.played}</span><span>{entry.won}</span><span>{entry.drawn}</span><span>{entry.lost}</span><strong>{entry.points}</strong>
-        </div>)}
+    <section className="recap-panel season-result-panel">
+      <div className="recap-section-title"><div><span>01 · COMPETICIÓN</span><h2>{player.age < 16 ? 'Liga Juvenil Regional' : club.league}</h2></div><em>CIERRE GENERADO PARA ESTA CARRERA</em></div>
+      <div className="season-finish">
+        <div className="finish-club"><img src={clubCrestUrl(club)} alt={`Escudo de ${club.name}`} /><span>TU EQUIPO</span><strong>{club.name}</strong><small>{club.city} · {club.country}</small></div>
+        <div className="finish-position"><span>POSICIÓN FINAL</span><strong>#{position}</strong><small>entre {leagueClubs.length} equipos representados</small></div>
+        <div className="finish-reading"><span>LECTURA DE TEMPORADA</span><strong>{seasonVerdict}</strong><p>{seasonMatches} partidos, {goalLabel} y {assistLabel}. Eso es todo lo necesario para entender cómo cerró el equipo.</p></div>
       </div>
     </section>
 
@@ -107,7 +96,7 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
     <TransferMarket player={player} offers={offers} value={nextClubId} onChange={setNextClubId} />
 
     <section className="recap-next-season"><div><span>{changingClub ? 'NUEVO CAPÍTULO' : 'LA HISTORIA CONTINÚA'}</span><h2>{changingClub && destination ? `${destination.shortName} te espera.` : `La temporada ${player.season + 1} ya te está esperando.`}</h2><p>Cumplirás {player.age + 1} años. {changingClub && destination ? `La próxima escena comenzará en ${destination.city}, dentro de ${destination.league}.` : 'Tus estadísticas, decisiones, entrenamientos y vínculos viajarán contigo.'}</p></div><button className="button primary" type="button" onClick={() => onAdvance(nextClubId)}>{changingClub ? 'Firmar y comenzar temporada' : 'Comenzar la próxima temporada'} <span>→</span></button></section>
-    <p className="recap-disclaimer">Resultados y clasificación generados para esta partida. No representan resultados deportivos reales.</p>
+    <p className="recap-disclaimer">La posición final es ficticia y se genera solo para esta carrera. No representa resultados deportivos reales.</p>
   </main>
 }
 
@@ -115,17 +104,17 @@ function RecapKpi({ value, label, accent = false }: { value: number | string; la
   return <div className={accent ? 'accent' : ''}><strong>{value}</strong><span>{label}</span></div>
 }
 
-function buildStandings(playerClub: RealClub, player: CareerPlayer, seed: number, contributions: number): Standing[] {
-  const clubs = [playerClub, ...REAL_CLUBS.filter((club) => club.id !== playerClub.id && club.leagueId === playerClub.leagueId)].slice(0, 8)
-  return clubs.map((club, index) => {
-    const played = player.age < 16 ? 18 : 30
-    const base = 21 + Math.abs(seed + player.season * 71 + (index + 3) * 97) % (player.age < 16 ? 29 : 47)
-    const rawPoints = club.id === playerClub.id ? base + Math.min(15, contributions * 2 + Math.round(player.stats.discipline / 20)) : base
-    const points = Math.min(played * 3, rawPoints)
-    const won = Math.min(played, Math.floor(points / 3))
-    const drawn = Math.min(played - won, points - won * 3)
-    return { club, points, played, won, drawn, lost: Math.max(0, played - won - drawn) }
-  }).sort((a, b) => b.points - a.points)
+function seasonPositionFor(player: CareerPlayer, seed: number, contributions: number, leagueSize: number) {
+  const startingPosition = 1 + Math.abs(seed + player.season * 71 + player.age * 29) % leagueSize
+  const performanceBoost = Math.floor(contributions / 4) + Math.floor(player.stats.discipline / 40) + Math.floor(player.stats.reputation / 30)
+  return Math.max(1, Math.min(leagueSize, startingPosition - performanceBoost))
+}
+
+function seasonVerdictFor(position: number, leagueSize: number) {
+  if (position === 1) return 'Campeones de la temporada'
+  if (position <= Math.max(3, Math.ceil(leagueSize * .3))) return 'Una campaña peleando arriba'
+  if (position <= Math.ceil(leagueSize * .7)) return 'Una temporada estable'
+  return 'Un año difícil que exige reacción'
 }
 
 function headlineFor(player: CareerPlayer, contributions: number, position: number) {

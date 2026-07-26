@@ -59,6 +59,21 @@ test('puede empezar su carrera en una de las cinco grandes ligas', async ({ page
   await expect(page.locator('.hud-season small')).toHaveText('LALIGA')
 })
 
+test('puede empezar en Brasil con un escudo real', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /Comenzar mi historia/ }).click()
+  await page.getByLabel('Nombre').fill('João')
+  await page.getByLabel('Apellido').fill('Silva')
+  await page.getByRole('tab', { name: /Brasil/ }).click()
+  await page.getByRole('radio', { name: /Flamengo/ }).click()
+  await page.getByRole('button', { name: /Construir mi origen/ }).click()
+  await expect(page.getByText('Clube de Regatas do Flamengo')).toBeVisible()
+  await expect(page.getByText(/Río de Janeiro · Brasileirão Série A/)).toBeVisible()
+  await page.getByRole('button', { name: /Empezar la carrera/ }).click()
+  await expect(page.getByRole('img', { name: /Escudo de Clube de Regatas do Flamengo/ })).toBeVisible()
+  await expect(page.locator('.hud-season small')).toHaveText('Brasileirão Série A')
+})
+
 test('avanza solo al anuario tras tres acontecimientos y comienza la temporada siguiente', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Comenzar mi historia/ }).click()
@@ -74,7 +89,8 @@ test('avanza solo al anuario tras tres acontecimientos y comienza la temporada s
   }
 
   await expect(page.getByText('RESUMEN DE TEMPORADA')).toBeVisible()
-  await expect(page.getByText('CLASIFICACIÓN FICTICIA DE ESTA PARTIDA')).toBeVisible()
+  await expect(page.getByText('POSICIÓN FINAL', { exact: true })).toBeVisible()
+  await expect(page.locator('.standing-row')).toHaveCount(0)
   await expect(page.getByText(/Lo que dejó la temporada/)).toBeVisible()
   await page.getByRole('button', { name: /Comenzar la próxima temporada/ }).click()
   await expect(page.locator('.hud-season strong')).toHaveText('02')

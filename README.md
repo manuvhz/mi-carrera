@@ -2,7 +2,7 @@
 
 **Mi Carrera** es un simulador narrativo, original y offline-first sobre la vida completa de un futbolista. La historia empieza entre los 9 y los 12 años: antes de una academia, un contrato o un estadio. El origen, las relaciones y las decisiones antiguas modifican el camino hasta el retiro.
 
-La aplicación es una SPA estática preparada para GitHub Pages. Combina una historia original con clubes reales de Argentina y las cinco grandes ligas europeas, bajo las condiciones documentadas en [ATTRIBUTIONS.md](ATTRIBUTIONS.md). Es un proyecto independiente y no está afiliado a los clubes ni a sus competiciones.
+La aplicación es una SPA estática preparada para GitHub Pages. Combina una historia original con clubes reales de Argentina, Brasil y las cinco grandes ligas europeas, bajo las condiciones documentadas en [ATTRIBUTIONS.md](ATTRIBUTIONS.md). Es un proyecto independiente y no está afiliado a los clubes ni a sus competiciones.
 
 ## Funciones incluidas
 
@@ -12,13 +12,13 @@ La aplicación es una SPA estática preparada para GitHub Pages. Combina una his
 - selección ponderada reproducible por semilla;
 - decisiones con efectos deportivos, psicológicos y relacionales;
 - ficha deportiva visual inspirada en videojuegos de carrera;
-- doce clubes argentinos y treinta clubes de Premier League, LALIGA, Serie A, Bundesliga y Ligue 1;
+- doce clubes argentinos, doce brasileños y cuarenta clubes de Premier League, LALIGA, Serie A, Bundesliga y Ligue 1;
 - mercado de fichajes determinista con ofertas según edad, nivel, producción y reputación;
 - tres minijuegos interactivos por temporada: penales, reflejos y visión de pase;
-- anuario de cierre con titular, premio, estadísticas, clasificación ficticia, logros, vínculos, rivalidad y economía;
+- anuario de cierre con titular, premio, posición final simplificada, estadísticas, logros, vínculos, rivalidad y economía;
 - elección permanente de estilo de juego con bonificaciones diferenciadas;
 - avance anual, estadísticas, línea de tiempo y epílogo;
-- universo narrativo ficticio de 8 países y capa jugable real de 6 países, 6 rutas y 42 clubes;
+- universo narrativo ficticio de 8 países y capa jugable real de 7 países, 7 rutas y 64 clubes;
 - tres espacios de guardado IndexedDB con Dexie;
 - importación y exportación JSON con validación Zod;
 - PWA instalable, compatible con uso sin conexión;
