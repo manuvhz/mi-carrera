@@ -19,7 +19,12 @@ export function presentEventDescription(description: string, title: string) {
       .replace(`El episodio, que luego llamarán ${mention}, exige`, 'El episodio exige')
       .replaceAll(mention, 'esta situación')
   }
-  return cleanSpacing(presented)
+  presented = presented
+    .replace('Desde esa noche, todos recuerdan el episodio como esta situación.', 'Desde esa noche, sabes que nadie olvidará lo que decidas.')
+    .replace('Hay pocos minutos para decidir cómo quieres que termine esta situación.', 'Quedan pocos minutos para elegir.')
+    .replace('Tu respuesta dará sentido al recuerdo de esta situación.', 'Lo que hagas marcará el resto de la temporada.')
+    .replace('Todo queda suspendido alrededor de esta situación.', 'Nadie se mueve hasta escuchar tu respuesta.')
+  return cleanSpanish(presented)
 }
 
 export function presentChoiceText(text: string, title: string) {
@@ -29,6 +34,7 @@ export function presentChoiceText(text: string, title: string) {
   const compactRules: Array<[RegExp, string]> = [
     [/^Resolver la situación en privado con (.+)$/u, 'Hablar en privado con $1'],
     [/^Contar tu versión de la situación antes de que otros la definan$/u, 'Contar tu versión antes de que otros la definan'],
+    [/^Contar lo ocurrido en la situación y pedir ayuda a (.+)$/u, 'Pedir ayuda a $1 y contar lo ocurrido'],
     [/^Escuchar a (.+) y acordar una salida para la situación$/u, 'Escuchar a $1 y buscar una salida juntos'],
     [/^Resolver la situación por tu cuenta antes de que cierre la oportunidad$/u, 'Actuar por tu cuenta antes de que cierre la oportunidad'],
     [/^Pedir tiempo para revisar la situación con la familia$/u, 'Pedir tiempo y hablarlo con la familia'],
@@ -38,13 +44,25 @@ export function presentChoiceText(text: string, title: string) {
     [/^Guardar el problema y competir mientras la situación siga siendo posible$/u, 'Guardar el problema y seguir compitiendo'],
   ]
   for (const [pattern, replacement] of compactRules) presented = presented.replace(pattern, replacement)
-  return cleanSpacing(presented).replace(/^Escuchar a el /u, 'Escuchar al ')
+  return cleanSpanish(presented)
+}
+
+export function presentEventResult(result: string, title: string) {
+  let presented = result
+  for (const mention of titleMentions(title)) presented = presented.replaceAll(mention, 'lo ocurrido')
+  return cleanSpanish(presented)
 }
 
 function titleMentions(title: string) {
   return [`“${title}”`, `"${title}"`, `‘${title}’`]
 }
 
-function cleanSpacing(text: string) {
-  return text.replace(/\s+/gu, ' ').replace(/\s+([,.;:])/gu, '$1').trim()
+function cleanSpanish(text: string) {
+  const spaced = text
+    .replace(/\s+/gu, ' ')
+    .replace(/\s+([,.;:])/gu, '$1')
+    .replace(/\ba el\b/giu, 'al')
+    .replace(/\bde el\b/giu, 'del')
+    .trim()
+  return spaced.replace(/(^|[.!?]\s+)([a-záéíóúñ])/gu, (_, prefix: string, letter: string) => `${prefix}${letter.toUpperCase()}`)
 }

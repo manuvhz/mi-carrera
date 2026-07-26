@@ -1,7 +1,7 @@
 import { useMemo, type CSSProperties } from 'react'
 import { REAL_CLUBS, clubCrestUrl, clubForPlayer, type RealClub } from '../content/real-clubs'
 import { simulateSeasonStats } from '../game/engine'
-import { presentEventTitle } from '../game/presentation'
+import { presentEventResult, presentEventTitle } from '../game/presentation'
 import type { CareerPlayer } from '../game/types'
 
 interface SeasonRecapProps {
@@ -47,7 +47,7 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
     { icon: '★', title: 'Impacto ofensivo', text: `${seasonGoals} goles y ${seasonAssists} asistencias en ${seasonMatches} partidos simulados.` },
     { icon: '♟', title: 'Lugar en el equipo', text: `${player.clubRole}. El cuerpo técnico valora tu disciplina en ${player.stats.discipline}/100.` },
     { icon: '●', title: 'El nombre empieza a circular', text: `Tu reputación proyectada termina en ${projected.stats.reputation}/100.` },
-    ...storyEntries.slice(-3).map((entry) => ({ icon: '✦', title: presentEventTitle(entry.title), text: entry.result })),
+    ...storyEntries.slice(-3).map((entry) => ({ icon: '✦', title: presentEventTitle(entry.title), text: presentEventResult(entry.result, entry.title) })),
   ]
 
   return <main className="season-page" style={recapStyle}>

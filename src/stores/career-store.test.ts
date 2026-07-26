@@ -41,6 +41,18 @@ describe('entrenamientos de carrera', () => {
     expect(player.eventHistory.at(-1)?.choiceText).toContain('circulación')
   })
 
+  it('guarda el impacto visible de una decisión narrativa', () => {
+    useCareerStore.getState().drawEvent()
+    const event = useCareerStore.getState().currentEvent!
+    const before = useCareerStore.getState().player!.stats
+    useCareerStore.getState().resolveChoice(event.choices[0])
+    const outcome = useCareerStore.getState().lastOutcome!
+    expect(outcome.eventTitle).toBe(event.title)
+    expect(outcome.changes.length).toBeGreaterThan(0)
+    expect(outcome.changes.some((change) => change.before !== change.after)).toBe(true)
+    expect(useCareerStore.getState().player!.stats).not.toEqual(before)
+  })
+
   it('aplica un estilo permanente una sola vez', () => {
     useCareerStore.getState().choosePlaystyle('allrounder')
     useCareerStore.getState().choosePlaystyle('finisher')

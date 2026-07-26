@@ -3,6 +3,7 @@ import { APP_CONFIG } from '../config'
 import { CAREER_EVENTS } from '../content/load-events'
 import { clubById, DEFAULT_CLUB_ID } from '../content/real-clubs'
 import { applyChoice, selectEvent, simulateSeasonStats, stageForAge } from '../game/engine'
+import { buildDecisionOutcome, type DecisionOutcome } from '../game/experience'
 import type { CareerEvent, CareerPlayer, EventChoice, SaveGame } from '../game/types'
 import { loadCareer, saveCareer } from '../persistence/database'
 
@@ -18,6 +19,7 @@ interface CareerState {
   player: CareerPlayer | null
   currentEvent: CareerEvent | null
   lastResult: string | null
+  lastOutcome: DecisionOutcome | null
   eventsThisYear: number
   saveSlot: number
   createCareer: (draft: PlayerDraft, seed?: number) => void
@@ -36,7 +38,7 @@ interface CareerState {
 const initialStats = { talent: 48, technique: 42, fitness: 62, discipline: 50, confidence: 48, resilience: 52, reputation: 3, family: 65, community: 55, finances: 12, goals: 0, assists: 0, matches: 0, trophies: 0 }
 
 export const useCareerStore = create<CareerState>((set, get) => ({
-  seed: 0, player: null, currentEvent: null, lastResult: null, eventsThisYear: 0, saveSlot: 1,
+  seed: 0, player: null, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0, saveSlot: 1,
   createCareer: (draft, forcedSeed) => {
     const seed = forcedSeed ?? Math.floor(Math.random() * 2_147_483_647)
     const player: CareerPlayer = {
@@ -47,17 +49,18 @@ export const useCareerStore = create<CareerState>((set, get) => ({
       narrativeCharacters: [{ id: 'mentor-origin', name: 'Samir Rojas', role: 'Primer entrenador', relationshipValue: 60, activeStatus: true, history: ['Te vio jugar antes que nadie.'] }],
       stats: { ...initialStats },
     }
-    set({ seed, player, currentEvent: null, lastResult: null, eventsThisYear: 0 })
+    set({ seed, player, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0 })
   },
   drawEvent: () => {
     const { player, seed } = get()
     if (!player) return
-    set({ currentEvent: selectEvent(CAREER_EVENTS, player, seed), lastResult: null })
+    set({ currentEvent: selectEvent(CAREER_EVENTS, player, seed), lastResult: null, lastOutcome: null })
   },
   resolveChoice: (choice) => {
     const { player, currentEvent, eventsThisYear } = get()
     if (!player || !currentEvent) return
     const changed = applyChoice(player, choice)
+    const outcome = buildDecisionOutcome(currentEvent, choice, player.stats, changed.stats)
     const next: CareerPlayer = {
       ...changed,
       eventHistory: [...changed.eventHistory, {
@@ -65,10 +68,10 @@ export const useCareerStore = create<CareerState>((set, get) => ({
         choiceId: choice.id, choiceText: choice.text, result: choice.result, date: new Date().toISOString(),
       }],
     }
-    set({ player: next, currentEvent: null, lastResult: choice.result, eventsThisYear: eventsThisYear + 1 })
+    set({ player: next, currentEvent: null, lastResult: choice.result, lastOutcome: outcome, eventsThisYear: eventsThisYear + 1 })
     void get().save()
   },
-  continueAfterResult: () => set({ lastResult: null }),
+  continueAfterResult: () => set({ lastResult: null, lastOutcome: null }),
   advanceYear: () => {
     const { player, seed } = get()
     if (!player) return
@@ -77,7 +80,7 @@ export const useCareerStore = create<CareerState>((set, get) => ({
     const retired = age >= APP_CONFIG.retirementAge
     const firstClub = age >= 16 && !simulated.currentClubId ? clubById(simulated.favoriteClubId ?? DEFAULT_CLUB_ID).name : simulated.currentClubId
     const next = { ...simulated, age, season: simulated.season + 1, careerStage: retired ? 'retirement' as const : stageForAge(age), currentClubId: firstClub, clubRole: age < 13 ? 'Talento del barrio' : age < 16 ? 'Juvenil en formación' : age < 23 ? 'Profesional en crecimiento' : age < 32 ? 'Jugador del primer equipo' : 'Veterano del vestuario' }
-    set({ player: next, eventsThisYear: 0, currentEvent: null, lastResult: null })
+    set({ player: next, eventsThisYear: 0, currentEvent: null, lastResult: null, lastOutcome: null })
     void get().save()
   },
   choosePlaystyle: (styleId) => {
@@ -96,7 +99,7 @@ export const useCareerStore = create<CareerState>((set, get) => ({
       stats[stat] = Math.min(100, stats[stat] + Number(value))
     }
     const next = { ...player, stats, activeFlags: [...player.activeFlags, `playstyle:${styleId}`] }
-    set({ player: next, lastResult: `Elegiste el estilo ${reward.label}. Esos hábitos ya empiezan a definir tu carrera.` })
+    set({ player: next, lastResult: `Elegiste el estilo ${reward.label}. Esos hábitos ya empiezan a definir tu carrera.`, lastOutcome: null })
     void get().save()
   },
   completeTrainingSession: (sessionId, tacticalFocus) => {
@@ -164,10 +167,11 @@ export const useCareerStore = create<CareerState>((set, get) => ({
   load: async (slot) => {
     const save = await loadCareer(slot)
     if (!save) return false
-    set({ player: save.player, seed: save.seed, saveSlot: slot, currentEvent: null, lastResult: null, eventsThisYear: 0 })
+    const eventsThisYear = save.player.eventHistory.filter((entry) => entry.season === save.player.season && !entry.eventId.startsWith('training-')).length
+    set({ player: save.player, seed: save.seed, saveSlot: slot, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear })
     return true
   },
-  reset: () => set({ player: null, currentEvent: null, lastResult: null, eventsThisYear: 0, seed: 0 }),
+  reset: () => set({ player: null, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0, seed: 0 }),
 }))
 
 function tacticalTraining(focus: TacticalFocusId) {

@@ -10,16 +10,17 @@ test('crea un futbolista y resuelve su primer evento', async ({ page }) => {
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
   await page.getByRole('button', { name: /Descubrir acontecimiento/ }).click()
 
-  const eventTitle = await page.locator('.event-card h2').innerText()
-  const choiceLabels = await page.locator('.choices button strong').allInnerTexts()
+  const eventTitle = await page.locator('.decision-scene h2').innerText()
+  const choiceLabels = await page.locator('.decision-choice > strong').allInnerTexts()
   expect(choiceLabels.length).toBeGreaterThan(1)
   for (const choiceLabel of choiceLabels) {
     expect(choiceLabel).not.toContain(eventTitle)
     expect(choiceLabel.length).toBeLessThan(100)
   }
 
-  await page.locator('.choices button').first().click()
-  await expect(page.getByText('La historia recuerda tu decisión.')).toBeVisible()
+  await page.locator('.decision-choice').first().click()
+  await expect(page.getByText('DECISIÓN TOMADA')).toBeVisible()
+  await expect(page.getByText('LO QUE CAMBIÓ')).toBeVisible()
 })
 
 test('elige un club real y combina una rutina con un reto interactivo', async ({ page }) => {
@@ -52,8 +53,8 @@ test('cierra el año con un anuario y comienza la temporada siguiente', async ({
 
   for (let decision = 0; decision < 2; decision += 1) {
     await page.getByRole('button', { name: /Descubrir acontecimiento/ }).click()
-    await page.locator('.choices button').first().click()
-    await page.getByRole('button', { name: /Continuar/ }).click()
+    await page.locator('.decision-choice').first().click()
+    await page.getByRole('button', { name: /Seguir la historia/ }).click()
   }
 
   await page.getByRole('button', { name: /Cerrar el año/ }).click()

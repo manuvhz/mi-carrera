@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { CAREER_EVENTS } from '../content/load-events'
-import { presentChoiceText, presentEventDescription, presentEventTitle } from './presentation'
+import { presentChoiceText, presentEventDescription, presentEventResult, presentEventTitle } from './presentation'
 
 describe('presentación compacta de eventos', () => {
   it('elimina la etapa repetida del título visible', () => {
@@ -13,6 +13,11 @@ describe('presentación compacta de eventos', () => {
     expect(presentChoiceText(`Contar tu versión de “${title}” antes de que otros la definan`, title)).toBe('Contar tu versión antes de que otros la definan')
   })
 
+  it('corrige gramática básica en escenas y consecuencias', () => {
+    expect(presentEventDescription('tu madre habla. un rival escucha.', 'Evento')).toBe('Tu madre habla. Un rival escucha.')
+    expect(presentEventResult('Sales de el estadio y hablas a el técnico.', 'Evento')).toBe('Sales del estadio y hablas al técnico.')
+  })
+
   it('quita el título repetido de todo el catálogo sin dejar opciones vacías', () => {
     for (const event of CAREER_EVENTS) {
       expect(presentEventDescription(event.description, event.title)).not.toContain(event.title)
@@ -21,6 +26,7 @@ describe('presentación compacta de eventos', () => {
         expect(presented).not.toContain(event.title)
         expect(presented.length).toBeGreaterThan(8)
         expect(presented.length).toBeLessThanOrEqual(choice.text.length)
+        expect(presentEventResult(choice.result, event.title)).not.toContain(event.title)
       }
     }
   })

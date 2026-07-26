@@ -3,20 +3,17 @@ import { NavLink, Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import { APP_CONFIG } from './config'
 import { CareerPlayerCard } from './components/CareerPlayerCard'
 import { ClubPicker } from './components/ClubPicker'
+import { DecisionOutcome } from './components/DecisionOutcome'
+import { DecisionScene } from './components/DecisionScene'
 import { PlaystylePicker } from './components/PlaystylePicker'
 import { SeasonRecap } from './components/SeasonRecap'
 import { TrainingArcade } from './components/TrainingArcade'
 import { clubById, clubCrestUrl, DEFAULT_CLUB_ID } from './content/real-clubs'
+import { careerDecisionIdentity } from './game/experience'
 import { saveGameSchema } from './game/schemas'
-import { presentChoiceText, presentEventDescription, presentEventTitle } from './game/presentation'
-import type { EventChoice } from './game/types'
+import { presentChoiceText, presentEventResult, presentEventTitle } from './game/presentation'
 import { listSaves, saveCareer } from './persistence/database'
 import { useCareerStore, type PlayerDraft } from './stores/career-store'
-
-const STAGE_LABELS: Record<string, string> = {
-  childhood: 'Infancia y barrio', academy: 'Formación juvenil', debut: 'Primeros pasos', consolidation: 'Consolidación',
-  prime: 'Mejor etapa', veteran: 'Madurez', 'final-years': 'Últimos años', retirement: 'Retiro y legado',
-}
 
 function Mark() {
   return <span className="mark" aria-hidden="true"><span>MC</span></span>
@@ -144,20 +141,22 @@ function CareerGuard({ children }: { children: ReactNode }) {
 }
 
 function CareerPage() {
-  const { player, currentEvent, lastResult, eventsThisYear, drawEvent, resolveChoice, continueAfterResult } = useCareerStore()
+  const { player, currentEvent, lastResult, lastOutcome, eventsThisYear, drawEvent, resolveChoice, continueAfterResult } = useCareerStore()
   const navigate = useNavigate()
   if (!player) return null
   const retired = player.careerStage === 'retirement'
   const canAdvance = eventsThisYear >= 2
+  const decisionIdentity = careerDecisionIdentity(player.eventHistory)
   return <Shell><main className="dashboard">
     <CareerPlayerCard player={player} />
     <PlaystylePicker />
-    {retired ? <RetirementPanel /> : currentEvent ? <EventCard onChoose={resolveChoice} /> : lastResult ? <ResultCard result={lastResult} onContinue={continueAfterResult} /> : <section className="next-event-panel">
-      <div className="pitch-icon">✦</div><p className="eyebrow">PRÓXIMO ACONTECIMIENTO</p><h2>{eventsThisYear === 0 ? 'La temporada está por escribir.' : 'Todavía quedan decisiones por tomar.'}</h2><p>Los eventos disponibles dependen de tu edad, tu origen y todo lo que recuerde tu historia.</p>
-      <div className="event-actions"><button className="button primary" onClick={drawEvent}>Descubrir acontecimiento <span>→</span></button>{canAdvance && <button className="button ghost" onClick={() => navigate('/resumen-temporada')}>Cerrar el año</button>}</div><small>{eventsThisYear}/2 acontecimientos esenciales resueltos</small>
+    {retired ? <RetirementPanel /> : currentEvent ? <DecisionScene event={currentEvent} player={player} onChoose={resolveChoice} /> : lastOutcome ? <DecisionOutcome outcome={lastOutcome} player={player} onContinue={continueAfterResult} /> : lastResult ? <ResultCard result={lastResult} onContinue={continueAfterResult} /> : <section className="next-event-panel season-gateway">
+      <div className="gateway-top"><div><span>RITMO DE TEMPORADA</span><strong>{eventsThisYear === 0 ? 'Todo puede pasar' : 'La historia ya tomó dirección'}</strong></div><div className="season-nodes">{[1, 2].map((step) => <i className={step <= eventsThisYear ? 'done' : step === eventsThisYear + 1 ? 'next' : ''} key={step}><b>{step}</b><span>{step <= eventsThisYear ? 'HECHO' : step === eventsThisYear + 1 ? 'AHORA' : 'DESPUÉS'}</span></i>)}</div></div>
+      <div className="gateway-body"><div><div className="pitch-icon">✦</div><p className="eyebrow">PRÓXIMO ACONTECIMIENTO</p><h2>{eventsThisYear === 0 ? 'La temporada está por escribir.' : 'Todavía queda algo por demostrar.'}</h2><p>La próxima escena tendrá en cuenta tu edad, tu origen y cada decisión que la carrera ya recuerda.</p></div><aside><span>TU IDENTIDAD ACTUAL</span><strong>{decisionIdentity.count ? decisionIdentity.label : 'Sin definir'}</strong><p>{decisionIdentity.count ? decisionIdentity.description : 'La primera decisión marcará el tono.'}</p></aside></div>
+      <div className="event-actions"><button className="button primary" onClick={drawEvent}>Descubrir acontecimiento <span>→</span></button>{canAdvance && <button className="button ghost" onClick={() => navigate('/resumen-temporada')}>Cerrar el año</button>}</div><small>{eventsThisYear}/2 momentos esenciales resueltos</small>
     </section>}
     <TrainingArcade />
-    <section className="dashboard-bottom"><div className="mini-panel"><span>HUELLA DE ORIGEN</span><strong>{player.geographicOrigin}</strong><p>{player.stats.community >= 60 ? 'Tu comunidad sigue apareciendo en los momentos decisivos.' : 'La distancia con tu origen comienza a sentirse.'}</p></div><div className="mini-panel"><span>ÚLTIMO RECUERDO</span><strong>{player.eventHistory.at(-1) ? presentEventTitle(player.eventHistory.at(-1)!.title) : 'La historia apenas comienza'}</strong><p>{player.eventHistory.at(-1)?.result.slice(0, 105) ?? 'Tu primera decisión todavía te espera.'}…</p></div></section>
+    <section className="dashboard-bottom"><div className="mini-panel"><span>HUELLA DE ORIGEN</span><strong>{player.geographicOrigin}</strong><p>{player.stats.community >= 60 ? 'Tu comunidad sigue apareciendo en los momentos decisivos.' : 'La distancia con tu origen comienza a sentirse.'}</p></div><div className="mini-panel"><span>ÚLTIMO RECUERDO</span><strong>{player.eventHistory.at(-1) ? presentEventTitle(player.eventHistory.at(-1)!.title) : 'La historia apenas comienza'}</strong><p>{player.eventHistory.at(-1) ? presentEventResult(player.eventHistory.at(-1)!.result, player.eventHistory.at(-1)!.title).slice(0, 105) : 'Tu primera decisión todavía te espera.'}…</p></div></section>
   </main></Shell>
 }
 
@@ -168,13 +167,6 @@ function SeasonRecapPage() {
   const continueCareer = () => { advanceYear(); navigate('/carrera') }
   return <Shell><SeasonRecap player={player} seed={seed} onAdvance={continueCareer} /></Shell>
 }
-
-function EventCard({ onChoose }: { onChoose: (choice: EventChoice) => void }) {
-  const event = useCareerStore((state) => state.currentEvent)!
-  return <section className="event-card"><div className="event-meta"><span>{event.category}</span><span>{event.rarity === 'legendary' ? '✦ Legendario' : STAGE_LABELS[event.stage]}</span></div><h2>{presentEventTitle(event.title)}</h2><p className="event-description">{presentEventDescription(event.description, event.title)}</p><div className="choices">{event.choices.map((choice, index) => <button key={choice.id} onClick={() => onChoose(choice)}><div className="choice-copy"><b>{String(index + 1).padStart(2, '0')}</b><div><strong>{presentChoiceText(choice.text, event.title)}</strong><span>{choice.visibleHint}</span></div></div><em>{shortRiskLabel(choice.riskLabel)}</em></button>)}</div></section>
-}
-
-function shortRiskLabel(label: EventChoice['riskLabel']) { return label === 'Resultado impredecible' ? 'Impredecible' : label }
 
 function ResultCard({ result, onContinue }: { result: string; onContinue: () => void }) { return <section className="result-card"><span className="result-mark">✓</span><p className="eyebrow">CONSECUENCIA</p><h2>La historia recuerda tu decisión.</h2><p>{result}</p><button className="button primary" onClick={onContinue}>Continuar <span>→</span></button></section> }
 
@@ -187,7 +179,7 @@ function RetirementPanel() {
 
 function HistoryPage() {
   const player = useCareerStore((state) => state.player)!
-  return <Shell><main className="content-page"><p className="eyebrow">MEMORIA DE CARRERA</p><h1>Tu historia, decisión por decisión.</h1>{!player.eventHistory.length ? <Empty text="Aún no has resuelto ningún acontecimiento." /> : <div className="timeline">{[...player.eventHistory].reverse().map((entry) => <article key={`${entry.eventId}-${entry.date}`}><div className="timeline-age">{entry.age}<small>años</small></div><div><span>Temporada {entry.season}</span><h2>{presentEventTitle(entry.title)}</h2><strong>{presentChoiceText(entry.choiceText, entry.title)}</strong><p>{entry.result}</p></div></article>)}</div>}</main></Shell>
+  return <Shell><main className="content-page"><p className="eyebrow">MEMORIA DE CARRERA</p><h1>Tu historia, decisión por decisión.</h1>{!player.eventHistory.length ? <Empty text="Aún no has resuelto ningún acontecimiento." /> : <div className="timeline">{[...player.eventHistory].reverse().map((entry) => <article key={`${entry.eventId}-${entry.date}`}><div className="timeline-age">{entry.age}<small>años</small></div><div><span>Temporada {entry.season}</span><h2>{presentEventTitle(entry.title)}</h2><strong>{presentChoiceText(entry.choiceText, entry.title)}</strong><p>{presentEventResult(entry.result, entry.title)}</p></div></article>)}</div>}</main></Shell>
 }
 
 function StatsPage() {
