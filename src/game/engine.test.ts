@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { applyChoice, clampStat, progressAttribute, seededRandom, selectEvent, simulateSeason, stageForAge } from './engine'
+import { playerOverall } from './career-systems'
 import type { CareerEvent, CareerPlayer } from './types'
 
 const player: CareerPlayer = {
@@ -7,13 +8,13 @@ const player: CareerPlayer = {
   birthYear: 2016, preferredFoot: 'Derecho', favoriteNumber: 8, primaryPosition: 'Mediocampista', geographicOrigin: 'Barrio popular',
   economicBackground: 'Economía modesta', footballLegacy: 'Sin conexiones', firstFootballEnvironment: 'Partidos en la calle', initialPersonality: 'Creativa',
   careerStage: 'childhood', season: 1, currentClubId: null, clubRole: 'Talento local', activeFlags: [], eventHistory: [], narrativeCharacters: [],
-  stats: { talent: 50, technique: 50, fitness: 50, discipline: 50, confidence: 50, resilience: 50, reputation: 3, family: 60, community: 60, finances: 10, goals: 0, assists: 0, matches: 0, trophies: 0 },
+  stats: { talent: 50, technique: 50, fitness: 50, discipline: 50, confidence: 50, resilience: 50, reputation: 3, family: 60, community: 60, finances: 10, goals: 0, assists: 0, matches: 0, trophies: 0, form: 55 },
 }
 const event: CareerEvent = { id: 'childhood-test', title: 'La prueba', description: 'Una descripción suficientemente larga para representar una escena narrativa.', stage: 'childhood', category: 'barrio', tags: ['barrio'], rarity: 'common', ageMin: 9, ageMax: 12, baseWeight: 10, oncePerCareer: true, choices: [{ id: 'a', text: 'Aceptar la conversación', riskLabel: 'Riesgo bajo', visibleHint: 'Una pista suficientemente clara', effects: [{ path: 'confidence', operation: 'add', value: 7 }], result: 'El resultado de la decisión deja una consecuencia que será recordada.' }] }
 
 describe('motor de carrera', () => {
   it('calcula las etapas en los límites de edad', () => {
-    expect(stageForAge(9)).toBe('childhood'); expect(stageForAge(13)).toBe('academy'); expect(stageForAge(16)).toBe('debut'); expect(stageForAge(23)).toBe('prime'); expect(stageForAge(37)).toBe('retirement')
+    expect(stageForAge(9)).toBe('childhood'); expect(stageForAge(13)).toBe('academy'); expect(stageForAge(16)).toBe('debut'); expect(stageForAge(23)).toBe('prime'); expect(stageForAge(37)).toBe('final-years'); expect(stageForAge(38)).toBe('retirement')
   })
   it('produce aleatoriedad reproducible', () => {
     const a = seededRandom(42); const b = seededRandom(42)
@@ -37,11 +38,28 @@ describe('motor de carrera', () => {
     expect(eliteSeason.goals).toBeGreaterThan(averageSeason.goals)
     expect(eliteSeason.position).toBeLessThan(averageSeason.position)
     expect(eliteSeason.matches).toBeGreaterThanOrEqual(24)
+    expect(eliteSeason.form).toBeGreaterThan(0)
+    expect(eliteSeason.earnings).toBeGreaterThan(0)
+    expect(eliteSeason.competitions.some((competition) => competition.kind === 'cup')).toBe(true)
+    expect(eliteSeason.rival.matches).toBeGreaterThan(0)
+  })
+  it('calcula la media solo con las cuatro cualidades principales', () => {
+    expect(playerOverall(player)).toBe(50)
+    expect(playerOverall({ ...player, stats: { ...player.stats, resilience: 100, discipline: 100 } })).toBe(50)
   })
   it('convierte una temporada campeona en un título real del palmarés', () => {
     const legend = { ...player, age: 25, season: 12, careerStage: 'prime' as const, primaryPosition: 'Delantero', stats: { ...player.stats, talent: 99, technique: 99, fitness: 99, discipline: 99, confidence: 99, resilience: 99 } }
     const season = simulateSeason(legend, 0, 12)
     expect(season.champion).toBe(true)
-    expect(season.player.stats.trophies).toBe(1)
+    expect(season.player.stats.trophies).toBeGreaterThanOrEqual(1)
+  })
+  it('abre copas europeas, premios y Selección para una figura mundial', () => {
+    const star = { ...player, age: 25, season: 12, careerStage: 'prime' as const, primaryPosition: 'Delantero', nationality: 'Argentina', stats: { ...player.stats, talent: 94, technique: 96, fitness: 92, confidence: 95, discipline: 90, resilience: 88, reputation: 86, form: 91 } }
+    const season = simulateSeason(star, 91, 12, 95, 'spain')
+    expect(season.competitions.some((competition) => competition.name === 'Copa del Rey')).toBe(true)
+    expect(season.competitions.some((competition) => competition.name === 'UEFA Champions League')).toBe(true)
+    expect(season.competitions.some((competition) => competition.name === 'Selección de Argentina')).toBe(true)
+    expect(season.player.nationalTeam?.calledUp).toBe(true)
+    expect(season.player.nationalTeam?.caps).toBeGreaterThan(0)
   })
 })

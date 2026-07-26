@@ -1,8 +1,10 @@
 import type { CSSProperties } from 'react'
+import { Link } from 'react-router-dom'
 import { APP_CONFIG } from '../config'
 import { clubCrestUrl, clubForPlayer } from '../content/real-clubs'
 import { isNarrativeEventId } from '../game/history'
 import { CAREER_STAGE_INFO } from '../game/engine'
+import { currentIdolatry, formPresentation, formatCareerMoney, idolatryTier, playerForm, playerOverall } from '../game/career-systems'
 import type { CareerPlayer } from '../game/types'
 
 const POSITION_CODES: Record<string, string> = {
@@ -21,6 +23,9 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
   const trainedThisSeason = player.activeFlags.some((flag) => flag.endsWith(`:season:${player.season}`) && (flag.startsWith('minigame:') || flag.startsWith('training:')))
   const style = { '--club-primary': club.colors[0], '--club-secondary': club.colors[1] } as CSSProperties
   const stage = CAREER_STAGE_INFO[player.careerStage]
+  const overall = playerOverall(player)
+  const form = formPresentation(playerForm(player))
+  const idolatry = currentIdolatry(player)
 
   return <section className="player-card player-hud" style={style} aria-label="HUD de carrera del jugador">
     <header className="player-card-head">
@@ -46,6 +51,7 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
     <div className="hud-status-line">
       <div className="hud-role"><span>ESTADO</span><strong>{clubStatus}</strong></div>
       <div className="hud-vitals" aria-label="Atributos esenciales">
+        <span>MED <strong>{overall}</strong></span>
         <span>PEG <strong>{player.stats.technique}</strong></span>
         <span>VEL <strong>{player.stats.fitness}</strong></span>
         <span>VIS <strong>{player.stats.talent}</strong></span>
@@ -62,9 +68,11 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
       </div>
       <div className="player-career-strip">
         <div><strong>{player.stats.reputation}</strong><span>FAMA</span></div>
-        <div><strong>US$ {player.stats.finances * 100}</strong><span>DINERO DISPONIBLE</span></div>
-        <div><strong>{club.city}</strong><span>SEDE DEL CLUB</span></div>
+        <div><strong className={`form-${form.tone}`}>{form.arrows} {form.label}</strong><span>FORMA</span></div>
+        <div><strong>{player.currentClubId ? `${idolatry} · ${idolatryTier(idolatry)}` : 'SEMILLERO'}</strong><span>IDOLATRÍA</span></div>
+        <div><strong>{formatCareerMoney(player.stats.finances, true)}</strong><span>DINERO DISPONIBLE</span></div>
       </div>
+      <div className="hud-quick-links"><Link to="/tienda">🛒 Abrir tienda</Link><Link to="/guia">? Entender los sistemas</Link></div>
     </details>
   </section>
 }

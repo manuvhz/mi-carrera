@@ -3,8 +3,10 @@ import { APP_CONFIG } from '../config'
 import { CAREER_EVENTS } from '../content/load-events'
 import { clubById, clubForPlayer, DEFAULT_CLUB_ID, REAL_CLUBS } from '../content/real-clubs'
 import { applyChoice, progressAttribute, selectEvent, simulateSeason, stageForAge } from '../game/engine'
+import { createCareerRival, formatCareerMoney, retirementAgeFor } from '../game/career-systems'
 import { buildDecisionOutcome, type DecisionOutcome } from '../game/experience'
 import { isNarrativeEventId } from '../game/history'
+import { shopItemById } from '../game/shop'
 import type { CareerEvent, CareerPlayer, EventChoice, SaveGame } from '../game/types'
 import { loadCareer, saveCareer } from '../persistence/database'
 
@@ -32,12 +34,13 @@ interface CareerState {
   completeTrainingSession: (sessionId: TrainingSessionId, tacticalFocus?: TacticalFocusId) => void
   completeMiniGame: (gameId: 'penalties' | 'reactions' | 'passing', score: number, maximum: number) => void
   purchaseCareerUpgrade: (upgradeId: CareerUpgradeId) => void
+  purchaseShopItem: (itemId: string) => void
   save: () => Promise<void>
   load: (slot: number) => Promise<boolean>
   reset: () => void
 }
 
-const initialStats = { talent: 48, technique: 42, fitness: 62, discipline: 50, confidence: 48, resilience: 52, reputation: 3, family: 65, community: 55, finances: 12, goals: 0, assists: 0, matches: 0, trophies: 0 }
+const initialStats = { talent: 48, technique: 42, fitness: 62, discipline: 50, confidence: 48, resilience: 52, reputation: 3, family: 65, community: 55, finances: 12, goals: 0, assists: 0, matches: 0, trophies: 0, form: 55 }
 
 export const useCareerStore = create<CareerState>((set, get) => ({
   seed: 0, player: null, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0, saveSlot: 1,
@@ -50,6 +53,11 @@ export const useCareerStore = create<CareerState>((set, get) => ({
       careerStage: stageForAge(draft.age), season: 1, currentClubId: null, clubRole: 'Promesa local', activeFlags: [], eventHistory: [],
       narrativeCharacters: [{ id: 'mentor-origin', name: 'Samir Rojas', role: 'Primer entrenador', relationshipValue: 60, activeStatus: true, history: ['Te vio jugar antes que nadie.'] }],
       stats: { ...initialStats },
+      careerEarnings: 0,
+      ownedItems: [],
+      clubIdolatries: {},
+      rival: createCareerRival(seed, draft.age),
+      seasonHistory: [],
     }
     set({ seed, player, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0 })
   },
@@ -79,15 +87,38 @@ export const useCareerStore = create<CareerState>((set, get) => ({
     if (!player) return
     const seasonClub = clubForPlayer(player)
     const leagueSize = REAL_CLUBS.filter((club) => club.leagueId === seasonClub.leagueId).length
-    const simulation = simulateSeason(player, seed, leagueSize, seasonClub.prestige)
+    const simulation = simulateSeason(player, seed, leagueSize, seasonClub.prestige, seasonClub.leagueId)
     const simulated = simulation.player
     const youthStep = player.age < 16 ? Math.min(APP_CONFIG.youthYearsPerSeason, 16 - player.age) : 1
     const age = simulated.age + youthStep
-    const retired = age >= APP_CONFIG.retirementAge
+    const retired = age >= retirementAgeFor(simulated)
     const currentClub = simulated.currentClubId ? clubById(simulated.currentClubId) : null
     const selectedClub = age >= 16 ? clubById(nextClubId ?? currentClub?.id ?? simulated.favoriteClubId ?? DEFAULT_CLUB_ID) : null
     const changedClub = Boolean(selectedClub && selectedClub.id !== currentClub?.id)
     const season = simulated.season + 1
+    const clubIdolatries = { ...(simulated.clubIdolatries ?? {}) }
+    if (player.currentClubId && player.age >= 16) {
+      const titleBoost = simulation.competitions.filter((competition) => competition.won && competition.kind !== 'individual').length * 10
+      const gain = Math.max(2, Math.round((simulation.goals + simulation.assists) / 2) + titleBoost + (selectedClub?.id === player.currentClubId ? 3 : 0))
+      clubIdolatries[player.currentClubId] = Math.min(100, (clubIdolatries[player.currentClubId] ?? 0) + gain - (changedClub ? 8 : 0))
+    }
+    if (selectedClub && clubIdolatries[selectedClub.id] === undefined) clubIdolatries[selectedClub.id] = 0
+    const rivalClub = rivalClubFor(simulation.rival.currentClubId, selectedClub?.id, selectedClub?.leagueId, seed + season)
+    const seasonRecord = {
+      season: player.season,
+      age: player.age,
+      clubId: seasonClub.id,
+      leaguePosition: simulation.position,
+      matches: simulation.matches,
+      goals: simulation.goals,
+      assists: simulation.assists,
+      overall: simulation.overall,
+      form: simulation.form,
+      earnings: simulation.earnings,
+      titles: simulation.competitions.filter((competition) => competition.won && competition.kind !== 'individual').map((competition) => competition.name),
+      competitions: simulation.competitions,
+      individualAwards: simulation.individualAwards,
+    }
     const transferEntry = changedClub && selectedClub ? {
       eventId: `transfer-${season}-${selectedClub.id}`,
       title: currentClub ? `Un nuevo escudo: ${selectedClub.name}` : `Primer contrato: ${selectedClub.name}`,
@@ -95,16 +126,19 @@ export const useCareerStore = create<CareerState>((set, get) => ({
       season,
       choiceId: selectedClub.id,
       choiceText: currentClub ? `Aceptaste la oferta de ${selectedClub.name}` : `Firmaste tu primer contrato con ${selectedClub.name}`,
-      result: currentClub ? `Dejas ${currentClub.name} y empiezas una nueva etapa en ${selectedClub.city}, dentro de ${selectedClub.league}.` : `La cantera te abre la puerta del primer equipo en ${selectedClub.league}.`,
+      result: currentClub ? `Dejas ${currentClub.name} y empiezas una nueva etapa en ${selectedClub.city}, dentro de ${selectedClub.league}.${currentClub.leagueId !== selectedClub.leagueId ? ' El salto al exterior cambia la escala de tu carrera.' : ''}` : `La cantera te abre la puerta del primer equipo en ${selectedClub.league}.`,
       date: new Date().toISOString(),
     } : null
     const next = {
       ...simulated,
       age,
       season,
-      careerStage: retired ? 'retirement' as const : stageForAge(age),
+      careerStage: retired ? 'retirement' as const : stageForAge(age, retirementAgeFor(simulated)),
       currentClubId: selectedClub?.id ?? null,
       clubRole: roleForAge(age, selectedClub?.prestige ?? 0, retired),
+      clubIdolatries,
+      rival: { ...simulation.rival, age, currentClubId: rivalClub?.id ?? simulation.rival.currentClubId },
+      seasonHistory: [...(simulated.seasonHistory ?? []), seasonRecord],
       activeFlags: changedClub && selectedClub ? [...simulated.activeFlags, `club:${selectedClub.id}:season:${season}`] : simulated.activeFlags,
       eventHistory: transferEntry ? [...simulated.eventHistory, transferEntry] : simulated.eventHistory,
     }
@@ -198,7 +232,7 @@ export const useCareerStore = create<CareerState>((set, get) => ({
       const stat = key as keyof CareerPlayer['stats']
       stats[stat] = progressAttribute(stats[stat], value)
     }
-    const result = `${upgrade.title}: invertiste US$ ${upgrade.cost * 100}. ${upgrade.result}`
+    const result = `${upgrade.title}: invertiste ${formatCareerMoney(upgrade.cost)}. ${upgrade.result}`
     const next: CareerPlayer = {
       ...player,
       stats,
@@ -206,6 +240,33 @@ export const useCareerStore = create<CareerState>((set, get) => ({
       eventHistory: [...player.eventHistory, {
         eventId: `training-investment-${upgradeId}`, title: upgrade.title, age: player.age, season: player.season,
         choiceId: upgradeId, choiceText: `Invertiste en ${upgrade.title.toLowerCase()}`, result, date: new Date().toISOString(),
+      }],
+    }
+    set({ player: next })
+    void get().save()
+  },
+  purchaseShopItem: (itemId) => {
+    const { player } = get()
+    const item = shopItemById(itemId)
+    if (!player || !item || player.ownedItems?.includes(item.id) || player.stats.finances < item.cost) return
+    const stats: CareerPlayer['stats'] = { ...player.stats, finances: player.stats.finances - item.cost }
+    for (const [key, value] of Object.entries(item.rewards ?? {})) {
+      const stat = key as keyof CareerPlayer['stats']
+      stats[stat] = progressAttribute(stats[stat] ?? 0, value)
+    }
+    const clubIdolatries = { ...(player.clubIdolatries ?? {}) }
+    if (player.currentClubId && (item.category === 'legacy' || item.id === 'mansion')) {
+      clubIdolatries[player.currentClubId] = Math.min(100, (clubIdolatries[player.currentClubId] ?? 0) + (item.category === 'legacy' ? 8 : 2))
+    }
+    const result = `${item.title}: pagaste ${formatCareerMoney(item.cost)}. ${item.perk}.`
+    const next: CareerPlayer = {
+      ...player,
+      stats,
+      clubIdolatries,
+      ownedItems: [...(player.ownedItems ?? []), item.id],
+      eventHistory: [...player.eventHistory, {
+        eventId: `shop-${item.id}`, title: item.title, age: player.age, season: player.season,
+        choiceId: item.id, choiceText: `Compraste ${item.title.toLowerCase()}`, result, date: new Date().toISOString(),
       }],
     }
     set({ player: next })
@@ -259,5 +320,11 @@ const CAREER_UPGRADES = {
 type TrainingSessionId = 'strength' | 'recovery' | 'tactics'
 type TacticalFocusId = 'pressing' | 'possession' | 'counter'
 type CareerUpgradeId = keyof typeof CAREER_UPGRADES
+
+function rivalClubFor(currentId: string | null, playerClubId: string | undefined, leagueId: string | undefined, seed: number) {
+  if (currentId) return clubById(currentId)
+  const candidates = REAL_CLUBS.filter((club) => club.leagueId === leagueId && club.id !== playerClubId)
+  return candidates.length ? candidates[Math.abs(seed) % candidates.length] : null
+}
 
 export type { PlayerDraft, SaveGame, TrainingSessionId, TacticalFocusId, CareerUpgradeId }

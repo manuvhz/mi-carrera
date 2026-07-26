@@ -44,7 +44,18 @@ const statsSchema = z.object({
   talent: z.number(), technique: z.number(), fitness: z.number(), discipline: z.number(),
   confidence: z.number(), resilience: z.number(), reputation: z.number(), family: z.number(),
   community: z.number(), finances: z.number(), goals: z.number(), assists: z.number(),
-  matches: z.number(), trophies: z.number(),
+  matches: z.number(), trophies: z.number(), form: z.number().default(50),
+})
+
+const competitionSchema = z.object({
+  id: z.string(), name: z.string(), result: z.string(), won: z.boolean(),
+  kind: z.enum(['league', 'cup', 'continental', 'international', 'individual']),
+})
+
+const seasonRecordSchema = z.object({
+  season: z.number(), age: z.number(), clubId: z.string(), leaguePosition: z.number(),
+  matches: z.number(), goals: z.number(), assists: z.number(), overall: z.number(), form: z.number(), earnings: z.number(),
+  titles: z.array(z.string()), competitions: z.array(competitionSchema), individualAwards: z.array(z.string()),
 })
 
 export const saveGameSchema = z.object({
@@ -59,5 +70,10 @@ export const saveGameSchema = z.object({
     activeFlags: z.array(z.string()), eventHistory: z.array(historySchema),
     narrativeCharacters: z.array(z.object({ id: z.string(), name: z.string(), role: z.string(), relationshipValue: z.number(), activeStatus: z.boolean(), history: z.array(z.string()) })),
     stats: statsSchema,
+    careerEarnings: z.number().default(0), ownedItems: z.array(z.string()).default([]),
+    clubIdolatries: z.record(z.string(), z.number()).default({}),
+    rival: z.object({ name: z.string(), nickname: z.string(), age: z.number(), currentClubId: z.string().nullable(), goals: z.number(), assists: z.number(), matches: z.number(), trophies: z.number(), reputation: z.number(), nationalTeamCaps: z.number().default(0) }).optional(),
+    seasonHistory: z.array(seasonRecordSchema).default([]),
+    nationalTeam: z.object({ calledUp: z.boolean(), caps: z.number(), goals: z.number(), trophies: z.number() }).optional(),
   }),
 })

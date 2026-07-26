@@ -3,7 +3,7 @@ import type { CareerEvent, EventChoice, EventHistoryEntry, PlayerStats, RiskLabe
 export const STAT_LABELS: Record<keyof PlayerStats, string> = {
   talent: 'Visión', technique: 'Pegada', fitness: 'Velocidad', discipline: 'Disciplina', confidence: 'Mentalidad',
   resilience: 'Resistencia', reputation: 'Fama', family: 'Familia', community: 'Barrio', finances: 'Dinero',
-  goals: 'Goles', assists: 'Asistencias', matches: 'Partidos', trophies: 'Títulos',
+  goals: 'Goles', assists: 'Asistencias', matches: 'Partidos', trophies: 'Títulos', form: 'Forma',
 }
 
 export interface DecisionArchetype {

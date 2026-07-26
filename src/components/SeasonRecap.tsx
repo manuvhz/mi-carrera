@@ -1,6 +1,7 @@
 import { useMemo, useState, type CSSProperties } from 'react'
 import { REAL_CLUBS, clubById, clubCrestUrl, clubForPlayer, currentClubForPlayer } from '../content/real-clubs'
 import { simulateSeason } from '../game/engine'
+import { formatCareerMoney, hasCareerItem, idolatryTier } from '../game/career-systems'
 import { APP_CONFIG } from '../config'
 import { isNarrativeEventId } from '../game/history'
 import { presentEventResult, presentEventTitle } from '../game/presentation'
@@ -17,10 +18,10 @@ interface SeasonRecapProps {
 export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
   const club = clubForPlayer(player)
   const leagueClubs = REAL_CLUBS.filter((item) => item.leagueId === club.leagueId)
-  const simulation = useMemo(() => simulateSeason(player, seed, leagueClubs.length, club.prestige), [player, seed, leagueClubs.length, club.prestige])
+  const simulation = useMemo(() => simulateSeason(player, seed, leagueClubs.length, club.prestige, club.leagueId), [player, seed, leagueClubs.length, club.prestige, club.leagueId])
   const projected = simulation.player
   const currentClub = currentClubForPlayer(player)
-  const offers = useMemo(() => transferOffersFor(player, seed), [player, seed])
+  const offers = useMemo(() => transferOffersFor(player, seed, hasCareerItem(player, 'super-agent') ? 4 : 3), [player, seed])
   const [nextClubId, setNextClubId] = useState<string | undefined>(() => currentClub?.id ?? (player.age >= 15 ? player.favoriteClubId : undefined))
   const seasonEntries = player.eventHistory.filter((entry) => entry.season === player.season)
   const trainingEntries = seasonEntries.filter((entry) => entry.eventId.startsWith('training-'))
@@ -31,13 +32,13 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
   const goalLabel = `${seasonGoals} ${seasonGoals === 1 ? 'gol' : 'goles'}`
   const assistLabel = `${seasonAssists} ${seasonAssists === 1 ? 'asistencia' : 'asistencias'}`
   const contributions = seasonGoals + seasonAssists
-  const rating = Math.min(9.9, 6.1 + contributions * .16 + player.stats.discipline * .008)
-  const marketValue = Math.round((projected.stats.reputation * 18 + projected.stats.talent * 5 + player.stats.finances * 10) * 1000)
+  const rating = Math.min(9.9, 6 + contributions * .14 + player.stats.discipline * .007 + simulation.form * .008)
+  const marketValue = Math.round(simulation.overall * simulation.overall * 5200 + projected.stats.reputation * 230000 + contributions * 120000)
   const position = simulation.position
   const seasonVerdict = seasonVerdictFor(position, leagueClubs.length)
   const mentor = player.narrativeCharacters[0]
-  const rival = leagueClubs[(leagueClubs.findIndex((item) => item.id === club.id) + 1) % leagueClubs.length]
-  const rivalGoals = Math.abs(seed + player.season * 17) % Math.max(2, contributions + 2)
+  const rival = player.rival
+  const rivalContributions = simulation.rivalSeason.goals + simulation.rivalSeason.assists
   const headline = headlineFor(player, contributions, position)
   const award = simulation.champion ? 'Campeón de la temporada' : player.age < 13 ? 'Promesa del año' : player.age < 16 ? 'Revelación juvenil' : contributions >= 12 ? 'Figura de la temporada' : 'Jugador en ascenso'
   const recapStyle = { '--recap-primary': club.colors[0], '--recap-secondary': club.colors[1] } as CSSProperties
@@ -51,6 +52,7 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
     { icon: '★', title: 'Impacto ofensivo', text: `${goalLabel} y ${assistLabel} en ${seasonMatches} partidos simulados.` },
     { icon: '♟', title: 'Lugar en el equipo', text: `${player.clubRole}. El cuerpo técnico valora tu disciplina en ${player.stats.discipline}/100.` },
     { icon: '●', title: 'El nombre empieza a circular', text: `Tu reputación proyectada termina en ${projected.stats.reputation}/100.` },
+    { icon: '💰', title: 'Contrato y premios', text: `Ingresaste ${formatCareerMoney(simulation.earnings, true)} esta temporada. Ya puedes convertir el dinero en carrera deportiva.` },
     ...storyEntries.slice(-3).map((entry) => ({ icon: '✦', title: presentEventTitle(entry.title), text: presentEventResult(entry.result, entry.title) })),
   ]
 
@@ -72,7 +74,7 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
       <RecapKpi value={projected.stats.assists} label="Asistencias carrera" />
       <RecapKpi value={rating.toFixed(1)} label="Nota promedio" />
       <RecapKpi value={`#${position}`} label="Posición del club" />
-      <RecapKpi value={formatMoney(marketValue)} label="Valor proyectado" />
+      <RecapKpi value={formatCareerMoney(Math.round(marketValue / 1000), true)} label="Valor proyectado" />
     </section>
 
     <section className="recap-panel season-result-panel">
@@ -84,16 +86,22 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
       </div>
     </section>
 
+    <section className="recap-panel competition-panel">
+      <div className="recap-section-title"><div><span>02 · COPAS Y PREMIOS</span><h2>Todo lo que jugaste este año</h2></div><em>LOS TÍTULOS SE GUARDAN EN TU PALMARÉS</em></div>
+      <div className="competition-grid">{simulation.competitions.map((competition) => <article className={competition.won ? 'won' : ''} key={competition.id}><span>{competition.kind === 'individual' ? '⭐' : competition.kind === 'international' ? '🏳️' : competition.kind === 'continental' ? '🌍' : competition.kind === 'cup' ? '🏆' : '⚽'}</span><div><small>{competition.kind === 'international' ? 'SELECCIÓN' : competition.kind === 'continental' ? 'INTERNACIONAL' : competition.kind === 'individual' ? 'PREMIO INDIVIDUAL' : 'NACIONAL'}</small><strong>{competition.name}</strong><p>{competition.result}</p></div>{competition.won && <b>CAMPEÓN</b>}</article>)}</div>
+    </section>
+
     <div className="recap-columns">
       <section className="recap-panel achievement-panel">
-        <div className="recap-section-title"><div><span>02 · TU HUELLA</span><h2>Lo que dejó la temporada</h2></div></div>
+        <div className="recap-section-title"><div><span>03 · TU HUELLA</span><h2>Lo que dejó la temporada</h2></div></div>
         <div className="achievement-list">{achievements.map((achievement, index) => <article key={`${achievement.title}-${index}`}><span>{achievement.icon}</span><div><strong>{achievement.title}</strong><p>{achievement.text}</p></div></article>)}</div>
       </section>
 
       <aside className="recap-sidebar">
-        <section className="recap-card mentor-card"><span>03 · PERSONAS</span><h3>{mentor?.name ?? 'Tu primer entrenador'}</h3><p>{mentor ? `${mentor.relationshipValue} puntos de vínculo. ${mentor.history.at(-1)}` : 'Alguien del barrio sigue pendiente de tu camino.'}</p><div><i><b style={{ width: `${mentor?.relationshipValue ?? 50}%` }} /></i><strong>{mentor?.relationshipValue ?? 50}/100</strong></div></section>
-        <section className="recap-card duel-card"><span>04 · RIVALIDAD</span><h3>Tu duelo de carrera</h3><div className="duel-clubs"><div><img src={clubCrestUrl(club)} alt="" /><strong>{contributions}</strong><small>{club.shortName}</small></div><b>VS</b><div><img src={clubCrestUrl(rival)} alt="" /><strong>{rivalGoals}</strong><small>{rival.shortName}</small></div></div><p>{contributions >= rivalGoals ? 'Cierras el año por delante. La rivalidad ya tiene memoria.' : 'Terminas por detrás. La próxima temporada trae revancha.'}</p></section>
-        <section className="recap-card economy-card"><span>05 · ECONOMÍA</span><h3>{formatMoney(marketValue)}</h3><p>Tienes US$ {player.stats.finances * 100} disponibles para entrenador personal, velocidad o definición en el centro de entrenamiento.</p><div className="economy-meter"><i><b style={{ width: `${Math.min(100, projected.stats.reputation + projected.stats.talent / 2)}%` }} /></i></div></section>
+        <section className="recap-card mentor-card"><span>04 · PERSONAS</span><h3>{mentor?.name ?? 'Tu primer entrenador'}</h3><p>{mentor ? `${mentor.relationshipValue} puntos de vínculo. ${mentor.history.at(-1)}` : 'Alguien del barrio sigue pendiente de tu camino.'}</p><div><i><b style={{ width: `${mentor?.relationshipValue ?? 50}%` }} /></i><strong>{mentor?.relationshipValue ?? 50}/100</strong></div></section>
+        <section className="recap-card duel-card"><span>05 · RIVALIDAD</span><h3>{rival?.name ?? 'Tu duelo de carrera'}</h3><div className="duel-clubs"><div><i>{player.firstName.slice(0, 1)}</i><strong>{contributions}</strong><small>TÚ</small></div><b>VS</b><div><i>{rival?.name.slice(0, 1) ?? '?'}</i><strong>{rivalContributions}</strong><small>{rival?.nickname ?? 'RIVAL'}</small></div></div><p>{contributions >= rivalContributions ? 'Cierras el año por delante. La rivalidad ya tiene memoria.' : 'Terminas por detrás. La próxima temporada trae revancha.'}</p></section>
+        <section className="recap-card economy-card"><span>06 · ECONOMÍA</span><h3>{formatCareerMoney(simulation.earnings, true)}</h3><p>Ganaste esta temporada. Tu saldo proyectado es {formatCareerMoney(projected.stats.finances, true)} para entrenamiento, staff, lujos y proyectos de legado.</p><div className="economy-meter"><i><b style={{ width: `${Math.min(100, projected.stats.reputation + projected.stats.talent / 2)}%` }} /></i></div></section>
+        {player.currentClubId && <section className="recap-card idolatry-card"><span>07 · IDOLATRÍA</span><h3>{idolatryTier(player.clubIdolatries?.[player.currentClubId] ?? 0)}</h3><p>Tu vínculo con la afición de {club.shortName} seguirá creciendo al aplicar este cierre de temporada.</p></section>}
       </aside>
     </div>
 
@@ -125,9 +133,4 @@ function headlineFor(player: CareerPlayer, contributions: number, position: numb
   if (position === 1 && contributions >= 10) return 'El mejor del torneo también sabe ganar'
   if (contributions >= 12) return 'Una temporada imposible de ignorar'
   return 'Cada partido te acerca a la versión que soñaste'
-}
-
-function formatMoney(value: number) {
-  if (value >= 1_000_000) return `US$ ${(value / 1_000_000).toFixed(1)}M`
-  return `US$ ${Math.round(value / 1000)}K`
 }

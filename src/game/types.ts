@@ -60,6 +60,51 @@ export interface PlayerStats {
   assists: number
   matches: number
   trophies: number
+  form: number
+}
+
+export interface CompetitionResult {
+  id: string
+  name: string
+  result: string
+  won: boolean
+  kind: 'league' | 'cup' | 'continental' | 'international' | 'individual'
+}
+
+export interface SeasonRecord {
+  season: number
+  age: number
+  clubId: string
+  leaguePosition: number
+  matches: number
+  goals: number
+  assists: number
+  overall: number
+  form: number
+  earnings: number
+  titles: string[]
+  competitions: CompetitionResult[]
+  individualAwards: string[]
+}
+
+export interface CareerRival {
+  name: string
+  nickname: string
+  age: number
+  currentClubId: string | null
+  goals: number
+  assists: number
+  matches: number
+  trophies: number
+  reputation: number
+  nationalTeamCaps?: number
+}
+
+export interface InternationalCareer {
+  calledUp: boolean
+  caps: number
+  goals: number
+  trophies: number
 }
 
 export interface CareerPlayer {
@@ -89,6 +134,12 @@ export interface CareerPlayer {
   eventHistory: EventHistoryEntry[]
   narrativeCharacters: NarrativeCharacter[]
   stats: PlayerStats
+  careerEarnings?: number
+  ownedItems?: string[]
+  clubIdolatries?: Record<string, number>
+  rival?: CareerRival
+  seasonHistory?: SeasonRecord[]
+  nationalTeam?: InternationalCareer
 }
 
 export interface EventHistoryEntry {

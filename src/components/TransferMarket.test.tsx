@@ -9,7 +9,7 @@ const academyPlayer: CareerPlayer = {
   birthYear: 2011, preferredFoot: 'Izquierdo', favoriteNumber: 10, favoriteClubId: 'barcelona', primaryPosition: 'Mediocampista', geographicOrigin: 'Ciudad intermedia',
   economicBackground: 'Economía modesta', footballLegacy: 'Sin conexiones', firstFootballEnvironment: 'Equipo escolar', initialPersonality: 'Creativo', careerStage: 'academy',
   season: 6, currentClubId: null, clubRole: 'Juvenil en formación', activeFlags: [], eventHistory: [], narrativeCharacters: [],
-  stats: { talent: 58, technique: 57, fitness: 61, discipline: 55, confidence: 53, resilience: 57, reputation: 9, family: 61, community: 55, finances: 12, goals: 4, assists: 5, matches: 35, trophies: 0 },
+  stats: { talent: 58, technique: 57, fitness: 61, discipline: 55, confidence: 53, resilience: 57, reputation: 9, family: 61, community: 55, finances: 12, goals: 4, assists: 5, matches: 35, trophies: 0, form: 55 },
 }
 
 describe('mercado visual', () => {

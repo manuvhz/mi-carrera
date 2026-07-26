@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'rea
 import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { APP_CONFIG } from './config'
 import { CareerPlayerCard } from './components/CareerPlayerCard'
+import { CareerGuide } from './components/CareerGuide'
+import { CareerShop } from './components/CareerShop'
 import { ClubPicker } from './components/ClubPicker'
 import { DecisionOutcome } from './components/DecisionOutcome'
 import { DecisionScene } from './components/DecisionScene'
@@ -10,6 +12,7 @@ import { SeasonRecap } from './components/SeasonRecap'
 import { TrainingArcade } from './components/TrainingArcade'
 import { clubById, clubCrestUrl, DEFAULT_CLUB_ID } from './content/real-clubs'
 import { saveGameSchema } from './game/schemas'
+import { currentIdolatry, formPresentation, formatCareerMoney, idolatryTier, playerForm, playerOverall } from './game/career-systems'
 import { presentChoiceText, presentEventResult, presentEventTitle } from './game/presentation'
 import { listSaves, saveCareer } from './persistence/database'
 import { useCareerStore, type PlayerDraft } from './stores/career-store'
@@ -29,7 +32,7 @@ function Shell({ children, minimal = false }: { children: ReactNode; minimal?: b
     <header className="topbar">
       <NavLink className="brand" to="/"><Mark /><span>{APP_CONFIG.name}</span></NavLink>
       {!minimal && <nav className="topnav" aria-label="Navegación principal">
-        <NavLink to="/carrera">Carrera</NavLink><NavLink to="/historial">Historia</NavLink><NavLink to="/estadisticas">Estadísticas</NavLink><NavLink to="/guardado">Guardado</NavLink>
+        <NavLink to="/carrera">Carrera</NavLink><NavLink to="/estadisticas">Ficha</NavLink><NavLink to="/tienda">Tienda</NavLink><NavLink to="/guia">Guía</NavLink><NavLink to="/historial">Historia</NavLink><NavLink to="/guardado">Guardado</NavLink>
       </nav>}
     </header>
     {children}
@@ -62,7 +65,7 @@ function HomePage() {
         <div className="story-card floating"><span>PRIMER RECUERDO</span><strong>Los guayos prestados</strong><p>“Prometiste devolverlos después de la final del barrio.”</p></div>
       </section>
     </main>
-    <footer className="landing-footer"><span>Proyecto de fans · Escudos con fuente y licencia documentadas</span><span>v1.1 · Guardado local</span></footer>
+    <footer className="landing-footer"><span>Proyecto de fans · Escudos con fuente y licencia documentadas</span><span>v1.2 · Guardado local</span></footer>
   </Shell>
 }
 
@@ -210,7 +213,41 @@ function HistoryPage() {
 function StatsPage() {
   const player = useCareerStore((state) => state.player)!
   const stats = player.stats
-  return <Shell><main className="content-page"><p className="eyebrow">RADIOGRAFÍA DE CARRERA</p><h1>Tu rendimiento, explicado como futbolista.</h1><div className="big-stats"><StatNumber value={stats.matches} label="Partidos" /><StatNumber value={stats.goals} label="Goles" /><StatNumber value={stats.assists} label="Asistencias" /><StatNumber value={stats.trophies} label="Títulos" /></div><section className="attributes"><h2>Atributos principales</h2>{(['technique', 'fitness', 'talent', 'confidence', 'resilience', 'discipline', 'reputation', 'family', 'community'] as const).map((key) => <div key={key}><span>{{ talent: 'Visión', technique: 'Pegada', fitness: 'Velocidad', discipline: 'Disciplina', confidence: 'Mentalidad', resilience: 'Resistencia', reputation: 'Reputación', family: 'Familia', community: 'Barrio' }[key]}</span><i><b style={{ width: `${stats[key]}%` }} /></i><strong>{stats[key]}</strong></div>)}</section></main></Shell>
+  const overall = playerOverall(player)
+  const form = formPresentation(playerForm(player))
+  const idolValue = currentIdolatry(player)
+  const idolatries = Object.entries(player.clubIdolatries ?? {}).filter(([, value]) => value > 0).sort((a, b) => b[1] - a[1])
+  const honours = (player.seasonHistory ?? []).flatMap((season) => [...season.titles, ...season.individualAwards].map((title) => ({ title, season: season.season, clubId: season.clubId }))).reverse()
+  const rival = player.rival
+  return <Shell><main className="content-page stats-page"><p className="eyebrow">RADIOGRAFÍA DE CARRERA</p><h1>Tu rendimiento, explicado como futbolista.</h1>
+    <div className="big-stats"><StatNumber value={stats.matches} label="Partidos" /><StatNumber value={stats.goals} label="Goles" /><StatNumber value={stats.assists} label="Asistencias" /><StatNumber value={stats.trophies} label="Títulos" /></div>
+    <section className="career-overview-grid" aria-label="Estado de carrera">
+      <article className="overall-card"><span>MEDIA</span><strong>{overall}</strong><p>Promedio de tus cuatro cualidades principales.</p></article>
+      <article><span>FORMA</span><strong className={`form-${form.tone}`}>{form.arrows} {form.label}</strong><p>{playerForm(player)}/100 · cambia tu producción de goles y asistencias.</p></article>
+      <article><span>DINERO GANADO</span><strong>{formatCareerMoney(player.careerEarnings ?? 0, true)}</strong><p>{formatCareerMoney(stats.finances, true)} disponibles en la tienda.</p></article>
+      <article><span>IDOLATRÍA ACTUAL</span><strong>{player.currentClubId ? `${idolValue} · ${idolatryTier(idolValue)}` : 'Semillero'}</strong><p>Se construye por separado en cada club.</p></article>
+    </section>
+    <div className="stats-columns">
+      <section className="attributes"><h2>Cualidades del futbolista</h2>{(['technique', 'fitness', 'talent', 'confidence', 'resilience', 'discipline', 'reputation', 'family', 'community'] as const).map((key) => <div key={key}><span>{{ talent: 'Visión', technique: 'Pegada', fitness: 'Velocidad', discipline: 'Disciplina', confidence: 'Mentalidad', resilience: 'Resistencia', reputation: 'Fama', family: 'Familia', community: 'Barrio' }[key]}</span><i><b style={{ width: `${stats[key]}%` }} /></i><strong>{stats[key]}</strong></div>)}</section>
+      <aside className="career-records">
+        <section><span>⚔️ DUELO DE CARRERA</span><h2>{rival?.name ?? 'Rival por descubrir'}</h2>{rival && <><p>{rival.nickname} · {rival.age} años</p><div className="rival-score"><b>{stats.goals}<small>TUS GOLES</small></b><em>VS</em><b>{rival.goals}<small>SUS GOLES</small></b></div><p>{stats.trophies} títulos tuyos · {rival.trophies} de tu rival</p></>}</section>
+        <section><span>🏆 PALMARÉS</span><h2>{honours.length ? `${honours.length} logros registrados` : 'La vitrina te espera'}</h2>{honours.length ? <div className="honours-list">{honours.slice(0, 8).map((honour, index) => <div key={`${honour.title}-${honour.season}-${index}`}><b>{honour.title}</b><small>T{honour.season} · {clubById(honour.clubId).shortName}</small></div>)}</div> : <p>Las ligas, copas continentales y premios individuales aparecerán aquí.</p>}</section>
+        <section><span>🏳️ SELECCIÓN</span><h2>{player.nationalTeam?.calledUp ? `${player.nationalTeam.caps} partidos internacionales` : 'La convocatoria te espera'}</h2><p>{player.nationalTeam?.calledUp ? `${player.nationalTeam.goals} goles y ${player.nationalTeam.trophies} títulos con la Selección de ${player.nationality}.` : 'La Media, la Forma y la Fama pueden llevarte a representar a tu país desde los 18 años.'}</p></section>
+        <section><span>💙 ÍDOLOS POR CLUB</span><h2>Tu huella no se borra</h2>{idolatries.length ? <div className="honours-list">{idolatries.slice(0, 6).map(([clubId, value]) => <div key={clubId}><b>{clubById(clubId).shortName}</b><small>{value}/100 · {idolatryTier(value)}</small></div>)}</div> : <p>La idolatría empezará después de tu debut profesional.</p>}</section>
+      </aside>
+    </div>
+  </main></Shell>
+}
+
+function ShopPage() {
+  const player = useCareerStore((state) => state.player)!
+  const purchase = useCareerStore((state) => state.purchaseShopItem)
+  return <Shell><CareerShop player={player} onPurchase={purchase} /></Shell>
+}
+
+function GuidePage() {
+  const player = useCareerStore((state) => state.player)!
+  return <Shell><CareerGuide player={player} /></Shell>
 }
 
 function StatNumber({ value, label }: { value: number; label: string }) { return <div><strong>{value}</strong><span>{label}</span></div> }
@@ -234,7 +271,7 @@ export default function App() {
   return <><ScrollToTop /><Routes>
     <Route path="/" element={<HomePage />} /><Route path="/crear" element={<CreatePage />} /><Route path="/origen" element={<OriginPage />} />
     <Route path="/carrera" element={<CareerGuard><CareerPage /></CareerGuard>} /><Route path="/resumen-temporada" element={<CareerGuard><SeasonRecapPage /></CareerGuard>} /><Route path="/historial" element={<CareerGuard><HistoryPage /></CareerGuard>} />
-    <Route path="/estadisticas" element={<CareerGuard><StatsPage /></CareerGuard>} /><Route path="/guardado" element={<CareerGuard><SavesPage /></CareerGuard>} />
+    <Route path="/estadisticas" element={<CareerGuard><StatsPage /></CareerGuard>} /><Route path="/tienda" element={<CareerGuard><ShopPage /></CareerGuard>} /><Route path="/guia" element={<CareerGuard><GuidePage /></CareerGuard>} /><Route path="/guardado" element={<CareerGuard><SavesPage /></CareerGuard>} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes></>
 }

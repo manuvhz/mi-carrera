@@ -1,6 +1,6 @@
-import { APP_CONFIG } from '../config'
 import { REAL_CLUBS, clubById, currentClubForPlayer, type RealClub } from '../content/real-clubs'
 import { seededRandom } from './engine'
+import { hasCareerItem, retirementAgeFor } from './career-systems'
 import type { CareerPlayer } from './types'
 
 export interface TransferOffer {
@@ -19,11 +19,13 @@ export function playerMarketScore(player: CareerPlayer) {
 }
 
 export function transferOffersFor(player: CareerPlayer, seed: number, limit = 3): TransferOffer[] {
-  if (player.age < 15 || player.age + 1 >= APP_CONFIG.retirementAge) return []
+  if (player.age < 15 || player.age + 1 >= retirementAgeFor(player)) return []
 
   const currentClub = currentClubForPlayer(player)
   const academyClub = clubById(player.favoriteClubId)
   const score = playerMarketScore(player)
+  const agentBonus = hasCareerItem(player, 'super-agent') ? 12 : 0
+  const languageBonus = hasCareerItem(player, 'language-coach') ? 5 : 0
   const random = seededRandom(seed + player.season * 12_271 + player.age * 977)
 
   if (!currentClub) {
@@ -32,17 +34,17 @@ export function transferOffersFor(player: CareerPlayer, seed: number, limit = 3)
       .map((club) => ({ club, order: club.academy + random() * 18 }))
       .sort((a, b) => b.order - a.order)
       .slice(0, Math.max(0, limit - 1))
-      .map(({ club }) => buildOffer(club, academyClub.prestige, score, true))
-    return [buildOffer(academyClub, academyClub.prestige, score, true), ...alternatives]
+      .map(({ club }) => buildOffer(club, academyClub.prestige, score, true, academyClub.leagueId, player))
+    return [buildOffer(academyClub, academyClub.prestige, score, true, academyClub.leagueId, player), ...alternatives]
   }
 
-  const maximumPrestige = Math.min(99, Math.max(score + 40, currentClub.prestige - 6))
+  const maximumPrestige = Math.min(99, Math.max(score + 40 + agentBonus + languageBonus, currentClub.prestige - 6))
   const targetPrestige = Math.min(maximumPrestige, Math.max(currentClub.prestige + 9, score + 4))
   const ranked = REAL_CLUBS
     .filter((club) => club.id !== currentClub.id && club.prestige <= maximumPrestige)
     .map((club) => ({
       club,
-      order: 100 - Math.abs(club.prestige - targetPrestige) * 2 + random() * 24 + (club.leagueId !== currentClub.leagueId ? 5 : 0),
+      order: 100 - Math.abs(club.prestige - targetPrestige) * 2 + random() * 24 + (club.leagueId !== currentClub.leagueId ? 5 + languageBonus : 0) + agentBonus * .35,
     }))
     .sort((a, b) => b.order - a.order)
 
@@ -57,17 +59,19 @@ export function transferOffersFor(player: CareerPlayer, seed: number, limit = 3)
     if (!selected.some((club) => club.id === candidate.club.id)) selected.push(candidate.club)
   }
 
-  return selected.map((club) => buildOffer(club, currentClub.prestige, score, false))
+  return selected.map((club) => buildOffer(club, currentClub.prestige, score, false, currentClub.leagueId, player))
 }
 
-function buildOffer(club: RealClub, currentPrestige: number, score: number, firstContract: boolean): TransferOffer {
+function buildOffer(club: RealClub, currentPrestige: number, score: number, firstContract: boolean, currentLeagueId: string, player: CareerPlayer): TransferOffer {
   const levelChange = club.prestige - currentPrestige
   const role = firstContract
     ? club.academy >= 92 ? 'Joya de la cantera' : 'Proyecto del primer equipo'
     : levelChange >= 10 ? 'Rotación con proyección' : levelChange >= 3 ? 'Competir por la titularidad' : 'Pieza importante'
+  const abroad = club.leagueId !== currentLeagueId
   const interest = firstContract
     ? 'Primer contrato profesional'
-    : levelChange >= 10 ? 'Salto de élite' : levelChange >= 3 ? 'Paso adelante' : levelChange <= -5 ? 'Más minutos' : 'Nuevo desafío'
-  const salary = Math.round((club.prestige * 780 + score * 460) / 5) * 5
+    : abroad ? 'Oferta del exterior' : levelChange >= 10 ? 'Salto de élite' : levelChange >= 3 ? 'Paso adelante' : levelChange <= -5 ? 'Más minutos' : 'Nuevo desafío'
+  const agentMultiplier = hasCareerItem(player, 'super-agent') ? 1.18 : 1
+  const salary = Math.round(((club.prestige * 780 + score * 460) * agentMultiplier) / 5) * 5
   return { club, role, interest, salary, levelChange }
 }

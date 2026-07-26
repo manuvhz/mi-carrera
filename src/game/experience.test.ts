@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { buildDecisionOutcome, careerDecisionIdentity, choiceArchetype, presentedRiskLabel, riskLevel } from './experience'
 import type { CareerEvent, EventChoice, EventHistoryEntry, PlayerStats } from './types'
 
-const stats: PlayerStats = { talent: 50, technique: 50, fitness: 50, discipline: 50, confidence: 50, resilience: 50, reputation: 10, family: 50, community: 50, finances: 10, goals: 0, assists: 0, matches: 0, trophies: 0 }
+const stats: PlayerStats = { talent: 50, technique: 50, fitness: 50, discipline: 50, confidence: 50, resilience: 50, reputation: 10, family: 50, community: 50, finances: 10, goals: 0, assists: 0, matches: 0, trophies: 0, form: 50 }
 
 describe('experiencia de decisiones', () => {
   it('clasifica estilos y niveles de riesgo', () => {

@@ -7,7 +7,7 @@ const player: CareerPlayer = {
   birthYear: 2008, preferredFoot: 'Derecho', favoriteNumber: 9, favoriteClubId: 'gimnasia-jujuy', primaryPosition: 'Delantero', geographicOrigin: 'Barrio popular',
   economicBackground: 'Familia trabajadora', footballLegacy: 'Sin conexiones', firstFootballEnvironment: 'Calle', initialPersonality: 'Competitiva',
   careerStage: 'debut', season: 9, currentClubId: 'gimnasia-jujuy', clubRole: 'Profesional en crecimiento', activeFlags: [], eventHistory: [], narrativeCharacters: [],
-  stats: { talent: 55, technique: 54, fitness: 61, discipline: 58, confidence: 52, resilience: 57, reputation: 12, family: 60, community: 55, finances: 14, goals: 8, assists: 4, matches: 32, trophies: 0 },
+  stats: { talent: 55, technique: 54, fitness: 61, discipline: 58, confidence: 52, resilience: 57, reputation: 12, family: 60, community: 55, finances: 14, goals: 8, assists: 4, matches: 32, trophies: 0, form: 55 },
 }
 
 describe('mercado de fichajes', () => {

@@ -37,7 +37,7 @@ test('elige un club real y combina una rutina con un reto interactivo', async ({
   await page.getByRole('button', { name: /Empezar la carrera/ }).click()
   await expect(page.getByRole('img', { name: /Escudo de Gimnasia y Esgrima de Jujuy/ })).toBeVisible()
   await page.getByRole('button', { name: /Entrenador personal/ }).click()
-  await expect(page.getByText('US$ 700 DISPONIBLES')).toBeVisible()
+  await expect(page.getByText('US$ 7K DISPONIBLES')).toBeVisible()
   await page.getByRole('button', { name: /Trabajo de velocidad/ }).click()
   await expect(page.getByText(/Sesión completada/)).toBeVisible()
   await page.getByRole('button', { name: /Duelo de penales/ }).click()
@@ -47,6 +47,37 @@ test('elige un club real y combina una rutina con un reto interactivo', async ({
   await page.getByRole('button', { name: 'Arriba derecha' }).click()
   await expect(page.getByText('TRABAJO COMPLETADO')).toBeVisible()
   await expect(page.getByText(/La mejora ya fue guardada/)).toBeVisible()
+})
+
+test('explica todos los sistemas y permite comprar en la tienda', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /Comenzar mi historia/ }).click()
+  await page.getByLabel('Nombre').fill('Nora')
+  await page.getByLabel('Apellido').fill('Suárez')
+  await page.getByRole('button', { name: /Construir mi origen/ }).click()
+  await page.getByRole('button', { name: /Empezar la carrera/ }).click()
+
+  await page.getByRole('link', { name: 'Guía' }).click()
+  await expect(page.getByRole('heading', { name: 'Media' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'El exterior' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Champions y copas' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'El semillero' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'El duelo' })).toBeVisible()
+
+  await page.getByRole('link', { name: 'Tienda' }).click()
+  await expect(page.locator('.shop-wallet strong')).toHaveText('US$ 12K')
+  await expect(page.getByRole('heading', { name: 'Staff' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Lujo' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Legado' })).toBeVisible()
+  await page.getByRole('button', { name: 'Comprar Reloj de rendimiento' }).click()
+  await expect(page.getByRole('button', { name: 'Reloj de rendimiento adquirido' })).toBeDisabled()
+  await expect(page.locator('.shop-wallet strong')).toHaveText('US$ 4K')
+
+  await page.getByRole('link', { name: 'Ficha' }).click()
+  await expect(page.getByText('MEDIA', { exact: true })).toBeVisible()
+  await expect(page.getByText('FORMA', { exact: true })).toBeVisible()
+  await expect(page.getByText('DINERO GANADO', { exact: true })).toBeVisible()
+  await expect(page.getByText(/DUELO DE CARRERA/)).toBeVisible()
 })
 
 test('puede empezar su carrera en una de las cinco grandes ligas', async ({ page }) => {
@@ -95,6 +126,8 @@ test('avanza solo al anuario tras dos acontecimientos y acelera la etapa juvenil
 
   await expect(page.getByText('RESUMEN DE TEMPORADA')).toBeVisible()
   await expect(page.getByText('POSICIÓN FINAL', { exact: true })).toBeVisible()
+  await expect(page.getByText('Todo lo que jugaste este año')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Liga Juvenil Regional' })).toBeVisible()
   await expect(page.locator('.standing-row')).toHaveCount(0)
   await expect(page.getByText(/Lo que dejó la temporada/)).toBeVisible()
   await page.getByRole('button', { name: /Comenzar la próxima temporada/ }).click()

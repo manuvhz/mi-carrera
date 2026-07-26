@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { seededRandom } from '../game/engine'
+import { formatCareerMoney } from '../game/career-systems'
 import { useCareerStore, type CareerUpgradeId, type TacticalFocusId, type TrainingSessionId } from '../stores/career-store'
 
 type GameId = 'penalties' | 'reactions' | 'passing'
@@ -17,9 +18,9 @@ const GAMES = [
 ] as const
 
 const UPGRADES = [
-  { id: 'coach', icon: '◉', title: 'Entrenador personal', text: 'Pegada +2 · Visión +1', cost: 500 },
-  { id: 'sprint', icon: '⚡', title: 'Plan de velocidad', text: 'Velocidad +2 · Resistencia +1', cost: 400 },
-  { id: 'finishing', icon: '◎', title: 'Clínica de definición', text: 'Pegada +1 · Mentalidad +2', cost: 600 },
+  { id: 'coach', icon: '◉', title: 'Entrenador personal', text: 'Pegada +2 · Visión +1', cost: 5 },
+  { id: 'sprint', icon: '⚡', title: 'Plan de velocidad', text: 'Velocidad +2 · Resistencia +1', cost: 4 },
+  { id: 'finishing', icon: '◎', title: 'Clínica de definición', text: 'Pegada +1 · Mentalidad +2', cost: 6 },
 ] as const satisfies ReadonlyArray<{ id: CareerUpgradeId; icon: string; title: string; text: string; cost: number }>
 
 export function TrainingArcade() {
@@ -46,9 +47,9 @@ export function TrainingArcade() {
   return <section className="training-arcade training-center" aria-labelledby="training-title">
     <div className="training-heading"><div><p className="eyebrow">CENTRO DE ENTRENAMIENTO</p><h2 id="training-title">Arma tu semana de trabajo.</h2><p>No todo es un minijuego: combina sesiones rápidas, decisiones de pizarra y retos de cancha.</p></div><div className="training-progress"><span>{sessionCount}/3 SESIONES</span><span>{gameCount}/3 RETOS</span></div></div>
 
-    <div className="career-investment"><div className="investment-copy"><span>US$ {player.stats.finances * 100} DISPONIBLES</span><strong>El dinero mejora tu carrera</strong><small>Elige una inversión por temporada. No es solo una cifra.</small></div><div className="investment-options">{UPGRADES.map((upgrade) => {
-      const affordable = player.stats.finances * 100 >= upgrade.cost
-      return <button type="button" key={upgrade.id} disabled={investedThisSeason || !affordable} onClick={() => { purchaseCareerUpgrade(upgrade.id); setResult(`${upgrade.title} contratado. La inversión ya se nota en tus atributos.`) }}><span>{investedThisSeason ? '✓' : upgrade.icon}</span><div><strong>{upgrade.title}</strong><small>{upgrade.text}</small></div><b>{investedThisSeason ? 'INVERSIÓN HECHA' : affordable ? `US$ ${upgrade.cost}` : 'SALDO INSUFICIENTE'}</b></button>
+    <div className="career-investment"><div className="investment-copy"><span>{formatCareerMoney(player.stats.finances, true)} DISPONIBLES</span><strong>El dinero mejora tu carrera</strong><small>Una inversión rápida por temporada. El staff permanente y los lujos están en la tienda.</small><a href="#/tienda">ABRIR TIENDA COMPLETA →</a></div><div className="investment-options">{UPGRADES.map((upgrade) => {
+      const affordable = player.stats.finances >= upgrade.cost
+      return <button type="button" key={upgrade.id} disabled={investedThisSeason || !affordable} onClick={() => { purchaseCareerUpgrade(upgrade.id); setResult(`${upgrade.title} contratado. La inversión ya se nota en tus atributos.`) }}><span>{investedThisSeason ? '✓' : upgrade.icon}</span><div><strong>{upgrade.title}</strong><small>{upgrade.text}</small></div><b>{investedThisSeason ? 'INVERSIÓN HECHA' : affordable ? formatCareerMoney(upgrade.cost, true) : 'SALDO INSUFICIENTE'}</b></button>
     })}</div></div>
 
     <div className="training-section-heading"><div><span>01</span><div><strong>Rutinas y preparación</strong><small>Sin puntuación. Entra, trabaja y sigue con tu carrera.</small></div></div><em>{sessionCount}/3 HECHAS</em></div>

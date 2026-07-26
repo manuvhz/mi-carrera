@@ -15,6 +15,13 @@ describe('entrenamientos de carrera', () => {
     useCareerStore.getState().createCareer(draft, 57)
   })
 
+  it('crea un archirrival de la misma generación', () => {
+    const player = useCareerStore.getState().player!
+    expect(player.rival?.name).toBeTruthy()
+    expect(player.rival?.age).toBe(player.age)
+    expect(player.rival?.goals).toBe(0)
+  })
+
   it('aplica la recompensa solo una vez por minijuego y temporada', () => {
     const before = useCareerStore.getState().player!.stats.technique
     useCareerStore.getState().completeMiniGame('penalties', 3, 3)
@@ -41,6 +48,17 @@ describe('entrenamientos de carrera', () => {
     expect(after.stats.finances).toBe(before.stats.finances - 5)
     expect(after.stats.technique).toBeGreaterThan(before.stats.technique)
     expect(after.activeFlags.filter((flag) => flag.startsWith('investment:'))).toHaveLength(1)
+  })
+
+  it('compra mejoras permanentes en la tienda una sola vez', () => {
+    const before = useCareerStore.getState().player!
+    useCareerStore.getState().purchaseShopItem('smart-watch')
+    useCareerStore.getState().purchaseShopItem('smart-watch')
+    const after = useCareerStore.getState().player!
+    expect(after.stats.finances).toBe(before.stats.finances - 8)
+    expect(after.stats.resilience).toBe(before.stats.resilience + 1)
+    expect(after.ownedItems).toEqual(['smart-watch'])
+    expect(after.eventHistory.filter((entry) => entry.eventId === 'shop-smart-watch')).toHaveLength(1)
   })
 
   it('permite elegir el foco de una sesión táctica', () => {
@@ -90,5 +108,8 @@ describe('entrenamientos de carrera', () => {
     expect(transferred.currentClubId).toBe('arsenal')
     expect(transferred.eventHistory.at(-1)?.result).toContain('Premier League')
     expect(useCareerStore.getState().eventsThisYear).toBe(0)
+    expect(transferred.seasonHistory).toHaveLength(1)
+    expect(transferred.careerEarnings).toBeGreaterThan(0)
+    expect(transferred.rival?.matches).toBeGreaterThan(0)
   })
 })
