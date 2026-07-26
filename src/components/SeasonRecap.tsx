@@ -1,13 +1,16 @@
-import { useMemo, type CSSProperties } from 'react'
-import { REAL_CLUBS, clubCrestUrl, clubForPlayer, type RealClub } from '../content/real-clubs'
+import { useMemo, useState, type CSSProperties } from 'react'
+import { REAL_CLUBS, clubById, clubCrestUrl, clubForPlayer, currentClubForPlayer, type RealClub } from '../content/real-clubs'
 import { simulateSeasonStats } from '../game/engine'
+import { isNarrativeEventId } from '../game/history'
 import { presentEventResult, presentEventTitle } from '../game/presentation'
+import { transferOffersFor } from '../game/transfer-market'
 import type { CareerPlayer } from '../game/types'
+import { TransferMarket } from './TransferMarket'
 
 interface SeasonRecapProps {
   player: CareerPlayer
   seed: number
-  onAdvance: () => void
+  onAdvance: (nextClubId?: string) => void
 }
 
 interface Standing {
@@ -22,9 +25,12 @@ interface Standing {
 export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
   const projected = useMemo(() => simulateSeasonStats(player, seed), [player, seed])
   const club = clubForPlayer(player)
+  const currentClub = currentClubForPlayer(player)
+  const offers = useMemo(() => transferOffersFor(player, seed), [player, seed])
+  const [nextClubId, setNextClubId] = useState<string | undefined>(() => currentClub?.id ?? (player.age >= 15 ? player.favoriteClubId : undefined))
   const seasonEntries = player.eventHistory.filter((entry) => entry.season === player.season)
   const trainingEntries = seasonEntries.filter((entry) => entry.eventId.startsWith('training-'))
-  const storyEntries = seasonEntries.filter((entry) => !entry.eventId.startsWith('training-'))
+  const storyEntries = seasonEntries.filter((entry) => isNarrativeEventId(entry.eventId))
   const seasonMatches = projected.stats.matches - player.stats.matches
   const seasonGoals = projected.stats.goals - player.stats.goals
   const seasonAssists = projected.stats.assists - player.stats.assists
@@ -34,11 +40,14 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
   const standings = useMemo(() => buildStandings(club, player, seed, contributions), [club, player, seed, contributions])
   const position = standings.findIndex((entry) => entry.club.id === club.id) + 1
   const mentor = player.narrativeCharacters[0]
-  const rival = REAL_CLUBS[(REAL_CLUBS.findIndex((item) => item.id === club.id) + 1) % REAL_CLUBS.length]
+  const leagueClubs = REAL_CLUBS.filter((item) => item.leagueId === club.leagueId)
+  const rival = leagueClubs[(leagueClubs.findIndex((item) => item.id === club.id) + 1) % leagueClubs.length]
   const rivalGoals = Math.abs(seed + player.season * 17) % Math.max(2, contributions + 2)
   const headline = headlineFor(player, contributions, position)
   const award = player.age < 13 ? 'Promesa del año' : player.age < 16 ? 'Revelación juvenil' : contributions >= 12 ? 'Figura de la temporada' : 'Jugador en ascenso'
   const recapStyle = { '--recap-primary': club.colors[0], '--recap-secondary': club.colors[1] } as CSSProperties
+  const destination = nextClubId ? clubById(nextClubId) : currentClub
+  const changingClub = Boolean(destination && destination.id !== currentClub?.id)
 
   const achievements = [
     { icon: '◈', title: award, text: `La temporada te reconoce como ${award.toLowerCase()} en esta partida.` },
@@ -95,7 +104,9 @@ export function SeasonRecap({ player, seed, onAdvance }: SeasonRecapProps) {
       </aside>
     </div>
 
-    <section className="recap-next-season"><div><span>LA HISTORIA CONTINÚA</span><h2>La temporada {player.season + 1} ya te está esperando.</h2><p>Cumplirás {player.age + 1} años. Tus estadísticas, decisiones, entrenamientos y vínculos viajarán contigo.</p></div><button className="button primary" type="button" onClick={onAdvance}>Comenzar la próxima temporada <span>→</span></button></section>
+    <TransferMarket player={player} offers={offers} value={nextClubId} onChange={setNextClubId} />
+
+    <section className="recap-next-season"><div><span>{changingClub ? 'NUEVO CAPÍTULO' : 'LA HISTORIA CONTINÚA'}</span><h2>{changingClub && destination ? `${destination.shortName} te espera.` : `La temporada ${player.season + 1} ya te está esperando.`}</h2><p>Cumplirás {player.age + 1} años. {changingClub && destination ? `La próxima escena comenzará en ${destination.city}, dentro de ${destination.league}.` : 'Tus estadísticas, decisiones, entrenamientos y vínculos viajarán contigo.'}</p></div><button className="button primary" type="button" onClick={() => onAdvance(nextClubId)}>{changingClub ? 'Firmar y comenzar temporada' : 'Comenzar la próxima temporada'} <span>→</span></button></section>
     <p className="recap-disclaimer">Resultados y clasificación generados para esta partida. No representan resultados deportivos reales.</p>
   </main>
 }
@@ -105,7 +116,7 @@ function RecapKpi({ value, label, accent = false }: { value: number | string; la
 }
 
 function buildStandings(playerClub: RealClub, player: CareerPlayer, seed: number, contributions: number): Standing[] {
-  const clubs = [playerClub, ...REAL_CLUBS.filter((club) => club.id !== playerClub.id)].slice(0, 8)
+  const clubs = [playerClub, ...REAL_CLUBS.filter((club) => club.id !== playerClub.id && club.leagueId === playerClub.leagueId)].slice(0, 8)
   return clubs.map((club, index) => {
     const played = player.age < 16 ? 18 : 30
     const base = 21 + Math.abs(seed + player.season * 71 + (index + 3) * 97) % (player.age < 16 ? 29 : 47)

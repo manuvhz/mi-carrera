@@ -44,6 +44,21 @@ test('elige un club real y combina una rutina con un reto interactivo', async ({
   await expect(page.getByText(/La mejora ya fue guardada/)).toBeVisible()
 })
 
+test('puede empezar su carrera en una de las cinco grandes ligas', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /Comenzar mi historia/ }).click()
+  await page.getByLabel('Nombre').fill('Alex')
+  await page.getByLabel('Apellido').fill('Martín')
+  await page.getByRole('tab', { name: /España/ }).click()
+  await page.getByRole('radio', { name: /Barcelona/ }).click()
+  await page.getByRole('button', { name: /Construir mi origen/ }).click()
+  await expect(page.getByText('FC Barcelona')).toBeVisible()
+  await expect(page.getByText(/Barcelona · LALIGA/)).toBeVisible()
+  await page.getByRole('button', { name: /Empezar la carrera/ }).click()
+  await expect(page.getByRole('img', { name: /Escudo de FC Barcelona/ })).toBeVisible()
+  await expect(page.locator('.hud-season small')).toHaveText('LALIGA')
+})
+
 test('avanza solo al anuario tras tres acontecimientos y comienza la temporada siguiente', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Comenzar mi historia/ }).click()

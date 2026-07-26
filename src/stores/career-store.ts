@@ -4,6 +4,7 @@ import { CAREER_EVENTS } from '../content/load-events'
 import { clubById, DEFAULT_CLUB_ID } from '../content/real-clubs'
 import { applyChoice, selectEvent, simulateSeasonStats, stageForAge } from '../game/engine'
 import { buildDecisionOutcome, type DecisionOutcome } from '../game/experience'
+import { isNarrativeEventId } from '../game/history'
 import type { CareerEvent, CareerPlayer, EventChoice, SaveGame } from '../game/types'
 import { loadCareer, saveCareer } from '../persistence/database'
 
@@ -26,7 +27,7 @@ interface CareerState {
   drawEvent: () => void
   resolveChoice: (choice: EventChoice) => void
   continueAfterResult: () => void
-  advanceYear: () => void
+  advanceYear: (nextClubId?: string) => void
   choosePlaystyle: (styleId: 'finisher' | 'engine' | 'allrounder') => void
   completeTrainingSession: (sessionId: TrainingSessionId, tacticalFocus?: TacticalFocusId) => void
   completeMiniGame: (gameId: 'penalties' | 'reactions' | 'passing', score: number, maximum: number) => void
@@ -72,14 +73,36 @@ export const useCareerStore = create<CareerState>((set, get) => ({
     void get().save()
   },
   continueAfterResult: () => set({ lastResult: null, lastOutcome: null }),
-  advanceYear: () => {
+  advanceYear: (nextClubId) => {
     const { player, seed } = get()
     if (!player) return
     const simulated = simulateSeasonStats(player, seed)
     const age = simulated.age + 1
     const retired = age >= APP_CONFIG.retirementAge
-    const firstClub = age >= 16 && !simulated.currentClubId ? clubById(simulated.favoriteClubId ?? DEFAULT_CLUB_ID).name : simulated.currentClubId
-    const next = { ...simulated, age, season: simulated.season + 1, careerStage: retired ? 'retirement' as const : stageForAge(age), currentClubId: firstClub, clubRole: age < 13 ? 'Talento del barrio' : age < 16 ? 'Juvenil en formación' : age < 23 ? 'Profesional en crecimiento' : age < 32 ? 'Jugador del primer equipo' : 'Veterano del vestuario' }
+    const currentClub = simulated.currentClubId ? clubById(simulated.currentClubId) : null
+    const selectedClub = age >= 16 ? clubById(nextClubId ?? currentClub?.id ?? simulated.favoriteClubId ?? DEFAULT_CLUB_ID) : null
+    const changedClub = Boolean(selectedClub && selectedClub.id !== currentClub?.id)
+    const season = simulated.season + 1
+    const transferEntry = changedClub && selectedClub ? {
+      eventId: `transfer-${season}-${selectedClub.id}`,
+      title: currentClub ? `Un nuevo escudo: ${selectedClub.name}` : `Primer contrato: ${selectedClub.name}`,
+      age,
+      season,
+      choiceId: selectedClub.id,
+      choiceText: currentClub ? `Aceptaste la oferta de ${selectedClub.name}` : `Firmaste tu primer contrato con ${selectedClub.name}`,
+      result: currentClub ? `Dejas ${currentClub.name} y empiezas una nueva etapa en ${selectedClub.city}, dentro de ${selectedClub.league}.` : `La cantera te abre la puerta del primer equipo en ${selectedClub.league}.`,
+      date: new Date().toISOString(),
+    } : null
+    const next = {
+      ...simulated,
+      age,
+      season,
+      careerStage: retired ? 'retirement' as const : stageForAge(age),
+      currentClubId: selectedClub?.id ?? null,
+      clubRole: roleForAge(age, selectedClub?.prestige ?? 0, retired),
+      activeFlags: changedClub && selectedClub ? [...simulated.activeFlags, `club:${selectedClub.id}:season:${season}`] : simulated.activeFlags,
+      eventHistory: transferEntry ? [...simulated.eventHistory, transferEntry] : simulated.eventHistory,
+    }
     set({ player: next, eventsThisYear: 0, currentEvent: null, lastResult: null, lastOutcome: null })
     void get().save()
   },
@@ -167,12 +190,23 @@ export const useCareerStore = create<CareerState>((set, get) => ({
   load: async (slot) => {
     const save = await loadCareer(slot)
     if (!save) return false
-    const eventsThisYear = save.player.eventHistory.filter((entry) => entry.season === save.player.season && !entry.eventId.startsWith('training-')).length
+    const eventsThisYear = save.player.eventHistory.filter((entry) => entry.season === save.player.season && isNarrativeEventId(entry.eventId)).length
     set({ player: save.player, seed: save.seed, saveSlot: slot, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear })
     return true
   },
   reset: () => set({ player: null, currentEvent: null, lastResult: null, lastOutcome: null, eventsThisYear: 0, seed: 0 }),
 }))
+
+function roleForAge(age: number, clubPrestige: number, retired: boolean) {
+  if (retired) return 'Retirado'
+  if (age < 13) return 'Talento del barrio'
+  if (age < 16) return 'Juvenil en formación'
+  if (age === 16) return 'Canterano del primer equipo'
+  if (age < 20) return clubPrestige >= 90 ? 'Rotación con proyección' : 'Joven titular'
+  if (age < 24) return clubPrestige >= 92 ? 'Competencia por la titularidad' : 'Titular en crecimiento'
+  if (age < 31) return 'Jugador del primer equipo'
+  return 'Veterano del vestuario'
+}
 
 function tacticalTraining(focus: TacticalFocusId) {
   const plans = {

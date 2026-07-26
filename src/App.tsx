@@ -93,14 +93,14 @@ function CreatePage() {
         <label>Apellido<input required value={draft.lastName} onChange={(e) => update('lastName', e.target.value)} placeholder="Ej. Montoya" /></label>
         <label>Apodo opcional<input value={draft.nickname} onChange={(e) => update('nickname', e.target.value)} placeholder="Ej. El Zurdo" /></label>
         <label>Género<select value={draft.gender} onChange={(e) => update('gender', e.target.value)}><option>Masculino</option><option>Femenino</option><option>No binario</option></select></label>
-        <label>Nacionalidad<select value={draft.nationality} onChange={(e) => update('nationality', e.target.value)}><option>Argentina</option><option>Colombia</option><option>Uruguay</option><option>Chile</option><option>Paraguay</option></select></label>
-        <label>Ciudad de origen<select value={draft.region} onChange={(e) => update('region', e.target.value)}><option>San Salvador de Jujuy</option><option>Buenos Aires</option><option>Córdoba</option><option>Rosario</option><option>La Plata</option></select></label>
+        <label>Nacionalidad<select value={draft.nationality} onChange={(e) => update('nationality', e.target.value)}><option>Argentina</option><option>Colombia</option><option>Uruguay</option><option>Chile</option><option>Paraguay</option><option>España</option><option>Inglaterra</option><option>Italia</option><option>Alemania</option><option>Francia</option></select></label>
+        <label>Ciudad de origen<select value={draft.region} onChange={(e) => update('region', e.target.value)}><option>San Salvador de Jujuy</option><option>Buenos Aires</option><option>Córdoba</option><option>Rosario</option><option>La Plata</option><option>Londres</option><option>Madrid</option><option>Barcelona</option><option>Milán</option><option>Múnich</option><option>París</option></select></label>
         <label>Edad inicial<select value={draft.age} onChange={(e) => update('age', Number(e.target.value))}><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
         <label>Posición<select value={draft.primaryPosition} onChange={(e) => update('primaryPosition', e.target.value)}><option>Portero</option><option>Defensa</option><option>Mediocampista</option><option>Extremo</option><option>Delantero</option></select></label>
         <label>Pie dominante<select value={draft.preferredFoot} onChange={(e) => update('preferredFoot', e.target.value as PlayerDraft['preferredFoot'])}><option>Derecho</option><option>Izquierdo</option><option>Ambos</option></select></label>
         <label>Número favorito<input type="number" min="1" max="99" value={draft.favoriteNumber} onChange={(e) => update('favoriteNumber', Number(e.target.value))} /></label>
       </div></section>
-      <section className="form-section club-form-section"><p className="eyebrow">FÚTBOL ARGENTINO</p><h2>¿Qué escudo imaginas en tu camiseta?</h2><p className="muted">Será tu club soñado durante la infancia y tu primera oportunidad profesional al cumplir 16 años.</p><ClubPicker value={draft.favoriteClubId} onChange={(clubId) => update('favoriteClubId', clubId)} /></section>
+      <section className="form-section club-form-section"><p className="eyebrow">TU PUERTA AL FÚTBOL MUNDIAL</p><h2>¿En qué cantera empieza tu historia?</h2><p className="muted">Elige entre Argentina y las cinco grandes ligas. Este escudo acompañará tu formación y te ofrecerá el primer contrato; después, tu rendimiento decidirá hasta dónde llega el mercado.</p><ClubPicker value={draft.favoriteClubId} onChange={(clubId) => update('favoriteClubId', clubId)} /></section>
       {mode === 'create' && <section className="form-section"><h2>Origen</h2><div className="form-grid">
         <ChoiceSelect label="Entorno geográfico" value={draft.geographicOrigin} onChange={(v) => update('geographicOrigin', v)} options={['Barrio popular', 'Zona rural', 'Pueblo pequeño', 'Ciudad intermedia', 'Zona urbana acomodada', 'Familia migrante']} />
         <ChoiceSelect label="Situación económica" value={draft.economicBackground} onChange={(v) => update('economicBackground', v)} options={['Recursos muy limitados', 'Familia trabajadora con dificultades', 'Economía modesta pero estable', 'Recursos suficientes', 'Familia acomodada']} />
@@ -128,7 +128,7 @@ function OriginPage() {
     <div className="origin-story"><p>Tenías <strong>{player.age} años</strong> cuando el balón empezó a ordenar tus días. Creciste en <strong>{player.geographicOrigin.toLowerCase()}</strong>, dentro de una <strong>{player.economicBackground.toLowerCase()}</strong>.</p>
       <p>Tu primer campo fueron los <strong>{player.firstFootballEnvironment.toLowerCase()}</strong>. Sin saberlo, ahí aprendiste que ser <strong>{player.initialPersonality.toLowerCase()}</strong> podía abrir unas puertas y cerrar otras.</p>
       <blockquote>“Antes de convertirte en leyenda, tienes que encontrar una oportunidad.”</blockquote></div>
-    <div className="origin-club"><img src={clubCrestUrl(club)} alt={`Escudo de ${club.name}`} /><div><span>EL ESCUDO QUE TE INSPIRA</span><strong>{club.name}</strong><small>{club.city} · {club.league}</small></div></div>
+    <div className="origin-club"><img src={clubCrestUrl(club)} alt={`Escudo de ${club.name}`} /><div><span>LA CANTERA QUE TE ABRE LA PUERTA</span><strong>{club.name}</strong><small>{club.city} · {club.league}</small></div></div>
     <div className="origin-facts"><span>{player.primaryPosition}</span><span>Pie {player.preferredFoot.toLowerCase()}</span><span>Dorsal soñado {player.favoriteNumber}</span><span>{player.footballLegacy}</span></div>
     <button className="button primary" onClick={() => navigate('/carrera')}>Empezar la carrera <span>→</span></button>
   </main></Shell>
@@ -177,7 +177,7 @@ function SeasonRecapPage() {
   const { player, seed, advanceYear } = useCareerStore()
   const navigate = useNavigate()
   if (!player) return <Navigate to="/" replace />
-  const continueCareer = () => { advanceYear(); navigate('/carrera') }
+  const continueCareer = (nextClubId?: string) => { advanceYear(nextClubId); navigate('/carrera') }
   return <Shell><SeasonRecap player={player} seed={seed} onAdvance={continueCareer} /></Shell>
 }
 

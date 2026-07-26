@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import { APP_CONFIG } from '../config'
 import { clubCrestUrl, clubForPlayer } from '../content/real-clubs'
+import { isNarrativeEventId } from '../game/history'
 import type { CareerPlayer } from '../game/types'
 
 const POSITION_CODES: Record<string, string> = {
@@ -15,7 +16,7 @@ export function CareerPlayerCard({ player }: { player: CareerPlayer }) {
   const club = clubForPlayer(player)
   const displayName = player.nickname || `${player.firstName} ${player.lastName}`
   const clubStatus = player.currentClubId ? player.clubRole : `Sueño: debutar en ${club.shortName}`
-  const decisionsThisSeason = player.eventHistory.filter((entry) => entry.season === player.season && !entry.eventId.startsWith('training-')).length
+  const decisionsThisSeason = player.eventHistory.filter((entry) => entry.season === player.season && isNarrativeEventId(entry.eventId)).length
   const trainedThisSeason = player.activeFlags.some((flag) => flag.endsWith(`:season:${player.season}`) && (flag.startsWith('minigame:') || flag.startsWith('training:')))
   const style = { '--club-primary': club.colors[0], '--club-secondary': club.colors[1] } as CSSProperties
 

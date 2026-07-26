@@ -61,4 +61,24 @@ describe('entrenamientos de carrera', () => {
     expect(player.activeFlags).not.toContain('playstyle:finisher')
     expect(player.stats.talent).toBe(51)
   })
+
+  it('firma el primer contrato con un id de club válido', () => {
+    const player = useCareerStore.getState().player!
+    useCareerStore.setState({ player: { ...player, age: 15, season: 6, careerStage: 'academy', favoriteClubId: 'barcelona' } })
+    useCareerStore.getState().advanceYear('barcelona')
+    const professional = useCareerStore.getState().player!
+    expect(professional.age).toBe(16)
+    expect(professional.currentClubId).toBe('barcelona')
+    expect(professional.eventHistory.at(-1)?.eventId).toContain('transfer-7-barcelona')
+  })
+
+  it('registra un fichaje europeo sin contarlo como acontecimiento de temporada', () => {
+    const player = useCareerStore.getState().player!
+    useCareerStore.setState({ player: { ...player, age: 20, season: 11, careerStage: 'consolidation', currentClubId: 'gimnasia-jujuy' } })
+    useCareerStore.getState().advanceYear('arsenal')
+    const transferred = useCareerStore.getState().player!
+    expect(transferred.currentClubId).toBe('arsenal')
+    expect(transferred.eventHistory.at(-1)?.result).toContain('Premier League')
+    expect(useCareerStore.getState().eventsThisYear).toBe(0)
+  })
 })
